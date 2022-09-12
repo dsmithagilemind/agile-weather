@@ -1,11 +1,23 @@
 {
-  "editor.tabSize": 2,
-  "files.trimTrailingWhitespace": true,
-  "editor.formatOnSave": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "[prisma]": {
-    "editor.formatOnSave": true
-  }
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#1cc9c2",
+        "activityBar.background": "#1cc9c2",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#bd1bc4",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#1cc9c2",
+        "statusBar.background": "#169c97",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#1cc9c2",
+        "statusBarItem.remoteBackground": "#169c97",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#169c97",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#169c9799",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#169c97",
+    "prettier.configPath": "agile-weather\\prettier.config.js"
 }
