@@ -66,8 +66,16 @@ async function handleCsvEntryData(entryData) {
     'windDirection',
     'windSpeed',
   ])
-  Object.entries(weatherData).forEach(([key, val]) => (weatherData[key] = +val)) // map each entry into it's number type using +num
-  weatherData.date = new Date(entryData.DateFull)
+
+  try {
+    Object.entries(weatherData).forEach(
+      ([key, val]) => (weatherData[key] = +val)
+    ) // map each entry into it's number type using +num
+    weatherData.date = new Date(entryData.DateFull)
+  } catch (e) {
+    console.log(entryData)
+    console.error(e)
+  }
 
   await db.weather.create({
     data: {
