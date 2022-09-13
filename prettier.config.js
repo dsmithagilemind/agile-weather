@@ -16,3 +16,6 @@ module.exports = {
     },
   ],
 }
+
+// ! TODO: would really like stroustrup bracket styles. Would need to disable prettier,
+//    ! but it likes to hide in unusual places and it's driving me insane
