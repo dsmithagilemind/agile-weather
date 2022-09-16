@@ -1,10 +1,25 @@
 import type { FindWeatherQuery, FindWeatherQueryVariables } from 'types/graphql'
+
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 export const QUERY = gql`
-  query FindWeatherQuery($id: Int!) {
-    weather: weather(id: $id) {
+  query FindWeatherQuery() {
+    weather: weather {
       id
+      date
+      precipitation
+      avgTemp
+      maxTemp
+      minTemp
+      windDirection
+      windSpeed
+      stationCode
+      station {
+        code
+        city
+        location
+        state
+      }
     }
   }
 `
