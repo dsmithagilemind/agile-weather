@@ -1,4 +1,11 @@
 -- CreateTable
+CREATE TABLE "UserExample" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "email" TEXT NOT NULL,
+    "name" TEXT
+);
+
+-- CreateTable
 CREATE TABLE "GeoLocation" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "city" TEXT NOT NULL,
@@ -41,3 +48,6 @@ CREATE TABLE "ClimateEntry" (
     "stationCode" TEXT NOT NULL,
     CONSTRAINT "ClimateEntry_stationCode_fkey" FOREIGN KEY ("stationCode") REFERENCES "Station" ("code") ON DELETE RESTRICT ON UPDATE CASCADE
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "UserExample_email_key" ON "UserExample"("email");
