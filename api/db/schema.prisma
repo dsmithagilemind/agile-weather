@@ -11,37 +11,8 @@ generator client {
 // Define your own datamodels here and run `yarn redwood prisma migrate dev`
 // to create migrations for them and apply to your dev DB.
 // TODO: Please remove the following example:
-// model UserExample {
-//   id    Int     @id @default(autoincrement())
-//   email String  @unique
-//   name  String?
-// }
-
-model WeatherSearch {
-  id Int @id @default(autoincrement())
-}
-
-model Weather {
-  id   Int      @id @default(autoincrement())
-  date DateTime
-
-  precipitation Float
-
-  avgTemp Int
-  maxTemp Int
-  minTemp Int
-
-  windDirection Int
-  windSpeed     Float
-
-  station   Station @relation(fields: [stationCode], references: [code])
-  stationCode String
-}
-
-model Station {
-  code     String    @id
-  city     String
-  location String
-  state    String
-  Weather  Weather[]
+model UserExample {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
 }

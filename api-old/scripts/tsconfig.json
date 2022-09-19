@@ -33,10 +33,4 @@
     "typeRoots": ["../node_modules/@types"],
     "jsx": "preserve",
   },
-  "include": [
-    ".",
-    "../.redwood/types/includes/all-*",
-    "../.redwood/types/includes/web-*",
-    "../types"
-  ]
 }
