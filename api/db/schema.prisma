@@ -27,9 +27,9 @@ model GeoLocation {
   fips String?
   county String?
 
-  latitude Float
-  longitude Float
-  elivation Float
+  latitude Float?
+  longitude Float?
+  elivation Float?
 
   state String?
   stateAbbrev String

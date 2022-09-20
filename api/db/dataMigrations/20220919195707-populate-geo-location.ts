@@ -27,59 +27,55 @@ model GeoLocation {
 
 const datasetFile = (fileName) => 'api/db/datasets/' + fileName
 
-export default async (prisma) => {
-  // override csv column headers to match GeoLocation schema
-  // original headers: state_fips,state,state_abbr,zipcode,county,city
-  const geoDataObjectHeaders = [
-    'fips',
-    'state',
-    'stateAbbrev',
-    'zip',
-    'county',
-    'city',
-  ]
+// override csv column headers to match GeoLocation schema
+// original headers: state_fips,state,state_abbr,zipcode,county,city
+const geoDataObjectHeaders = [
+  'fips',
+  'state',
+  'stateAbbrev',
+  'zip',
+  'county',
+  'city',
+]
 
-  try {
-    const path = datasetFile('zipcode-state-data.csv')
-    console.log('reading data from ' + path)
+export default async (prisma) => {
+  // quick table wipe: await prisma.db.$transaction([prisma.db.geoLocation.deleteMany({})])
+
+  const path = datasetFile('zipcode-state-data.csv')
+  console.log('reading data from ' + path)
+
+  await new Promise((resolve, reject) => {
+    const data = []
 
     fs.createReadStream(path).pipe(
       parse({ headers: geoDataObjectHeaders, skipRows: 1 })
-        .on('error', (error) => {
-          throw error
-        }) // fast-csv parse specific errors
-        .on('data', (csvRow) => handleCsvRow(prisma.db, csvRow))
-        .on('end', (rowCount) =>
-          console.log(`Parsed ${rowCount} from ${path} and presisted to db`)
-        )
+        .on('error', (e) => reject(e))
+        .on('data', (csvRow) => data.push(handleCsvRow(csvRow)))
+        .on('end', (rowCount) => {
+          console.log(`Parsed ${rowCount} from ${path}`)
+          resolve(data)
+        })
     )
-  } catch (error) {
-    // unhandled errors, likely from fs
-    console.error(error)
-    throw error // we REALLY want this error thrown to halt the transaction
-  }
+  })
+    .catch((e) => {
+      throw e
+    })
+    .then(async (climateEntries) => {
+      // very await on each iteration, but it will have to do
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      for (const entry of climateEntries) {
+        await prisma.db.geoLocation.create({ data: entry })
+      }
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      console.log(`Created ${climateEntries.length} rows`)
+    })
 }
 
-const handleCsvRow = async (db, csvRowData) => {
-  try {
-    // parse non-string types
-    const geoLocationData = {
-      ...csvRowData, // no additional parsing needed
-    }
-
-    // first time populating this db entry, safe to just db.table.create
-
-    await db.$transaction([
-      db.geoLocation.create({
-        data: {
-          ...geoLocationData,
-        },
-      }),
-    ])
-  } catch (e) {
-    // data related errors
-    console.warn(csvRowData)
-    console.error(e)
-    throw e
+const handleCsvRow = (csvRowData) => {
+  // parse non-string types
+  return {
+    ...csvRowData, // no additional parsing needed
   }
 }
