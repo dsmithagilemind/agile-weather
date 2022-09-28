@@ -57,7 +57,7 @@ const handleRecordRow = (rowStr) => {
   return dataRow
 }
 
-async function debugWipetable(db) {
+async function _debugWipetable(db) {
   console.error(
     `
     !!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!
@@ -97,7 +97,7 @@ async function debugWipetable(db) {
 
 export default async ({ db }) => {
   // quick table wipe for data integrity while debugging
-  // await debugWipetable(db)
+  // await _debugWipetable(db)
 
   const path = datasetFile('noaa-station-zipcodes.txt')
   console.log('reading data from ' + path)

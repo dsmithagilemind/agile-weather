@@ -29,7 +29,7 @@ model GeoLocation {
 
   latitude Float?
   longitude Float?
-  elivation Float?
+  elevation Float?
 
   state String?
   stateAbbrev String?
@@ -41,9 +41,11 @@ model Station {
 
   geoLocations GeoLocation[]
 
-  gcn String?
+  gsn String?
   hcn String?
   wmoid String?
+
+  stationName String?
 
   climateEntries ClimateEntry[]
   climateDataPoints ClimateDataPoint[]
