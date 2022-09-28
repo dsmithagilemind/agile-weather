@@ -32,15 +32,14 @@ model GeoLocation {
   elivation Float?
 
   state String?
-  stateAbbrev String
+  stateAbbrev String?
 
-  weatherStations Station[]
+  stations Station[]
 }
 model Station {
   code String @id
 
-  geoLocation GeoLocation @relation(fields: [geoLocationId], references: [id])
-  geoLocationId Int
+  geoLocations GeoLocation[]
 
   gcn String?
   hcn String?
