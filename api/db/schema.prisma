@@ -23,16 +23,11 @@ model GeoLocation {
 
   city String
   zip String?
+  state String?
+  stateAbbrev String?
 
   fips String?
   county String?
-
-  latitude Float?
-  longitude Float?
-  elevation Float?
-
-  state String?
-  stateAbbrev String?
 
   stations Station[]
 }
@@ -40,6 +35,10 @@ model Station {
   code String @id
 
   geoLocations GeoLocation[]
+
+  latitude Float?
+  longitude Float?
+  elevation Float?
 
   gsn String?
   hcn String?

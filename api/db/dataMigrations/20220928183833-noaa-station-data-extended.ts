@@ -79,37 +79,33 @@ const noaaStationDataIndeces = [
 
 const handleRecordRow = (rowStr) => {
   const dataRow = {}
+
   noaaStationDataIndeces.forEach(([start, stop], i) => {
     dataRow[noaaStationDataHeaders[i]] = rowStr.slice(start, stop).trim()
   })
-  return dataRow
+
+  const parseDataRowFloats = _.mapValues(
+    // @ts-ignore
+    _.pick(dataRow, ['latitude', 'longitude', 'elevation']),
+    (val) => parseFloat(val)
+  )
+
+  return { ...dataRow, ...parseDataRowFloats }
 }
 
-async function _debugWipetable(db) {
+async function _rollback(db) {
   console.error(
     `
-    !!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!
-    !!! debugWipeTable has been called, do NOT use in a prod environment !!!
-    !!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!
+    !!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!
+    !!! _rollback() has been called, do NOT use this function in a prod environment !!!
+    !!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!
     `
   )
 
-  await db.$transaction([
-    db.geoLocation.updateMany({
-      where: {
-        NOT: [
-          {
-            latitude: null,
-          },
-        ],
-      },
-      data: {
-        latitude: null,
-        longitude: null,
-        elevation: null,
-      },
-    }),
-  ])
+  const resetStationData = _.omit(
+    Object.fromEntries(noaaStationDataHeaders.map((key) => [key, null])),
+    ['stateAbbrev', 'code', 'method']
+  )
 
   await db.$transaction([
     db.station.updateMany({
@@ -120,24 +116,18 @@ async function _debugWipetable(db) {
           },
         ],
       },
-      data: {
-        gsn: null,
-        hcn: null,
-        wmoid: null,
-        stationName: null,
-      },
+      data: resetStationData,
     }),
   ])
 
-  console.log('debugWipeTable completed')
+  console.log('_rollback() completed')
 }
 
 export default async ({ db }) => {
-  // quick table wipe for data integrity while debugging
-  await _debugWipetable(db)
+  //await _rollback(db)
 
-  const path = datasetFile('noaa-station-zipcodes.txt')
-  console.log('reading data from ' + path)
+  const path = datasetFile('noaa-station-data.txt')
+  console.log('Reading data from ' + path)
 
   await new Promise((resolve, reject) => {
     const data = []
@@ -156,72 +146,24 @@ export default async ({ db }) => {
     .catch((e) => {
       throw e
     })
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     .then(async (noaaStationData: unkown[]) => {
+      for (const noaaStationDataEntry of noaaStationData) {
+        // @ts-ignore
+        const stationData = _.omit(noaaStationDataEntry, [
+          'stateAbbrev',
+          'method',
+        ])
 
-      /*
-      const noaaStationDataHeaders = [
-      'code',
-      'latitude',
-      'longitude',
-      'elevation',
-      'stateAbbrev',
-      'stationName',
-      'gsn',
-      'hcn',
-      'wmoid',
-      'method', // method may be missing in noaaStationData
-    ]
-    */
-      const geoLocationData = _.pick(noaaStationData, )
-
-      // for (const stationData of stationZipcodeData) {
-      //   // find related geoLocationRecords
-      //   let geoLocationRecords = await db.geoLocation.findMany({
-      //     where: {
-      //       OR: [
-      //         {
-      //           zip: stationData.zip,
-      //         },
-      //         {
-      //           city: stationData.city,
-      //         },
-      //       ],
-      //     },
-      //   })
-
-      //   // if there's no records, create one
-      //   if (geoLocationRecords.length == 0) {
-      //     const newGeoLocationRecord = await db.geoLocation.create({
-      //       data: {
-      //         city: stationData.city,
-      //         zip: stationData.zip,
-      //       },
-      //     })
-      //     // send single element array
-      //     geoLocationRecords = [newGeoLocationRecord]
-      //   }
-
-      //   const geoLocationConnectionIds = geoLocationRecords.map(({ id }) => {
-      //     return { id: id }
-      //   })
-
-      //   // create the stationRecord
-      //   await db.station.create({
-      //     data: {
-      //       code: stationData.code,
-      //       geoLocations: {
-      //         connect: geoLocationConnectionIds,
-      //       },
-      //     },
-      //     include: {
-      //       geoLocations: true,
-      //     },
-      //   })
-
-
+        await db.station.upsert({
+          where: {
+            code: stationData.code,
+          },
+          update: stationData,
+          create: stationData,
+        })
       }
-      console.log(`Created ${stationZipcodeData.length} rows`)
+
+      console.log(`Created/Updated ${noaaStationData.length} rows`)
     })
 }

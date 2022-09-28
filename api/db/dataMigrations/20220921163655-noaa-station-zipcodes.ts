@@ -57,14 +57,15 @@ const handleRecordRow = (rowStr) => {
   return dataRow
 }
 
-async function _debugWipetable(db) {
+async function _rollback(db) {
   console.error(
     `
-    !!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!
-    !!! debugWipeTable has been called, do NOT use in a prod environment !!!
-    !!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!
+    !!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!
+    !!! _rollback() has been called, do NOT use this function in a prod environment !!!
+    !!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!
     `
   )
+
   const records = await db.geoLocation.findMany({
     where: {
       stations: {
@@ -92,12 +93,11 @@ async function _debugWipetable(db) {
 
   await db.$transaction([db.station.deleteMany({})])
 
-  console.log('debugWipeTable completed')
+  console.log('_rollback() completed')
 }
 
 export default async ({ db }) => {
-  // quick table wipe for data integrity while debugging
-  // await _debugWipetable(db)
+  // await _rollback(db)
 
   const path = datasetFile('noaa-station-zipcodes.txt')
   console.log('reading data from ' + path)
@@ -119,7 +119,6 @@ export default async ({ db }) => {
     .catch((e) => {
       throw e
     })
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     .then(async (stationZipcodeData: unkown[]) => {
       for (const stationData of stationZipcodeData) {

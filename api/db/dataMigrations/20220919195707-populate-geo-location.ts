@@ -38,8 +38,20 @@ const geoDataObjectHeaders = [
   'city',
 ]
 
+async function _rollback(db) {
+  console.error(
+    `
+    !!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!
+    !!! _rollback() has been called, do NOT use this function in a prod environment !!!
+    !!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!
+    `
+  )
+  await db.$transaction([db.geoLocation.deleteMany({})])
+  console.log('_rollback() completed')
+}
+
 export default async (prisma) => {
-  // quick table wipe: await prisma.db.$transaction([prisma.db.geoLocation.deleteMany({})])
+  // _rollback(prisma.db)
 
   const path = datasetFile('zipcode-state-data.csv')
   console.log('reading data from ' + path)
@@ -62,12 +74,10 @@ export default async (prisma) => {
     })
     .then(async (climateEntries) => {
       // very await on each iteration, but it will have to do
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       for (const entry of climateEntries) {
         await prisma.db.geoLocation.create({ data: entry })
       }
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       console.log(`Created ${climateEntries.length} rows`)
     })
