@@ -47,20 +47,14 @@ model Station {
   stationName String?
 
   climateEntries ClimateEntry[]
-  climateDataPoints ClimateDataPoint[]
 }
 
 model ClimateDataPoint {
   cuid  String @id @default(cuid())
 
-  station   Station @relation(fields: [stationCode], references: [code])
-  stationCode String
-
+  label String
   value String
   flag  String?
-
-  topic String
-  period String
 
   climateEntry ClimateEntry @relation(fields: [climateEntryId], references: [id])
   climateEntryId Int
@@ -70,6 +64,10 @@ model ClimateEntry {
 
   station   Station @relation(fields: [stationCode], references: [code])
   stationCode String
+
+  topic     String
+  period    String
+  dataSet   String
 
   dataPoints ClimateDataPoint[]
 }
