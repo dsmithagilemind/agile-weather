@@ -3,6 +3,9 @@ export const schema = gql`
     id: Int!
     station: Station!
     stationCode: String!
+    topic: String!
+    period: String!
+    dataSet: String!
     dataPoints: [ClimateDataPoint]!
   }
 
@@ -13,10 +16,16 @@ export const schema = gql`
 
   input CreateClimateEntryInput {
     stationCode: String!
+    topic: String!
+    period: String!
+    dataSet: String!
   }
 
   input UpdateClimateEntryInput {
     stationCode: String
+    topic: String
+    period: String
+    dataSet: String
   }
 
   type Mutation {

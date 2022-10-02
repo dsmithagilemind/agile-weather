@@ -33,10 +33,18 @@ describe('climateEntries', () => {
 
   scenario('creates a climateEntry', async (scenario: StandardScenario) => {
     const result = await createClimateEntry({
-      input: { stationCode: scenario.climateEntry.two.stationCode },
+      input: {
+        stationCode: scenario.climateEntry.two.stationCode,
+        topic: 'String',
+        period: 'String',
+        dataSet: 'String',
+      },
     })
 
     expect(result.stationCode).toEqual(scenario.climateEntry.two.stationCode)
+    expect(result.topic).toEqual('String')
+    expect(result.period).toEqual('String')
+    expect(result.dataSet).toEqual('String')
   })
 
   scenario('updates a climateEntry', async (scenario: StandardScenario) => {
@@ -45,10 +53,10 @@ describe('climateEntries', () => {
     })) as ClimateEntry
     const result = await updateClimateEntry({
       id: original.id,
-      input: { stationCode: scenario.climateEntry.two.stationCode },
+      input: { topic: 'String2' },
     })
 
-    expect(result.stationCode).toEqual(scenario.climateEntry.two.stationCode)
+    expect(result.topic).toEqual('String2')
   })
 
   scenario('deletes a climateEntry', async (scenario: StandardScenario) => {

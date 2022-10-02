@@ -3,14 +3,11 @@ export const schema = gql`
     id: Int!
     city: String!
     zip: String
+    state: String
+    stateAbbrev: String
     fips: String
     county: String
-    latitude: Float
-    longitude: Float
-    elivation: Float
-    state: String
-    stateAbbrev: String!
-    weatherStations: [Station]!
+    stations: [Station]!
   }
 
   type Query {
@@ -21,25 +18,19 @@ export const schema = gql`
   input CreateGeoLocationInput {
     city: String!
     zip: String
+    state: String
+    stateAbbrev: String
     fips: String
     county: String
-    latitude: Float
-    longitude: Float
-    elivation: Float
-    state: String
-    stateAbbrev: String!
   }
 
   input UpdateGeoLocationInput {
     city: String
     zip: String
-    fips: String
-    county: String
-    latitude: Float
-    longitude: Float
-    elivation: Float
     state: String
     stateAbbrev: String
+    fips: String
+    county: String
   }
 
   type Mutation {

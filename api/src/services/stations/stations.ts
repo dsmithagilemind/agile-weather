@@ -41,15 +41,10 @@ export const deleteStation: MutationResolvers['deleteStation'] = ({ id }) => {
 }
 
 export const Station: StationRelationResolvers = {
-  geoLocation: (_obj, { root }) => {
-    return db.station.findUnique({ where: { id: root?.id } }).geoLocation()
+  geoLocations: (_obj, { root }) => {
+    return db.station.findUnique({ where: { id: root?.id } }).geoLocations()
   },
   climateEntries: (_obj, { root }) => {
     return db.station.findUnique({ where: { id: root?.id } }).climateEntries()
-  },
-  climateDataPoints: (_obj, { root }) => {
-    return db.station
-      .findUnique({ where: { id: root?.id } })
-      .climateDataPoints()
   },
 }

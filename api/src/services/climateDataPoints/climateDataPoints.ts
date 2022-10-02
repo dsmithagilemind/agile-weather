@@ -41,9 +41,6 @@ export const deleteClimateDataPoint: MutationResolvers['deleteClimateDataPoint']
   }
 
 export const ClimateDataPoint: ClimateDataPointRelationResolvers = {
-  station: (_obj, { root }) => {
-    return db.climateDataPoint.findUnique({ where: { id: root?.id } }).station()
-  },
   climateEntry: (_obj, { root }) => {
     return db.climateDataPoint
       .findUnique({ where: { id: root?.id } })

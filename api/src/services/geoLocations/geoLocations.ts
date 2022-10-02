@@ -43,9 +43,7 @@ export const deleteGeoLocation: MutationResolvers['deleteGeoLocation'] = ({
 }
 
 export const GeoLocation: GeoLocationRelationResolvers = {
-  weatherStations: (_obj, { root }) => {
-    return db.geoLocation
-      .findUnique({ where: { id: root?.id } })
-      .weatherStations()
+  stations: (_obj, { root }) => {
+    return db.geoLocation.findUnique({ where: { id: root?.id } }).stations()
   },
 }

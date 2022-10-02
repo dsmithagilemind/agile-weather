@@ -41,20 +41,14 @@ describe('climateDataPoints', () => {
   scenario('creates a climateDataPoint', async (scenario: StandardScenario) => {
     const result = await createClimateDataPoint({
       input: {
-        stationCode: scenario.climateDataPoint.two.stationCode,
+        label: 'String',
         value: 'String',
-        topic: 'String',
-        period: 'String',
         climateEntryId: scenario.climateDataPoint.two.climateEntryId,
       },
     })
 
-    expect(result.stationCode).toEqual(
-      scenario.climateDataPoint.two.stationCode
-    )
+    expect(result.label).toEqual('String')
     expect(result.value).toEqual('String')
-    expect(result.topic).toEqual('String')
-    expect(result.period).toEqual('String')
     expect(result.climateEntryId).toEqual(
       scenario.climateDataPoint.two.climateEntryId
     )
@@ -66,10 +60,10 @@ describe('climateDataPoints', () => {
     })) as ClimateDataPoint
     const result = await updateClimateDataPoint({
       id: original.id,
-      input: { value: 'String2' },
+      input: { label: 'String2' },
     })
 
-    expect(result.value).toEqual('String2')
+    expect(result.label).toEqual('String2')
   })
 
   scenario('deletes a climateDataPoint', async (scenario: StandardScenario) => {

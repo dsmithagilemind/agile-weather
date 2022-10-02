@@ -33,11 +33,10 @@ describe('geoLocations', () => {
 
   scenario('creates a geoLocation', async () => {
     const result = await createGeoLocation({
-      input: { city: 'String', stateAbbrev: 'String' },
+      input: { city: 'String' },
     })
 
     expect(result.city).toEqual('String')
-    expect(result.stateAbbrev).toEqual('String')
   })
 
   scenario('updates a geoLocation', async (scenario: StandardScenario) => {

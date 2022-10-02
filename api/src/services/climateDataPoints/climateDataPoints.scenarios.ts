@@ -5,50 +5,28 @@ export const standard = defineScenario<Prisma.ClimateDataPointCreateArgs>({
   climateDataPoint: {
     one: {
       data: {
+        label: 'String',
         value: 'String',
-        topic: 'String',
-        period: 'String',
-        station: {
-          create: {
-            code: 'String',
-            geoLocation: { create: { city: 'String', stateAbbrev: 'String' } },
-          },
-        },
         climateEntry: {
           create: {
-            station: {
-              create: {
-                code: 'String',
-                geoLocation: {
-                  create: { city: 'String', stateAbbrev: 'String' },
-                },
-              },
-            },
+            topic: 'String',
+            period: 'String',
+            dataSet: 'String',
+            station: { create: { code: 'String' } },
           },
         },
       },
     },
     two: {
       data: {
+        label: 'String',
         value: 'String',
-        topic: 'String',
-        period: 'String',
-        station: {
-          create: {
-            code: 'String',
-            geoLocation: { create: { city: 'String', stateAbbrev: 'String' } },
-          },
-        },
         climateEntry: {
           create: {
-            station: {
-              create: {
-                code: 'String',
-                geoLocation: {
-                  create: { city: 'String', stateAbbrev: 'String' },
-                },
-              },
-            },
+            topic: 'String',
+            period: 'String',
+            dataSet: 'String',
+            station: { create: { code: 'String' } },
           },
         },
       },

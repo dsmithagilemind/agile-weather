@@ -1,12 +1,9 @@
 export const schema = gql`
   type ClimateDataPoint {
     cuid: String!
-    station: Station!
-    stationCode: String!
+    label: String!
     value: String!
     flag: String
-    topic: String!
-    period: String!
     climateEntry: ClimateEntry!
     climateEntryId: Int!
   }
@@ -18,21 +15,17 @@ export const schema = gql`
 
   input CreateClimateDataPointInput {
     cuid: String!
-    stationCode: String!
+    label: String!
     value: String!
     flag: String
-    topic: String!
-    period: String!
     climateEntryId: Int!
   }
 
   input UpdateClimateDataPointInput {
     cuid: String
-    stationCode: String
+    label: String
     value: String
     flag: String
-    topic: String
-    period: String
     climateEntryId: Int
   }
 

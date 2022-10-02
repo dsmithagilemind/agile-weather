@@ -28,16 +28,12 @@ describe('stations', () => {
     expect(result).toEqual(scenario.station.one)
   })
 
-  scenario('creates a station', async (scenario: StandardScenario) => {
+  scenario('creates a station', async () => {
     const result = await createStation({
-      input: {
-        code: 'String',
-        geoLocationId: scenario.station.two.geoLocationId,
-      },
+      input: { code: 'String' },
     })
 
     expect(result.code).toEqual('String')
-    expect(result.geoLocationId).toEqual(scenario.station.two.geoLocationId)
   })
 
   scenario('updates a station', async (scenario: StandardScenario) => {

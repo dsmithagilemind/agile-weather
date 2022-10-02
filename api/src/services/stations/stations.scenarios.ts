@@ -3,18 +3,8 @@ import type { ScenarioData } from '@redwoodjs/testing/api'
 
 export const standard = defineScenario<Prisma.StationCreateArgs>({
   station: {
-    one: {
-      data: {
-        code: 'String',
-        geoLocation: { create: { city: 'String', stateAbbrev: 'String' } },
-      },
-    },
-    two: {
-      data: {
-        code: 'String',
-        geoLocation: { create: { city: 'String', stateAbbrev: 'String' } },
-      },
-    },
+    one: { data: { code: 'String' } },
+    two: { data: { code: 'String' } },
   },
 })
 
