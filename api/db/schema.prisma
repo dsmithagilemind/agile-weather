@@ -32,7 +32,8 @@ model GeoLocation {
   stations Station[]
 }
 model Station {
-  code String @id
+  id   String @id @default(cuid())
+  code String
 
   geoLocations GeoLocation[]
 
@@ -50,7 +51,7 @@ model Station {
 }
 
 model ClimateDataPoint {
-  cuid  String @id @default(cuid())
+  id    String @id @default(cuid())
 
   label String
   value String
@@ -62,8 +63,8 @@ model ClimateDataPoint {
 model ClimateEntry {
   id  Int @id @default(autoincrement())
 
-  station   Station @relation(fields: [stationCode], references: [code])
-  stationCode String
+  station   Station @relation(fields: [stationId], references: [id])
+  stationId   String
 
   topic     String
   period    String

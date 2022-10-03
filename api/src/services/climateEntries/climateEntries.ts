@@ -10,6 +10,15 @@ export const climateEntries: QueryResolvers['climateEntries'] = () => {
   return db.climateEntry.findMany()
 }
 
+export const climateEntriesByStation: QueryResolvers['climateEntriesByStation'] =
+  ({ stationId }) => {
+    return db.climateEntry.findMany({
+      where: {
+        stationId: stationId,
+      },
+    })
+  }
+
 export const climateEntry: QueryResolvers['climateEntry'] = ({ id }) => {
   return db.climateEntry.findUnique({
     where: { id },

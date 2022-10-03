@@ -91,6 +91,7 @@ async function _rollback(db) {
     ])
   }
 
+  // ! deletes all of station
   await db.$transaction([db.station.deleteMany({})])
 
   console.log('_rollback() completed')

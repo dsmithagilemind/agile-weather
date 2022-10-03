@@ -34,14 +34,14 @@ describe('climateEntries', () => {
   scenario('creates a climateEntry', async (scenario: StandardScenario) => {
     const result = await createClimateEntry({
       input: {
-        stationCode: scenario.climateEntry.two.stationCode,
+        stationId: scenario.climateEntry.two.stationId,
         topic: 'String',
         period: 'String',
         dataSet: 'String',
       },
     })
 
-    expect(result.stationCode).toEqual(scenario.climateEntry.two.stationCode)
+    expect(result.stationId).toEqual(scenario.climateEntry.two.stationId)
     expect(result.topic).toEqual('String')
     expect(result.period).toEqual('String')
     expect(result.dataSet).toEqual('String')

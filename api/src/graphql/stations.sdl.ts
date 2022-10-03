@@ -1,5 +1,6 @@
 export const schema = gql`
   type Station {
+    id: String!
     code: String!
     geoLocations: [GeoLocation]!
     latitude: Float

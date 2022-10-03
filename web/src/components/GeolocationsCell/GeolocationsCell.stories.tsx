@@ -1,7 +1,7 @@
 import type { ComponentStory } from '@storybook/react'
 
-import { Loading, Empty, Failure, Success } from './StationCell'
-import { standard } from './StationCell.mock'
+import { Loading, Empty, Failure, Success } from './GeolocationsCell'
+import { standard } from './GeolocationsCell.mock'
 
 export const loading = () => {
   return Loading ? <Loading /> : <></>
@@ -19,4 +19,4 @@ export const success: ComponentStory<typeof Success> = (args) => {
   return Success ? <Success {...standard()} {...args} /> : <></>
 }
 
-export default { title: 'Cells/StationCell' }
+export default { title: 'Cells/GeolocationsCell' }

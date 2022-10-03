@@ -1,4 +1,8 @@
-import type { FindClimateEntryQuery, FindClimateEntryQueryVariables } from 'types/graphql'
+import type {
+  FindClimateEntryQuery,
+  FindClimateEntryQueryVariables,
+} from 'types/graphql'
+
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 export const QUERY = gql`

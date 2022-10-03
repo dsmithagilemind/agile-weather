@@ -1,3 +1,4 @@
+import { Container } from '@chakra-ui/react'
 import type {
   FindGeoLocationQuery,
   FindGeoLocationQueryVariables,
@@ -5,7 +6,8 @@ import type {
 
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
-import StationCell from '../StationCell/StationCell'
+import ClimateEntriesCell from '../ClimateEntry/ClimateEntriesCell'
+import StationInfo from '../StationInfo/StationInfo'
 
 export const QUERY = gql`
   query FindGeoLocationQuery($id: Int!) {
@@ -16,6 +18,7 @@ export const QUERY = gql`
       stateAbbrev
       zip
       stations {
+        id
         stationName
         longitude
         latitude
@@ -40,10 +43,13 @@ export const Success = ({
   geoLocation,
 }: CellSuccessProps<FindGeoLocationQuery, FindGeoLocationQueryVariables>) => {
   return (
-    <div>
-      {geoLocation.stations.map((station) => (
-        <StationCell code={station.code} key={station.code}></StationCell>
+    <Container>
+      {geoLocation.stations.map((station, i) => (
+        <Container key={i}>
+          <StationInfo stationData={station} />
+          <ClimateEntriesCell stationId={station.id} />
+        </Container>
       ))}
-    </div>
+    </Container>
   )
 }

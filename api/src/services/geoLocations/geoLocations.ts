@@ -10,6 +10,16 @@ export const geoLocations: QueryResolvers['geoLocations'] = () => {
   return db.geoLocation.findMany()
 }
 
+export const geoLocationsByZip: QueryResolvers['geoLocationsByZip'] = ({
+  zip,
+}) => {
+  return db.geoLocation.findMany({
+    where: {
+      zip: zip,
+    },
+  })
+}
+
 export const geoLocation: QueryResolvers['geoLocation'] = ({ id }) => {
   return db.geoLocation.findUnique({
     where: { id },

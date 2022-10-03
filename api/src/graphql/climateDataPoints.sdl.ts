@@ -1,6 +1,6 @@
 export const schema = gql`
   type ClimateDataPoint {
-    cuid: String!
+    id: String!
     label: String!
     value: String!
     flag: String
@@ -14,7 +14,6 @@ export const schema = gql`
   }
 
   input CreateClimateDataPointInput {
-    cuid: String!
     label: String!
     value: String!
     flag: String
@@ -22,7 +21,6 @@ export const schema = gql`
   }
 
   input UpdateClimateDataPointInput {
-    cuid: String
     label: String
     value: String
     flag: String

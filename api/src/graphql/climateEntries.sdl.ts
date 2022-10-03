@@ -2,7 +2,7 @@ export const schema = gql`
   type ClimateEntry {
     id: Int!
     station: Station!
-    stationCode: String!
+    stationId: String!
     topic: String!
     period: String!
     dataSet: String!
@@ -11,18 +11,19 @@ export const schema = gql`
 
   type Query {
     climateEntries: [ClimateEntry!]! @requireAuth
+    climateEntriesByStation(stationId: String!): [ClimateEntry!]! @requireAuth
     climateEntry(id: Int!): ClimateEntry @requireAuth
   }
 
   input CreateClimateEntryInput {
-    stationCode: String!
+    stationId: String!
     topic: String!
     period: String!
     dataSet: String!
   }
 
   input UpdateClimateEntryInput {
-    stationCode: String
+    stationId: String
     topic: String
     period: String
     dataSet: String
