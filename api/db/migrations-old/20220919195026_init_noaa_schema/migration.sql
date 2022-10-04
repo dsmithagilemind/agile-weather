@@ -51,3 +51,6 @@ CREATE TABLE "ClimateEntry" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "UserExample_email_key" ON "UserExample"("email");
+
+
+CREATE UNIQUE INDEX "Station_code_key" ON "Station"("code");
