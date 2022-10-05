@@ -10,23 +10,12 @@ import {
   Input,
   Text,
 } from '@chakra-ui/react'
-import { db } from 'api/src/lib/db'
-import Chart from 'chart.js'
 
-import {
-  FieldError,
-  Form,
-  Submit,
-  SubmitHandler,
-  TextField,
-} from '@redwoodjs/forms'
 import { MetaTags } from '@redwoodjs/web'
-
-import GeoLocationCell from 'src/components/GeolocationCell/GeolocationCell'
-import GeoLocationsCell from 'src/components/GeolocationsCell/GeolocationsCell'
 
 // import ClimateEntryCell from 'src/components/ClimateEntryCell/ClimateEntryCell'
 // import StationCell from 'src/components/StationCell/StationCell'
+import GeolocationsCell from 'src/components/GeolocationsCell/GeolocationsCell'
 
 const MONTHS = [
   'Jan',
@@ -181,8 +170,8 @@ const HomePage = () => {
           <Text>No data loaded</Text>
         )}
       </Container> */}
-      {/* <GeoLocationsCell zip={'79830'} /> */}
-      <GeoLocationCell id={42277} />
+      <GeolocationsCell zip={'79830'} />
+      {/* <GeoLocationCell id={42277} /> */}
     </>
   )
 }

@@ -1,6 +1,8 @@
 import { Box, Heading, Stack, Text } from '@chakra-ui/react'
 import * as _ from 'radash'
 
+import MinMaxAvgClimateEntriesChart from '../MinMaxAvgClimateEntriesChart/MinMaxAvgClimateEntriesChart'
+
 function DataCard({ title, body, ...rest }) {
   return (
     <Box p={5} shadow="md" borderWidth="1px" {...rest}>
@@ -26,6 +28,11 @@ const StationInfo = ({ stationData }) => {
   return (
     <Stack spacing={8} direction="row">
       {fields}
+      {!stationData.climateEntries ? null : (
+        <MinMaxAvgClimateEntriesChart
+          stationClimateEntries={stationData.climateEntries}
+        />
+      )}
     </Stack>
   )
 }

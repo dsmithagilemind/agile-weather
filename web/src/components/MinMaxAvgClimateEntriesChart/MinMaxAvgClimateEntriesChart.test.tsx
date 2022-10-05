@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import ClimateChart from './ClimateChart'
+import MinMaxAvgClimateEntriesChart from './MinMaxAvgClimateEntriesChart'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-components
 
-describe('ClimateChart', () => {
+describe('MinMaxAvgClimateEntriesChart', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<ClimateChart />)
+      render(<MinMaxAvgClimateEntriesChart />)
     }).not.toThrow()
   })
 })

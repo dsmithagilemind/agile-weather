@@ -1,24 +1,44 @@
 import { Container } from '@chakra-ui/react'
-import type { GeolocationsQuery } from 'types/graphql'
 
-import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+import type { CellFailureProps } from '@redwoodjs/web'
 
 import Geolocationinfo from '../Geolocationinfo/Geolocationinfo'
 
 export const QUERY = gql`
   query FindGeoLocationByZip($zip: String!) {
     geoLocationsByZip(zip: $zip) {
-      stations {
-        elevation
-        code
-        latitude
-        longitude
-        stationName
-      }
+      id
       city
       county
+      fips
       state
+      stateAbbrev
       zip
+      stations {
+        stationName
+        longitude
+        latitude
+        hcn
+        gsn
+        code
+        elevation
+        id
+        wmoid
+        climateEntries {
+          dataSet
+          period
+          topic
+          id
+          stationId
+          dataPoints {
+            value
+            label
+            id
+            flag
+            climateEntryId
+          }
+        }
+      }
     }
   }
 `
@@ -31,23 +51,14 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error?.message}</div>
 )
 
-export const Success = (response) => {
-  // console.dir(response)
-  // const { geoLocationsByZip } = response
+export const Success = ({ geoLocationsByZip }) => {
+  console.dir(geoLocationsByZip)
 
-  // const elements = []
-
-  // geoLocationsByZip.forEach((entry) => {
-  //   console.log(entry)
-  //   console.log(Object.entries(entry))
-  //   Object.entries(entry).forEach((entry) => {
-  //     console.log(Object.entries(entry))
-  //   })
-  //   elements.push(<Geolocationinfo geoLocationData={entry} />)
-  // })
-
-  // console.log(elements)
-
-  // return <Container>{elements}</Container>
-  return null
+  return (
+    <Container>
+      {geoLocationsByZip.map((entry, i) => (
+        <Geolocationinfo key={i} geoLocationData={entry} />
+      ))}
+    </Container>
+  )
 }

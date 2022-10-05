@@ -1,10 +1,7 @@
 import { Container } from '@chakra-ui/react'
-import type {
-  FindGeoLocationQuery,
-  FindGeoLocationQueryVariables,
-} from 'types/graphql'
+import type { FindGeoLocationByZipVariables } from 'types/graphql'
 
-import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+import type { CellFailureProps } from '@redwoodjs/web'
 
 import ClimateEntriesCell from '../ClimateEntry/ClimateEntriesCell'
 import StationInfo from '../StationInfo/StationInfo'
@@ -14,16 +11,28 @@ export const QUERY = gql`
     geoLocation: geoLocation(id: $id) {
       city
       county
+      fips
+      id
       state
       stateAbbrev
       zip
       stations {
-        id
-        stationName
-        longitude
-        latitude
-        elevation
         code
+        elevation
+        gsn
+        hcn
+        id
+        latitude
+        longitude
+        stationName
+        wmoid
+        climateEntries {
+          dataSet
+          id
+          period
+          stationId
+          topic
+        }
       }
     }
   }
@@ -35,13 +44,11 @@ export const Empty = () => <div>Empty</div>
 
 export const Failure = ({
   error,
-}: CellFailureProps<FindGeoLocationQueryVariables>) => (
+}: CellFailureProps<FindGeoLocationByZipVariables>) => (
   <div style={{ color: 'red' }}>Error: {error?.message}</div>
 )
 
-export const Success = ({
-  geoLocation,
-}: CellSuccessProps<FindGeoLocationQuery, FindGeoLocationQueryVariables>) => {
+export const Success = ({ geoLocation }) => {
   return (
     <Container>
       {geoLocation.stations.map((station, i) => (

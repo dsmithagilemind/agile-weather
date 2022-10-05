@@ -1,29 +1,44 @@
-import type { ClimateEntriesQuery } from 'types/graphql'
-import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+import type { CellFailureProps } from '@redwoodjs/web'
 
+import MinMaxAvgClimateEntriesChart from '../MinMaxAvgClimateEntriesChart/MinMaxAvgClimateEntriesChart'
 
 export const QUERY = gql`
-  query ClimateEntriesQuery {
-    climateEntries {
+  query FindClimateEntriesByStation($stationId: String!) {
+    climateEntriesByStation(stationId: $stationId) {
       id
+      stationId
+      topic
+      period
+      dataSet
+      dataPoints {
+        value
+        label
+      }
     }
   }
 `
 
 export const Loading = () => <div>Loading...</div>
 
-export const Empty = () => <div>Empty</div>
+export const Empty = () => {
+  return (
+    <div className="rw-text-center">
+      {'No climateEntries yet. '}
+      {/* <Link to={routes.newClimateEntry()} className="rw-link">
+        {'Create one?'}
+      </Link> */}
+    </div>
+  )
+}
 
 export const Failure = ({ error }: CellFailureProps) => (
-  <div style={{ color: 'red' }}>Error: {error?.message}</div>
+  <div className="rw-cell-error">{error?.message}</div>
 )
 
-export const Success = ({ climateEntries }: CellSuccessProps<ClimateEntriesQuery>) => {
+export const Success = ({ climateEntriesByStation }) => {
   return (
-    <ul>
-      {climateEntries.map((item) => {
-        return <li key={item.id}>{JSON.stringify(item)}</li>
-      })}
-    </ul>
+    <MinMaxAvgClimateEntriesChart
+      climateEntriesByStation={climateEntriesByStation}
+    />
   )
 }

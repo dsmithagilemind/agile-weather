@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 import {
   Chart as ChartJS,
@@ -56,18 +56,39 @@ const defaultData = {
     {
       label: '',
       data: monthLabels.map((_) => 0),
+      backgroundColor: '#232323',
+      borderColor: '#aaaaaa',
     },
   ],
 }
 
-const ClimateChart = ({ minPoints, maxPoints, avgPoints }) => {
+const MinMaxAvgClimateEntriesChart = ({ stationClimateEntries }) => {
+  let minPoints, maxPoints, avgPoints
+  stationClimateEntries.forEach((entry) => {
+    switch (entry.topic) {
+      case 'normal-tavg':
+        avgPoints = entry.dataPoints
+        break
+      case 'normal-tmin':
+        minPoints = entry.dataPoints
+        break
+      case 'normal-tmax':
+        maxPoints = entry.dataPoints
+        break
+      default:
+        throw new Error(
+          `Unexpected data points in ClimateEntry with id ${entry.id}`
+        )
+    }
+  })
+
   // should we memoize?
   const toDataArr = (dataPoints) =>
     dataPoints.map(({ value, _label }) => {
       return parseFloat(value) / 10
     })
   const [chartData, setChartData] = useState(defaultData)
-  const [options, setOptions] = useState(defaultOptions)
+  //const [options, setOptions] = useState(defaultOptions)
 
   useEffect(() => {
     setChartData({
@@ -96,7 +117,7 @@ const ClimateChart = ({ minPoints, maxPoints, avgPoints }) => {
     })
   }, [minPoints, maxPoints, avgPoints])
 
-  return <Line options={options} data={chartData} />
+  return <Line options={defaultOptions} data={chartData} />
 }
 
-export default ClimateChart
+export default MinMaxAvgClimateEntriesChart
