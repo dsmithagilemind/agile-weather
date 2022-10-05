@@ -63,6 +63,8 @@ const defaultData = {
 }
 
 const MinMaxAvgClimateEntriesChart = ({ stationClimateEntries }) => {
+  console.log(stationClimateEntries)
+
   let minPoints, maxPoints, avgPoints
   stationClimateEntries.forEach((entry) => {
     switch (entry.topic) {

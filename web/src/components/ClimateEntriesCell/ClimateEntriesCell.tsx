@@ -38,7 +38,7 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ climateEntriesByStation }) => {
   return (
     <MinMaxAvgClimateEntriesChart
-      climateEntriesByStation={climateEntriesByStation}
+      stationClimateEntries={climateEntriesByStation}
     />
   )
 }

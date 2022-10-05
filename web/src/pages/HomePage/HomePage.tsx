@@ -13,24 +13,8 @@ import {
 
 import { MetaTags } from '@redwoodjs/web'
 
-// import ClimateEntryCell from 'src/components/ClimateEntryCell/ClimateEntryCell'
-// import StationCell from 'src/components/StationCell/StationCell'
+//@ts-ignore
 import GeolocationsCell from 'src/components/GeolocationsCell/GeolocationsCell'
-
-const MONTHS = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-]
 
 /*
 
@@ -113,7 +97,7 @@ const HomePage = () => {
 
   const [zipCode, setZipCode] = useState(79830)
 
-  const [loadedZip, loadZip] = useState(null)
+  const [loadedZip, loadZip] = useState('79830')
 
   const handleZipCodeChange = (e) => setZipCode(e.target.value)
 
@@ -129,26 +113,6 @@ const HomePage = () => {
     <>
       <Container>
         <MetaTags title="Home" description="Home page" />
-        {/* <canvas ref={chartRef} /> */}
-        {/* <ClimateEntryCell code={'FMC00914395'} />
-      <StationCell id={103} /> */}
-        {/* <GeoLocationCell id={42277} /> */}
-
-        {/* <Form onSubmit={onSubmit}>
-        <label htmlFor="zipCode">Zipcode</label>
-        <TextField
-          name="zipCode"
-          validation={{
-            required: true,
-            pattern: {
-              value: /\d{6}/,
-              message: 'Please enter a valid zipcode',
-            },
-          }}
-          errorClassName="error"
-        ></TextField>
-        <Submit>Search</Submit>
-      </Form> */}
 
         <FormControl isInvalid={zipCodeError}>
           <FormLabel>Zipcode</FormLabel>
@@ -163,15 +127,13 @@ const HomePage = () => {
           <Button onClick={onSubmit}>Search</Button>
         </FormControl>
       </Container>
-      {/* <Container>
+      <Container>
         {loadedZip ? (
-          <GeoLocationsCell zipcode={loadedZip} />
+          <GeolocationsCell zip={loadedZip} />
         ) : (
           <Text>No data loaded</Text>
         )}
-      </Container> */}
-      <GeolocationsCell zip={'79830'} />
-      {/* <GeoLocationCell id={42277} /> */}
+      </Container>
     </>
   )
 }

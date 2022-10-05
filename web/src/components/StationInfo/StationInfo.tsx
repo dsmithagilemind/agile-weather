@@ -13,22 +13,23 @@ function DataCard({ title, body, ...rest }) {
 }
 
 const StationInfo = ({ stationData }) => {
-  // const {stationName
-  //   longitude
-  //   latitude
-  //   elevation
-  //   code } = station;
-
-  const filteredStationData = _.omit(stationData, ['id', '__typename'])
-
-  const fields = Object.entries(filteredStationData).map(([key, val]) => {
-    return <DataCard key={key} title={key} body={val}></DataCard>
-  })
+  const hasMinMaxAvgClimateEntries =
+    stationData.climateEntries && stationData.climateEntries.length == 3
 
   return (
-    <Stack spacing={8} direction="row">
-      {fields}
-      {!stationData.climateEntries ? null : (
+    <Stack spacing={8} direction="column">
+      <Stack spacing={8} direction="row">
+        <DataCard title={'StationCode'} body={stationData.code}></DataCard>
+        <DataCard
+          title={'StationName'}
+          body={stationData.stationName}
+        ></DataCard>
+        <DataCard title={'Latitude'} body={stationData.latitude}></DataCard>
+        <DataCard title={'Longitude'} body={stationData.longitude}></DataCard>
+        <DataCard title={'Elevation'} body={stationData.elevation}></DataCard>
+      </Stack>
+
+      {!hasMinMaxAvgClimateEntries ? null : (
         <MinMaxAvgClimateEntriesChart
           stationClimateEntries={stationData.climateEntries}
         />

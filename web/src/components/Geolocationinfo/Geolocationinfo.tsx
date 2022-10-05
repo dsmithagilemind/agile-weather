@@ -58,16 +58,17 @@ const Geolocationinfo = ({ geoLocationData }) => {
   ])
 
   const geoLocationElements = Object.entries(geoLocation).map(([key, val]) => {
-    console.log(key, val)
     return <DataCard key={key} title={key} body={val}></DataCard>
   })
 
   return (
-    <Stack spacing={2} direction="row">
-      {geoLocationElements}
+    <Stack spacing={2} direction="column">
+      <Stack spacing={2} direction="row">
+        {geoLocationElements}
+      </Stack>
       {
         // @ts-ignore
-        geoLocation.stations.forEach((station, i) => (
+        geoLocationData.stations.map((station, i) => (
           <StationInfo stationData={station} key={i} />
         ))
       }
