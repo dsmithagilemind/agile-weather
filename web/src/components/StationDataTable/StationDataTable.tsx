@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import {
   createStyles,
@@ -99,20 +99,17 @@ const RowDataKeys = [
   'longitude',
   'latitude',
   'elevation',
-  'hcn',
-  'gsn',
-  'wmoid',
+  // 'hcn',
+  // 'gsn',
+  // 'wmoid',
 ]
 
 const RowDataTitles = {
   stationName: 'Station Name',
   longitude: 'Longitude',
   latitude: 'Latitude',
-  hcn: 'HCN',
-  gsn: 'GSN',
   code: 'Station Code',
   elevation: 'Elevation',
-  wmoid: 'WMOID',
 }
 
 // interface TableSortProps {
@@ -154,9 +151,11 @@ function Th({ children, reversed, sorted, onSort }: ThProps) {
 ////////////////////////////// Data Mng //////////////////////////////
 function filterData(data: RowData[], search: string) {
   const query = search.toLowerCase().trim()
-  return data.filter((item) =>
-    keys(data[0]).some((key) => item[key].toLowerCase().includes(query))
-  )
+  return data.filter((item) => {
+    return keys(data[0]).some((key) => {
+      return item[key].toLowerCase().includes(query)
+    })
+  })
 }
 
 function sortData(
@@ -182,9 +181,17 @@ function sortData(
 }
 
 ////////////////////////////// Geolocation Table //////////////////////////////
-const StationDataTable = ({ geoLocations }) => {
-  const data = geoLocations.map((geoLocation) =>
-    _.omit(geoLocation, ['climateEntries', 'id', '__typename'])
+const StationDataTable = ({ stations }) => {
+  const data = useMemo(
+    () =>
+      stations.map((station) => {
+        const st = _.pick(station, RowDataKeys)
+        Object.entries(st).forEach(([k, v]) => {
+          st[k] = '' + v
+        })
+        return st
+      }),
+    [stations]
   )
 
   const [sortedData, setSortedData] = useState(data)
@@ -208,15 +215,25 @@ const StationDataTable = ({ geoLocations }) => {
     )
   }
 
-  //! fuck we've been working stations instead of locations
+  const rowElements = sortedData.map((station, i) => {
+    return (
+      <tr key={i}>
+        {RowDataKeys.map((key) => (
+          <td key={key}>{station[key]}</td>
+        ))}
+      </tr>
+    )
+  })
 
-  // const rows = sortedData.map((row) => (
-  //   <tr key={row.name}>
-  //     <td>{row.name}</td>
-  //     <td>{row.email}</td>
-  //     <td>{row.company}</td>
-  //   </tr>
-  // ))
+  const emptyElement = (
+    <tr>
+      <td colSpan={Object.keys(data[0]).length}>
+        <Text weight={500} align="center">
+          Nothing found
+        </Text>
+      </td>
+    </tr>
+  )
   return (
     <ScrollArea>
       <TextInput
@@ -248,30 +265,8 @@ const StationDataTable = ({ geoLocations }) => {
             })}
           </tr>
         </thead>
-        <tbody>
-          {sortedData.length > 0 ? (
-              sortedData.map((geoLocation) => {
-                return(<tr key={geoLocation.code}>
-                  {
-                    RowDataKeys.map((key) => {
-                       //   <tr key={row.name}>
-  //     <td>{row.name}</td>
-  //     <td>{row.email}</td>
-  //     <td>{row.company}</td>
-  //   </tr>
-                    })
-                  }
-                </tr>)
-          ) : (
-            <tr>
-              <td colSpan={Object.keys(data[0]).length}>
-                <Text weight={500} align="center">
-                  Nothing found
-                </Text>
-              </td>
-            </tr>
-          )}
-        </tbody>
+
+        <tbody>{sortedData.length > 0 ? rowElements : emptyElement}</tbody>
       </Table>
     </ScrollArea>
   )

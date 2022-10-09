@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Button, TextInput } from '@mantine/core'
+import { Button, Container, Divider, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
 
 import { MetaTags } from '@redwoodjs/web'
@@ -50,11 +50,15 @@ const HomePage = () => {
         <Button type="submit">Search</Button>
       </form>
 
-      {loadedZip ? (
-        <GeolocationsCell zip={loadedZip} />
-      ) : (
-        <div>No data loaded</div>
-      )}
+      <Divider />
+
+      <Container>
+        {loadedZip ? (
+          <GeolocationsCell zip={loadedZip} />
+        ) : (
+          <div>No data loaded</div>
+        )}
+      </Container>
     </>
   )
 }

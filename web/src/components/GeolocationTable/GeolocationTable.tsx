@@ -191,16 +191,6 @@ const GeolocationTable = ({ geoLocations }) => {
     )
   }
 
-  //! fuck we've been working stations instead of locations
-
-  // const rows = sortedData.map((row) => (
-  //   <tr key={row.name}>
-  //     <td>{row.name}</td>
-  //     <td>{row.email}</td>
-  //     <td>{row.company}</td>
-  //   </tr>
-  // ))
-
   const rowElements = sortedData.map((geoLocation, i) => {
     return (
       <tr key={i}>

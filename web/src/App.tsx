@@ -14,6 +14,8 @@ const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
       <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
         theme={{
           ...mantineTheme,
           colorScheme: 'dark',

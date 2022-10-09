@@ -1,9 +1,21 @@
-const GeolocationView = () => {
+import { Divider, Title } from '@mantine/core'
+import * as _ from 'radash'
+
+import GeolocationTable from '../GeolocationTable/GeolocationTable'
+import StationDataTable from '../StationDataTable/StationDataTable'
+
+const GeolocationView = ({ geoLocations }) => {
+  const stations = _.flat(geoLocations.map((g) => g.stations))
+
   return (
-    <div>
-      <h2>{'GeolocationView'}</h2>
-      <p>{'Find me in ./web/src/components/GeolocationView/GeolocationView.tsx'}</p>
-    </div>
+    <>
+      <Title>Geolocations</Title>
+      <GeolocationTable geoLocations={geoLocations} />
+      <Divider></Divider>
+
+      <Title>Stations</Title>
+      <StationDataTable stations={stations} />
+    </>
   )
 }
 
