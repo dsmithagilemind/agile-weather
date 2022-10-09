@@ -1,6 +1,6 @@
 import type { CellFailureProps } from '@redwoodjs/web'
 
-import Geolocationinfo from '../Geolocationinfo/Geolocationinfo'
+import GeolocationTable from '../GeolocationTable/GeolocationTable'
 
 export const QUERY = gql`
   query FindGeoLocationByZip($zip: String!) {
@@ -52,11 +52,12 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ geoLocationsByZip }) => {
   console.dir(geoLocationsByZip)
 
-  return (
-    <div>
-      {geoLocationsByZip.map((entry, i) => (
-        <Geolocationinfo key={i} geoLocationData={entry} />
-      ))}
-    </div>
-  )
+  // return (
+  //   <div>
+  //     {geoLocationsByZip.map((entry, i) => (
+  //       <Geolocationinfo key={i} geoLocationData={entry} />
+  //     ))}
+  //   </div>
+  // )
+  return <GeolocationTable geoLocations={geoLocationsByZip} />
 }
