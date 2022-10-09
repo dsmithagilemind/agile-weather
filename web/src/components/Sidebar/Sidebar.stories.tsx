@@ -4,8 +4,8 @@
 // ```tsx
 // import type { ComponentStory } from '@storybook/react'
 //
-// export const generated: ComponentStory<typeof Geolocationinfo> = (args) => {
-//   return <Geolocationinfo {...args} />
+// export const generated: ComponentStory<typeof Sidebar> = (args) => {
+//   return <Sidebar {...args} />
 // }
 // ```
 //
@@ -13,13 +13,13 @@
 
 import type { ComponentMeta } from '@storybook/react'
 
-import Geolocationinfo from './Geolocationinfo'
+import Sidebar from './Sidebar'
 
 export const generated = () => {
-  return <Geolocationinfo geoLocationData={undefined} />
+  return <Sidebar />
 }
 
 export default {
-  title: 'Components/Geolocationinfo',
-  component: Geolocationinfo,
-} as ComponentMeta<typeof Geolocationinfo>
+  title: 'Components/Sidebar',
+  component: Sidebar,
+} as ComponentMeta<typeof Sidebar>

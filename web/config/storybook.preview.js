@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import * as theme from 'config/chakra.config'
+
+import { MantineProvider } from '@mantine/core'
+import * as mantineTheme from 'config/mantine.config'
 
 /** @type { import("@storybook/csf").GlobalTypes } */
 export const globalTypes = {}
@@ -15,14 +16,17 @@ const _exampleDecorator = (StoryFn, _context) => {
   return <StoryFn />
 }
 
-const extendedTheme = extendTheme(theme)
-
-const withChakra = (StoryFn) => {
+const withMantine = (StoryFn) => {
   return (
-    <ChakraProvider theme={extendedTheme}>
+    <MantineProvider
+      theme={{
+        ...mantineTheme,
+        colorScheme: 'dark',
+      }}
+    >
       <StoryFn />
-    </ChakraProvider>
+    </MantineProvider>
   )
 }
 
-export const decorators = [withChakra]
+export const decorators = [withMantine]

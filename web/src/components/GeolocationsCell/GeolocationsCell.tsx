@@ -1,5 +1,3 @@
-import { Container } from '@chakra-ui/react'
-
 import type { CellFailureProps } from '@redwoodjs/web'
 
 import Geolocationinfo from '../Geolocationinfo/Geolocationinfo'
@@ -55,10 +53,10 @@ export const Success = ({ geoLocationsByZip }) => {
   console.dir(geoLocationsByZip)
 
   return (
-    <Container>
+    <div>
       {geoLocationsByZip.map((entry, i) => (
         <Geolocationinfo key={i} geoLocationData={entry} />
       ))}
-    </Container>
+    </div>
   )
 }

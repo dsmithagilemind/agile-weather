@@ -4,8 +4,8 @@
 // ```tsx
 // import type { ComponentStory } from '@storybook/react'
 //
-// export const generated: ComponentStory<typeof Geolocationinfo> = (args) => {
-//   return <Geolocationinfo {...args} />
+// export const generated: ComponentStory<typeof Header> = (args) => {
+//   return <Header {...args} />
 // }
 // ```
 //
@@ -13,13 +13,13 @@
 
 import type { ComponentMeta } from '@storybook/react'
 
-import Geolocationinfo from './Geolocationinfo'
+import Header from './Header'
 
 export const generated = () => {
-  return <Geolocationinfo geoLocationData={undefined} />
+  return <Header />
 }
 
 export default {
-  title: 'Components/Geolocationinfo',
-  component: Geolocationinfo,
-} as ComponentMeta<typeof Geolocationinfo>
+  title: 'Components/Header',
+  component: Header,
+} as ComponentMeta<typeof Header>

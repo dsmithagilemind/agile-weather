@@ -1,14 +1,13 @@
-import { Box, Heading, Stack, Text } from '@chakra-ui/react'
 import * as _ from 'radash'
 
 import StationInfo from '../StationInfo/StationInfo'
 
-function DataCard({ title, body, ...rest }) {
+function DataCard({ title, body }) {
   return (
-    <Box p={5} shadow="md" borderWidth="1px" {...rest}>
-      <Heading fontSize="xl">{title}</Heading>
-      <Text mt={4}>{body}</Text>
-    </Box>
+    <div>
+      <div>{title}</div>
+      <div>{body}</div>
+    </div>
   )
 }
 
@@ -62,17 +61,15 @@ const Geolocationinfo = ({ geoLocationData }) => {
   })
 
   return (
-    <Stack spacing={2} direction="column">
-      <Stack spacing={2} direction="row">
-        {geoLocationElements}
-      </Stack>
+    <div>
+      <div>{geoLocationElements}</div>
       {
         // @ts-ignore
         geoLocationData.stations.map((station, i) => (
           <StationInfo stationData={station} key={i} />
         ))
       }
-    </Stack>
+    </div>
   )
 }
 

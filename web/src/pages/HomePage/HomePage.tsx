@@ -1,139 +1,60 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 
-import {
-  Button,
-  Container,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel,
-  Input,
-  Text,
-} from '@chakra-ui/react'
+import { Button, TextInput } from '@mantine/core'
+import { useForm } from '@mantine/form'
 
 import { MetaTags } from '@redwoodjs/web'
 
 //@ts-ignore
 import GeolocationsCell from 'src/components/GeolocationsCell/GeolocationsCell'
 
-/*
-
-
-
-
-
-geolocation
-13031, al
-
-one station
-USC00011620
-
-entries
-82
-9060
-16561
-
-tmin
-USC00011620         327S   362S   420S   486S   577S   653S   688S   678S   613S   500S   411S   349S
-
-max
-USC00011620         567S   611S   697S   767S   829S   888S   913S   909S   860S   771S   677S   586S
-
-tavg
-USC00011620         447S   486S   558S   627S   703S   770S   800S   793S   737S   635S   544S   468S
-
-32.7,36.2,42.0,48.6,57.7,65.3,68.8,67.8,61.3,50.0,41.1,34.9
-56.7,61.1,69.7,76.7,82.9,88.8,91.3,90.9,86.0,77.1,67.7,58.6
-44.7,48.6,55.8,62.7,70.3,77.0,80.0,79.3,73.7,63.5,54.4,46.8
-
-zip
-USC00011620 35044 Childersburg
-1,Alabama,AL,35044,Talladega,Coosa pines
-*/
-
-// const getDates = (forecast) => {
-//   return forecast.list.map((entry) => {
-//     const date = new Date(0)
-//     date.setUTCSeconds(entry.dt)
-//     return `${MONTHS[date.getMonth()]} ${date.getDate()}`
-//   })
-// }
-
-// const getTemps = (forecast) => {
-//   return [
-//     {
-//       label: 'High',
-//       data:
-//       borderColor: 'red',
-//       backgroundColor: 'transparent',
-//     },
-//     {
-//       label: 'Low',
-//       data:
-//       borderColor: 'blue',
-//       backgroundColor: 'transparent',
-//     },
-//   ]
-// }
+const zipValidateRegex = /^\d{5}$/
+const zipPatternRegex = /[^\d]/
+const defaultZip = '79830'
 
 const HomePage = () => {
-  // useEffect(() => {
-  //   fetch('/forecast.json')
-  //     .then((response) => response.json())
-  //     .then((json) => setForecast(json))
-  // }, [])
+  const [loadedZip, loadZip] = useState(defaultZip)
 
-  // useEffect(() => {
-  //   if (forecast) {
-  //     new Chart(chartRef.current.getContext('2d'), {
-  //       type: 'line',
-  //       data: {
-  //         labels: getDates(forecast),
-  //         datasets: getTemps(forecast),
-  //       },
-  //     })
-  //   }
-  // }, [forecast])
+  const form = useForm({
+    initialValues: {
+      zip: '79830',
+    },
+    validate: {
+      zip: (value) =>
+        zipValidateRegex.test(value) ? null : 'Please enter a 5 digit zip code',
+    },
+    validateInputOnBlur: true,
+  })
 
-  const [zipCode, setZipCode] = useState(79830)
+  const zipCodeParser = (val: string) =>
+    val.replace(zipPatternRegex, '').slice(-5)
 
-  const [loadedZip, loadZip] = useState('79830')
+  const setZipValue = (val: string) =>
+    form.setValues({ zip: zipCodeParser(val) })
 
-  const handleZipCodeChange = (e) => setZipCode(e.target.value)
-
-  const validateZipCode = (zipCode) => /^\d{5}$/.test(zipCode)
-
-  const zipCodeError = !validateZipCode(zipCode)
-
-  function onSubmit() {
-    if (!zipCodeError) loadZip(zipCode + '')
+  function onSubmit({ zip }) {
+    loadZip(zip)
   }
 
   return (
     <>
-      <Container>
-        <MetaTags title="Home" description="Home page" />
+      <MetaTags title="Home" description="Home page" />
 
-        <FormControl isInvalid={zipCodeError}>
-          <FormLabel>Zipcode</FormLabel>
-          <Input type="number" value={zipCode} onChange={handleZipCodeChange} />
-          {!zipCodeError ? (
-            <FormHelperText>Please enter a 5 digit zipcode</FormHelperText>
-          ) : (
-            <FormErrorMessage>
-              {zipCode} is not a valid 5 digit zipcode
-            </FormErrorMessage>
-          )}
-          <Button onClick={onSubmit}>Search</Button>
-        </FormControl>
-      </Container>
-      <Container>
-        {loadedZip ? (
-          <GeolocationsCell zip={loadedZip} />
-        ) : (
-          <Text>No data loaded</Text>
-        )}
-      </Container>
+      <form onSubmit={form.onSubmit((values) => onSubmit(values))}>
+        <TextInput
+          label="ZipCode"
+          {...form.getInputProps('zip')}
+          onChange={(event) => setZipValue(event.target.value)}
+        ></TextInput>
+
+        <Button type="submit">Search</Button>
+      </form>
+
+      {loadedZip ? (
+        <GeolocationsCell zip={loadedZip} />
+      ) : (
+        <div>No data loaded</div>
+      )}
     </>
   )
 }

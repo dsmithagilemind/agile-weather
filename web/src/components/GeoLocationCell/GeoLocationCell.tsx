@@ -1,4 +1,3 @@
-import { Container } from '@chakra-ui/react'
 import type { FindGeoLocationByZipVariables } from 'types/graphql'
 
 import type { CellFailureProps } from '@redwoodjs/web'
@@ -50,13 +49,13 @@ export const Failure = ({
 
 export const Success = ({ geoLocation }) => {
   return (
-    <Container>
+    <div>
       {geoLocation.stations.map((station, i) => (
-        <Container key={i}>
+        <div key={i}>
           <StationInfo stationData={station} />
           <ClimateEntriesCell stationId={station.id} />
-        </Container>
+        </div>
       ))}
-    </Container>
+    </div>
   )
 }
