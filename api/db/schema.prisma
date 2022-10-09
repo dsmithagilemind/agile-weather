@@ -78,3 +78,8 @@ model RW_DataMigration {
   startedAt  DateTime
   finishedAt DateTime
 }
+model ZipSearch {
+  id String @id @default(cuid())
+  zip String
+  date DateTime
+}

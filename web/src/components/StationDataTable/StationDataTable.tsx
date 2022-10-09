@@ -200,6 +200,12 @@ const StationDataTable = ({ stations }) => {
   const [sortBy, setSortBy] = useState<keyof RowData | null>(null)
   const [reverseSortDirection, setReverseSortDirection] = useState(false)
 
+  // ! TODO: selections for graphs
+  // const [selection, setSelection] = useState([0])
+
+  // const toggleRow = (index: number) =>
+  //     setSelection(selection.filter)
+
   const setSorting = (field: keyof RowData) => {
     const reversed = field === sortBy ? !reverseSortDirection : false
     setReverseSortDirection(reversed)
