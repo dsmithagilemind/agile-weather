@@ -9,11 +9,19 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
+import ZipSearchesLayout from 'src/layouts/ZipSearchesLayout'
+
 import MainLayout from './layouts/MainLayout/MainLayout'
 
 const Routes = () => {
   return (
     <Router>
+      <Set wrap={ZipSearchesLayout}>
+        <Route path="/zip-searches/new" page={ZipSearchNewZipSearchPage} name="newZipSearch" />
+        <Route path="/zip-searches/{id}/edit" page={ZipSearchEditZipSearchPage} name="editZipSearch" />
+        <Route path="/zip-searches/{id}" page={ZipSearchZipSearchPage} name="zipSearch" />
+        <Route path="/zip-searches" page={ZipSearchZipSearchesPage} name="zipSearches" />
+      </Set>
       <Set wrap={MainLayout}>
         <Route path="/" page={HomePage} name="home" />
         <Route notfound page={NotFoundPage} />

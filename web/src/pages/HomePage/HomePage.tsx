@@ -5,8 +5,10 @@ import { useForm } from '@mantine/form'
 
 import { MetaTags } from '@redwoodjs/web'
 
-//@ts-ignore
 import GeolocationsCell from 'src/components/GeolocationsCell/GeolocationsCell'
+// import ZipSearchesCell from 'src/components/ZipSearch/ZipSearchesCell/ZipSearchesCell'
+
+//@ts-ignore
 
 const zipValidateRegex = /^\d{5}$/
 const zipPatternRegex = /[^\d]/
@@ -49,6 +51,8 @@ const HomePage = () => {
 
         <Button type="submit">Search</Button>
       </form>
+      {/*
+      <ZipSearchesCell /> */}
 
       <Divider />
 
