@@ -1,10 +1,12 @@
+import { useState } from 'react'
+
+import type { CreateZipSearchInput } from 'types/graphql'
+
 import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import ZipSearchForm from 'src/components/ZipSearch/ZipSearchForm'
-
-import type { CreateZipSearchInput } from 'types/graphql'
 
 const CREATE_ZIP_SEARCH_MUTATION = gql`
   mutation CreateZipSearchMutation($input: CreateZipSearchInput!) {
@@ -13,6 +15,32 @@ const CREATE_ZIP_SEARCH_MUTATION = gql`
     }
   }
 `
+
+export function useCreateZipSearch() {
+  const [zipSearch, createZipRecord] = useState()
+
+  const [createZipSearch, { data }] = useMutation(CREATE_ZIP_SEARCH_MUTATION, {
+    onCompleted: () => {
+      createZipRecord(data)
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    },
+  })
+
+  const onSave = (input: CreateZipSearchInput) => {
+    createZipSearch({ variables: { input } })
+  }
+
+  function createNewZipSearch(zip: string) {
+    const zipSearchInput: CreateZipSearchInput = {
+      zip: zip,
+      date: new Date().toISOString(),
+    }
+    onSave(zipSearchInput)
+  }
+  return [zipSearch, createNewZipSearch]
+}
 
 const NewZipSearch = () => {
   const [createZipSearch, { loading, error }] = useMutation(

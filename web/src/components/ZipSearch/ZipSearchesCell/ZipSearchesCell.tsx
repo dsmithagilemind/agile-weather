@@ -15,16 +15,21 @@ export const QUERY = gql`
   }
 `
 
+export const beforeQuery = (props) => {
+  return {
+    variables: props,
+    fetchPolicy: 'cache-and-network',
+    pollInterval: 1000,
+  }
+}
+
 export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => {
   return (
     <div className="rw-text-center">
       {'No zipSearches yet. '}
-      <Link
-        to={routes.newZipSearch()}
-        className="rw-link"
-      >
+      <Link to={routes.newZipSearch()} className="rw-link">
         {'Create one?'}
       </Link>
     </div>

@@ -6,7 +6,8 @@ import { useForm } from '@mantine/form'
 import { MetaTags } from '@redwoodjs/web'
 
 import GeolocationsCell from 'src/components/GeolocationsCell/GeolocationsCell'
-// import ZipSearchesCell from 'src/components/ZipSearch/ZipSearchesCell/ZipSearchesCell'
+import { useCreateZipSearch } from 'src/components/ZipSearch/NewZipSearch'
+import ZipSearchesCell from 'src/components/ZipSearch/ZipSearchesCell'
 
 //@ts-ignore
 
@@ -16,6 +17,8 @@ const defaultZip = '79830'
 
 const HomePage = () => {
   const [loadedZip, loadZip] = useState(defaultZip)
+
+  const [zipSearch, createNewZipSearch] = useCreateZipSearch()
 
   const form = useForm({
     initialValues: {
@@ -36,6 +39,7 @@ const HomePage = () => {
 
   function onSubmit({ zip }) {
     loadZip(zip)
+    createNewZipSearch(zip)
   }
 
   return (
@@ -51,8 +55,8 @@ const HomePage = () => {
 
         <Button type="submit">Search</Button>
       </form>
-      {/*
-      <ZipSearchesCell /> */}
+
+      <ZipSearchesCell refetch />
 
       <Divider />
 
