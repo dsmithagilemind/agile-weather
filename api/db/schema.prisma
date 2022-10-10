@@ -14,12 +14,16 @@ generator client {
 // TODO: Please remove the following example:
 model UserExample {
   id    Int     @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
   email String  @unique
   name  String?
 }
 
 model GeoLocation {
   id  Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
 
   city String
   zip String?
@@ -33,6 +37,9 @@ model GeoLocation {
 }
 model Station {
   id   String @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
+
   code String @unique
 
   geoLocations GeoLocation[]
@@ -52,6 +59,8 @@ model Station {
 
 model ClimateDataPoint {
   id    String @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
 
   label String
   value String
@@ -62,6 +71,8 @@ model ClimateDataPoint {
 }
 model ClimateEntry {
   id  Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
 
   station   Station @relation(fields: [stationId], references: [id])
   stationId   String
@@ -80,6 +91,8 @@ model RW_DataMigration {
 }
 model ZipSearch {
   id String @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
   zip String
   date DateTime
 }

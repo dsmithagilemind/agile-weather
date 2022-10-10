@@ -1,6 +1,8 @@
 export const schema = gql`
   type ZipSearch {
     id: String!
+    createdAt: DateTime!
+    updatedAt: DateTime
     zip: String!
     date: DateTime!
   }

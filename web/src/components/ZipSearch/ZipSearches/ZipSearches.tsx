@@ -1,12 +1,14 @@
 import humanize from 'humanize-string'
+import type {
+  DeleteZipSearchMutationVariables,
+  FindZipSearches,
+} from 'types/graphql'
 
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/ZipSearch/ZipSearchesCell'
-
-import type { DeleteZipSearchMutationVariables, FindZipSearches } from 'types/graphql'
 
 const DELETE_ZIP_SEARCH_MUTATION = gql`
   mutation DeleteZipSearchMutation($id: String!) {
@@ -36,7 +38,6 @@ const truncate = (value: string | number) => {
   }
   return output ?? ''
 }
-
 
 const jsonTruncate = (obj: unknown) => {
   return truncate(JSON.stringify(obj, null, 2))
@@ -85,6 +86,7 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
             <th>Id</th>
             <th>Zip</th>
             <th>Date</th>
+            <th>Last Updated</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -94,6 +96,7 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
               <td>{truncate(zipSearch.id)}</td>
               <td>{truncate(zipSearch.zip)}</td>
               <td>{timeTag(zipSearch.date)}</td>
+              <td>{timeTag(zipSearch.updatedAt)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

@@ -11,6 +11,7 @@ export const QUERY = gql`
       id
       zip
       date
+      updatedAt
     }
   }
 `

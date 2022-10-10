@@ -30,11 +30,11 @@ describe('zipSearches', () => {
 
   scenario('creates a zipSearch', async () => {
     const result = await createZipSearch({
-      input: { zip: 'String', date: '2022-10-10T00:13:58Z' },
+      input: { zip: 'String', date: '2022-10-10T19:59:22Z' },
     })
 
     expect(result.zip).toEqual('String')
-    expect(result.date).toEqual('2022-10-10T00:13:58Z')
+    expect(result.date).toEqual('2022-10-10T19:59:22Z')
   })
 
   scenario('updates a zipSearch', async (scenario: StandardScenario) => {
