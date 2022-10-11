@@ -1,5 +1,3 @@
-import type { PrismaClient } from '@prisma/client'
-
 const tableKeys = [
   'userExample',
   'geoLocation',
