@@ -20,7 +20,7 @@ const DELETE_ZIP_SEARCH_MUTATION = gql`
 
 const MAX_STRING_LENGTH = 150
 
-const formatEnum = (values: string | string[] | null | undefined) => {
+const _formatEnum = (values: string | string[] | null | undefined) => {
   if (values) {
     if (Array.isArray(values)) {
       const humanizedValues = values.map((value) => humanize(value))
@@ -39,7 +39,7 @@ const truncate = (value: string | number) => {
   return output ?? ''
 }
 
-const jsonTruncate = (obj: unknown) => {
+const _jsonTruncate = (obj: unknown) => {
   return truncate(JSON.stringify(obj, null, 2))
 }
 
@@ -53,7 +53,7 @@ const timeTag = (datetime?: string) => {
   )
 }
 
-const checkboxInputTag = (checked: boolean) => {
+const _checkboxInputTag = (checked: boolean) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
