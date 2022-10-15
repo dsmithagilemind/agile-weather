@@ -43,6 +43,10 @@ const configureFastify = async (fastify, options) => {
     fastify.log.info({ custom: { options } }, 'Configuring web side')
   }
 
+  fastify.get('/hello', function (request, replay) {
+    replay.code(200).send({ hello: 'world' })
+  })
+
   return fastify
 }
 
