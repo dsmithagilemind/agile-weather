@@ -2,6 +2,8 @@ datasource db {
   provider = "mysql"
   url      = env("MYSQL_URL")
 }
+// in .env file, define MYSQL_URL as:
+// MYSQL_URL="mysql://root:ESCAPED_ROOT_PASSWORD@localhost:3306/agile_weather"
 
 generator client {
   provider      = "prisma-client-js"
