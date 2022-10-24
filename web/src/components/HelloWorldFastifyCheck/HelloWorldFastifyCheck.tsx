@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { Box, Button, Container, Group, TextInput } from '@mantine/core'
 import { useInputState } from '@mantine/hooks'
