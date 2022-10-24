@@ -43,8 +43,31 @@ const configureFastify = async (fastify, options) => {
     fastify.log.info({ custom: { options } }, 'Configuring web side')
   }
 
-  fastify.get('/hello', function (request, replay) {
-    replay.code(200).send({ hello: 'world' })
+  // Shorthand, but let's do this correctly
+  // fastify.get('/hello', function (request, reply) {
+  //   reply.code(200).send({ hello: 'world' })
+  // })
+
+  fastify.route({
+    method: 'GET',
+    url: '/hello',
+    schema: {
+      // querystring: {
+      //   name: { type: 'string' },
+      //   excitement: { type: 'integer' }
+      // },
+      response: {
+        200: {
+          type: 'object',
+          properties: {
+            world: { type: 'string' },
+          },
+        },
+      },
+    },
+    handler: function (request, reply) {
+      reply.send({ hello: 'world' })
+    },
   })
 
   return fastify

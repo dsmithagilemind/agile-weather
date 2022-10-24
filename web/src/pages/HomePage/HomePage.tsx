@@ -11,6 +11,9 @@ import { useCreateZipSearch } from 'src/components/ZipSearch/NewZipSearch'
 import ZipSearchesCell from 'src/components/ZipSearch/ZipSearchesCell'
 
 //@ts-ignore
+import HelloWorldCell from '../../components/HelloWorldCell/HelloWorldCell'
+
+//@ts-ignore
 
 const zipValidateRegex = /^\d{5}$/
 const zipPatternRegex = /[^\d]/
@@ -47,6 +50,7 @@ const HomePage = () => {
     <>
       <MetaTags title="Home" description="Home page" />
 
+      <HelloWorldCell />
       <form onSubmit={form.onSubmit((values) => onSubmit(values))}>
         <TextInput
           label="ZipCode"
