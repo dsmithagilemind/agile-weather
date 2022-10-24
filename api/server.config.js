@@ -43,32 +43,45 @@ const configureFastify = async (fastify, options) => {
     fastify.log.info({ custom: { options } }, 'Configuring web side')
   }
 
-  // Shorthand, but let's do this correctly
-  // fastify.get('/hello', function (request, reply) {
-  //   reply.code(200).send({ hello: 'world' })
-  // })
-
-  fastify.route({
-    method: 'GET',
-    url: '/hello',
-    schema: {
-      // querystring: {
-      //   name: { type: 'string' },
-      //   excitement: { type: 'integer' }
-      // },
-      response: {
-        200: {
-          type: 'object',
-          properties: {
-            world: { type: 'string' },
-          },
-        },
-      },
-    },
-    handler: function (request, reply) {
-      reply.send({ hello: 'world' })
-    },
+  fastify.get('/hello-fastify', function (request, reply) {
+    reply.code(200).send({ hello: 'world' })
   })
+
+  // CORS for fastify routes in dev mode, attach to prehandler
+  if (process.env.NODE_ENV === 'development') {
+    fastify.addHook('preHandler', (req, res, done) => {
+      const allowedRoutes = ['/hello-fastify']
+      if (allowedRoutes.includes(req.routerPath)) {
+        res.header('Access-Control-Allow-Origin', '*')
+        res.header('Access-Control-Allow-Methods', 'GET')
+        res.header('Access-Control-Allow-Headers', '*')
+      }
+      done()
+    })
+  }
+
+  // // longform method
+  // fastify.route({
+  //   method: 'GET',
+  //   url: '/hello',
+  //   schema: {
+  //     // querystring: {
+  //     //   name: { type: 'string' },
+  //     //   excitement: { type: 'integer' }
+  //     // },
+  //     response: {
+  //       200: {
+  //         type: 'object',
+  //         properties: {
+  //           world: { type: 'string' },
+  //         },
+  //       },
+  //     },
+  //   },
+  //   handler: function (request, reply) {
+  //     reply.send({ hello: 'world' })
+  //   },
+  // })
 
   return fastify
 }

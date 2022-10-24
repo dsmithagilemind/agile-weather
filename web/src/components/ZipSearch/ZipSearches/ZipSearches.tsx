@@ -1,3 +1,5 @@
+import { Card, Container, Group, Stack, Text, ThemeIcon } from '@mantine/core'
+import { IconEdit, IconLink, IconTrash } from '@tabler/icons'
 import humanize from 'humanize-string'
 import type {
   DeleteZipSearchMutationVariables,
@@ -79,55 +81,95 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
   }
 
   return (
-    <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Zip</th>
-            <th>Date</th>
-            <th>Last Updated</th>
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
-        <tbody>
-          {zipSearches.map((zipSearch) => (
-            <tr key={zipSearch.id}>
-              <td>{truncate(zipSearch.id)}</td>
-              <td>{truncate(zipSearch.zip)}</td>
-              <td>{timeTag(zipSearch.date)}</td>
-              <td>{timeTag(zipSearch.updatedAt)}</td>
-              <td>
-                <nav className="rw-table-actions">
-                  <Link
-                    to={routes.zipSearch({ id: zipSearch.id })}
-                    title={'Show zipSearch ' + zipSearch.id + ' detail'}
-                    className="rw-button rw-button-small"
-                  >
-                    Show
-                  </Link>
-                  <Link
-                    to={routes.editZipSearch({ id: zipSearch.id })}
-                    title={'Edit zipSearch ' + zipSearch.id}
-                    className="rw-button rw-button-small rw-button-blue"
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    type="button"
-                    title={'Delete zipSearch ' + zipSearch.id}
-                    className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(zipSearch.id)}
-                  >
-                    Delete
-                  </button>
-                </nav>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <Container>
+      {zipSearches.map((zipSearch, i) => (
+        <Card key={i}>
+          <Stack>
+            <Group>
+              <Text>{zipSearch.zip}</Text>
+              <Link
+                to={routes.zipSearch({ id: zipSearch.id })}
+                title={'Show zipSearch ' + zipSearch.id + ' detail'}
+                className="rw-button rw-button-small"
+              >
+                <ThemeIcon>
+                  <IconLink></IconLink>
+                </ThemeIcon>
+              </Link>
+              <Link
+                to={routes.editZipSearch({ id: zipSearch.id })}
+                title={'Edit zipSearch ' + zipSearch.id}
+                className="rw-button rw-button-small rw-button-blue"
+              >
+                <ThemeIcon>
+                  <IconEdit></IconEdit>
+                </ThemeIcon>
+              </Link>
+              <button
+                type="button"
+                title={'Delete zipSearch ' + zipSearch.id}
+                className="rw-button rw-button-small rw-button-red"
+                onClick={() => onDeleteClick(zipSearch.id)}
+              >
+                <ThemeIcon>
+                  <IconTrash></IconTrash>
+                </ThemeIcon>
+              </button>
+            </Group>
+            <Text>Created at: {timeTag(zipSearch.date)}</Text>
+            <Text>Last updated: {timeTag(zipSearch.updatedAt)}</Text>
+          </Stack>
+        </Card>
+      ))}
+    </Container>
+
+    // <div className="rw-segment rw-table-wrapper-responsive">
+    //   <table className="rw-table">
+    //     <thead>
+    //       <tr>
+    //         <th>Zip</th>
+    //         <th>Date</th>
+    //         <th>Last Updated</th>
+    //         <th>&nbsp;</th>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       {zipSearches.map((zipSearch) => (
+    //         <tr key={zipSearch.id}>
+    //           <td>{truncate(zipSearch.zip)}</td>
+    //           <td>{timeTag(zipSearch.date)}</td>
+    //           <td>{timeTag(zipSearch.updatedAt)}</td>
+    //           <td>
+    //             <nav className="rw-table-actions">
+    //               <Link
+    //                 to={routes.zipSearch({ id: zipSearch.id })}
+    //                 title={'Show zipSearch ' + zipSearch.id + ' detail'}
+    //                 className="rw-button rw-button-small"
+    //               >
+    //                 Show
+    //               </Link>
+    //               <Link
+    //                 to={routes.editZipSearch({ id: zipSearch.id })}
+    //                 title={'Edit zipSearch ' + zipSearch.id}
+    //                 className="rw-button rw-button-small rw-button-blue"
+    //               >
+    //                 Edit
+    //               </Link>
+    //               <button
+    //                 type="button"
+    //                 title={'Delete zipSearch ' + zipSearch.id}
+    //                 className="rw-button rw-button-small rw-button-red"
+    //                 onClick={() => onDeleteClick(zipSearch.id)}
+    //               >
+    //                 Delete
+    //               </button>
+    //             </nav>
+    //           </td>
+    //         </tr>
+    //       ))}
+    //     </tbody>
+    //   </table>
+    // </div>
   )
 }
 

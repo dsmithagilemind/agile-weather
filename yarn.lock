@@ -7244,6 +7244,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tabler/icons@npm:^1.107.0":
+  version: 1.107.0
+  resolution: "@tabler/icons@npm:1.107.0"
+  peerDependencies:
+    react: ^16.x || 17.x || 18.x
+    react-dom: ^16.x || 17.x || 18.x
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 878352788109908a51ce28d91e30a82ed67ce20be95f3172da867c3a1a24958c94e1c2c420423e42605bbbf91e1c8cc4a74e3368c8b36209ec637d7a16ed8f73
+  languageName: node
+  linkType: hard
+
 "@tabler/icons@npm:^1.68.0":
   version: 1.101.0
   resolution: "@tabler/icons@npm:1.101.0"
@@ -9252,18 +9267,6 @@ __metadata:
     "@apollo/utils.keyvaluecache": ^1.0.1
     apollo-server-env: ^4.2.1
   checksum: b62d2013291685d6750893dadd5723e3c01030eaacc4bd6b61c2590fce3a882fb8f5b3e1561d579dde38468475387491051202e01847ad5f3d6eb371c516a7c8
-  languageName: node
-  linkType: hard
-
-"apollo-link-rest@npm:^0.9.0-rc.1":
-  version: 0.9.0-rc.1
-  resolution: "apollo-link-rest@npm:0.9.0-rc.1"
-  peerDependencies:
-    "@apollo/client": ">=3"
-    graphql: ">=0.11"
-    graphql-anywhere: ">=4"
-    qs: ">=6"
-  checksum: 2a45cf43e406d66bd5c3204136f0917ffc86df8bcfce87372b9d4b538c058d0630b768049dd42e0442bd5bf5815cba6c59d63e158f2495d2b81bdb3fcdd0f3bb
   languageName: node
   linkType: hard
 
@@ -25901,6 +25904,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"use-sync-external-store@npm:1.2.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: ac4814e5592524f242921157e791b022efe36e451fe0d4fd4d204322d5433a4fc300d63b0ade5185f8e0735ded044c70bcf6d2352db0f74d097a238cebd2da02
+  languageName: node
+  linkType: hard
+
 "use@npm:^3.1.0":
   version: 3.1.1
   resolution: "use@npm:3.1.1"
@@ -26280,13 +26292,14 @@ __metadata:
     "@redwoodjs/forms": ^3.0.3
     "@redwoodjs/router": ^3.0.3
     "@redwoodjs/web": ^3.0.3
-    apollo-link-rest: ^0.9.0-rc.1
+    "@tabler/icons": ^1.107.0
     dayjs: ^1.11.5
     embla-carousel-react: ^7.0.3
     framer-motion: ^6
     prop-types: 15.8.1
     react: 17.0.2
     react-dom: 17.0.2
+    zustand: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -27156,6 +27169,23 @@ __metadata:
     compress-commons: ^4.1.0
     readable-stream: ^3.6.0
   checksum: ed9eb9387953576c43bdf7678705e8b0ff4e9149cf92b39fa845ddd5413b08daf68655b1ee8311e2dd7c88ddeb95908a785e8e48473016b2595870b0adf588d4
+  languageName: node
+  linkType: hard
+
+"zustand@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "zustand@npm:4.1.3"
+  dependencies:
+    use-sync-external-store: 1.2.0
+  peerDependencies:
+    immer: ">=9.0"
+    react: ">=16.8"
+  peerDependenciesMeta:
+    immer:
+      optional: true
+    react:
+      optional: true
+  checksum: a005a9d59b7ab53eb5b40aba4785bd680c2c46299205d5d94ec543bf12053741ce4e336b8d83975c29b06c329cceb7792ec10c867613d50d8c8334eb1260399b
   languageName: node
   linkType: hard
 

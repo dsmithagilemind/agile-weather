@@ -1,3 +1,4 @@
+import { RedwoodError } from '@redwoodjs/api'
 import {
   createTransformerDirective,
   TransformerDirectiveFunc,
@@ -12,7 +13,42 @@ export const schema = gql`
   directive @endpoint(endpointLoc: String) on FIELD_DEFINITION
 `
 
-const transform: TransformerDirectiveFunc = ({ context, resolvedValue }) => {
+/**
+ * @see { @link https://github.com/redwoodjs/redwood-office-hours/blob/main/2022-09-28-rest-directive/api/src/directives/rest/rest.ts }
+ */
+const replaceUrlNamedParameters = (args, directiveArgs): string => {
+  if (directiveArgs?.url) {
+    let url = directiveArgs.url
+    const params = [...directiveArgs.url.matchAll(/\/:(.+)/g)]
+
+    params?.forEach((param) => {
+      try {
+        if (args[param[1]]) {
+          logger.debug({ custom: { params, args } }, 'Replacing argument')
+          url = url.replace(param[0], `/${args[param[1]]}`)
+          logger.debug({ custom: { url } }, 'url')
+        } else {
+          logger.error(
+            { custom: directiveArgs.url },
+            'Missing required argument'
+          )
+          throw new RedwoodError('Missing required argument')
+        }
+      } catch (e) {
+        logger.error(
+          { custom: directiveArgs.url },
+          'Could not replace argument'
+        )
+      }
+    })
+
+    return url
+  }
+
+  throw new RedwoodError('Missing required url')
+}
+
+const transform: TransformerDirectiveFunc = async ({ args, directiveArgs }) => {
   /**
    * Write your transformation logic inside this function.
    * Transformer directives run **after** resolving the value
@@ -21,20 +57,21 @@ const transform: TransformerDirectiveFunc = ({ context, resolvedValue }) => {
    * - Transformer directives **must** be synchronous, and return a value
    **/
 
-  // currentUser is only available when auth is setup.
-  logger.debug(
-    { currentUser: context.currentUser },
-    'currentUser in endpoint directive'
-  )
+  const url = replaceUrlNamedParameters(args, directiveArgs)
 
-  // ... you can modify the resolvedValue and return it
-  logger.debug(resolvedValue, 'resolvedValue in endpoint directive')
+  try {
+    logger.debug({ custom: url }, 'Fetching url ...')
+    const res = await fetch(url)
 
-  // You can also modify your directive to take arguments
-  // and use the directiveArgs object provided to this function to get values
-  // See documentation here: https://redwoodjs.com/docs/directives
+    if (res.ok) {
+      logger.debug({ custom: url }, 'Successfully fetched url')
+      return await res.json()
+    }
+  } catch (e) {
+    logger.error({ custom: url, e }, 'Unable to fetch url')
 
-  return resolvedValue.replace('foo', 'bar')
+    throw new RedwoodError('Unable to fetch url')
+  }
 }
 
 const endpoint = createTransformerDirective(schema, transform)
