@@ -1,3 +1,10 @@
+const _importDynamic = new Function('modulePath', 'return import(modulePath)')
+
+export const fetch = async function (...args: any) {
+  const { default: fetch } = await _importDynamic('node-fetch')
+  return fetch(...args)
+}
+
 import { RedwoodError } from '@redwoodjs/api'
 import {
   createTransformerDirective,
@@ -10,7 +17,7 @@ export const schema = gql`
   """
   Use @endpoint to transform the resolved value to return a modified result.
   """
-  directive @endpoint(endpointLoc: String) on FIELD_DEFINITION
+  directive @endpoint(url: String) on FIELD_DEFINITION
 `
 
 /**
@@ -61,13 +68,21 @@ const transform: TransformerDirectiveFunc = async ({ args, directiveArgs }) => {
 
   try {
     logger.debug({ custom: url }, 'Fetching url ...')
+
     const res = await fetch(url)
 
     if (res.ok) {
       logger.debug({ custom: url }, 'Successfully fetched url')
-      return await res.json()
+      // ! expected iterable
+
+      const json = await res.json()
+
+      console.log(res)
+      console.log(json)
+      return json.data
     }
   } catch (e) {
+    logger.error(e)
     logger.error({ custom: url, e }, 'Unable to fetch url')
 
     throw new RedwoodError('Unable to fetch url')

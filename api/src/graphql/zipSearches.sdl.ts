@@ -8,7 +8,10 @@ export const schema = gql`
   }
 
   type Query {
-    zipSearches: [ZipSearch!]! @requireAuth
+    zipSearchesEndpoint: [ZipSearch!]
+      @endpoint(url: "http://localhost:8911/zipSearchesEndpoint")
+      @requireAuth
+    zipSearches: [ZipSearch!] @requireAuth
     zipSearch(id: String!): ZipSearch @requireAuth
   }
 
