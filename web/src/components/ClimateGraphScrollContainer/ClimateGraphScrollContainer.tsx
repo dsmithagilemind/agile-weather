@@ -1,5 +1,6 @@
 import { Card, Group, ScrollArea, Text } from '@mantine/core'
-import MinMaxAvgClimateEntriesChart from 'MinMaxAvgClimateEntriesChart/MinMaxAvgClimateEntriesChart'
+
+import MinMaxAvgClimateEntriesChart from '../MinMaxAvgClimateEntriesChart/MinMaxAvgClimateEntriesChart'
 
 const ClimateGraphScrollContainer = ({ stations }) => {
   const filteredStations = stations.filter(

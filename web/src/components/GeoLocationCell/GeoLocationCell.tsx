@@ -2,8 +2,9 @@ import type { FindGeoLocationByZipVariables } from 'types/graphql'
 
 import type { CellFailureProps } from '@redwoodjs/web'
 
-import ClimateEntriesCell from '../ClimateEntry/ClimateEntriesCell'
-import StationInfo from '../StationInfo/StationInfo'
+// @ts-ignore
+import ClimateEntriesCell from '../ClimateEntriesCell/ClimateEntriesCell'
+import StationDataTable from '../StationDataTable/StationDataTable'
 
 export const QUERY = gql`
   query FindGeoLocationQuery($id: Int!) {
@@ -52,10 +53,10 @@ export const Success = ({ geoLocation }) => {
     <div>
       {geoLocation.stations.map((station, i) => (
         <div key={i}>
-          <StationInfo stationData={station} />
           <ClimateEntriesCell stationId={station.id} />
         </div>
       ))}
+      <StationDataTable stations={geoLocation.stations} />
     </div>
   )
 }

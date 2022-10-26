@@ -1,4 +1,7 @@
-import { Header as MantineHeader } from '@mantine/core'
+import { Group, Header as MantineHeader } from '@mantine/core'
+
+import EndpointTestBar from '../EndpointTestBar/EndpointTestBar'
+import Title from '../Title/Title'
 
 type HeaderProps = {
   children?: React.ReactNode
@@ -7,8 +10,10 @@ type HeaderProps = {
 const Header = ({ children }: HeaderProps) => {
   return (
     <MantineHeader height={60} p="xs">
-      {' '}
-      {children}
+      <Group position="apart">
+        <Title />
+        <EndpointTestBar />
+      </Group>
     </MantineHeader>
   )
 }

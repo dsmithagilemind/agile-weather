@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import StationInfo from './StationInfo'
+import Title from './Title'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-components
 
-describe('StationInfo', () => {
+describe('Title', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<StationInfo />)
+      render(<Title />)
     }).not.toThrow()
   })
 })
