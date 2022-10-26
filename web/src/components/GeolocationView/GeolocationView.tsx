@@ -2,7 +2,6 @@ import { Divider, Title } from '@mantine/core'
 import * as _ from 'radash'
 
 import GeolocationTable from '../GeolocationTable/GeolocationTable'
-import StationClimateDataTable from '../StationClimateDataTable/StationClimateDataTable'
 import StationDataTable from '../StationDataTable/StationDataTable'
 
 /*
