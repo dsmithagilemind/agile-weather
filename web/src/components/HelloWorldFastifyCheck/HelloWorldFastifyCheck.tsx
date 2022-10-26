@@ -37,6 +37,13 @@ const HelloWorldFastifyCheck = () => {
       })
       .catch((error) => setErrorMessage(error))
       .finally(() => setLoading(false))
+
+    try {
+      // something
+    }
+    catch (e) {
+      // somehting else
+    }
   }
 
   const finalElement = errorMessage ? erroredComponent : successfulComponent

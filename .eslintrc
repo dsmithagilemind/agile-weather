@@ -1,0 +1,38 @@
+{
+  "extends": ["prettier", "@redwoodjs/eslint-config"],
+  "rules": {
+    "brace-style": ["error", "stroustrup"],
+    "prettier/prettier": 0,
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "only-multiline",
+        "objects": "only-multiline",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }
+    ],
+    "@typescript-eslint/ban-ts-comment": "off"
+  }
+}
+
+/*
+module.exports = {
+  trailingComma: 'es5',
+  bracketSpacing: true,
+  bracketSameLine: false,
+  semi: false,
+  singleQuote: true,
+  arrowParens: 'always',
+  endOfLine: 'auto',
+  overrides: [
+    {
+      files: 'Routes.*',
+      options: {
+        printWidth: 999,
+      },
+    },
+  ],
+}
+*/

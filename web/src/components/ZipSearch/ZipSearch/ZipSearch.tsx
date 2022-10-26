@@ -1,10 +1,10 @@
 import humanize from 'humanize-string'
+import type { DeleteZipSearchMutationVariables, FindZipSearchById } from 'types/graphql'
 
 import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import type { DeleteZipSearchMutationVariables, FindZipSearchById } from 'types/graphql'
 
 const DELETE_ZIP_SEARCH_MUTATION = gql`
   mutation DeleteZipSearchMutation($id: String!) {
@@ -19,7 +19,8 @@ const formatEnum = (values: string | string[] | null | undefined) => {
     if (Array.isArray(values)) {
       const humanizedValues = values.map((value) => humanize(value))
       return humanizedValues.join(', ')
-    } else {
+    }
+ else {
       return humanize(values as string)
     }
   }

@@ -1,9 +1,10 @@
+import { Container, TextInput } from '@mantine/core'
+
 const EndpointTestBar = () => {
   return (
-    <div>
-      <h2>{'EndpointTestBar'}</h2>
-      <p>{'Find me in ./web/src/components/EndpointTestBar/EndpointTestBar.tsx'}</p>
-    </div>
+    <Container>
+      <TextInput></TextInput>
+    </Container>
   )
 }
 
