@@ -18,9 +18,9 @@ const config = {
   logger: {
     // Note: If running locally using `yarn rw serve` you may want to adust
     // the default non-development level to `info`
-    level: process.env.NODE_ENV === 'development' ? 'debug' : 'warn',
+    level: process.env.NODE_ENV === "development" ? "debug" : "warn",
   },
-}
+};
 
 /**
  * You can also register Fastify plugins and additional routes for the API and Web sides
@@ -35,29 +35,29 @@ const config = {
 
 /** @type {import('@redwoodjs/api-server/dist/fastify').FastifySideConfigFn} */
 const configureFastify = async (fastify, options) => {
-  if (options.side === 'api') {
-    fastify.log.info({ custom: { options } }, 'Configuring api side')
+  if (options.side === "api") {
+    fastify.log.info({ custom: { options } }, "Configuring api side");
   }
 
-  if (options.side === 'web') {
-    fastify.log.info({ custom: { options } }, 'Configuring web side')
+  if (options.side === "web") {
+    fastify.log.info({ custom: { options } }, "Configuring web side");
   }
 
-  fastify.get('/hello-fastify', function (request, reply) {
-    reply.code(200).send({ hello: 'world' })
-  })
+  fastify.get("/hello-fastify", function (request, reply) {
+    reply.code(200).send({ hello: "world" });
+  });
 
   // CORS for fastify routes in dev mode, attach to prehandler
-  if (process.env.NODE_ENV === 'development') {
-    fastify.addHook('preHandler', (req, res, done) => {
-      const allowedRoutes = ['/hello-fastify']
+  if (process.env.NODE_ENV === "development") {
+    fastify.addHook("preHandler", (req, res, done) => {
+      const allowedRoutes = ["/hello-fastify"];
       if (allowedRoutes.includes(req.routerPath)) {
-        res.header('Access-Control-Allow-Origin', '*')
-        res.header('Access-Control-Allow-Methods', 'GET')
-        res.header('Access-Control-Allow-Headers', '*')
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET");
+        res.header("Access-Control-Allow-Headers", "*");
       }
-      done()
-    })
+      done();
+    });
   }
 
   // // longform method
@@ -83,10 +83,10 @@ const configureFastify = async (fastify, options) => {
   //   },
   // })
 
-  return fastify
-}
+  return fastify;
+};
 
 module.exports = {
   config,
   configureFastify,
-}
+};

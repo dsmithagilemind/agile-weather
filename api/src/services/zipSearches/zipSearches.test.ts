@@ -5,7 +5,7 @@ import {
   zipSearch,
   createZipSearch,
   updateZipSearch,
-  deleteZipSearch,
+  deleteZipSearch
 } from './zipSearches'
 import type { StandardScenario } from './zipSearches.scenarios'
 
@@ -29,12 +29,14 @@ describe('zipSearches', () => {
   })
 
   scenario('creates a zipSearch', async () => {
+
+    const date = new Date();
     const result = await createZipSearch({
-      input: { zip: 'String', date: '2022-10-10T19:59:22Z' },
+      input: { zip: 'String', date: date },
     })
 
     expect(result.zip).toEqual('String')
-    expect(result.date).toEqual('2022-10-10T19:59:22Z')
+    expect(result.date).toEqual(date)
   })
 
   scenario('updates a zipSearch', async (scenario: StandardScenario) => {

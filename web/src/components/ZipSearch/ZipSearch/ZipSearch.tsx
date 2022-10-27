@@ -14,7 +14,7 @@ const DELETE_ZIP_SEARCH_MUTATION = gql`
   }
 `
 
-const formatEnum = (values: string | string[] | null | undefined) => {
+const _formatEnum = (values: string | string[] | null | undefined) => {
   if (values) {
     if (Array.isArray(values)) {
       const humanizedValues = values.map((value) => humanize(value))
@@ -26,7 +26,7 @@ const formatEnum = (values: string | string[] | null | undefined) => {
   }
 }
 
-const jsonDisplay = (obj: unknown) => {
+const _jsonDisplay = (obj: unknown) => {
   return (
     <pre>
       <code>{JSON.stringify(obj, null, 2)}</code>
@@ -44,7 +44,7 @@ const timeTag = (datetime?: string) => {
   )
 }
 
-const checkboxInputTag = (checked: boolean) => {
+const _checkboxInputTag = (checked: boolean) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 

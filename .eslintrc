@@ -1,3 +1,8 @@
+/**
+ * vscode use extensions:
+ *  rvest Prettier ESlint
+ *  ms ESLint
+ */
 {
   "extends": ["prettier", "@redwoodjs/eslint-config"],
   "rules": {
@@ -16,23 +21,3 @@
     "@typescript-eslint/ban-ts-comment": "off"
   }
 }
-
-/*
-module.exports = {
-  trailingComma: 'es5',
-  bracketSpacing: true,
-  bracketSameLine: false,
-  semi: false,
-  singleQuote: true,
-  arrowParens: 'always',
-  endOfLine: 'auto',
-  overrides: [
-    {
-      files: 'Routes.*',
-      options: {
-        printWidth: 999,
-      },
-    },
-  ],
-}
-*/
