@@ -1,24 +1,19 @@
-import { mockRedwoodDirective, getDirectiveName } from '@redwoodjs/testing/api'
+import { getDirectiveName } from '@redwoodjs/testing/api'
 
 import endpoint from './endpoint'
 
 describe('endpoint directive', () => {
   it('declares the directive sdl as schema, with the correct name', () => {
-    // expect(endpoint.schema).toBeTruthy()
-    // expect(getDirectiveName(endpoint.schema)).toBe('endpoint')
-
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
+    expect(endpoint.schema).toBeTruthy()
+    expect(getDirectiveName(endpoint.schema)).toBe('endpoint')
   })
 
-  it('has a endpoint implementation transforms the value', () => {
-    // const mockExecution = mockRedwoodDirective(endpoint, {
-    //   mockedResolvedValue: 'foo',
-    // })
+  // it('has a endpoint implementation transforms the value', async() => {
+  //   const mockExecution = mockRedwoodDirective(endpoint, {
+  //     mockedResolvedValue: '',
+  //     directiveArgs: { url: global.RWJS_API_URL + '/zipSearchesEndpoint'}
+  //   })
 
-    // expect(mockExecution()).toBe('bar')
-
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
-  })
+  //   await expect(mockExecution()).toBe('bar')
+  // })
 })

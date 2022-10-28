@@ -8,7 +8,7 @@ export const fetch = async function (...args: any) {
 import { RedwoodError } from '@redwoodjs/api'
 import {
   createTransformerDirective,
-  TransformerDirectiveFunc,
+  TransformerDirectiveFunc
 } from '@redwoodjs/graphql-server'
 
 import { logger } from 'src/lib/logger'
@@ -34,14 +34,16 @@ const replaceUrlNamedParameters = (args, directiveArgs): string => {
           logger.debug({ custom: { params, args } }, 'Replacing argument')
           url = url.replace(param[0], `/${args[param[1]]}`)
           logger.debug({ custom: { url } }, 'url')
-        } else {
+        }
+        else {
           logger.error(
             { custom: directiveArgs.url },
             'Missing required argument'
           )
           throw new RedwoodError('Missing required argument')
         }
-      } catch (e) {
+      }
+      catch (e) {
         logger.error(
           { custom: directiveArgs.url },
           'Could not replace argument'
@@ -81,7 +83,8 @@ const transform: TransformerDirectiveFunc = async ({ args, directiveArgs }) => {
       console.log(json)
       return json.data
     }
-  } catch (e) {
+  }
+  catch (e) {
     logger.error(e)
     logger.error({ custom: url, e }, 'Unable to fetch url')
 
