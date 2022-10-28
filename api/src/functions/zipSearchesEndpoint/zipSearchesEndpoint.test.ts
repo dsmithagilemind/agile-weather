@@ -1,31 +1,41 @@
-// import { mockHttpEvent } from '@redwoodjs/testing/api'
+import { mockHttpEvent } from '@redwoodjs/testing/api'
 
-// import { handler } from './zipSearchesEndpoint'
+import { db } from 'src/lib/db'
+
+import { handler } from './zipSearchesEndpoint'
+
+
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-functions
 
-  // TODO: ReWrite The Following Test:
+// TODO: ReWrite The Following Test:
 describe('zipSearchesEndpoint function', () => {
   it('Should respond with 200', async () => {
-    // const httpEvent = mockHttpEvent({
-    //   queryStringParameters: {
-    //     id: '42', // Add parameters here
-    //   },
-    // })
 
-    // const response = await handler(httpEvent, null)
-    // const { data } = JSON.parse(response.body)
+    const zipCode = '12345'
 
-    // expect(response.statusCode).toBe(200)
-    // expect(data).toBe('zipSearchesEndpoint function')
-    expect(true).toBe(true)
+    const record = await db.zipSearch.create({
+      data: {
+        zip: zipCode,
+        date: undefined
+      }
+    })
+
+    const httpEvent = mockHttpEvent({
+      queryStringParameters: {
+        id: record.id
+      },
+    })
+
+    const response = await handler(httpEvent, null)
+    const { data } = JSON.parse(response.body)
+
+    console.log(data[0])
+
+    expect(response.statusCode).toBe(200)
+    expect(data[0].zip).toBeDefined();
+    expect(data.length).toBeGreaterThanOrEqual(1)
   })
 
-  // You can also use scenarios to test your api functions
-  // See guide here: https://redwoodjs.com/docs/testing#scenarios
-  //
-  // scenario('Scenario test', async () => {
-  //
-  // })
 })

@@ -98,5 +98,5 @@ model ZipSearch {
   createdAt DateTime @default(now())
   updatedAt DateTime? @updatedAt
   zip String
-  date DateTime
+  date DateTime @default(now())
 }

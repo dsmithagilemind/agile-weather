@@ -1,6 +1,9 @@
-// import { mockHttpEvent } from '@redwoodjs/testing/api'
+import { mockHttpEvent } from '@redwoodjs/testing/api'
 
-// import { handler } from './zipSearchEndpoint'
+import { db } from 'src/lib/db'
+import { createZipSearch } from 'src/services/zipSearches/zipSearches'
+
+import { handler } from './zipSearchEndpoint'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-functions
@@ -9,25 +12,48 @@
 // TODO: revisit with http endpoint in .env
 // ! SKIPPING TESTS IN THE MEANTIME DUE TO BREAKING TEST COMPLETIONS
 describe('zipSearchEndpoint function', () => {
-  it('Should respond with 200', async () => {
-    // const httpEvent = mockHttpEvent({
-    //   queryStringParameters: {
-    //     id: '42', // Add parameters here
-    //   },
-    // })
 
-    // const response = await handler(httpEvent, null)
-    // const { data } = JSON.parse(response.body)
+  const zipCode = '12345'
 
-    // expect(response.statusCode).toBe(200)
-    // expect(data).toBe('zipSearchEndpoint function')
-    expect(true).toBe(true)
+  scenario('creates a new zipSearch', async () => {
+
+
+    const result = await createZipSearch({
+      input: { zip: zipCode, date: undefined },
+    })
+
+    expect(result.zip).toEqual(zipCode)
   })
 
-  // You can also use scenarios to test your api functions
-  // See guide here: https://redwoodjs.com/docs/testing#scenarios
 
-  scenario('Scenario test', async () => {
+  scenario('find created zipSearch', async () => {
 
-  })
+    const record = await db.zipSearch.findFirst()
+
+    const httpEvent = mockHttpEvent({
+      queryStringParameters: {
+        id: record.id
+      },
+    })
+
+    const response = await handler(httpEvent, null)
+    const { data } = JSON.parse(response.body)
+
+    expect(response.statusCode).toBe(200)
+    expect(data.zip).toBe(record.zip)
+  });
+
+  // it('Should respond with 200', async () => {
+
+
+  //   const zipCode = '12345'
+  //   const date = '2022-10-28T17:44:41.614Z'
+
+  //   const record = await db.zipSearch.create({
+  //     data: {zip: zipCode,
+  //     }
+  //   })
+
+
+  // })
 })
