@@ -63,19 +63,19 @@ export function createData() {
 
     testDataSanitized = {
       geoLocations: geoLocations.map(g => {
-        g.stations = new Array<Station>()
+        delete g.stations
         g.id = undefined;
         return g
       }),
       stations: stations.map(s => {
         s.id = undefined;
-        s.climateEntries = new Array<ClimateEntry>()
+        delete s.climateEntries
         return s
       }),
       climateEntries: climateEntries.map(e => {
         e.id = undefined;
         e.stationId = undefined;
-        e.dataPoints = new Array<ClimateDataPoint>();
+        delete e.dataPoints
         return e;
       }),
       climateDataPoints: climateDataPoints.map(d => {

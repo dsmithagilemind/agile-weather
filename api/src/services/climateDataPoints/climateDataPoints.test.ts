@@ -19,74 +19,64 @@ describe('climateDataPoints', () => {
   scenario(
     'returns all climateDataPoints',
     async (scenario: StandardScenario) => {
-      // const result = await climateDataPoints()
+      const result = await climateDataPoints()
 
-      // expect(result.length).toEqual(
-      //   Object.keys(scenario.climateDataPoint).length
-      // )
+      expect(result.length).toEqual(
+        Object.keys(scenario.climateDataPoint).length
+      )
 
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
     }
   )
 
   scenario(
     'returns a single climateDataPoint',
     async (scenario: StandardScenario) => {
-      // const result = await climateDataPoint({
-      //   id: scenario.climateDataPoint.one.id,
-      // })
+      const result = await climateDataPoint({
+        id: scenario.climateDataPoint.one.id,
+      })
 
-      // expect(result).toEqual(scenario.climateDataPoint.one)
+      expect(result).toEqual(scenario.climateDataPoint.one)
 
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
     }
   )
 
   scenario('creates a climateDataPoint', async (scenario: StandardScenario) => {
-    // const result = await createClimateDataPoint({
-    //   input: {
-    //     label: 'String',
-    //     value: 'String',
-    //     climateEntryId: scenario.climateDataPoint.two.climateEntryId,
-    //   },
-    // })
+    const result = await createClimateDataPoint({
+      input: {
+        label: 'String',
+        value: 'String',
+        climateEntryId: scenario.climateDataPoint.two.climateEntryId,
+      },
+    })
 
-    // expect(result.label).toEqual('String')
-    // expect(result.value).toEqual('String')
-    // expect(result.climateEntryId).toEqual(
-    //   scenario.climateDataPoint.two.climateEntryId
-    // )
+    expect(result.label).toEqual('String')
+    expect(result.value).toEqual('String')
+    expect(result.climateEntryId).toEqual(
+      scenario.climateDataPoint.two.climateEntryId
+    )
 
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
   })
 
   scenario('updates a climateDataPoint', async (scenario: StandardScenario) => {
-    // const original = (await climateDataPoint({
-    //   id: scenario.climateDataPoint.one.id,
-    // })) as ClimateDataPoint
-    // const result = await updateClimateDataPoint({
-    //   id: original.id,
-    //   input: { label: 'String2' },
-    // })
+    const original = (await climateDataPoint({
+      id: scenario.climateDataPoint.one.id,
+    })) as ClimateDataPoint
+    const result = await updateClimateDataPoint({
+      id: original.id,
+      input: { label: 'String2' },
+    })
 
-    // expect(result.label).toEqual('String2')
+    expect(result.label).toEqual('String2')
 
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
   })
 
   scenario('deletes a climateDataPoint', async (scenario: StandardScenario) => {
-    // const original = (await deleteClimateDataPoint({
-    //   id: scenario.climateDataPoint.one.id,
-    // })) as ClimateDataPoint
-    // const result = await climateDataPoint({ id: original.id })
+    const original = (await deleteClimateDataPoint({
+      id: scenario.climateDataPoint.one.id,
+    })) as ClimateDataPoint
+    const result = await climateDataPoint({ id: original.id })
 
-    // expect(result).toEqual(null)
+    expect(result).toEqual(null)
 
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
   })
 })
