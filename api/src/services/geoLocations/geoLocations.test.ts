@@ -14,64 +14,49 @@ import type { StandardScenario } from './geoLocations.scenarios'
 //           Please refer to the RedwoodJS Testing Docs:
 //       https://redwoodjs.com/docs/testing#testing-services
 // https://redwoodjs.com/docs/testing#jest-expect-type-considerations
-
 describe('geoLocations', () => {
   scenario('returns all geoLocations', async (scenario: StandardScenario) => {
-    // const result = await geoLocations()
+    const result = await geoLocations()
 
-    // expect(result.length).toEqual(Object.keys(scenario.geoLocation).length)
-
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
+    expect(result.length).toEqual(Object.keys(scenario.geoLocation).length)
   })
 
   scenario(
     'returns a single geoLocation',
     async (scenario: StandardScenario) => {
-      // const result = await geoLocation({ id: scenario.geoLocation.one.id })
+      const result = await geoLocation({ id: scenario.geoLocation.one.id })
 
-      // expect(result).toEqual(scenario.geoLocation.one)
-
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
+      expect(result).toEqual(scenario.geoLocation.one)
     }
   )
 
   scenario('creates a geoLocation', async () => {
-    // const result = await createGeoLocation({
-    //   input: { city: 'String' },
-    // })
+    const result = await createGeoLocation({
+      input: { city: 'String', stateAbbrev: 'String' },
+    })
 
-    // expect(result.city).toEqual('String')
-
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
+    expect(result.city).toEqual('String')
+    expect(result.stateAbbrev).toEqual('String')
   })
 
   scenario('updates a geoLocation', async (scenario: StandardScenario) => {
-    // const original = (await geoLocation({
-    //   id: scenario.geoLocation.one.id,
-    // })) as GeoLocation
-    // const result = await updateGeoLocation({
-    //   id: original.id,
-    //   input: { city: 'String2' },
-    // })
+    const original = (await geoLocation({
+      id: scenario.geoLocation.one.id,
+    })) as GeoLocation
+    const result = await updateGeoLocation({
+      id: original.id,
+      input: { city: 'String2' },
+    })
 
-    // expect(result.city).toEqual('String2')
-
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
+    expect(result.city).toEqual('String2')
   })
 
   scenario('deletes a geoLocation', async (scenario: StandardScenario) => {
-    // const original = (await deleteGeoLocation({
-    //   id: scenario.geoLocation.one.id,
-    // })) as GeoLocation
-    // const result = await geoLocation({ id: original.id })
+    const original = (await deleteGeoLocation({
+      id: scenario.geoLocation.one.id,
+    })) as GeoLocation
+    const result = await geoLocation({ id: original.id })
 
-    // expect(result).toEqual(null)
-
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
+    expect(result).toEqual(null)
   })
 })

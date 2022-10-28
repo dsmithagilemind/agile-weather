@@ -63,7 +63,8 @@ export default async ({ db }) => {
     await db.$transaction(transactions)
 
     console.log('Completed update')
-  } else {
+  }
+  else {
     console.log('No tables required updating')
   }
 

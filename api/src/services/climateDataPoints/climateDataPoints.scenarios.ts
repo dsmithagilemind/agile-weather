@@ -1,38 +1,26 @@
 import type { Prisma, ClimateDataPoint } from '@prisma/client'
+
 import type { ScenarioData } from '@redwoodjs/testing/api'
 
-export const standard = defineScenario<Prisma.ClimateDataPointCreateArgs>({
-  climateDataPoint: {
-    one: {
-      data: {
-        label: 'String',
-        value: 'String',
-        climateEntry: {
-          create: {
-            topic: 'String',
-            period: 'String',
-            dataSet: 'String',
-            station: { create: { code: 'String' } },
+import { getTestData } from '../../lib/test-data';
+
+export const standard = defineScenario<Prisma.ClimateDataPointCreateArgs>(
+  (
+    () => {
+      const climateDataPoints = getTestData().climateDataPoints;
+      return {
+        climateDataPoint: {
+          one: {
+            data: climateDataPoints[0]
           },
-        },
-      },
-    },
-    two: {
-      data: {
-        label: 'String',
-        value: 'String',
-        climateEntry: {
-          create: {
-            topic: 'String',
-            period: 'String',
-            dataSet: 'String',
-            station: { create: { code: 'String' } },
-          },
-        },
-      },
-    },
-  },
-})
+          two: {
+            data: climateDataPoints[1]
+          }
+        }
+      }
+    }
+  )()
+)
 
 export type StandardScenario = ScenarioData<
   ClimateDataPoint,

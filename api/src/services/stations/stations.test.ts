@@ -17,56 +17,39 @@ import type { StandardScenario } from './stations.scenarios'
 
 describe('stations', () => {
   scenario('returns all stations', async (scenario: StandardScenario) => {
-    // const result = await stations()
-
-    // expect(result.length).toEqual(Object.keys(scenario.station).length)
-
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
+    const result = await stations()
+    expect(result.length).toEqual(Object.keys(scenario.station).length)
   })
 
   scenario('returns a single station', async (scenario: StandardScenario) => {
-    // const result = await station({ id: scenario.station.one.id })
-
-    // expect(result).toEqual(scenario.station.one)
-
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
+    const result = await station({ id: scenario.station.one.id })
+    expect(result).toEqual(scenario.station.one)
   })
 
   scenario('creates a station', async () => {
-    // const result = await createStation({
-    //   input: { code: 'String7749443' },
-    // })
+    const result = await createStation({
+      input: { code: 'String7749443' },
+    })
 
-    // expect(result.code).toEqual('String7749443')
-
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
+    expect(result.code).toEqual('String7749443')
   })
 
   scenario('updates a station', async (scenario: StandardScenario) => {
-    // const original = (await station({ id: scenario.station.one.id })) as Station
-    // const result = await updateStation({
-    //   id: original.id,
-    //   input: { code: 'String98624452' },
-    // })
+    const original = (await station({ id: scenario.station.one.id })) as Station
+    const result = await updateStation({
+      id: original.id,
+      input: { code: 'String98624452' },
+    })
 
-    // expect(result.code).toEqual('String98624452')
-
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
+    expect(result.code).toEqual('String98624452')
   })
 
   scenario('deletes a station', async (scenario: StandardScenario) => {
-    // const original = (await deleteStation({
-    //   id: scenario.station.one.id,
-    // })) as Station
-    // const result = await station({ id: original.id })
+    const original = (await deleteStation({
+      id: scenario.station.one.id,
+    })) as Station
+    const result = await station({ id: original.id })
 
-    // expect(result).toEqual(null)
-
-  // TODO: ReWrite The Following Test:
-  expect(true).toBe(true)
+    expect(result).toEqual(null)
   })
 })

@@ -1,0 +1,4841 @@
+{
+  "geoLocations": [
+    {
+      "id": 35,
+      "city": "Fairfield",
+      "county": "Jefferson",
+      "fips": "1",
+      "state": "Alabama",
+      "stateAbbrev": "AL",
+      "zip": "35064",
+      "stations": [
+        {
+          "stationName": "FAIRFIELD",
+          "longitude": -122.0678,
+          "latitude": 38.2736,
+          "hcn": "",
+          "gsn": "",
+          "code": "USC00042934",
+          "elevation": 12.2,
+          "id": "cl9r7o34m00xgvwpssmclqv9q",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 478,
+              "stationId": "cl9r7o34m00xgvwpssmclqv9q",
+              "dataPoints": [
+                {
+                  "value": "469",
+                  "label": "jan",
+                  "id": "cl9r7t6ph137evwpsux5y1wg6",
+                  "flag": "S",
+                  "climateEntryId": 478
+                },
+                {
+                  "value": "515",
+                  "label": "feb",
+                  "id": "cl9r7t6ph137fvwpse8dxsfqy",
+                  "flag": "S",
+                  "climateEntryId": 478
+                },
+                {
+                  "value": "554",
+                  "label": "mar",
+                  "id": "cl9r7t6ph137gvwpsya00htjj",
+                  "flag": "S",
+                  "climateEntryId": 478
+                },
+                {
+                  "value": "591",
+                  "label": "apr",
+                  "id": "cl9r7t6ph137hvwpswijskm6d",
+                  "flag": "S",
+                  "climateEntryId": 478
+                },
+                {
+                  "value": "649",
+                  "label": "may",
+                  "id": "cl9r7t6ph137ivwpsg7ar2rij",
+                  "flag": "S",
+                  "climateEntryId": 478
+                },
+                {
+                  "value": "703",
+                  "label": "jun",
+                  "id": "cl9r7t6ph137jvwpshlqwxdk4",
+                  "flag": "S",
+                  "climateEntryId": 478
+                },
+                {
+                  "value": "736",
+                  "label": "jul",
+                  "id": "cl9r7t6ph137kvwps3mtnujsp",
+                  "flag": "S",
+                  "climateEntryId": 478
+                },
+                {
+                  "value": "731",
+                  "label": "aug",
+                  "id": "cl9r7t6ph137lvwpszpksp7de",
+                  "flag": "S",
+                  "climateEntryId": 478
+                },
+                {
+                  "value": "710",
+                  "label": "sep",
+                  "id": "cl9r7t6ph137mvwpspddcoj8h",
+                  "flag": "S",
+                  "climateEntryId": 478
+                },
+                {
+                  "value": "643",
+                  "label": "oct",
+                  "id": "cl9r7t6ph137nvwpsc9ff0bsw",
+                  "flag": "S",
+                  "climateEntryId": 478
+                },
+                {
+                  "value": "546",
+                  "label": "nov",
+                  "id": "cl9r7t6ph137ovwpscxh8uajx",
+                  "flag": "S",
+                  "climateEntryId": 478
+                },
+                {
+                  "value": "471",
+                  "label": "dec",
+                  "id": "cl9r7t6ph137pvwpsf7i7m98h",
+                  "flag": "S",
+                  "climateEntryId": 478
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 7979,
+              "stationId": "cl9r7o34m00xgvwpssmclqv9q",
+              "dataPoints": [
+                {
+                  "value": "391",
+                  "label": "jan",
+                  "id": "cl9r7two54y42vwpsfe5rceta",
+                  "flag": "S",
+                  "climateEntryId": 7979
+                },
+                {
+                  "value": "421",
+                  "label": "feb",
+                  "id": "cl9r7two54y43vwpsm28aqnrn",
+                  "flag": "S",
+                  "climateEntryId": 7979
+                },
+                {
+                  "value": "448",
+                  "label": "mar",
+                  "id": "cl9r7two54y44vwps509uk0az",
+                  "flag": "S",
+                  "climateEntryId": 7979
+                },
+                {
+                  "value": "470",
+                  "label": "apr",
+                  "id": "cl9r7two54y45vwpsc78eojub",
+                  "flag": "S",
+                  "climateEntryId": 7979
+                },
+                {
+                  "value": "517",
+                  "label": "may",
+                  "id": "cl9r7two54y46vwpswp1pjm99",
+                  "flag": "S",
+                  "climateEntryId": 7979
+                },
+                {
+                  "value": "556",
+                  "label": "jun",
+                  "id": "cl9r7two54y47vwps48xx0lla",
+                  "flag": "S",
+                  "climateEntryId": 7979
+                },
+                {
+                  "value": "576",
+                  "label": "jul",
+                  "id": "cl9r7two54y48vwpsmixb4a2i",
+                  "flag": "S",
+                  "climateEntryId": 7979
+                },
+                {
+                  "value": "572",
+                  "label": "aug",
+                  "id": "cl9r7two54y49vwpsy9na3pph",
+                  "flag": "C",
+                  "climateEntryId": 7979
+                },
+                {
+                  "value": "556",
+                  "label": "sep",
+                  "id": "cl9r7two54y4avwps6dpgdk57",
+                  "flag": "C",
+                  "climateEntryId": 7979
+                },
+                {
+                  "value": "512",
+                  "label": "oct",
+                  "id": "cl9r7two54y4bvwps2hu4dt5u",
+                  "flag": "C",
+                  "climateEntryId": 7979
+                },
+                {
+                  "value": "444",
+                  "label": "nov",
+                  "id": "cl9r7two54y4cvwpsqbi6vr6w",
+                  "flag": "C",
+                  "climateEntryId": 7979
+                },
+                {
+                  "value": "389",
+                  "label": "dec",
+                  "id": "cl9r7two54y4dvwpsc0di3ad3",
+                  "flag": "C",
+                  "climateEntryId": 7979
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 15480,
+              "stationId": "cl9r7o34m00xgvwpssmclqv9q",
+              "dataPoints": [
+                {
+                  "value": "547",
+                  "label": "jan",
+                  "id": "cl9r7umrd8t0qvwpsx6c6h9q2",
+                  "flag": "S",
+                  "climateEntryId": 15480
+                },
+                {
+                  "value": "609",
+                  "label": "feb",
+                  "id": "cl9r7umrd8t0rvwpsxgfyod3d",
+                  "flag": "S",
+                  "climateEntryId": 15480
+                },
+                {
+                  "value": "660",
+                  "label": "mar",
+                  "id": "cl9r7umrd8t0svwps9tb2042a",
+                  "flag": "S",
+                  "climateEntryId": 15480
+                },
+                {
+                  "value": "712",
+                  "label": "apr",
+                  "id": "cl9r7umrd8t0tvwpseqith0js",
+                  "flag": "S",
+                  "climateEntryId": 15480
+                },
+                {
+                  "value": "781",
+                  "label": "may",
+                  "id": "cl9r7umrd8t0uvwpsweg7x7un",
+                  "flag": "S",
+                  "climateEntryId": 15480
+                },
+                {
+                  "value": "850",
+                  "label": "jun",
+                  "id": "cl9r7umrd8t0vvwpsvmifskbm",
+                  "flag": "S",
+                  "climateEntryId": 15480
+                },
+                {
+                  "value": "896",
+                  "label": "jul",
+                  "id": "cl9r7umrd8t0wvwpsfjxzm2s0",
+                  "flag": "S",
+                  "climateEntryId": 15480
+                },
+                {
+                  "value": "890",
+                  "label": "aug",
+                  "id": "cl9r7umrd8t0xvwps9u04m9kq",
+                  "flag": "S",
+                  "climateEntryId": 15480
+                },
+                {
+                  "value": "864",
+                  "label": "sep",
+                  "id": "cl9r7umrd8t0yvwps01kxtwr5",
+                  "flag": "S",
+                  "climateEntryId": 15480
+                },
+                {
+                  "value": "775",
+                  "label": "oct",
+                  "id": "cl9r7umrd8t0zvwps26mhpkey",
+                  "flag": "S",
+                  "climateEntryId": 15480
+                },
+                {
+                  "value": "648",
+                  "label": "nov",
+                  "id": "cl9r7umrd8t10vwps0m47yisc",
+                  "flag": "S",
+                  "climateEntryId": 15480
+                },
+                {
+                  "value": "552",
+                  "label": "dec",
+                  "id": "cl9r7umrd8t11vwpsronwfmyr",
+                  "flag": "S",
+                  "climateEntryId": 15480
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stationName": "FAIRFIELD RS",
+          "longitude": -114.79,
+          "latitude": 43.3428,
+          "hcn": "",
+          "gsn": "",
+          "code": "USC00103108",
+          "elevation": 1543.8,
+          "id": "cl9r7ojfz02cavwpss7nqg0am",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 1221,
+              "stationId": "cl9r7ojfz02cavwpss7nqg0am",
+              "dataPoints": [
+                {
+                  "value": "169",
+                  "label": "jan",
+                  "id": "cl9r7t98o1gyqvwpst1jat8uk",
+                  "flag": "R",
+                  "climateEntryId": 1221
+                },
+                {
+                  "value": "210",
+                  "label": "feb",
+                  "id": "cl9r7t98o1gyrvwps2wdg10y3",
+                  "flag": "R",
+                  "climateEntryId": 1221
+                },
+                {
+                  "value": "307",
+                  "label": "mar",
+                  "id": "cl9r7t98o1gysvwps5tbvo0i0",
+                  "flag": "R",
+                  "climateEntryId": 1221
+                },
+                {
+                  "value": "417",
+                  "label": "apr",
+                  "id": "cl9r7t98o1gytvwpsl7y6yh22",
+                  "flag": "R",
+                  "climateEntryId": 1221
+                },
+                {
+                  "value": "507",
+                  "label": "may",
+                  "id": "cl9r7t98o1gyuvwps0hx70tlt",
+                  "flag": "R",
+                  "climateEntryId": 1221
+                },
+                {
+                  "value": "575",
+                  "label": "jun",
+                  "id": "cl9r7t98o1gyvvwpshiddepum",
+                  "flag": "R",
+                  "climateEntryId": 1221
+                },
+                {
+                  "value": "658",
+                  "label": "jul",
+                  "id": "cl9r7t98o1gywvwps4q09mgd7",
+                  "flag": "R",
+                  "climateEntryId": 1221
+                },
+                {
+                  "value": "647",
+                  "label": "aug",
+                  "id": "cl9r7t98o1gyxvwps599auedj",
+                  "flag": "R",
+                  "climateEntryId": 1221
+                },
+                {
+                  "value": "558",
+                  "label": "sep",
+                  "id": "cl9r7t98o1gyyvwpsxtnprua9",
+                  "flag": "R",
+                  "climateEntryId": 1221
+                },
+                {
+                  "value": "446",
+                  "label": "oct",
+                  "id": "cl9r7t98o1gyzvwpsqzaa0dg7",
+                  "flag": "R",
+                  "climateEntryId": 1221
+                },
+                {
+                  "value": "301",
+                  "label": "nov",
+                  "id": "cl9r7t98o1gz0vwpsgj2h6hur",
+                  "flag": "R",
+                  "climateEntryId": 1221
+                },
+                {
+                  "value": "176",
+                  "label": "dec",
+                  "id": "cl9r7t98o1gz1vwpsfiqqoic7",
+                  "flag": "R",
+                  "climateEntryId": 1221
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 8722,
+              "stationId": "cl9r7ojfz02cavwpss7nqg0am",
+              "dataPoints": [
+                {
+                  "value": "55",
+                  "label": "jan",
+                  "id": "cl9r7tz7o5bvevwpsc1tl8nrb",
+                  "flag": "R",
+                  "climateEntryId": 8722
+                },
+                {
+                  "value": "90",
+                  "label": "feb",
+                  "id": "cl9r7tz7o5bvfvwpsd7trwvji",
+                  "flag": "R",
+                  "climateEntryId": 8722
+                },
+                {
+                  "value": "190",
+                  "label": "mar",
+                  "id": "cl9r7tz7o5bvgvwps17us8s4u",
+                  "flag": "R",
+                  "climateEntryId": 8722
+                },
+                {
+                  "value": "284",
+                  "label": "apr",
+                  "id": "cl9r7tz7o5bvhvwpso1c7nod0",
+                  "flag": "R",
+                  "climateEntryId": 8722
+                },
+                {
+                  "value": "359",
+                  "label": "may",
+                  "id": "cl9r7tz7o5bvivwpshpqk4dq6",
+                  "flag": "R",
+                  "climateEntryId": 8722
+                },
+                {
+                  "value": "408",
+                  "label": "jun",
+                  "id": "cl9r7tz7o5bvjvwps8jdd1osc",
+                  "flag": "R",
+                  "climateEntryId": 8722
+                },
+                {
+                  "value": "470",
+                  "label": "jul",
+                  "id": "cl9r7tz7o5bvkvwpsus7eu372",
+                  "flag": "R",
+                  "climateEntryId": 8722
+                },
+                {
+                  "value": "453",
+                  "label": "aug",
+                  "id": "cl9r7tz7o5bvlvwpsjt42201n",
+                  "flag": "R",
+                  "climateEntryId": 8722
+                },
+                {
+                  "value": "371",
+                  "label": "sep",
+                  "id": "cl9r7tz7p5bvmvwpsdhfc4o9g",
+                  "flag": "R",
+                  "climateEntryId": 8722
+                },
+                {
+                  "value": "283",
+                  "label": "oct",
+                  "id": "cl9r7tz7p5bvnvwpsp9174m4n",
+                  "flag": "R",
+                  "climateEntryId": 8722
+                },
+                {
+                  "value": "183",
+                  "label": "nov",
+                  "id": "cl9r7tz7p5bvovwps1f84kez3",
+                  "flag": "R",
+                  "climateEntryId": 8722
+                },
+                {
+                  "value": "69",
+                  "label": "dec",
+                  "id": "cl9r7tz7p5bvpvwpsz37zopmo",
+                  "flag": "R",
+                  "climateEntryId": 8722
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 16223,
+              "stationId": "cl9r7ojfz02cavwpss7nqg0am",
+              "dataPoints": [
+                {
+                  "value": "283",
+                  "label": "jan",
+                  "id": "cl9r7upcj96s2vwpsstr9y587",
+                  "flag": "R",
+                  "climateEntryId": 16223
+                },
+                {
+                  "value": "330",
+                  "label": "feb",
+                  "id": "cl9r7upck96s3vwpsga6kb9af",
+                  "flag": "R",
+                  "climateEntryId": 16223
+                },
+                {
+                  "value": "424",
+                  "label": "mar",
+                  "id": "cl9r7upck96s4vwps7rewyaku",
+                  "flag": "R",
+                  "climateEntryId": 16223
+                },
+                {
+                  "value": "550",
+                  "label": "apr",
+                  "id": "cl9r7upck96s5vwpstfo0zgi0",
+                  "flag": "R",
+                  "climateEntryId": 16223
+                },
+                {
+                  "value": "655",
+                  "label": "may",
+                  "id": "cl9r7upck96s6vwpsa8mtxqjx",
+                  "flag": "R",
+                  "climateEntryId": 16223
+                },
+                {
+                  "value": "743",
+                  "label": "jun",
+                  "id": "cl9r7upck96s7vwps56m8yeye",
+                  "flag": "R",
+                  "climateEntryId": 16223
+                },
+                {
+                  "value": "847",
+                  "label": "jul",
+                  "id": "cl9r7upck96s8vwpsckmaqoz0",
+                  "flag": "S",
+                  "climateEntryId": 16223
+                },
+                {
+                  "value": "842",
+                  "label": "aug",
+                  "id": "cl9r7upck96s9vwpskv1pxp0z",
+                  "flag": "S",
+                  "climateEntryId": 16223
+                },
+                {
+                  "value": "744",
+                  "label": "sep",
+                  "id": "cl9r7upck96savwps4ykldylf",
+                  "flag": "R",
+                  "climateEntryId": 16223
+                },
+                {
+                  "value": "609",
+                  "label": "oct",
+                  "id": "cl9r7upck96sbvwps3hanokrz",
+                  "flag": "R",
+                  "climateEntryId": 16223
+                },
+                {
+                  "value": "418",
+                  "label": "nov",
+                  "id": "cl9r7upck96scvwpse38yzqwy",
+                  "flag": "R",
+                  "climateEntryId": 16223
+                },
+                {
+                  "value": "283",
+                  "label": "dec",
+                  "id": "cl9r7upck96sdvwpsw7uuwc4i",
+                  "flag": "R",
+                  "climateEntryId": 16223
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stationName": "FAIRFIELD 3 SE",
+          "longitude": -114.75,
+          "latitude": 43.3167,
+          "hcn": "",
+          "gsn": "",
+          "code": "USC00103110",
+          "elevation": 1530.1,
+          "id": "cl9r7ojgl02ccvwps9fe6y67e",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 1222,
+              "stationId": "cl9r7ojgl02ccvwps9fe6y67e",
+              "dataPoints": [
+                {
+                  "value": "149",
+                  "label": "jan",
+                  "id": "cl9r7t98s1gzevwps0fuly366",
+                  "flag": "R",
+                  "climateEntryId": 1222
+                },
+                {
+                  "value": "172",
+                  "label": "feb",
+                  "id": "cl9r7t98t1gzfvwpsd9x7dhp7",
+                  "flag": "R",
+                  "climateEntryId": 1222
+                },
+                {
+                  "value": "286",
+                  "label": "mar",
+                  "id": "cl9r7t98t1gzgvwpszhuskb4p",
+                  "flag": "R",
+                  "climateEntryId": 1222
+                },
+                {
+                  "value": "408",
+                  "label": "apr",
+                  "id": "cl9r7t98t1gzhvwpsv8a4up3n",
+                  "flag": "R",
+                  "climateEntryId": 1222
+                },
+                {
+                  "value": "496",
+                  "label": "may",
+                  "id": "cl9r7t98t1gzivwpscvxlvaxs",
+                  "flag": "R",
+                  "climateEntryId": 1222
+                },
+                {
+                  "value": "560",
+                  "label": "jun",
+                  "id": "cl9r7t98t1gzjvwpsxdcrwhje",
+                  "flag": "R",
+                  "climateEntryId": 1222
+                },
+                {
+                  "value": "643",
+                  "label": "jul",
+                  "id": "cl9r7t98t1gzkvwpsj9i1dasw",
+                  "flag": "R",
+                  "climateEntryId": 1222
+                },
+                {
+                  "value": "628",
+                  "label": "aug",
+                  "id": "cl9r7t98t1gzlvwpsmji6g8yn",
+                  "flag": "R",
+                  "climateEntryId": 1222
+                },
+                {
+                  "value": "532",
+                  "label": "sep",
+                  "id": "cl9r7t98t1gzmvwps0qq6x60l",
+                  "flag": "R",
+                  "climateEntryId": 1222
+                },
+                {
+                  "value": "427",
+                  "label": "oct",
+                  "id": "cl9r7t98t1gznvwpsait6yo5w",
+                  "flag": "R",
+                  "climateEntryId": 1222
+                },
+                {
+                  "value": "291",
+                  "label": "nov",
+                  "id": "cl9r7t98t1gzovwps87cnh31v",
+                  "flag": "R",
+                  "climateEntryId": 1222
+                },
+                {
+                  "value": "157",
+                  "label": "dec",
+                  "id": "cl9r7t98t1gzpvwps99q53qy6",
+                  "flag": "R",
+                  "climateEntryId": 1222
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 8723,
+              "stationId": "cl9r7ojgl02ccvwps9fe6y67e",
+              "dataPoints": [
+                {
+                  "value": "25",
+                  "label": "jan",
+                  "id": "cl9r7tz7t5bw2vwps73sfsgqp",
+                  "flag": "R",
+                  "climateEntryId": 8723
+                },
+                {
+                  "value": "37",
+                  "label": "feb",
+                  "id": "cl9r7tz7t5bw3vwpsuniqdi83",
+                  "flag": "R",
+                  "climateEntryId": 8723
+                },
+                {
+                  "value": "161",
+                  "label": "mar",
+                  "id": "cl9r7tz7t5bw4vwpsuygv7nm1",
+                  "flag": "R",
+                  "climateEntryId": 8723
+                },
+                {
+                  "value": "274",
+                  "label": "apr",
+                  "id": "cl9r7tz7t5bw5vwpsbz5fmvc4",
+                  "flag": "R",
+                  "climateEntryId": 8723
+                },
+                {
+                  "value": "351",
+                  "label": "may",
+                  "id": "cl9r7tz7t5bw6vwpskt5lnuuf",
+                  "flag": "R",
+                  "climateEntryId": 8723
+                },
+                {
+                  "value": "399",
+                  "label": "jun",
+                  "id": "cl9r7tz7t5bw7vwpss4ehhd2d",
+                  "flag": "R",
+                  "climateEntryId": 8723
+                },
+                {
+                  "value": "450",
+                  "label": "jul",
+                  "id": "cl9r7tz7t5bw8vwps278f35n1",
+                  "flag": "R",
+                  "climateEntryId": 8723
+                },
+                {
+                  "value": "427",
+                  "label": "aug",
+                  "id": "cl9r7tz7t5bw9vwpsgh25zgwb",
+                  "flag": "R",
+                  "climateEntryId": 8723
+                },
+                {
+                  "value": "329",
+                  "label": "sep",
+                  "id": "cl9r7tz7t5bwavwpsr8cq98jv",
+                  "flag": "R",
+                  "climateEntryId": 8723
+                },
+                {
+                  "value": "247",
+                  "label": "oct",
+                  "id": "cl9r7tz7t5bwbvwps1xsqm3wp",
+                  "flag": "R",
+                  "climateEntryId": 8723
+                },
+                {
+                  "value": "158",
+                  "label": "nov",
+                  "id": "cl9r7tz7t5bwcvwpsk2g011xj",
+                  "flag": "R",
+                  "climateEntryId": 8723
+                },
+                {
+                  "value": "39",
+                  "label": "dec",
+                  "id": "cl9r7tz7t5bwdvwpstu2izjt2",
+                  "flag": "R",
+                  "climateEntryId": 8723
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 16224,
+              "stationId": "cl9r7ojgl02ccvwps9fe6y67e",
+              "dataPoints": [
+                {
+                  "value": "274",
+                  "label": "jan",
+                  "id": "cl9r7upco96sqvwpsrygym18l",
+                  "flag": "R",
+                  "climateEntryId": 16224
+                },
+                {
+                  "value": "306",
+                  "label": "feb",
+                  "id": "cl9r7upco96srvwpsn7hfmh63",
+                  "flag": "R",
+                  "climateEntryId": 16224
+                },
+                {
+                  "value": "411",
+                  "label": "mar",
+                  "id": "cl9r7upco96ssvwps6b2t0pcl",
+                  "flag": "R",
+                  "climateEntryId": 16224
+                },
+                {
+                  "value": "542",
+                  "label": "apr",
+                  "id": "cl9r7upco96stvwpsmxto2cjx",
+                  "flag": "R",
+                  "climateEntryId": 16224
+                },
+                {
+                  "value": "641",
+                  "label": "may",
+                  "id": "cl9r7upco96suvwpsd957i6mc",
+                  "flag": "R",
+                  "climateEntryId": 16224
+                },
+                {
+                  "value": "720",
+                  "label": "jun",
+                  "id": "cl9r7upco96svvwps17s7dyns",
+                  "flag": "R",
+                  "climateEntryId": 16224
+                },
+                {
+                  "value": "835",
+                  "label": "jul",
+                  "id": "cl9r7upco96swvwpsr1u2wiqo",
+                  "flag": "R",
+                  "climateEntryId": 16224
+                },
+                {
+                  "value": "828",
+                  "label": "aug",
+                  "id": "cl9r7upco96sxvwps3mgxb0zn",
+                  "flag": "R",
+                  "climateEntryId": 16224
+                },
+                {
+                  "value": "734",
+                  "label": "sep",
+                  "id": "cl9r7upco96syvwpsq3v8sedp",
+                  "flag": "R",
+                  "climateEntryId": 16224
+                },
+                {
+                  "value": "607",
+                  "label": "oct",
+                  "id": "cl9r7upco96szvwpszeqtfqr7",
+                  "flag": "R",
+                  "climateEntryId": 16224
+                },
+                {
+                  "value": "424",
+                  "label": "nov",
+                  "id": "cl9r7upco96t0vwps35oqjdwt",
+                  "flag": "R",
+                  "climateEntryId": 16224
+                },
+                {
+                  "value": "274",
+                  "label": "dec",
+                  "id": "cl9r7upco96t1vwps94qk4e9r",
+                  "flag": "R",
+                  "climateEntryId": 16224
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stationName": "FAIRFIELD RADIO WFIW",
+          "longitude": -88.3264,
+          "latitude": 38.3806,
+          "hcn": "",
+          "gsn": "",
+          "code": "USC00112931",
+          "elevation": 131.1,
+          "id": "cl9r7omdj02lovwps7vkpjta3",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 1356,
+              "stationId": "cl9r7omdj02lovwps7vkpjta3",
+              "dataPoints": [
+                {
+                  "value": "304",
+                  "label": "jan",
+                  "id": "cl9r7t9pq1jgqvwps2wvx0q9p",
+                  "flag": "S",
+                  "climateEntryId": 1356
+                },
+                {
+                  "value": "347",
+                  "label": "feb",
+                  "id": "cl9r7t9pq1jgrvwps8q89vj9i",
+                  "flag": "S",
+                  "climateEntryId": 1356
+                },
+                {
+                  "value": "445",
+                  "label": "mar",
+                  "id": "cl9r7t9pq1jgsvwpst9gu5rol",
+                  "flag": "S",
+                  "climateEntryId": 1356
+                },
+                {
+                  "value": "551",
+                  "label": "apr",
+                  "id": "cl9r7t9pq1jgtvwps19b26zoq",
+                  "flag": "S",
+                  "climateEntryId": 1356
+                },
+                {
+                  "value": "643",
+                  "label": "may",
+                  "id": "cl9r7t9pq1jguvwps0ajyqbms",
+                  "flag": "S",
+                  "climateEntryId": 1356
+                },
+                {
+                  "value": "733",
+                  "label": "jun",
+                  "id": "cl9r7t9pr1jgvvwpsjs36782e",
+                  "flag": "S",
+                  "climateEntryId": 1356
+                },
+                {
+                  "value": "766",
+                  "label": "jul",
+                  "id": "cl9r7t9pr1jgwvwpsmi6cy0uu",
+                  "flag": "S",
+                  "climateEntryId": 1356
+                },
+                {
+                  "value": "753",
+                  "label": "aug",
+                  "id": "cl9r7t9pr1jgxvwpstpzb2yuc",
+                  "flag": "S",
+                  "climateEntryId": 1356
+                },
+                {
+                  "value": "677",
+                  "label": "sep",
+                  "id": "cl9r7t9pr1jgyvwpsx4ze40rf",
+                  "flag": "S",
+                  "climateEntryId": 1356
+                },
+                {
+                  "value": "563",
+                  "label": "oct",
+                  "id": "cl9r7t9pr1jgzvwpsdluoker8",
+                  "flag": "S",
+                  "climateEntryId": 1356
+                },
+                {
+                  "value": "448",
+                  "label": "nov",
+                  "id": "cl9r7t9pr1jh0vwpsfnje8jtk",
+                  "flag": "S",
+                  "climateEntryId": 1356
+                },
+                {
+                  "value": "333",
+                  "label": "dec",
+                  "id": "cl9r7t9pr1jh1vwpsvp348ujh",
+                  "flag": "S",
+                  "climateEntryId": 1356
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 8857,
+              "stationId": "cl9r7omdj02lovwps7vkpjta3",
+              "dataPoints": [
+                {
+                  "value": "216",
+                  "label": "jan",
+                  "id": "cl9r7tzny5edevwpsg6u6rvzk",
+                  "flag": "S",
+                  "climateEntryId": 8857
+                },
+                {
+                  "value": "252",
+                  "label": "feb",
+                  "id": "cl9r7tzny5edfvwpslngrm702",
+                  "flag": "S",
+                  "climateEntryId": 8857
+                },
+                {
+                  "value": "338",
+                  "label": "mar",
+                  "id": "cl9r7tzny5edgvwpsnk2jjeps",
+                  "flag": "S",
+                  "climateEntryId": 8857
+                },
+                {
+                  "value": "435",
+                  "label": "apr",
+                  "id": "cl9r7tzny5edhvwpsmr9460s2",
+                  "flag": "S",
+                  "climateEntryId": 8857
+                },
+                {
+                  "value": "529",
+                  "label": "may",
+                  "id": "cl9r7tzny5edivwpspcepjlpl",
+                  "flag": "S",
+                  "climateEntryId": 8857
+                },
+                {
+                  "value": "618",
+                  "label": "jun",
+                  "id": "cl9r7tzny5edjvwpsb8khmguy",
+                  "flag": "S",
+                  "climateEntryId": 8857
+                },
+                {
+                  "value": "653",
+                  "label": "jul",
+                  "id": "cl9r7tzny5edkvwpss86bdbmy",
+                  "flag": "S",
+                  "climateEntryId": 8857
+                },
+                {
+                  "value": "634",
+                  "label": "aug",
+                  "id": "cl9r7tzny5edlvwpsvpj865xd",
+                  "flag": "S",
+                  "climateEntryId": 8857
+                },
+                {
+                  "value": "551",
+                  "label": "sep",
+                  "id": "cl9r7tzny5edmvwps65dxfi4o",
+                  "flag": "S",
+                  "climateEntryId": 8857
+                },
+                {
+                  "value": "441",
+                  "label": "oct",
+                  "id": "cl9r7tznz5ednvwpsmpu2dusa",
+                  "flag": "S",
+                  "climateEntryId": 8857
+                },
+                {
+                  "value": "346",
+                  "label": "nov",
+                  "id": "cl9r7tznz5edovwpserj3wyos",
+                  "flag": "S",
+                  "climateEntryId": 8857
+                },
+                {
+                  "value": "247",
+                  "label": "dec",
+                  "id": "cl9r7tznz5edpvwpsiyvyzf7q",
+                  "flag": "S",
+                  "climateEntryId": 8857
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 16358,
+              "stationId": "cl9r7omdj02lovwps7vkpjta3",
+              "dataPoints": [
+                {
+                  "value": "391",
+                  "label": "jan",
+                  "id": "cl9r7uptu99a2vwpsyzbxs5bs",
+                  "flag": "C",
+                  "climateEntryId": 16358
+                },
+                {
+                  "value": "442",
+                  "label": "feb",
+                  "id": "cl9r7uptu99a3vwpsjjinizxi",
+                  "flag": "C",
+                  "climateEntryId": 16358
+                },
+                {
+                  "value": "552",
+                  "label": "mar",
+                  "id": "cl9r7uptu99a4vwpst1zb7813",
+                  "flag": "C",
+                  "climateEntryId": 16358
+                },
+                {
+                  "value": "667",
+                  "label": "apr",
+                  "id": "cl9r7uptu99a5vwpsa2e8ciru",
+                  "flag": "C",
+                  "climateEntryId": 16358
+                },
+                {
+                  "value": "758",
+                  "label": "may",
+                  "id": "cl9r7uptu99a6vwpss9lgav7a",
+                  "flag": "C",
+                  "climateEntryId": 16358
+                },
+                {
+                  "value": "848",
+                  "label": "jun",
+                  "id": "cl9r7uptu99a7vwpseh0dkuik",
+                  "flag": "S",
+                  "climateEntryId": 16358
+                },
+                {
+                  "value": "879",
+                  "label": "jul",
+                  "id": "cl9r7uptu99a8vwps64tqb151",
+                  "flag": "C",
+                  "climateEntryId": 16358
+                },
+                {
+                  "value": "872",
+                  "label": "aug",
+                  "id": "cl9r7uptv99a9vwpsrt198xvr",
+                  "flag": "C",
+                  "climateEntryId": 16358
+                },
+                {
+                  "value": "803",
+                  "label": "sep",
+                  "id": "cl9r7uptv99aavwpsp0makcaf",
+                  "flag": "C",
+                  "climateEntryId": 16358
+                },
+                {
+                  "value": "685",
+                  "label": "oct",
+                  "id": "cl9r7uptv99abvwps9oy0wv21",
+                  "flag": "C",
+                  "climateEntryId": 16358
+                },
+                {
+                  "value": "549",
+                  "label": "nov",
+                  "id": "cl9r7uptv99acvwpsrfzj1ilf",
+                  "flag": "C",
+                  "climateEntryId": 16358
+                },
+                {
+                  "value": "419",
+                  "label": "dec",
+                  "id": "cl9r7uptv99advwpsc21kjlq0",
+                  "flag": "C",
+                  "climateEntryId": 16358
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stationName": "FAIRFIELD",
+          "longitude": -91.9553,
+          "latitude": 41.0211,
+          "hcn": "HCN",
+          "gsn": "",
+          "code": "USC00132789",
+          "elevation": 225.6,
+          "id": "cl9r7ottu0394vwps66un4npi",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 1618,
+              "stationId": "cl9r7ottu0394vwps66un4npi",
+              "dataPoints": [
+                {
+                  "value": "245",
+                  "label": "jan",
+                  "id": "cl9r7tamf1obevwps3blo131q",
+                  "flag": "C",
+                  "climateEntryId": 1618
+                },
+                {
+                  "value": "293",
+                  "label": "feb",
+                  "id": "cl9r7tamf1obfvwps7osailyo",
+                  "flag": "C",
+                  "climateEntryId": 1618
+                },
+                {
+                  "value": "408",
+                  "label": "mar",
+                  "id": "cl9r7tamf1obgvwpshzi7ly1g",
+                  "flag": "C",
+                  "climateEntryId": 1618
+                },
+                {
+                  "value": "531",
+                  "label": "apr",
+                  "id": "cl9r7tamf1obhvwpsi0udq2z7",
+                  "flag": "C",
+                  "climateEntryId": 1618
+                },
+                {
+                  "value": "629",
+                  "label": "may",
+                  "id": "cl9r7tamf1obivwpse1drf2ag",
+                  "flag": "C",
+                  "climateEntryId": 1618
+                },
+                {
+                  "value": "720",
+                  "label": "jun",
+                  "id": "cl9r7tamf1objvwpsruwyi4wg",
+                  "flag": "C",
+                  "climateEntryId": 1618
+                },
+                {
+                  "value": "761",
+                  "label": "jul",
+                  "id": "cl9r7tamf1obkvwps8l09v0ld",
+                  "flag": "C",
+                  "climateEntryId": 1618
+                },
+                {
+                  "value": "742",
+                  "label": "aug",
+                  "id": "cl9r7tamf1oblvwpsy2516skp",
+                  "flag": "C",
+                  "climateEntryId": 1618
+                },
+                {
+                  "value": "663",
+                  "label": "sep",
+                  "id": "cl9r7tamf1obmvwpsuhbe6xdz",
+                  "flag": "C",
+                  "climateEntryId": 1618
+                },
+                {
+                  "value": "544",
+                  "label": "oct",
+                  "id": "cl9r7tamf1obnvwps8qebomtd",
+                  "flag": "C",
+                  "climateEntryId": 1618
+                },
+                {
+                  "value": "412",
+                  "label": "nov",
+                  "id": "cl9r7tamf1obovwpsmbmitouo",
+                  "flag": "C",
+                  "climateEntryId": 1618
+                },
+                {
+                  "value": "278",
+                  "label": "dec",
+                  "id": "cl9r7tamf1obpvwpsdzx40p9r",
+                  "flag": "C",
+                  "climateEntryId": 1618
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 9119,
+              "stationId": "cl9r7ottu0394vwps66un4npi",
+              "dataPoints": [
+                {
+                  "value": "156",
+                  "label": "jan",
+                  "id": "cl9r7u0lw5j82vwpsbnfndqx5",
+                  "flag": "C",
+                  "climateEntryId": 9119
+                },
+                {
+                  "value": "201",
+                  "label": "feb",
+                  "id": "cl9r7u0lw5j83vwpsjao4d1r0",
+                  "flag": "C",
+                  "climateEntryId": 9119
+                },
+                {
+                  "value": "302",
+                  "label": "mar",
+                  "id": "cl9r7u0lw5j84vwpsz8sfibv5",
+                  "flag": "C",
+                  "climateEntryId": 9119
+                },
+                {
+                  "value": "411",
+                  "label": "apr",
+                  "id": "cl9r7u0lw5j85vwpsebolzx1b",
+                  "flag": "C",
+                  "climateEntryId": 9119
+                },
+                {
+                  "value": "514",
+                  "label": "may",
+                  "id": "cl9r7u0lw5j86vwps76hdf02d",
+                  "flag": "C",
+                  "climateEntryId": 9119
+                },
+                {
+                  "value": "610",
+                  "label": "jun",
+                  "id": "cl9r7u0lw5j87vwps409hp9pj",
+                  "flag": "C",
+                  "climateEntryId": 9119
+                },
+                {
+                  "value": "653",
+                  "label": "jul",
+                  "id": "cl9r7u0lw5j88vwps53uklnx5",
+                  "flag": "C",
+                  "climateEntryId": 9119
+                },
+                {
+                  "value": "632",
+                  "label": "aug",
+                  "id": "cl9r7u0lw5j89vwpstj03ss4e",
+                  "flag": "C",
+                  "climateEntryId": 9119
+                },
+                {
+                  "value": "546",
+                  "label": "sep",
+                  "id": "cl9r7u0lw5j8avwpsrv89dn2a",
+                  "flag": "C",
+                  "climateEntryId": 9119
+                },
+                {
+                  "value": "435",
+                  "label": "oct",
+                  "id": "cl9r7u0lw5j8bvwpssunglodc",
+                  "flag": "C",
+                  "climateEntryId": 9119
+                },
+                {
+                  "value": "320",
+                  "label": "nov",
+                  "id": "cl9r7u0lw5j8cvwpsui4qejjs",
+                  "flag": "C",
+                  "climateEntryId": 9119
+                },
+                {
+                  "value": "195",
+                  "label": "dec",
+                  "id": "cl9r7u0lw5j8dvwps41t8eddj",
+                  "flag": "C",
+                  "climateEntryId": 9119
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 16620,
+              "stationId": "cl9r7ottu0394vwps66un4npi",
+              "dataPoints": [
+                {
+                  "value": "334",
+                  "label": "jan",
+                  "id": "cl9r7uqqs9e4qvwps5qmgcu3r",
+                  "flag": "C",
+                  "climateEntryId": 16620
+                },
+                {
+                  "value": "385",
+                  "label": "feb",
+                  "id": "cl9r7uqqs9e4rvwps646pmhhy",
+                  "flag": "C",
+                  "climateEntryId": 16620
+                },
+                {
+                  "value": "514",
+                  "label": "mar",
+                  "id": "cl9r7uqqs9e4svwps5z1dnoxh",
+                  "flag": "C",
+                  "climateEntryId": 16620
+                },
+                {
+                  "value": "652",
+                  "label": "apr",
+                  "id": "cl9r7uqqs9e4tvwpskmondrwy",
+                  "flag": "C",
+                  "climateEntryId": 16620
+                },
+                {
+                  "value": "744",
+                  "label": "may",
+                  "id": "cl9r7uqqs9e4uvwpsjndfucaw",
+                  "flag": "C",
+                  "climateEntryId": 16620
+                },
+                {
+                  "value": "831",
+                  "label": "jun",
+                  "id": "cl9r7uqqs9e4vvwps2svgbg24",
+                  "flag": "C",
+                  "climateEntryId": 16620
+                },
+                {
+                  "value": "869",
+                  "label": "jul",
+                  "id": "cl9r7uqqs9e4wvwps8m40ce66",
+                  "flag": "C",
+                  "climateEntryId": 16620
+                },
+                {
+                  "value": "851",
+                  "label": "aug",
+                  "id": "cl9r7uqqt9e4xvwpsnctary2k",
+                  "flag": "C",
+                  "climateEntryId": 16620
+                },
+                {
+                  "value": "780",
+                  "label": "sep",
+                  "id": "cl9r7uqqt9e4yvwps8zpzans5",
+                  "flag": "C",
+                  "climateEntryId": 16620
+                },
+                {
+                  "value": "654",
+                  "label": "oct",
+                  "id": "cl9r7uqqt9e4zvwps9975k5bz",
+                  "flag": "C",
+                  "climateEntryId": 16620
+                },
+                {
+                  "value": "504",
+                  "label": "nov",
+                  "id": "cl9r7uqqt9e50vwpsjdcenfyu",
+                  "flag": "C",
+                  "climateEntryId": 16620
+                },
+                {
+                  "value": "361",
+                  "label": "dec",
+                  "id": "cl9r7uqqt9e51vwps36mczy0k",
+                  "flag": "C",
+                  "climateEntryId": 16620
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stationName": "FAIRFIELD",
+          "longitude": -111.9855,
+          "latitude": 47.6153,
+          "hcn": "",
+          "gsn": "",
+          "code": "USC00242857",
+          "elevation": 1214,
+          "id": "cl9r7pqeb062evwps84gedx3o",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 2829,
+              "stationId": "cl9r7pqeb062evwps84gedx3o",
+              "dataPoints": [
+                {
+                  "value": "260",
+                  "label": "jan",
+                  "id": "cl9r7tetl2aqqvwps134erpo5",
+                  "flag": "S",
+                  "climateEntryId": 2829
+                },
+                {
+                  "value": "277",
+                  "label": "feb",
+                  "id": "cl9r7tetl2aqrvwpsdv4su7bx",
+                  "flag": "C",
+                  "climateEntryId": 2829
+                },
+                {
+                  "value": "347",
+                  "label": "mar",
+                  "id": "cl9r7tetl2aqsvwpspypldsx3",
+                  "flag": "S",
+                  "climateEntryId": 2829
+                },
+                {
+                  "value": "429",
+                  "label": "apr",
+                  "id": "cl9r7tetl2aqtvwpsd5gucpwq",
+                  "flag": "C",
+                  "climateEntryId": 2829
+                },
+                {
+                  "value": "519",
+                  "label": "may",
+                  "id": "cl9r7tetl2aquvwps7leqs4ob",
+                  "flag": "C",
+                  "climateEntryId": 2829
+                },
+                {
+                  "value": "591",
+                  "label": "jun",
+                  "id": "cl9r7tetl2aqvvwpsbtyn3zuz",
+                  "flag": "C",
+                  "climateEntryId": 2829
+                },
+                {
+                  "value": "661",
+                  "label": "jul",
+                  "id": "cl9r7tetl2aqwvwpsvw3g13fs",
+                  "flag": "S",
+                  "climateEntryId": 2829
+                },
+                {
+                  "value": "653",
+                  "label": "aug",
+                  "id": "cl9r7tetl2aqxvwps38njysb3",
+                  "flag": "C",
+                  "climateEntryId": 2829
+                },
+                {
+                  "value": "559",
+                  "label": "sep",
+                  "id": "cl9r7tetl2aqyvwpsjv1h0pk0",
+                  "flag": "C",
+                  "climateEntryId": 2829
+                },
+                {
+                  "value": "453",
+                  "label": "oct",
+                  "id": "cl9r7tetl2aqzvwps6eat5zhn",
+                  "flag": "S",
+                  "climateEntryId": 2829
+                },
+                {
+                  "value": "333",
+                  "label": "nov",
+                  "id": "cl9r7tetl2ar0vwps4ny5cf00",
+                  "flag": "S",
+                  "climateEntryId": 2829
+                },
+                {
+                  "value": "256",
+                  "label": "dec",
+                  "id": "cl9r7tetl2ar1vwpshg0gr4xm",
+                  "flag": "C",
+                  "climateEntryId": 2829
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 10330,
+              "stationId": "cl9r7pqeb062evwps84gedx3o",
+              "dataPoints": [
+                {
+                  "value": "158",
+                  "label": "jan",
+                  "id": "cl9r7u4sa65nevwps20z3ikjj",
+                  "flag": "S",
+                  "climateEntryId": 10330
+                },
+                {
+                  "value": "171",
+                  "label": "feb",
+                  "id": "cl9r7u4sa65nfvwpswx2p5pdz",
+                  "flag": "C",
+                  "climateEntryId": 10330
+                },
+                {
+                  "value": "235",
+                  "label": "mar",
+                  "id": "cl9r7u4sa65ngvwps7vmdgyak",
+                  "flag": "S",
+                  "climateEntryId": 10330
+                },
+                {
+                  "value": "314",
+                  "label": "apr",
+                  "id": "cl9r7u4sa65nhvwpsxww8rr54",
+                  "flag": "C",
+                  "climateEntryId": 10330
+                },
+                {
+                  "value": "403",
+                  "label": "may",
+                  "id": "cl9r7u4sa65nivwpsubox3cpx",
+                  "flag": "C",
+                  "climateEntryId": 10330
+                },
+                {
+                  "value": "473",
+                  "label": "jun",
+                  "id": "cl9r7u4sa65njvwps996p6i3t",
+                  "flag": "C",
+                  "climateEntryId": 10330
+                },
+                {
+                  "value": "524",
+                  "label": "jul",
+                  "id": "cl9r7u4sa65nkvwpsld3gdetl",
+                  "flag": "S",
+                  "climateEntryId": 10330
+                },
+                {
+                  "value": "511",
+                  "label": "aug",
+                  "id": "cl9r7u4sa65nlvwpsubxe8zbw",
+                  "flag": "C",
+                  "climateEntryId": 10330
+                },
+                {
+                  "value": "428",
+                  "label": "sep",
+                  "id": "cl9r7u4sa65nmvwpsq29rtl8t",
+                  "flag": "C",
+                  "climateEntryId": 10330
+                },
+                {
+                  "value": "334",
+                  "label": "oct",
+                  "id": "cl9r7u4sa65nnvwps0z2zr7vb",
+                  "flag": "S",
+                  "climateEntryId": 10330
+                },
+                {
+                  "value": "238",
+                  "label": "nov",
+                  "id": "cl9r7u4sa65novwpsx28bp0n5",
+                  "flag": "S",
+                  "climateEntryId": 10330
+                },
+                {
+                  "value": "161",
+                  "label": "dec",
+                  "id": "cl9r7u4sa65npvwpss6pfji35",
+                  "flag": "C",
+                  "climateEntryId": 10330
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 17831,
+              "stationId": "cl9r7pqeb062evwps84gedx3o",
+              "dataPoints": [
+                {
+                  "value": "362",
+                  "label": "jan",
+                  "id": "cl9r7uuwca0k2vwps8iysjwi9",
+                  "flag": "S",
+                  "climateEntryId": 17831
+                },
+                {
+                  "value": "384",
+                  "label": "feb",
+                  "id": "cl9r7uuwca0k3vwpswgna7i8l",
+                  "flag": "C",
+                  "climateEntryId": 17831
+                },
+                {
+                  "value": "458",
+                  "label": "mar",
+                  "id": "cl9r7uuwca0k4vwpskr7ygdgp",
+                  "flag": "S",
+                  "climateEntryId": 17831
+                },
+                {
+                  "value": "545",
+                  "label": "apr",
+                  "id": "cl9r7uuwca0k5vwps2fg9mlci",
+                  "flag": "C",
+                  "climateEntryId": 17831
+                },
+                {
+                  "value": "636",
+                  "label": "may",
+                  "id": "cl9r7uuwca0k6vwpst606fzri",
+                  "flag": "C",
+                  "climateEntryId": 17831
+                },
+                {
+                  "value": "709",
+                  "label": "jun",
+                  "id": "cl9r7uuwca0k7vwps4x42um28",
+                  "flag": "C",
+                  "climateEntryId": 17831
+                },
+                {
+                  "value": "798",
+                  "label": "jul",
+                  "id": "cl9r7uuwca0k8vwps8swy7d1p",
+                  "flag": "C",
+                  "climateEntryId": 17831
+                },
+                {
+                  "value": "796",
+                  "label": "aug",
+                  "id": "cl9r7uuwca0k9vwpsnyupian1",
+                  "flag": "C",
+                  "climateEntryId": 17831
+                },
+                {
+                  "value": "689",
+                  "label": "sep",
+                  "id": "cl9r7uuwca0kavwpsffvfsf3u",
+                  "flag": "C",
+                  "climateEntryId": 17831
+                },
+                {
+                  "value": "571",
+                  "label": "oct",
+                  "id": "cl9r7uuwca0kbvwpsi67ix5ei",
+                  "flag": "S",
+                  "climateEntryId": 17831
+                },
+                {
+                  "value": "429",
+                  "label": "nov",
+                  "id": "cl9r7uuwca0kcvwpsfajajojr",
+                  "flag": "S",
+                  "climateEntryId": 17831
+                },
+                {
+                  "value": "351",
+                  "label": "dec",
+                  "id": "cl9r7uuwca0kdvwpsszaqd2ii",
+                  "flag": "C",
+                  "climateEntryId": 17831
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stationName": "FAIRFIELD",
+          "longitude": -76.312,
+          "latitude": 35.5358,
+          "hcn": "",
+          "gsn": "",
+          "code": "USC00312940",
+          "elevation": 1.5,
+          "id": "cl9r7qahx07tkvwps4q05obzh",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 3717,
+              "stationId": "cl9r7qahx07tkvwps4q05obzh",
+              "dataPoints": [
+                {
+                  "value": "402",
+                  "label": "jan",
+                  "id": "cl9r7thva2r6qvwpsicp3vlwq",
+                  "flag": "Q",
+                  "climateEntryId": 3717
+                },
+                {
+                  "value": "429",
+                  "label": "feb",
+                  "id": "cl9r7thva2r6rvwps86ipebnj",
+                  "flag": "Q",
+                  "climateEntryId": 3717
+                },
+                {
+                  "value": "495",
+                  "label": "mar",
+                  "id": "cl9r7thva2r6svwpsrzxiansg",
+                  "flag": "Q",
+                  "climateEntryId": 3717
+                },
+                {
+                  "value": "582",
+                  "label": "apr",
+                  "id": "cl9r7thva2r6tvwps8fvkl8p7",
+                  "flag": "Q",
+                  "climateEntryId": 3717
+                },
+                {
+                  "value": "663",
+                  "label": "may",
+                  "id": "cl9r7thva2r6uvwpsanof1bgf",
+                  "flag": "Q",
+                  "climateEntryId": 3717
+                },
+                {
+                  "value": "741",
+                  "label": "jun",
+                  "id": "cl9r7thva2r6vvwps93om8ysg",
+                  "flag": "Q",
+                  "climateEntryId": 3717
+                },
+                {
+                  "value": "780",
+                  "label": "jul",
+                  "id": "cl9r7thva2r6wvwpswukq5ctx",
+                  "flag": "Q",
+                  "climateEntryId": 3717
+                },
+                {
+                  "value": "762",
+                  "label": "aug",
+                  "id": "cl9r7thva2r6xvwps3bdga4wx",
+                  "flag": "Q",
+                  "climateEntryId": 3717
+                },
+                {
+                  "value": "708",
+                  "label": "sep",
+                  "id": "cl9r7thva2r6yvwpssbe7swas",
+                  "flag": "Q",
+                  "climateEntryId": 3717
+                },
+                {
+                  "value": "609",
+                  "label": "oct",
+                  "id": "cl9r7thva2r6zvwpsfsxv3rmr",
+                  "flag": "Q",
+                  "climateEntryId": 3717
+                },
+                {
+                  "value": "522",
+                  "label": "nov",
+                  "id": "cl9r7thva2r70vwps60foaiet",
+                  "flag": "Q",
+                  "climateEntryId": 3717
+                },
+                {
+                  "value": "436",
+                  "label": "dec",
+                  "id": "cl9r7thva2r71vwpskb1z07er",
+                  "flag": "Q",
+                  "climateEntryId": 3717
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 11218,
+              "stationId": "cl9r7qahx07tkvwps4q05obzh",
+              "dataPoints": [
+                {
+                  "value": "267",
+                  "label": "jan",
+                  "id": "cl9r7u7xa6m3evwpsq9xmw2mb",
+                  "flag": "Q",
+                  "climateEntryId": 11218
+                },
+                {
+                  "value": "282",
+                  "label": "feb",
+                  "id": "cl9r7u7xa6m3fvwps7zqu8qtu",
+                  "flag": "Q",
+                  "climateEntryId": 11218
+                },
+                {
+                  "value": "336",
+                  "label": "mar",
+                  "id": "cl9r7u7xa6m3gvwpst6op2f5l",
+                  "flag": "Q",
+                  "climateEntryId": 11218
+                },
+                {
+                  "value": "434",
+                  "label": "apr",
+                  "id": "cl9r7u7xa6m3hvwpswj9kch19",
+                  "flag": "Q",
+                  "climateEntryId": 11218
+                },
+                {
+                  "value": "524",
+                  "label": "may",
+                  "id": "cl9r7u7xa6m3ivwps1d1dm7rt",
+                  "flag": "Q",
+                  "climateEntryId": 11218
+                },
+                {
+                  "value": "611",
+                  "label": "jun",
+                  "id": "cl9r7u7xa6m3jvwps1k7fmoon",
+                  "flag": "Q",
+                  "climateEntryId": 11218
+                },
+                {
+                  "value": "660",
+                  "label": "jul",
+                  "id": "cl9r7u7xa6m3kvwpst4dn1uaz",
+                  "flag": "Q",
+                  "climateEntryId": 11218
+                },
+                {
+                  "value": "650",
+                  "label": "aug",
+                  "id": "cl9r7u7xa6m3lvwpsymuzr0py",
+                  "flag": "Q",
+                  "climateEntryId": 11218
+                },
+                {
+                  "value": "601",
+                  "label": "sep",
+                  "id": "cl9r7u7xa6m3mvwps0ffscl89",
+                  "flag": "Q",
+                  "climateEntryId": 11218
+                },
+                {
+                  "value": "472",
+                  "label": "oct",
+                  "id": "cl9r7u7xa6m3nvwpsmeakd1a2",
+                  "flag": "Q",
+                  "climateEntryId": 11218
+                },
+                {
+                  "value": "383",
+                  "label": "nov",
+                  "id": "cl9r7u7xa6m3ovwpsvasxf7qi",
+                  "flag": "Q",
+                  "climateEntryId": 11218
+                },
+                {
+                  "value": "308",
+                  "label": "dec",
+                  "id": "cl9r7u7xa6m3pvwpsjskgobme",
+                  "flag": "Q",
+                  "climateEntryId": 11218
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 18719,
+              "stationId": "cl9r7qahx07tkvwps4q05obzh",
+              "dataPoints": [
+                {
+                  "value": "536",
+                  "label": "jan",
+                  "id": "cl9r7uxyoah02vwpsj4hfbyud",
+                  "flag": "Q",
+                  "climateEntryId": 18719
+                },
+                {
+                  "value": "575",
+                  "label": "feb",
+                  "id": "cl9r7uxyoah03vwpsw2qfeett",
+                  "flag": "Q",
+                  "climateEntryId": 18719
+                },
+                {
+                  "value": "653",
+                  "label": "mar",
+                  "id": "cl9r7uxyoah04vwpsstkebpon",
+                  "flag": "Q",
+                  "climateEntryId": 18719
+                },
+                {
+                  "value": "729",
+                  "label": "apr",
+                  "id": "cl9r7uxyoah05vwpsf1zis0wm",
+                  "flag": "Q",
+                  "climateEntryId": 18719
+                },
+                {
+                  "value": "802",
+                  "label": "may",
+                  "id": "cl9r7uxyoah06vwps6zqa754f",
+                  "flag": "Q",
+                  "climateEntryId": 18719
+                },
+                {
+                  "value": "872",
+                  "label": "jun",
+                  "id": "cl9r7uxyoah07vwpslrg1q2od",
+                  "flag": "Q",
+                  "climateEntryId": 18719
+                },
+                {
+                  "value": "900",
+                  "label": "jul",
+                  "id": "cl9r7uxyoah08vwpslr07bn5k",
+                  "flag": "Q",
+                  "climateEntryId": 18719
+                },
+                {
+                  "value": "874",
+                  "label": "aug",
+                  "id": "cl9r7uxyoah09vwpsq2k4ylmn",
+                  "flag": "Q",
+                  "climateEntryId": 18719
+                },
+                {
+                  "value": "815",
+                  "label": "sep",
+                  "id": "cl9r7uxyoah0avwps1agzjrve",
+                  "flag": "Q",
+                  "climateEntryId": 18719
+                },
+                {
+                  "value": "746",
+                  "label": "oct",
+                  "id": "cl9r7uxyoah0bvwpsrxx20hqe",
+                  "flag": "Q",
+                  "climateEntryId": 18719
+                },
+                {
+                  "value": "660",
+                  "label": "nov",
+                  "id": "cl9r7uxyoah0cvwpsli0mba49",
+                  "flag": "Q",
+                  "climateEntryId": 18719
+                },
+                {
+                  "value": "564",
+                  "label": "dec",
+                  "id": "cl9r7uxyoah0dvwpsch1dzxgs",
+                  "flag": "Q",
+                  "climateEntryId": 18719
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stationName": "FAIRFIELD",
+          "longitude": -103.2247,
+          "latitude": 47.1906,
+          "hcn": "",
+          "gsn": "",
+          "code": "USC00322809",
+          "elevation": 838.2,
+          "id": "cl9r7qdjz082wvwps80l8ihi0",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 3848,
+              "stationId": "cl9r7qdjz082wvwps80l8ihi0",
+              "dataPoints": [
+                {
+                  "value": "154",
+                  "label": "jan",
+                  "id": "cl9r7tibh2tm2vwpspgntmgof",
+                  "flag": "C",
+                  "climateEntryId": 3848
+                },
+                {
+                  "value": "199",
+                  "label": "feb",
+                  "id": "cl9r7tibh2tm3vwpsxfi24ixb",
+                  "flag": "S",
+                  "climateEntryId": 3848
+                },
+                {
+                  "value": "303",
+                  "label": "mar",
+                  "id": "cl9r7tibh2tm4vwpsy1f1dm3z",
+                  "flag": "C",
+                  "climateEntryId": 3848
+                },
+                {
+                  "value": "435",
+                  "label": "apr",
+                  "id": "cl9r7tibh2tm5vwpshy8l4406",
+                  "flag": "S",
+                  "climateEntryId": 3848
+                },
+                {
+                  "value": "546",
+                  "label": "may",
+                  "id": "cl9r7tibi2tm6vwpsbi6fk7oy",
+                  "flag": "S",
+                  "climateEntryId": 3848
+                },
+                {
+                  "value": "637",
+                  "label": "jun",
+                  "id": "cl9r7tibi2tm7vwps9x5yn08s",
+                  "flag": "S",
+                  "climateEntryId": 3848
+                },
+                {
+                  "value": "708",
+                  "label": "jul",
+                  "id": "cl9r7tibi2tm8vwpsd1l0hi9b",
+                  "flag": "C",
+                  "climateEntryId": 3848
+                },
+                {
+                  "value": "696",
+                  "label": "aug",
+                  "id": "cl9r7tibi2tm9vwps3dd8409e",
+                  "flag": "S",
+                  "climateEntryId": 3848
+                },
+                {
+                  "value": "581",
+                  "label": "sep",
+                  "id": "cl9r7tibi2tmavwpsu7zhiowq",
+                  "flag": "S",
+                  "climateEntryId": 3848
+                },
+                {
+                  "value": "445",
+                  "label": "oct",
+                  "id": "cl9r7tibi2tmbvwpsi1umchhn",
+                  "flag": "S",
+                  "climateEntryId": 3848
+                },
+                {
+                  "value": "295",
+                  "label": "nov",
+                  "id": "cl9r7tibi2tmcvwpsngxzqewq",
+                  "flag": "C",
+                  "climateEntryId": 3848
+                },
+                {
+                  "value": "173",
+                  "label": "dec",
+                  "id": "cl9r7tibi2tmdvwpsh4azvnpb",
+                  "flag": "S",
+                  "climateEntryId": 3848
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 11349,
+              "stationId": "cl9r7qdjz082wvwps80l8ihi0",
+              "dataPoints": [
+                {
+                  "value": "55",
+                  "label": "jan",
+                  "id": "cl9r7u8dh6oiqvwpsp717prgy",
+                  "flag": "C",
+                  "climateEntryId": 11349
+                },
+                {
+                  "value": "95",
+                  "label": "feb",
+                  "id": "cl9r7u8dh6oirvwpsgfhy5urs",
+                  "flag": "S",
+                  "climateEntryId": 11349
+                },
+                {
+                  "value": "197",
+                  "label": "mar",
+                  "id": "cl9r7u8dh6oisvwpsbawoykgs",
+                  "flag": "C",
+                  "climateEntryId": 11349
+                },
+                {
+                  "value": "312",
+                  "label": "apr",
+                  "id": "cl9r7u8dh6oitvwps2tx76pjj",
+                  "flag": "S",
+                  "climateEntryId": 11349
+                },
+                {
+                  "value": "425",
+                  "label": "may",
+                  "id": "cl9r7u8dh6oiuvwpsnihz6ogt",
+                  "flag": "C",
+                  "climateEntryId": 11349
+                },
+                {
+                  "value": "517",
+                  "label": "jun",
+                  "id": "cl9r7u8dh6oivvwpsxgnb3mmy",
+                  "flag": "S",
+                  "climateEntryId": 11349
+                },
+                {
+                  "value": "574",
+                  "label": "jul",
+                  "id": "cl9r7u8dh6oiwvwpsydtc9nho",
+                  "flag": "C",
+                  "climateEntryId": 11349
+                },
+                {
+                  "value": "554",
+                  "label": "aug",
+                  "id": "cl9r7u8dh6oixvwpst10ow88j",
+                  "flag": "C",
+                  "climateEntryId": 11349
+                },
+                {
+                  "value": "448",
+                  "label": "sep",
+                  "id": "cl9r7u8dh6oiyvwps86ql6kko",
+                  "flag": "S",
+                  "climateEntryId": 11349
+                },
+                {
+                  "value": "326",
+                  "label": "oct",
+                  "id": "cl9r7u8dh6oizvwpsongbxr1w",
+                  "flag": "S",
+                  "climateEntryId": 11349
+                },
+                {
+                  "value": "194",
+                  "label": "nov",
+                  "id": "cl9r7u8dh6oj0vwpsoctbjjuh",
+                  "flag": "C",
+                  "climateEntryId": 11349
+                },
+                {
+                  "value": "74",
+                  "label": "dec",
+                  "id": "cl9r7u8dh6oj1vwpsmtotpji2",
+                  "flag": "S",
+                  "climateEntryId": 11349
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 18850,
+              "stationId": "cl9r7qdjz082wvwps80l8ihi0",
+              "dataPoints": [
+                {
+                  "value": "252",
+                  "label": "jan",
+                  "id": "cl9r7uyf9ajfevwps7rigt27c",
+                  "flag": "C",
+                  "climateEntryId": 18850
+                },
+                {
+                  "value": "303",
+                  "label": "feb",
+                  "id": "cl9r7uyf9ajffvwpsc5llnf54",
+                  "flag": "S",
+                  "climateEntryId": 18850
+                },
+                {
+                  "value": "409",
+                  "label": "mar",
+                  "id": "cl9r7uyf9ajfgvwpsm5va3k3l",
+                  "flag": "C",
+                  "climateEntryId": 18850
+                },
+                {
+                  "value": "558",
+                  "label": "apr",
+                  "id": "cl9r7uyf9ajfhvwpsrzki8y41",
+                  "flag": "S",
+                  "climateEntryId": 18850
+                },
+                {
+                  "value": "668",
+                  "label": "may",
+                  "id": "cl9r7uyf9ajfivwps4txrsfvo",
+                  "flag": "S",
+                  "climateEntryId": 18850
+                },
+                {
+                  "value": "757",
+                  "label": "jun",
+                  "id": "cl9r7uyf9ajfjvwpselczchll",
+                  "flag": "S",
+                  "climateEntryId": 18850
+                },
+                {
+                  "value": "842",
+                  "label": "jul",
+                  "id": "cl9r7uyf9ajfkvwpsf32rkk36",
+                  "flag": "C",
+                  "climateEntryId": 18850
+                },
+                {
+                  "value": "838",
+                  "label": "aug",
+                  "id": "cl9r7uyf9ajflvwpsdfts15hh",
+                  "flag": "S",
+                  "climateEntryId": 18850
+                },
+                {
+                  "value": "715",
+                  "label": "sep",
+                  "id": "cl9r7uyf9ajfmvwpsb5mfi6we",
+                  "flag": "S",
+                  "climateEntryId": 18850
+                },
+                {
+                  "value": "563",
+                  "label": "oct",
+                  "id": "cl9r7uyf9ajfnvwpsjrh5nqzn",
+                  "flag": "S",
+                  "climateEntryId": 18850
+                },
+                {
+                  "value": "396",
+                  "label": "nov",
+                  "id": "cl9r7uyf9ajfovwpszypvt5w4",
+                  "flag": "C",
+                  "climateEntryId": 18850
+                },
+                {
+                  "value": "271",
+                  "label": "dec",
+                  "id": "cl9r7uyf9ajfpvwpsr3o2cchs",
+                  "flag": "S",
+                  "climateEntryId": 18850
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stationName": "FAIRFIELD 3W",
+          "longitude": -96.2078,
+          "latitude": 31.7322,
+          "hcn": "",
+          "gsn": "",
+          "code": "USC00413047",
+          "elevation": 131.7,
+          "id": "cl9r7r5sa0ahsvwpsyxn30pwv",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 4995,
+              "stationId": "cl9r7r5sa0ahsvwpsyxn30pwv",
+              "dataPoints": [
+                {
+                  "value": "463",
+                  "label": "jan",
+                  "id": "cl9r7tmc23euqvwpsh9kcbv69",
+                  "flag": "R",
+                  "climateEntryId": 4995
+                },
+                {
+                  "value": "498",
+                  "label": "feb",
+                  "id": "cl9r7tmc23eurvwpslvwsujh2",
+                  "flag": "R",
+                  "climateEntryId": 4995
+                },
+                {
+                  "value": "566",
+                  "label": "mar",
+                  "id": "cl9r7tmc23eusvwps9mz5fywc",
+                  "flag": "R",
+                  "climateEntryId": 4995
+                },
+                {
+                  "value": "649",
+                  "label": "apr",
+                  "id": "cl9r7tmc23eutvwpsqaaxug5g",
+                  "flag": "R",
+                  "climateEntryId": 4995
+                },
+                {
+                  "value": "727",
+                  "label": "may",
+                  "id": "cl9r7tmc23euuvwpsicdkq7hs",
+                  "flag": "R",
+                  "climateEntryId": 4995
+                },
+                {
+                  "value": "792",
+                  "label": "jun",
+                  "id": "cl9r7tmc23euvvwpsv7xeub1b",
+                  "flag": "R",
+                  "climateEntryId": 4995
+                },
+                {
+                  "value": "829",
+                  "label": "jul",
+                  "id": "cl9r7tmc23euwvwps0d2rdwnp",
+                  "flag": "R",
+                  "climateEntryId": 4995
+                },
+                {
+                  "value": "832",
+                  "label": "aug",
+                  "id": "cl9r7tmc23euxvwpsrctjj7cn",
+                  "flag": "R",
+                  "climateEntryId": 4995
+                },
+                {
+                  "value": "763",
+                  "label": "sep",
+                  "id": "cl9r7tmc23euyvwpsq2x05i84",
+                  "flag": "R",
+                  "climateEntryId": 4995
+                },
+                {
+                  "value": "667",
+                  "label": "oct",
+                  "id": "cl9r7tmc23euzvwpslmixh35r",
+                  "flag": "R",
+                  "climateEntryId": 4995
+                },
+                {
+                  "value": "563",
+                  "label": "nov",
+                  "id": "cl9r7tmc23ev0vwpso8cnqjrg",
+                  "flag": "R",
+                  "climateEntryId": 4995
+                },
+                {
+                  "value": "471",
+                  "label": "dec",
+                  "id": "cl9r7tmc23ev1vwpsm6q741qe",
+                  "flag": "R",
+                  "climateEntryId": 4995
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 12496,
+              "stationId": "cl9r7r5sa0ahsvwpsyxn30pwv",
+              "dataPoints": [
+                {
+                  "value": "353",
+                  "label": "jan",
+                  "id": "cl9r7ucd179revwps6qx7ifnu",
+                  "flag": "R",
+                  "climateEntryId": 12496
+                },
+                {
+                  "value": "390",
+                  "label": "feb",
+                  "id": "cl9r7ucd179rfvwpsphjejgjl",
+                  "flag": "R",
+                  "climateEntryId": 12496
+                },
+                {
+                  "value": "455",
+                  "label": "mar",
+                  "id": "cl9r7ucd279rgvwpsncrzkyen",
+                  "flag": "R",
+                  "climateEntryId": 12496
+                },
+                {
+                  "value": "540",
+                  "label": "apr",
+                  "id": "cl9r7ucd279rhvwpsvyt5yans",
+                  "flag": "R",
+                  "climateEntryId": 12496
+                },
+                {
+                  "value": "631",
+                  "label": "may",
+                  "id": "cl9r7ucd279rivwpsg2k9exfn",
+                  "flag": "R",
+                  "climateEntryId": 12496
+                },
+                {
+                  "value": "694",
+                  "label": "jun",
+                  "id": "cl9r7ucd279rjvwps21e3fy6k",
+                  "flag": "R",
+                  "climateEntryId": 12496
+                },
+                {
+                  "value": "723",
+                  "label": "jul",
+                  "id": "cl9r7ucd279rkvwpstjyiv6f9",
+                  "flag": "R",
+                  "climateEntryId": 12496
+                },
+                {
+                  "value": "715",
+                  "label": "aug",
+                  "id": "cl9r7ucd279rlvwpsv891vh9l",
+                  "flag": "R",
+                  "climateEntryId": 12496
+                },
+                {
+                  "value": "646",
+                  "label": "sep",
+                  "id": "cl9r7ucd279rmvwpsrrmfyjdh",
+                  "flag": "R",
+                  "climateEntryId": 12496
+                },
+                {
+                  "value": "554",
+                  "label": "oct",
+                  "id": "cl9r7ucd279rnvwps1je2bgg6",
+                  "flag": "R",
+                  "climateEntryId": 12496
+                },
+                {
+                  "value": "452",
+                  "label": "nov",
+                  "id": "cl9r7ucd279rovwps4kxh3jr6",
+                  "flag": "R",
+                  "climateEntryId": 12496
+                },
+                {
+                  "value": "366",
+                  "label": "dec",
+                  "id": "cl9r7ucd279rpvwpsaw0mzhww",
+                  "flag": "R",
+                  "climateEntryId": 12496
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 19997,
+              "stationId": "cl9r7r5sa0ahsvwpsyxn30pwv",
+              "dataPoints": [
+                {
+                  "value": "572",
+                  "label": "jan",
+                  "id": "cl9r7v2drb4o2vwps64dlvfsd",
+                  "flag": "R",
+                  "climateEntryId": 19997
+                },
+                {
+                  "value": "605",
+                  "label": "feb",
+                  "id": "cl9r7v2drb4o3vwps5866zy2w",
+                  "flag": "R",
+                  "climateEntryId": 19997
+                },
+                {
+                  "value": "677",
+                  "label": "mar",
+                  "id": "cl9r7v2drb4o4vwpsmqic0x6g",
+                  "flag": "R",
+                  "climateEntryId": 19997
+                },
+                {
+                  "value": "758",
+                  "label": "apr",
+                  "id": "cl9r7v2drb4o5vwps819lbbb9",
+                  "flag": "R",
+                  "climateEntryId": 19997
+                },
+                {
+                  "value": "823",
+                  "label": "may",
+                  "id": "cl9r7v2drb4o6vwps69vl8wh6",
+                  "flag": "R",
+                  "climateEntryId": 19997
+                },
+                {
+                  "value": "890",
+                  "label": "jun",
+                  "id": "cl9r7v2drb4o7vwpsq9lf68x6",
+                  "flag": "R",
+                  "climateEntryId": 19997
+                },
+                {
+                  "value": "935",
+                  "label": "jul",
+                  "id": "cl9r7v2drb4o8vwpspwmyaiyz",
+                  "flag": "R",
+                  "climateEntryId": 19997
+                },
+                {
+                  "value": "948",
+                  "label": "aug",
+                  "id": "cl9r7v2drb4o9vwps91ahrtph",
+                  "flag": "R",
+                  "climateEntryId": 19997
+                },
+                {
+                  "value": "880",
+                  "label": "sep",
+                  "id": "cl9r7v2drb4oavwps5jvpsmny",
+                  "flag": "R",
+                  "climateEntryId": 19997
+                },
+                {
+                  "value": "779",
+                  "label": "oct",
+                  "id": "cl9r7v2drb4obvwpsp779sctz",
+                  "flag": "R",
+                  "climateEntryId": 19997
+                },
+                {
+                  "value": "674",
+                  "label": "nov",
+                  "id": "cl9r7v2drb4ocvwpsl427kbz9",
+                  "flag": "R",
+                  "climateEntryId": 19997
+                },
+                {
+                  "value": "577",
+                  "label": "dec",
+                  "id": "cl9r7v2drb4odvwpsn9wc5fq3",
+                  "flag": "R",
+                  "climateEntryId": 19997
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stationName": "HAMILTON BUTLER CO RGNL AP",
+          "longitude": -84.5247,
+          "latitude": 39.3644,
+          "hcn": "",
+          "gsn": "",
+          "code": "USW00053855",
+          "elevation": 193.2,
+          "id": "cl9r7sgdf0egwvwps53mk1j9t",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 7096,
+              "stationId": "cl9r7sgdf0egwvwps53mk1j9t",
+              "dataPoints": [
+                {
+                  "value": "300",
+                  "label": "jan",
+                  "id": "cl9r7tthu4hrevwpsr3kbar0s",
+                  "flag": "R",
+                  "climateEntryId": 7096
+                },
+                {
+                  "value": "333",
+                  "label": "feb",
+                  "id": "cl9r7tthu4hrfvwps9qnv9e9s",
+                  "flag": "R",
+                  "climateEntryId": 7096
+                },
+                {
+                  "value": "424",
+                  "label": "mar",
+                  "id": "cl9r7tthu4hrgvwpsugw6sjty",
+                  "flag": "R",
+                  "climateEntryId": 7096
+                },
+                {
+                  "value": "536",
+                  "label": "apr",
+                  "id": "cl9r7tthu4hrhvwpsw88z7xfu",
+                  "flag": "R",
+                  "climateEntryId": 7096
+                },
+                {
+                  "value": "624",
+                  "label": "may",
+                  "id": "cl9r7tthu4hrivwpsjmvaasjk",
+                  "flag": "R",
+                  "climateEntryId": 7096
+                },
+                {
+                  "value": "711",
+                  "label": "jun",
+                  "id": "cl9r7tthu4hrjvwpst0r6gmtv",
+                  "flag": "R",
+                  "climateEntryId": 7096
+                },
+                {
+                  "value": "751",
+                  "label": "jul",
+                  "id": "cl9r7tthu4hrkvwpspvcplwj0",
+                  "flag": "R",
+                  "climateEntryId": 7096
+                },
+                {
+                  "value": "735",
+                  "label": "aug",
+                  "id": "cl9r7tthu4hrlvwpsp04apbid",
+                  "flag": "R",
+                  "climateEntryId": 7096
+                },
+                {
+                  "value": "657",
+                  "label": "sep",
+                  "id": "cl9r7tthu4hrmvwpsgl5fgi6q",
+                  "flag": "R",
+                  "climateEntryId": 7096
+                },
+                {
+                  "value": "542",
+                  "label": "oct",
+                  "id": "cl9r7tthu4hrnvwps15479ot6",
+                  "flag": "R",
+                  "climateEntryId": 7096
+                },
+                {
+                  "value": "437",
+                  "label": "nov",
+                  "id": "cl9r7tthu4hrovwpshs3e2nb8",
+                  "flag": "R",
+                  "climateEntryId": 7096
+                },
+                {
+                  "value": "330",
+                  "label": "dec",
+                  "id": "cl9r7tthu4hrpvwpsvemq4hh4",
+                  "flag": "R",
+                  "climateEntryId": 7096
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 14597,
+              "stationId": "cl9r7sgdf0egwvwps53mk1j9t",
+              "dataPoints": [
+                {
+                  "value": "210",
+                  "label": "jan",
+                  "id": "cl9r7ujmd8co2vwps9cvtjb1q",
+                  "flag": "R",
+                  "climateEntryId": 14597
+                },
+                {
+                  "value": "234",
+                  "label": "feb",
+                  "id": "cl9r7ujmd8co3vwps5dbqs5vd",
+                  "flag": "R",
+                  "climateEntryId": 14597
+                },
+                {
+                  "value": "311",
+                  "label": "mar",
+                  "id": "cl9r7ujmd8co4vwps07j9pozu",
+                  "flag": "R",
+                  "climateEntryId": 14597
+                },
+                {
+                  "value": "414",
+                  "label": "apr",
+                  "id": "cl9r7ujmd8co5vwpsex1lzqvc",
+                  "flag": "R",
+                  "climateEntryId": 14597
+                },
+                {
+                  "value": "506",
+                  "label": "may",
+                  "id": "cl9r7ujmd8co6vwpstq688pvq",
+                  "flag": "R",
+                  "climateEntryId": 14597
+                },
+                {
+                  "value": "598",
+                  "label": "jun",
+                  "id": "cl9r7ujmd8co7vwpstk4iettu",
+                  "flag": "R",
+                  "climateEntryId": 14597
+                },
+                {
+                  "value": "639",
+                  "label": "jul",
+                  "id": "cl9r7ujmd8co8vwpsymco1mz0",
+                  "flag": "R",
+                  "climateEntryId": 14597
+                },
+                {
+                  "value": "620",
+                  "label": "aug",
+                  "id": "cl9r7ujmd8co9vwpstf08k5ih",
+                  "flag": "R",
+                  "climateEntryId": 14597
+                },
+                {
+                  "value": "527",
+                  "label": "sep",
+                  "id": "cl9r7ujmd8coavwpsxs9svksh",
+                  "flag": "R",
+                  "climateEntryId": 14597
+                },
+                {
+                  "value": "414",
+                  "label": "oct",
+                  "id": "cl9r7ujmd8cobvwps7v0jqym9",
+                  "flag": "R",
+                  "climateEntryId": 14597
+                },
+                {
+                  "value": "324",
+                  "label": "nov",
+                  "id": "cl9r7ujmd8cocvwps4wkao3ue",
+                  "flag": "R",
+                  "climateEntryId": 14597
+                },
+                {
+                  "value": "240",
+                  "label": "dec",
+                  "id": "cl9r7ujmd8codvwpsr54d7prf",
+                  "flag": "R",
+                  "climateEntryId": 14597
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 22098,
+              "stationId": "cl9r7sgdf0egwvwps53mk1j9t",
+              "dataPoints": [
+                {
+                  "value": "390",
+                  "label": "jan",
+                  "id": "cl9r7v9nrc7kqvwpscut100pe",
+                  "flag": "R",
+                  "climateEntryId": 22098
+                },
+                {
+                  "value": "432",
+                  "label": "feb",
+                  "id": "cl9r7v9nrc7krvwps8ntknmov",
+                  "flag": "R",
+                  "climateEntryId": 22098
+                },
+                {
+                  "value": "538",
+                  "label": "mar",
+                  "id": "cl9r7v9nrc7ksvwpsocco12is",
+                  "flag": "R",
+                  "climateEntryId": 22098
+                },
+                {
+                  "value": "657",
+                  "label": "apr",
+                  "id": "cl9r7v9nrc7ktvwpswc0m44po",
+                  "flag": "R",
+                  "climateEntryId": 22098
+                },
+                {
+                  "value": "743",
+                  "label": "may",
+                  "id": "cl9r7v9nrc7kuvwpsfecyktne",
+                  "flag": "R",
+                  "climateEntryId": 22098
+                },
+                {
+                  "value": "824",
+                  "label": "jun",
+                  "id": "cl9r7v9nrc7kvvwpsiftozeny",
+                  "flag": "R",
+                  "climateEntryId": 22098
+                },
+                {
+                  "value": "863",
+                  "label": "jul",
+                  "id": "cl9r7v9nrc7kwvwpsohy8q8zo",
+                  "flag": "R",
+                  "climateEntryId": 22098
+                },
+                {
+                  "value": "850",
+                  "label": "aug",
+                  "id": "cl9r7v9nrc7kxvwps2yvwev8c",
+                  "flag": "R",
+                  "climateEntryId": 22098
+                },
+                {
+                  "value": "786",
+                  "label": "sep",
+                  "id": "cl9r7v9nrc7kyvwpshk8qkhwu",
+                  "flag": "R",
+                  "climateEntryId": 22098
+                },
+                {
+                  "value": "670",
+                  "label": "oct",
+                  "id": "cl9r7v9nrc7kzvwpskay4r1ku",
+                  "flag": "R",
+                  "climateEntryId": 22098
+                },
+                {
+                  "value": "551",
+                  "label": "nov",
+                  "id": "cl9r7v9nrc7l0vwpskzbf4k5q",
+                  "flag": "R",
+                  "climateEntryId": 22098
+                },
+                {
+                  "value": "419",
+                  "label": "dec",
+                  "id": "cl9r7v9nrc7l1vwpshn25mddj",
+                  "flag": "R",
+                  "climateEntryId": 22098
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stationName": "CALDWELL ESSEX CO AP",
+          "longitude": -74.2831,
+          "latitude": 40.8764,
+          "hcn": "",
+          "gsn": "",
+          "code": "USW00054743",
+          "elevation": 52.7,
+          "id": "cl9r7shd70ek0vwpsn2khtjuk",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 7153,
+              "stationId": "cl9r7shd70ek0vwpsn2khtjuk",
+              "dataPoints": [
+                {
+                  "value": "294",
+                  "label": "jan",
+                  "id": "cl9r7ttp74itevwps9t040gyp",
+                  "flag": "R",
+                  "climateEntryId": 7153
+                },
+                {
+                  "value": "317",
+                  "label": "feb",
+                  "id": "cl9r7ttp74itfvwpsmq4gs6fx",
+                  "flag": "R",
+                  "climateEntryId": 7153
+                },
+                {
+                  "value": "397",
+                  "label": "mar",
+                  "id": "cl9r7ttp74itgvwpsq7qtzyp8",
+                  "flag": "R",
+                  "climateEntryId": 7153
+                },
+                {
+                  "value": "506",
+                  "label": "apr",
+                  "id": "cl9r7ttp74ithvwpsgnliynd9",
+                  "flag": "R",
+                  "climateEntryId": 7153
+                },
+                {
+                  "value": "605",
+                  "label": "may",
+                  "id": "cl9r7ttp74itivwpsigg26x50",
+                  "flag": "R",
+                  "climateEntryId": 7153
+                },
+                {
+                  "value": "696",
+                  "label": "jun",
+                  "id": "cl9r7ttp74itjvwps4tkutlet",
+                  "flag": "R",
+                  "climateEntryId": 7153
+                },
+                {
+                  "value": "747",
+                  "label": "jul",
+                  "id": "cl9r7ttp74itkvwps6gqloir4",
+                  "flag": "R",
+                  "climateEntryId": 7153
+                },
+                {
+                  "value": "726",
+                  "label": "aug",
+                  "id": "cl9r7ttp74itlvwpshmbmgtnb",
+                  "flag": "R",
+                  "climateEntryId": 7153
+                },
+                {
+                  "value": "650",
+                  "label": "sep",
+                  "id": "cl9r7ttp74itmvwps3ur9q32z",
+                  "flag": "R",
+                  "climateEntryId": 7153
+                },
+                {
+                  "value": "538",
+                  "label": "oct",
+                  "id": "cl9r7ttp74itnvwpsjws0in3u",
+                  "flag": "R",
+                  "climateEntryId": 7153
+                },
+                {
+                  "value": "439",
+                  "label": "nov",
+                  "id": "cl9r7ttp74itovwps4myjgilq",
+                  "flag": "R",
+                  "climateEntryId": 7153
+                },
+                {
+                  "value": "342",
+                  "label": "dec",
+                  "id": "cl9r7ttp74itpvwpsazkf1q9v",
+                  "flag": "R",
+                  "climateEntryId": 7153
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 14654,
+              "stationId": "cl9r7shd70ek0vwpsn2khtjuk",
+              "dataPoints": [
+                {
+                  "value": "210",
+                  "label": "jan",
+                  "id": "cl9r7ujts8dq2vwps8miwxfjy",
+                  "flag": "R",
+                  "climateEntryId": 14654
+                },
+                {
+                  "value": "227",
+                  "label": "feb",
+                  "id": "cl9r7ujts8dq3vwpsusrmtq8r",
+                  "flag": "R",
+                  "climateEntryId": 14654
+                },
+                {
+                  "value": "299",
+                  "label": "mar",
+                  "id": "cl9r7ujts8dq4vwpsgc8rbrmb",
+                  "flag": "R",
+                  "climateEntryId": 14654
+                },
+                {
+                  "value": "402",
+                  "label": "apr",
+                  "id": "cl9r7ujts8dq5vwpsycuxoyaf",
+                  "flag": "R",
+                  "climateEntryId": 14654
+                },
+                {
+                  "value": "494",
+                  "label": "may",
+                  "id": "cl9r7ujts8dq6vwpsrzcva5l2",
+                  "flag": "R",
+                  "climateEntryId": 14654
+                },
+                {
+                  "value": "590",
+                  "label": "jun",
+                  "id": "cl9r7ujts8dq7vwpsxll5susg",
+                  "flag": "R",
+                  "climateEntryId": 14654
+                },
+                {
+                  "value": "646",
+                  "label": "jul",
+                  "id": "cl9r7ujts8dq8vwpsv22julq6",
+                  "flag": "R",
+                  "climateEntryId": 14654
+                },
+                {
+                  "value": "622",
+                  "label": "aug",
+                  "id": "cl9r7ujts8dq9vwpse7g4bg85",
+                  "flag": "R",
+                  "climateEntryId": 14654
+                },
+                {
+                  "value": "546",
+                  "label": "sep",
+                  "id": "cl9r7ujts8dqavwpsr3qjz6fk",
+                  "flag": "R",
+                  "climateEntryId": 14654
+                },
+                {
+                  "value": "432",
+                  "label": "oct",
+                  "id": "cl9r7ujts8dqbvwpsbi2jh1zc",
+                  "flag": "R",
+                  "climateEntryId": 14654
+                },
+                {
+                  "value": "345",
+                  "label": "nov",
+                  "id": "cl9r7ujts8dqcvwps9gfac38d",
+                  "flag": "R",
+                  "climateEntryId": 14654
+                },
+                {
+                  "value": "264",
+                  "label": "dec",
+                  "id": "cl9r7ujts8dqdvwpsfhanmiw6",
+                  "flag": "R",
+                  "climateEntryId": 14654
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 22155,
+              "stationId": "cl9r7shd70ek0vwpsn2khtjuk",
+              "dataPoints": [
+                {
+                  "value": "378",
+                  "label": "jan",
+                  "id": "cl9r7v9uoc8mqvwpstiedu88w",
+                  "flag": "R",
+                  "climateEntryId": 22155
+                },
+                {
+                  "value": "407",
+                  "label": "feb",
+                  "id": "cl9r7v9uoc8mrvwpso2ro5r7s",
+                  "flag": "R",
+                  "climateEntryId": 22155
+                },
+                {
+                  "value": "496",
+                  "label": "mar",
+                  "id": "cl9r7v9uoc8msvwps4tfqckm8",
+                  "flag": "R",
+                  "climateEntryId": 22155
+                },
+                {
+                  "value": "610",
+                  "label": "apr",
+                  "id": "cl9r7v9uoc8mtvwps4wjzj004",
+                  "flag": "R",
+                  "climateEntryId": 22155
+                },
+                {
+                  "value": "715",
+                  "label": "may",
+                  "id": "cl9r7v9uoc8muvwpswr239y2k",
+                  "flag": "R",
+                  "climateEntryId": 22155
+                },
+                {
+                  "value": "802",
+                  "label": "jun",
+                  "id": "cl9r7v9uoc8mvvwpsho2dc7su",
+                  "flag": "R",
+                  "climateEntryId": 22155
+                },
+                {
+                  "value": "847",
+                  "label": "jul",
+                  "id": "cl9r7v9uoc8mwvwpswmrsrh7e",
+                  "flag": "R",
+                  "climateEntryId": 22155
+                },
+                {
+                  "value": "830",
+                  "label": "aug",
+                  "id": "cl9r7v9uoc8mxvwpsmun6eq0o",
+                  "flag": "R",
+                  "climateEntryId": 22155
+                },
+                {
+                  "value": "753",
+                  "label": "sep",
+                  "id": "cl9r7v9uoc8myvwpsztu25v0c",
+                  "flag": "R",
+                  "climateEntryId": 22155
+                },
+                {
+                  "value": "643",
+                  "label": "oct",
+                  "id": "cl9r7v9uoc8mzvwpsdxd73lq6",
+                  "flag": "R",
+                  "climateEntryId": 22155
+                },
+                {
+                  "value": "533",
+                  "label": "nov",
+                  "id": "cl9r7v9uoc8n0vwpsezoqf49d",
+                  "flag": "R",
+                  "climateEntryId": 22155
+                },
+                {
+                  "value": "419",
+                  "label": "dec",
+                  "id": "cl9r7v9uoc8n1vwpskrs2n9ts",
+                  "flag": "R",
+                  "climateEntryId": 22155
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stationName": "FOUNTAIN DALE SITE R HELIPAD",
+          "longitude": -77.4333,
+          "latitude": 39.7333,
+          "hcn": "",
+          "gsn": "",
+          "code": "USW00092762",
+          "elevation": 249.3,
+          "id": "cl9r7sinu0eo4vwps7qfw6ebz",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 7227,
+              "stationId": "cl9r7sinu0eo4vwps7qfw6ebz",
+              "dataPoints": [
+                {
+                  "value": "310",
+                  "label": "jan",
+                  "id": "cl9r7ttyc4k6qvwps5nt35twt",
+                  "flag": "Q",
+                  "climateEntryId": 7227
+                },
+                {
+                  "value": "351",
+                  "label": "feb",
+                  "id": "cl9r7ttyc4k6rvwps6teta9ct",
+                  "flag": "Q",
+                  "climateEntryId": 7227
+                },
+                {
+                  "value": "414",
+                  "label": "mar",
+                  "id": "cl9r7ttyc4k6svwpsytxnqxj5",
+                  "flag": "Q",
+                  "climateEntryId": 7227
+                },
+                {
+                  "value": "527",
+                  "label": "apr",
+                  "id": "cl9r7ttyc4k6tvwpsolpop87f",
+                  "flag": "Q",
+                  "climateEntryId": 7227
+                },
+                {
+                  "value": "618",
+                  "label": "may",
+                  "id": "cl9r7ttyc4k6uvwpsmxvqsfrz",
+                  "flag": "Q",
+                  "climateEntryId": 7227
+                },
+                {
+                  "value": "705",
+                  "label": "jun",
+                  "id": "cl9r7ttyc4k6vvwpszi4oy9lv",
+                  "flag": "Q",
+                  "climateEntryId": 7227
+                },
+                {
+                  "value": "751",
+                  "label": "jul",
+                  "id": "cl9r7ttyc4k6wvwpsbp9mj8v7",
+                  "flag": "Q",
+                  "climateEntryId": 7227
+                },
+                {
+                  "value": "732",
+                  "label": "aug",
+                  "id": "cl9r7ttyc4k6xvwpspnbjvtpb",
+                  "flag": "Q",
+                  "climateEntryId": 7227
+                },
+                {
+                  "value": "663",
+                  "label": "sep",
+                  "id": "cl9r7ttyc4k6yvwpstwjk98hb",
+                  "flag": "Q",
+                  "climateEntryId": 7227
+                },
+                {
+                  "value": "554",
+                  "label": "oct",
+                  "id": "cl9r7ttyc4k6zvwpsdv5ffx0h",
+                  "flag": "Q",
+                  "climateEntryId": 7227
+                },
+                {
+                  "value": "454",
+                  "label": "nov",
+                  "id": "cl9r7ttyc4k70vwpsn5gsl2mn",
+                  "flag": "Q",
+                  "climateEntryId": 7227
+                },
+                {
+                  "value": "351",
+                  "label": "dec",
+                  "id": "cl9r7ttyc4k71vwpsmjt8slam",
+                  "flag": "Q",
+                  "climateEntryId": 7227
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 14728,
+              "stationId": "cl9r7sinu0eo4vwps7qfw6ebz",
+              "dataPoints": [
+                {
+                  "value": "233",
+                  "label": "jan",
+                  "id": "cl9r7uk2n8f3evwpsheail61w",
+                  "flag": "Q",
+                  "climateEntryId": 14728
+                },
+                {
+                  "value": "254",
+                  "label": "feb",
+                  "id": "cl9r7uk2n8f3fvwps5qt44jxl",
+                  "flag": "Q",
+                  "climateEntryId": 14728
+                },
+                {
+                  "value": "322",
+                  "label": "mar",
+                  "id": "cl9r7uk2n8f3gvwps5w29f3n9",
+                  "flag": "Q",
+                  "climateEntryId": 14728
+                },
+                {
+                  "value": "424",
+                  "label": "apr",
+                  "id": "cl9r7uk2n8f3hvwpsh1vqt1ia",
+                  "flag": "Q",
+                  "climateEntryId": 14728
+                },
+                {
+                  "value": "511",
+                  "label": "may",
+                  "id": "cl9r7uk2n8f3ivwpsweffub1t",
+                  "flag": "Q",
+                  "climateEntryId": 14728
+                },
+                {
+                  "value": "599",
+                  "label": "jun",
+                  "id": "cl9r7uk2n8f3jvwps4jbmhl0m",
+                  "flag": "Q",
+                  "climateEntryId": 14728
+                },
+                {
+                  "value": "645",
+                  "label": "jul",
+                  "id": "cl9r7uk2n8f3kvwpsvdp8am1b",
+                  "flag": "Q",
+                  "climateEntryId": 14728
+                },
+                {
+                  "value": "628",
+                  "label": "aug",
+                  "id": "cl9r7uk2n8f3lvwpsmy58iknv",
+                  "flag": "Q",
+                  "climateEntryId": 14728
+                },
+                {
+                  "value": "558",
+                  "label": "sep",
+                  "id": "cl9r7uk2n8f3mvwpsk76s4f3u",
+                  "flag": "Q",
+                  "climateEntryId": 14728
+                },
+                {
+                  "value": "451",
+                  "label": "oct",
+                  "id": "cl9r7uk2n8f3nvwps5xkud82q",
+                  "flag": "Q",
+                  "climateEntryId": 14728
+                },
+                {
+                  "value": "361",
+                  "label": "nov",
+                  "id": "cl9r7uk2n8f3ovwpsge7680hv",
+                  "flag": "Q",
+                  "climateEntryId": 14728
+                },
+                {
+                  "value": "272",
+                  "label": "dec",
+                  "id": "cl9r7uk2n8f3pvwpsncbx6nbw",
+                  "flag": "Q",
+                  "climateEntryId": 14728
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 22229,
+              "stationId": "cl9r7sinu0eo4vwps7qfw6ebz",
+              "dataPoints": [
+                {
+                  "value": "387",
+                  "label": "jan",
+                  "id": "cl9r7va3oca02vwpsqaei1ppj",
+                  "flag": "Q",
+                  "climateEntryId": 22229
+                },
+                {
+                  "value": "447",
+                  "label": "feb",
+                  "id": "cl9r7va3oca03vwps0ulhip44",
+                  "flag": "Q",
+                  "climateEntryId": 22229
+                },
+                {
+                  "value": "505",
+                  "label": "mar",
+                  "id": "cl9r7va3oca04vwpsb1vjunt8",
+                  "flag": "Q",
+                  "climateEntryId": 22229
+                },
+                {
+                  "value": "630",
+                  "label": "apr",
+                  "id": "cl9r7va3oca05vwpsbu0em515",
+                  "flag": "Q",
+                  "climateEntryId": 22229
+                },
+                {
+                  "value": "724",
+                  "label": "may",
+                  "id": "cl9r7va3oca06vwpsy1k2pyub",
+                  "flag": "Q",
+                  "climateEntryId": 22229
+                },
+                {
+                  "value": "811",
+                  "label": "jun",
+                  "id": "cl9r7va3oca07vwps9s5mf0wu",
+                  "flag": "Q",
+                  "climateEntryId": 22229
+                },
+                {
+                  "value": "856",
+                  "label": "jul",
+                  "id": "cl9r7va3oca08vwpsj3hv29pq",
+                  "flag": "Q",
+                  "climateEntryId": 22229
+                },
+                {
+                  "value": "836",
+                  "label": "aug",
+                  "id": "cl9r7va3oca09vwpshswxflzn",
+                  "flag": "Q",
+                  "climateEntryId": 22229
+                },
+                {
+                  "value": "767",
+                  "label": "sep",
+                  "id": "cl9r7va3oca0avwpssy5iw9in",
+                  "flag": "Q",
+                  "climateEntryId": 22229
+                },
+                {
+                  "value": "656",
+                  "label": "oct",
+                  "id": "cl9r7va3oca0bvwps9g1zvkzf",
+                  "flag": "Q",
+                  "climateEntryId": 22229
+                },
+                {
+                  "value": "546",
+                  "label": "nov",
+                  "id": "cl9r7va3oca0cvwpsz8hntfs4",
+                  "flag": "Q",
+                  "climateEntryId": 22229
+                },
+                {
+                  "value": "430",
+                  "label": "dec",
+                  "id": "cl9r7va3oca0dvwpsmcqp50gw",
+                  "flag": "Q",
+                  "climateEntryId": 22229
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "stationName": "MEDORA 7 E",
+          "longitude": -103.3769,
+          "latitude": 46.8947,
+          "hcn": "",
+          "gsn": "",
+          "code": "USW00094080",
+          "elevation": 844.6,
+          "id": "cl9r7slir0ex0vwps6uv9bb1p",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "id": 7385,
+              "stationId": "cl9r7slir0ex0vwps6uv9bb1p",
+              "dataPoints": [
+                {
+                  "value": "175",
+                  "label": "jan",
+                  "id": "cl9r7tuhy4n42vwpss1l87nxl",
+                  "flag": "Q",
+                  "climateEntryId": 7385
+                },
+                {
+                  "value": "209",
+                  "label": "feb",
+                  "id": "cl9r7tuhy4n43vwps02nzwwow",
+                  "flag": "Q",
+                  "climateEntryId": 7385
+                },
+                {
+                  "value": "312",
+                  "label": "mar",
+                  "id": "cl9r7tuhy4n44vwps2ksg1mvz",
+                  "flag": "Q",
+                  "climateEntryId": 7385
+                },
+                {
+                  "value": "437",
+                  "label": "apr",
+                  "id": "cl9r7tuhy4n45vwps96vruh1s",
+                  "flag": "Q",
+                  "climateEntryId": 7385
+                },
+                {
+                  "value": "538",
+                  "label": "may",
+                  "id": "cl9r7tuhy4n46vwpsa1dvwwzy",
+                  "flag": "Q",
+                  "climateEntryId": 7385
+                },
+                {
+                  "value": "633",
+                  "label": "jun",
+                  "id": "cl9r7tuhy4n47vwpsb1e4s3zn",
+                  "flag": "Q",
+                  "climateEntryId": 7385
+                },
+                {
+                  "value": "706",
+                  "label": "jul",
+                  "id": "cl9r7tuhy4n48vwpspcds1fvh",
+                  "flag": "Q",
+                  "climateEntryId": 7385
+                },
+                {
+                  "value": "697",
+                  "label": "aug",
+                  "id": "cl9r7tuhy4n49vwpsl3jt01pd",
+                  "flag": "Q",
+                  "climateEntryId": 7385
+                },
+                {
+                  "value": "583",
+                  "label": "sep",
+                  "id": "cl9r7tuhy4n4avwpsnxa26enm",
+                  "flag": "Q",
+                  "climateEntryId": 7385
+                },
+                {
+                  "value": "449",
+                  "label": "oct",
+                  "id": "cl9r7tuhy4n4bvwpsu12a09k4",
+                  "flag": "Q",
+                  "climateEntryId": 7385
+                },
+                {
+                  "value": "306",
+                  "label": "nov",
+                  "id": "cl9r7tuhy4n4cvwps88dww27p",
+                  "flag": "Q",
+                  "climateEntryId": 7385
+                },
+                {
+                  "value": "183",
+                  "label": "dec",
+                  "id": "cl9r7tuhy4n4dvwpsyqnsudf9",
+                  "flag": "Q",
+                  "climateEntryId": 7385
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "id": 14886,
+              "stationId": "cl9r7slir0ex0vwps6uv9bb1p",
+              "dataPoints": [
+                {
+                  "value": "76",
+                  "label": "jan",
+                  "id": "cl9r7uklx8i0qvwpsotx0jawf",
+                  "flag": "Q",
+                  "climateEntryId": 14886
+                },
+                {
+                  "value": "107",
+                  "label": "feb",
+                  "id": "cl9r7uklx8i0rvwps80trkn74",
+                  "flag": "Q",
+                  "climateEntryId": 14886
+                },
+                {
+                  "value": "211",
+                  "label": "mar",
+                  "id": "cl9r7uklx8i0svwps3ty5xi8q",
+                  "flag": "Q",
+                  "climateEntryId": 14886
+                },
+                {
+                  "value": "320",
+                  "label": "apr",
+                  "id": "cl9r7uklx8i0tvwps3zms4toq",
+                  "flag": "Q",
+                  "climateEntryId": 14886
+                },
+                {
+                  "value": "422",
+                  "label": "may",
+                  "id": "cl9r7uklx8i0uvwps1x814jq8",
+                  "flag": "Q",
+                  "climateEntryId": 14886
+                },
+                {
+                  "value": "519",
+                  "label": "jun",
+                  "id": "cl9r7uklx8i0vvwpsb7znb3dh",
+                  "flag": "Q",
+                  "climateEntryId": 14886
+                },
+                {
+                  "value": "585",
+                  "label": "jul",
+                  "id": "cl9r7uklx8i0wvwpsb9zy702z",
+                  "flag": "Q",
+                  "climateEntryId": 14886
+                },
+                {
+                  "value": "564",
+                  "label": "aug",
+                  "id": "cl9r7uklx8i0xvwps91x0frci",
+                  "flag": "Q",
+                  "climateEntryId": 14886
+                },
+                {
+                  "value": "458",
+                  "label": "sep",
+                  "id": "cl9r7uklx8i0yvwpsq4fcnjfm",
+                  "flag": "Q",
+                  "climateEntryId": 14886
+                },
+                {
+                  "value": "336",
+                  "label": "oct",
+                  "id": "cl9r7uklx8i0zvwps7cdsv29l",
+                  "flag": "Q",
+                  "climateEntryId": 14886
+                },
+                {
+                  "value": "208",
+                  "label": "nov",
+                  "id": "cl9r7uklx8i10vwpsn48fi2fe",
+                  "flag": "Q",
+                  "climateEntryId": 14886
+                },
+                {
+                  "value": "81",
+                  "label": "dec",
+                  "id": "cl9r7uklx8i11vwpsfob3gok4",
+                  "flag": "Q",
+                  "climateEntryId": 14886
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "id": 22387,
+              "stationId": "cl9r7slir0ex0vwps6uv9bb1p",
+              "dataPoints": [
+                {
+                  "value": "274",
+                  "label": "jan",
+                  "id": "cl9r7vamvccxevwps5jgfcqgk",
+                  "flag": "Q",
+                  "climateEntryId": 22387
+                },
+                {
+                  "value": "311",
+                  "label": "feb",
+                  "id": "cl9r7vamvccxfvwpsct4dw40g",
+                  "flag": "Q",
+                  "climateEntryId": 22387
+                },
+                {
+                  "value": "413",
+                  "label": "mar",
+                  "id": "cl9r7vamvccxgvwps7wljh5fq",
+                  "flag": "Q",
+                  "climateEntryId": 22387
+                },
+                {
+                  "value": "553",
+                  "label": "apr",
+                  "id": "cl9r7vamvccxhvwpszxnh8tdy",
+                  "flag": "Q",
+                  "climateEntryId": 22387
+                },
+                {
+                  "value": "653",
+                  "label": "may",
+                  "id": "cl9r7vamvccxivwpsl3od0oix",
+                  "flag": "Q",
+                  "climateEntryId": 22387
+                },
+                {
+                  "value": "747",
+                  "label": "jun",
+                  "id": "cl9r7vamvccxjvwpsi2ery8an",
+                  "flag": "Q",
+                  "climateEntryId": 22387
+                },
+                {
+                  "value": "827",
+                  "label": "jul",
+                  "id": "cl9r7vamvccxkvwpsy187cv23",
+                  "flag": "Q",
+                  "climateEntryId": 22387
+                },
+                {
+                  "value": "830",
+                  "label": "aug",
+                  "id": "cl9r7vamvccxlvwpsl06iznfl",
+                  "flag": "Q",
+                  "climateEntryId": 22387
+                },
+                {
+                  "value": "708",
+                  "label": "sep",
+                  "id": "cl9r7vamvccxmvwpsjx8jjy3c",
+                  "flag": "Q",
+                  "climateEntryId": 22387
+                },
+                {
+                  "value": "562",
+                  "label": "oct",
+                  "id": "cl9r7vamvccxnvwpsnac24wfq",
+                  "flag": "Q",
+                  "climateEntryId": 22387
+                },
+                {
+                  "value": "404",
+                  "label": "nov",
+                  "id": "cl9r7vamvccxovwpsxj9o8jzq",
+                  "flag": "Q",
+                  "climateEntryId": 22387
+                },
+                {
+                  "value": "284",
+                  "label": "dec",
+                  "id": "cl9r7vamvccxpvwps6xbx6ckf",
+                  "flag": "Q",
+                  "climateEntryId": 22387
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "Honolulu",
+      "county": "Honolulu",
+      "fips": "15",
+      "id": 6324,
+      "state": "Hawaii",
+      "stateAbbrev": "HI",
+      "stations": [
+        {
+          "code": "USC00510211",
+          "elevation": 6.1,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn1xo90d00vw90jyj10x1s",
+          "latitude": 21.3061,
+          "longitude": -157.8531,
+          "stationName": "BERETANIA PUMP STA 705",
+          "wmoid": "",
+          "climateEntries": []
+        },
+        {
+          "code": "USC00516122",
+          "elevation": 61,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn1yy20d3svw90yjjuv03x",
+          "latitude": 21.3111,
+          "longitude": -157.8145,
+          "stationName": "MANOA 712.1",
+          "wmoid": "",
+          "climateEntries": []
+        },
+        {
+          "code": "USC00516128",
+          "elevation": 152.4,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn1yyn0d3uvw90hwlnvx9q",
+          "latitude": 21.3331,
+          "longitude": -157.8025,
+          "stationName": "MANOA LYON ARBO 785.2",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "id": 6297,
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "stationId": "cl9sn1yyn0d3uvw90hwlnvx9q",
+              "dataPoints": [
+                {
+                  "climateEntryId": 6297,
+                  "flag": "C",
+                  "id": "cl9sn3u5f42yqvw90esori3xs",
+                  "label": "jan",
+                  "value": "699"
+                },
+                {
+                  "climateEntryId": 6297,
+                  "flag": "S",
+                  "id": "cl9sn3u5f42yrvw90t5yxduef",
+                  "label": "feb",
+                  "value": "698"
+                },
+                {
+                  "climateEntryId": 6297,
+                  "flag": "C",
+                  "id": "cl9sn3u5f42ysvw90heudkol8",
+                  "label": "mar",
+                  "value": "704"
+                },
+                {
+                  "climateEntryId": 6297,
+                  "flag": "C",
+                  "id": "cl9sn3u5f42ytvw90t7uxstik",
+                  "label": "apr",
+                  "value": "707"
+                },
+                {
+                  "climateEntryId": 6297,
+                  "flag": "S",
+                  "id": "cl9sn3u5f42yuvw90j5q98bs9",
+                  "label": "may",
+                  "value": "724"
+                },
+                {
+                  "climateEntryId": 6297,
+                  "flag": "C",
+                  "id": "cl9sn3u5f42yvvw90ddet9mpa",
+                  "label": "jun",
+                  "value": "736"
+                },
+                {
+                  "climateEntryId": 6297,
+                  "flag": "S",
+                  "id": "cl9sn3u5f42ywvw90q0odeqw2",
+                  "label": "jul",
+                  "value": "746"
+                },
+                {
+                  "climateEntryId": 6297,
+                  "flag": "S",
+                  "id": "cl9sn3u5f42yxvw90qma7kyjr",
+                  "label": "aug",
+                  "value": "755"
+                },
+                {
+                  "climateEntryId": 6297,
+                  "flag": "C",
+                  "id": "cl9sn3u5f42yyvw90asso6aer",
+                  "label": "sep",
+                  "value": "759"
+                },
+                {
+                  "climateEntryId": 6297,
+                  "flag": "C",
+                  "id": "cl9sn3u5f42yzvw90yuxlvf3d",
+                  "label": "oct",
+                  "value": "752"
+                },
+                {
+                  "climateEntryId": 6297,
+                  "flag": "C",
+                  "id": "cl9sn3u5f42z0vw90dvclapul",
+                  "label": "nov",
+                  "value": "733"
+                },
+                {
+                  "climateEntryId": 6297,
+                  "flag": "C",
+                  "id": "cl9sn3u5f42z1vw90nwp8hmgi",
+                  "label": "dec",
+                  "value": "713"
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "id": 13798,
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "stationId": "cl9sn1yyn0d3uvw90hwlnvx9q",
+              "dataPoints": [
+                {
+                  "climateEntryId": 13798,
+                  "flag": "C",
+                  "id": "cl9sn4ju77xvevw90l9kdcevo",
+                  "label": "jan",
+                  "value": "631"
+                },
+                {
+                  "climateEntryId": 13798,
+                  "flag": "S",
+                  "id": "cl9sn4ju77xvfvw900y69d4y1",
+                  "label": "feb",
+                  "value": "628"
+                },
+                {
+                  "climateEntryId": 13798,
+                  "flag": "C",
+                  "id": "cl9sn4ju77xvgvw90g8rnre3r",
+                  "label": "mar",
+                  "value": "640"
+                },
+                {
+                  "climateEntryId": 13798,
+                  "flag": "C",
+                  "id": "cl9sn4ju77xvhvw90wsqk6e96",
+                  "label": "apr",
+                  "value": "651"
+                },
+                {
+                  "climateEntryId": 13798,
+                  "flag": "S",
+                  "id": "cl9sn4ju77xvivw90o7bbxvf9",
+                  "label": "may",
+                  "value": "665"
+                },
+                {
+                  "climateEntryId": 13798,
+                  "flag": "C",
+                  "id": "cl9sn4ju87xvjvw90ttbk9f8l",
+                  "label": "jun",
+                  "value": "683"
+                },
+                {
+                  "climateEntryId": 13798,
+                  "flag": "S",
+                  "id": "cl9sn4ju87xvkvw90z4zl3ecw",
+                  "label": "jul",
+                  "value": "696"
+                },
+                {
+                  "climateEntryId": 13798,
+                  "flag": "S",
+                  "id": "cl9sn4ju87xvlvw90x3qutm27",
+                  "label": "aug",
+                  "value": "703"
+                },
+                {
+                  "climateEntryId": 13798,
+                  "flag": "C",
+                  "id": "cl9sn4ju87xvmvw90w3rwfd7e",
+                  "label": "sep",
+                  "value": "701"
+                },
+                {
+                  "climateEntryId": 13798,
+                  "flag": "C",
+                  "id": "cl9sn4ju87xvnvw90mdil5chf",
+                  "label": "oct",
+                  "value": "692"
+                },
+                {
+                  "climateEntryId": 13798,
+                  "flag": "C",
+                  "id": "cl9sn4ju87xvovw906lxovdrf",
+                  "label": "nov",
+                  "value": "676"
+                },
+                {
+                  "climateEntryId": 13798,
+                  "flag": "C",
+                  "id": "cl9sn4ju87xvpvw90sdfo8mcg",
+                  "label": "dec",
+                  "value": "650"
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "id": 21299,
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "stationId": "cl9sn1yyn0d3uvw90hwlnvx9q",
+              "dataPoints": [
+                {
+                  "climateEntryId": 21299,
+                  "flag": "C",
+                  "id": "cl9sn59ombss2vw906zln4rxk",
+                  "label": "jan",
+                  "value": "768"
+                },
+                {
+                  "climateEntryId": 21299,
+                  "flag": "C",
+                  "id": "cl9sn59ombss3vw907v2nnh2j",
+                  "label": "feb",
+                  "value": "769"
+                },
+                {
+                  "climateEntryId": 21299,
+                  "flag": "C",
+                  "id": "cl9sn59ombss4vw90b7rmz524",
+                  "label": "mar",
+                  "value": "767"
+                },
+                {
+                  "climateEntryId": 21299,
+                  "flag": "C",
+                  "id": "cl9sn59ombss5vw90mpj9uc4h",
+                  "label": "apr",
+                  "value": "764"
+                },
+                {
+                  "climateEntryId": 21299,
+                  "flag": "S",
+                  "id": "cl9sn59ombss6vw906oth4qei",
+                  "label": "may",
+                  "value": "782"
+                },
+                {
+                  "climateEntryId": 21299,
+                  "flag": "C",
+                  "id": "cl9sn59ombss7vw90fpkq36wh",
+                  "label": "jun",
+                  "value": "788"
+                },
+                {
+                  "climateEntryId": 21299,
+                  "flag": "S",
+                  "id": "cl9sn59ombss8vw90oel7rpjv",
+                  "label": "jul",
+                  "value": "796"
+                },
+                {
+                  "climateEntryId": 21299,
+                  "flag": "S",
+                  "id": "cl9sn59ombss9vw90vk5fbggv",
+                  "label": "aug",
+                  "value": "808"
+                },
+                {
+                  "climateEntryId": 21299,
+                  "flag": "C",
+                  "id": "cl9sn59ombssavw90h6d36sqj",
+                  "label": "sep",
+                  "value": "817"
+                },
+                {
+                  "climateEntryId": 21299,
+                  "flag": "C",
+                  "id": "cl9sn59ombssbvw904bxyvilg",
+                  "label": "oct",
+                  "value": "811"
+                },
+                {
+                  "climateEntryId": 21299,
+                  "flag": "C",
+                  "id": "cl9sn59ombsscvw90zk4fe8lx",
+                  "label": "nov",
+                  "value": "789"
+                },
+                {
+                  "climateEntryId": 21299,
+                  "flag": "C",
+                  "id": "cl9sn59ombssdvw90tlj3jg4l",
+                  "label": "dec",
+                  "value": "776"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "USC00516130",
+          "elevation": 198.1,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn1yzf0d3wvw90cfv8khid",
+          "latitude": 21.3283,
+          "longitude": -157.7914,
+          "stationName": "MANOA TUN 2 716",
+          "wmoid": "",
+          "climateEntries": []
+        },
+        {
+          "code": "USC00516395",
+          "elevation": 9.8,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn1z350d46vw90empg1ge9",
+          "latitude": 21.3478,
+          "longitude": -157.8911,
+          "stationName": "MOANALUA 770",
+          "wmoid": "",
+          "climateEntries": []
+        },
+        {
+          "code": "USC00516928",
+          "elevation": 307.8,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn1z6i0d4cvw905flvwvwo",
+          "latitude": 21.3528,
+          "longitude": -157.8078,
+          "stationName": "NUUANU RSCH 4 783",
+          "wmoid": "",
+          "climateEntries": []
+        },
+        {
+          "code": "USC00516933",
+          "elevation": 125,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn1z7p0d4evw90jrdq6w17",
+          "latitude": 21.3386,
+          "longitude": -157.8367,
+          "stationName": "NUUANU RSCH 5 775",
+          "wmoid": "",
+          "climateEntries": []
+        },
+        {
+          "code": "USC00517540",
+          "elevation": 1.5,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn1zf30d4yvw90tbg18avr",
+          "latitude": 21.2806,
+          "longitude": -157.7336,
+          "stationName": "PAIKO DRIVE 723.4",
+          "wmoid": "",
+          "climateEntries": []
+        },
+        {
+          "code": "USC00517664",
+          "elevation": 287.4,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn1zhb0d54vw90pfw1trbv",
+          "latitude": 21.3228,
+          "longitude": -157.7719,
+          "stationName": "PALOLO VLY 718",
+          "wmoid": "",
+          "climateEntries": []
+        },
+        {
+          "code": "USC00517810",
+          "elevation": 499.9,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn1zir0d58vw906d0ui90o",
+          "latitude": 21.3447,
+          "longitude": -157.8058,
+          "stationName": "PAUOA FLATS 784",
+          "wmoid": "",
+          "climateEntries": []
+        },
+        {
+          "code": "USC00518316",
+          "elevation": 103,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn1znt0d5qvw902w00h589",
+          "latitude": 21.3103,
+          "longitude": -157.8458,
+          "stationName": "PUNCHBOWL CRATER 709",
+          "wmoid": "",
+          "climateEntries": []
+        },
+        {
+          "code": "USC00519185",
+          "elevation": 3,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn200r0d6ovw90piy0ivkn",
+          "latitude": 21.2733,
+          "longitude": -157.7803,
+          "stationName": "WAIALAE KAHALA 715",
+          "wmoid": "",
+          "climateEntries": []
+        },
+        {
+          "code": "USC00519397",
+          "elevation": 3,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn204v0d70vw90ilsdzm51",
+          "latitude": 21.2717,
+          "longitude": -157.8167,
+          "stationName": "WAIKIKI 717.2",
+          "wmoid": "",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "id": 6317,
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "stationId": "cl9sn204v0d70vw90ilsdzm51",
+              "dataPoints": [
+                {
+                  "climateEntryId": 6317,
+                  "flag": "C",
+                  "id": "cl9sn3u7u43c2vw90dbjt8tk7",
+                  "label": "jan",
+                  "value": "729"
+                },
+                {
+                  "climateEntryId": 6317,
+                  "flag": "C",
+                  "id": "cl9sn3u7u43c3vw90yzl09sh9",
+                  "label": "feb",
+                  "value": "731"
+                },
+                {
+                  "climateEntryId": 6317,
+                  "flag": "S",
+                  "id": "cl9sn3u7u43c4vw90zmurwcll",
+                  "label": "mar",
+                  "value": "743"
+                },
+                {
+                  "climateEntryId": 6317,
+                  "flag": "C",
+                  "id": "cl9sn3u7u43c5vw90jxqdjdso",
+                  "label": "apr",
+                  "value": "758"
+                },
+                {
+                  "climateEntryId": 6317,
+                  "flag": "S",
+                  "id": "cl9sn3u7u43c6vw90wbj33buc",
+                  "label": "may",
+                  "value": "772"
+                },
+                {
+                  "climateEntryId": 6317,
+                  "flag": "C",
+                  "id": "cl9sn3u7u43c7vw90h94mwghw",
+                  "label": "jun",
+                  "value": "794"
+                },
+                {
+                  "climateEntryId": 6317,
+                  "flag": "C",
+                  "id": "cl9sn3u7u43c8vw90z3fkdutu",
+                  "label": "jul",
+                  "value": "804"
+                },
+                {
+                  "climateEntryId": 6317,
+                  "flag": "S",
+                  "id": "cl9sn3u7u43c9vw907s4lo01w",
+                  "label": "aug",
+                  "value": "809"
+                },
+                {
+                  "climateEntryId": 6317,
+                  "flag": "S",
+                  "id": "cl9sn3u7u43cavw90mzrys11i",
+                  "label": "sep",
+                  "value": "805"
+                },
+                {
+                  "climateEntryId": 6317,
+                  "flag": "S",
+                  "id": "cl9sn3u7u43cbvw908ld6ff1z",
+                  "label": "oct",
+                  "value": "792"
+                },
+                {
+                  "climateEntryId": 6317,
+                  "flag": "S",
+                  "id": "cl9sn3u7u43ccvw904gvcela6",
+                  "label": "nov",
+                  "value": "771"
+                },
+                {
+                  "climateEntryId": 6317,
+                  "flag": "S",
+                  "id": "cl9sn3u7u43cdvw901qa9ddix",
+                  "label": "dec",
+                  "value": "745"
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "id": 13818,
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "stationId": "cl9sn204v0d70vw90ilsdzm51",
+              "dataPoints": [
+                {
+                  "climateEntryId": 13818,
+                  "flag": "C",
+                  "id": "cl9sn4jwv7y8qvw90e5t9qq9i",
+                  "label": "jan",
+                  "value": "650"
+                },
+                {
+                  "climateEntryId": 13818,
+                  "flag": "C",
+                  "id": "cl9sn4jwv7y8rvw90qu099dki",
+                  "label": "feb",
+                  "value": "652"
+                },
+                {
+                  "climateEntryId": 13818,
+                  "flag": "S",
+                  "id": "cl9sn4jwv7y8svw90v6rbqpwc",
+                  "label": "mar",
+                  "value": "668"
+                },
+                {
+                  "climateEntryId": 13818,
+                  "flag": "C",
+                  "id": "cl9sn4jwv7y8tvw90lcz8bx3q",
+                  "label": "apr",
+                  "value": "683"
+                },
+                {
+                  "climateEntryId": 13818,
+                  "flag": "S",
+                  "id": "cl9sn4jwv7y8uvw90o0y7u5e0",
+                  "label": "may",
+                  "value": "695"
+                },
+                {
+                  "climateEntryId": 13818,
+                  "flag": "C",
+                  "id": "cl9sn4jwv7y8vvw90uke129ga",
+                  "label": "jun",
+                  "value": "720"
+                },
+                {
+                  "climateEntryId": 13818,
+                  "flag": "C",
+                  "id": "cl9sn4jwv7y8wvw905flvyes1",
+                  "label": "jul",
+                  "value": "731"
+                },
+                {
+                  "climateEntryId": 13818,
+                  "flag": "S",
+                  "id": "cl9sn4jwv7y8xvw908m4f30fm",
+                  "label": "aug",
+                  "value": "736"
+                },
+                {
+                  "climateEntryId": 13818,
+                  "flag": "S",
+                  "id": "cl9sn4jwv7y8yvw90981du0f2",
+                  "label": "sep",
+                  "value": "731"
+                },
+                {
+                  "climateEntryId": 13818,
+                  "flag": "S",
+                  "id": "cl9sn4jwv7y8zvw909429t94m",
+                  "label": "oct",
+                  "value": "719"
+                },
+                {
+                  "climateEntryId": 13818,
+                  "flag": "S",
+                  "id": "cl9sn4jwv7y90vw90ck3vmec0",
+                  "label": "nov",
+                  "value": "702"
+                },
+                {
+                  "climateEntryId": 13818,
+                  "flag": "S",
+                  "id": "cl9sn4jwv7y91vw908akqcf3q",
+                  "label": "dec",
+                  "value": "672"
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "id": 21319,
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "stationId": "cl9sn204v0d70vw90ilsdzm51",
+              "dataPoints": [
+                {
+                  "climateEntryId": 21319,
+                  "flag": "C",
+                  "id": "cl9sn59r0bt5evw90bfoxxsev",
+                  "label": "jan",
+                  "value": "808"
+                },
+                {
+                  "climateEntryId": 21319,
+                  "flag": "C",
+                  "id": "cl9sn59r0bt5fvw90362lil0q",
+                  "label": "feb",
+                  "value": "810"
+                },
+                {
+                  "climateEntryId": 21319,
+                  "flag": "C",
+                  "id": "cl9sn59r0bt5gvw90igf31ua1",
+                  "label": "mar",
+                  "value": "819"
+                },
+                {
+                  "climateEntryId": 21319,
+                  "flag": "C",
+                  "id": "cl9sn59r1bt5hvw90nsyryba4",
+                  "label": "apr",
+                  "value": "832"
+                },
+                {
+                  "climateEntryId": 21319,
+                  "flag": "S",
+                  "id": "cl9sn59r1bt5ivw901m0j4obt",
+                  "label": "may",
+                  "value": "849"
+                },
+                {
+                  "climateEntryId": 21319,
+                  "flag": "C",
+                  "id": "cl9sn59r1bt5jvw90web2zuxt",
+                  "label": "jun",
+                  "value": "868"
+                },
+                {
+                  "climateEntryId": 21319,
+                  "flag": "C",
+                  "id": "cl9sn59r1bt5kvw905uso4pf2",
+                  "label": "jul",
+                  "value": "876"
+                },
+                {
+                  "climateEntryId": 21319,
+                  "flag": "S",
+                  "id": "cl9sn59r1bt5lvw90qk9kxkh9",
+                  "label": "aug",
+                  "value": "882"
+                },
+                {
+                  "climateEntryId": 21319,
+                  "flag": "S",
+                  "id": "cl9sn59r1bt5mvw9063sbbljk",
+                  "label": "sep",
+                  "value": "880"
+                },
+                {
+                  "climateEntryId": 21319,
+                  "flag": "S",
+                  "id": "cl9sn59r1bt5nvw901xfl13xy",
+                  "label": "oct",
+                  "value": "866"
+                },
+                {
+                  "climateEntryId": 21319,
+                  "flag": "S",
+                  "id": "cl9sn59r1bt5ovw90evfevnsf",
+                  "label": "nov",
+                  "value": "840"
+                },
+                {
+                  "climateEntryId": 21319,
+                  "flag": "C",
+                  "id": "cl9sn59r1bt5pvw90vcn3zq4v",
+                  "label": "dec",
+                  "value": "818"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "USC00519980",
+          "elevation": 335.3,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn209a0d7cvw90nlzqroik",
+          "latitude": 21.2989,
+          "longitude": -157.7847,
+          "stationName": "WILHELMINA RISE 721",
+          "wmoid": "",
+          "climateEntries": []
+        },
+        {
+          "code": "USW00022521",
+          "elevation": 2.1,
+          "gsn": "",
+          "hcn": "",
+          "id": "cl9sn2c3o0e0yvw90bb0cftt4",
+          "latitude": 21.3239,
+          "longitude": -157.9294,
+          "stationName": "HONOLULU INTL AP",
+          "wmoid": "91182",
+          "climateEntries": [
+            {
+              "dataSet": "noaa-mly-tavg-normal",
+              "id": 6822,
+              "period": "1981-2010",
+              "topic": "normal-tavg",
+              "stationId": "cl9sn2c3o0e0yvw90bb0cftt4",
+              "dataPoints": [
+                {
+                  "climateEntryId": 6822,
+                  "flag": "S",
+                  "id": "cl9sn3vx24coqvw90o68fq5o0",
+                  "label": "jan",
+                  "value": "732"
+                },
+                {
+                  "climateEntryId": 6822,
+                  "flag": "S",
+                  "id": "cl9sn3vx24corvw900jbysx5c",
+                  "label": "feb",
+                  "value": "731"
+                },
+                {
+                  "climateEntryId": 6822,
+                  "flag": "S",
+                  "id": "cl9sn3vx24cosvw90fvi5sgr5",
+                  "label": "mar",
+                  "value": "745"
+                },
+                {
+                  "climateEntryId": 6822,
+                  "flag": "S",
+                  "id": "cl9sn3vx24cotvw90bif1mjfy",
+                  "label": "apr",
+                  "value": "761"
+                },
+                {
+                  "climateEntryId": 6822,
+                  "flag": "S",
+                  "id": "cl9sn3vx24couvw90hqbttf22",
+                  "label": "may",
+                  "value": "778"
+                },
+                {
+                  "climateEntryId": 6822,
+                  "flag": "S",
+                  "id": "cl9sn3vx24covvw90afir5qge",
+                  "label": "jun",
+                  "value": "802"
+                },
+                {
+                  "climateEntryId": 6822,
+                  "flag": "S",
+                  "id": "cl9sn3vx24cowvw904htul4ux",
+                  "label": "jul",
+                  "value": "812"
+                },
+                {
+                  "climateEntryId": 6822,
+                  "flag": "S",
+                  "id": "cl9sn3vx24coxvw900cgm3bk5",
+                  "label": "aug",
+                  "value": "819"
+                },
+                {
+                  "climateEntryId": 6822,
+                  "flag": "S",
+                  "id": "cl9sn3vx24coyvw90fvrvk5cx",
+                  "label": "sep",
+                  "value": "815"
+                },
+                {
+                  "climateEntryId": 6822,
+                  "flag": "S",
+                  "id": "cl9sn3vx24cozvw90cl709hgj",
+                  "label": "oct",
+                  "value": "800"
+                },
+                {
+                  "climateEntryId": 6822,
+                  "flag": "S",
+                  "id": "cl9sn3vx24cp0vw90u7qhlwcy",
+                  "label": "nov",
+                  "value": "776"
+                },
+                {
+                  "climateEntryId": 6822,
+                  "flag": "S",
+                  "id": "cl9sn3vx24cp1vw90wxz305z4",
+                  "label": "dec",
+                  "value": "748"
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmin-normal",
+              "id": 14323,
+              "period": "1981-2010",
+              "topic": "normal-tmin",
+              "stationId": "cl9sn2c3o0e0yvw90bb0cftt4",
+              "dataPoints": [
+                {
+                  "climateEntryId": 14323,
+                  "flag": "S",
+                  "id": "cl9sn4lnd87levw90ilkvb59s",
+                  "label": "jan",
+                  "value": "663"
+                },
+                {
+                  "climateEntryId": 14323,
+                  "flag": "S",
+                  "id": "cl9sn4lnd87lfvw90n3ly8twq",
+                  "label": "feb",
+                  "value": "661"
+                },
+                {
+                  "climateEntryId": 14323,
+                  "flag": "S",
+                  "id": "cl9sn4lnd87lgvw901sw631yu",
+                  "label": "mar",
+                  "value": "677"
+                },
+                {
+                  "climateEntryId": 14323,
+                  "flag": "S",
+                  "id": "cl9sn4lnd87lhvw90ux409uyy",
+                  "label": "apr",
+                  "value": "694"
+                },
+                {
+                  "climateEntryId": 14323,
+                  "flag": "S",
+                  "id": "cl9sn4lnd87livw90dvwlz0sl",
+                  "label": "may",
+                  "value": "709"
+                },
+                {
+                  "climateEntryId": 14323,
+                  "flag": "S",
+                  "id": "cl9sn4lnd87ljvw90mg6u66fg",
+                  "label": "jun",
+                  "value": "734"
+                },
+                {
+                  "climateEntryId": 14323,
+                  "flag": "S",
+                  "id": "cl9sn4lnd87lkvw90zgellch3",
+                  "label": "jul",
+                  "value": "745"
+                },
+                {
+                  "climateEntryId": 14323,
+                  "flag": "S",
+                  "id": "cl9sn4lnd87llvw90gkvej6uz",
+                  "label": "aug",
+                  "value": "751"
+                },
+                {
+                  "climateEntryId": 14323,
+                  "flag": "S",
+                  "id": "cl9sn4lnd87lmvw9064xpiwrm",
+                  "label": "sep",
+                  "value": "744"
+                },
+                {
+                  "climateEntryId": 14323,
+                  "flag": "S",
+                  "id": "cl9sn4lnd87lnvw90g3xg0js7",
+                  "label": "oct",
+                  "value": "734"
+                },
+                {
+                  "climateEntryId": 14323,
+                  "flag": "S",
+                  "id": "cl9sn4lnd87lovw90eiuoiv0h",
+                  "label": "nov",
+                  "value": "714"
+                },
+                {
+                  "climateEntryId": 14323,
+                  "flag": "S",
+                  "id": "cl9sn4lnd87lpvw90x3klxifm",
+                  "label": "dec",
+                  "value": "683"
+                }
+              ]
+            },
+            {
+              "dataSet": "noaa-mly-tmax-normal",
+              "id": 21824,
+              "period": "1981-2010",
+              "topic": "normal-tmax",
+              "stationId": "cl9sn2c3o0e0yvw90bb0cftt4",
+              "dataPoints": [
+                {
+                  "climateEntryId": 21824,
+                  "flag": "S",
+                  "id": "cl9sn5bh4c2i2vw90ua4oiisq",
+                  "label": "jan",
+                  "value": "801"
+                },
+                {
+                  "climateEntryId": 21824,
+                  "flag": "S",
+                  "id": "cl9sn5bh4c2i3vw90236645gb",
+                  "label": "feb",
+                  "value": "802"
+                },
+                {
+                  "climateEntryId": 21824,
+                  "flag": "S",
+                  "id": "cl9sn5bh4c2i4vw900dw1vtmq",
+                  "label": "mar",
+                  "value": "812"
+                },
+                {
+                  "climateEntryId": 21824,
+                  "flag": "S",
+                  "id": "cl9sn5bh4c2i5vw90j0vmfuyc",
+                  "label": "apr",
+                  "value": "827"
+                },
+                {
+                  "climateEntryId": 21824,
+                  "flag": "S",
+                  "id": "cl9sn5bh4c2i6vw90eovymcdw",
+                  "label": "may",
+                  "value": "846"
+                },
+                {
+                  "climateEntryId": 21824,
+                  "flag": "S",
+                  "id": "cl9sn5bh4c2i7vw90ji7dkh84",
+                  "label": "jun",
+                  "value": "870"
+                },
+                {
+                  "climateEntryId": 21824,
+                  "flag": "S",
+                  "id": "cl9sn5bh4c2i8vw901hj1pek0",
+                  "label": "jul",
+                  "value": "879"
+                },
+                {
+                  "climateEntryId": 21824,
+                  "flag": "S",
+                  "id": "cl9sn5bh4c2i9vw90pzrj7otv",
+                  "label": "aug",
+                  "value": "887"
+                },
+                {
+                  "climateEntryId": 21824,
+                  "flag": "S",
+                  "id": "cl9sn5bh4c2iavw90ef4rt6w7",
+                  "label": "sep",
+                  "value": "886"
+                },
+                {
+                  "climateEntryId": 21824,
+                  "flag": "S",
+                  "id": "cl9sn5bh4c2ibvw90d8wpux7y",
+                  "label": "oct",
+                  "value": "867"
+                },
+                {
+                  "climateEntryId": 21824,
+                  "flag": "S",
+                  "id": "cl9sn5bh4c2icvw90ux47bb8z",
+                  "label": "nov",
+                  "value": "839"
+                },
+                {
+                  "climateEntryId": 21824,
+                  "flag": "S",
+                  "id": "cl9sn5bh4c2idvw901xbaaa6o",
+                  "label": "dec",
+                  "value": "812"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
