@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useLayoutEffect } from 'react';
 
 import { Container, Group, Stack, Text, ThemeIcon } from '@mantine/core'
 import { IconAlertCircle, IconCheck } from '@tabler/icons';
@@ -47,7 +47,7 @@ const HelloWorldFastifyCheck = (
         </ThemeIcon>
 
       </Group>
-      <Text color="red.9">{error}</Text>
+      <Text color="red.9">{JSON.stringify(error)}</Text>
     </Stack>
   )
 
@@ -68,13 +68,6 @@ const HelloWorldFastifyCheck = (
    *
    *
    */
-
-  const _sentRequest = useEffect(() => {
-    const execRequest = async () => {
-      await sendRequest();
-    }
-    execRequest().catch(console.error)
-  });
 
   async function sendRequest() {
 
@@ -118,9 +111,11 @@ const HelloWorldFastifyCheck = (
       setError(e)
       setLoading(false)
     }
-
   }
 
+  useEffect(() => {
+    sendRequest()
+  }, []);
 
   return (
     <Container>

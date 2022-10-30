@@ -6,7 +6,7 @@ import Title from '../Title/Title'
 //   children?: React.ReactNode
 // }
 
-const Header = ({ }: HeaderProps) => {
+const Header = () => {
   return (
     <MantineHeader height={60} p="xs">
       <Group position="apart">
