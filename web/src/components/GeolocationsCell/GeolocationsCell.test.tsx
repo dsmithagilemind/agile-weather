@@ -1,7 +1,6 @@
 import { render } from '@redwoodjs/testing/web'
 
-import { Loading, Empty, Failure, Success } from './GeolocationsCell'
-import { standard } from './GeolocationsCell.mock'
+import { Loading, Empty, Failure } from './GeolocationsCell'
 
 // Generated boilerplate tests do not account for all circumstances
 // and can fail without adjustments, e.g. Float and DateTime types.

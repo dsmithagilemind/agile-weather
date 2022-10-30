@@ -4,8 +4,8 @@
 // ```tsx
 // import type { ComponentStory } from '@storybook/react'
 //
-// export const generated: ComponentStory<typeof EndpointTestBar> = (args) => {
-//   return <EndpointTestBar {...args} />
+// export const generated: ComponentStory<typeof LoadSpinner> = (args) => {
+//   return <LoadSpinner {...args} />
 // }
 // ```
 //
@@ -13,13 +13,13 @@
 
 import type { ComponentMeta } from '@storybook/react'
 
-import EndpointTestBar from './EndpointTestBar'
+import LoadSpinner from './LoadSpinner'
 
 export const generated = () => {
-  return <EndpointTestBar />
+  return <LoadSpinner />
 }
 
 export default {
-  title: 'Components/EndpointTestBar',
-  component: EndpointTestBar,
-} as ComponentMeta<typeof EndpointTestBar>
+  title: 'Components/LoadSpinner',
+  component: LoadSpinner,
+} as ComponentMeta<typeof LoadSpinner>

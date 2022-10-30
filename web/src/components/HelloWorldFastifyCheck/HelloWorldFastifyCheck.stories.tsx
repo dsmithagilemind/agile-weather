@@ -15,11 +15,21 @@ import type { ComponentMeta } from '@storybook/react'
 
 import HelloWorldFastifyCheck from './HelloWorldFastifyCheck'
 
-export const generated = () => {
-  return <HelloWorldFastifyCheck />
+
+export const generated = (args) => {
+  return <HelloWorldFastifyCheck {...args} />
 }
 
 export default {
   title: 'Components/HelloWorldFastifyCheck',
   component: HelloWorldFastifyCheck,
+  argTypes: {
+    testLoadingState: {
+      options: [
+        "Loading", "Success", "Error",
+      ],
+      control: {type: 'radio'}
+    }
+  }
 } as ComponentMeta<typeof HelloWorldFastifyCheck>
+

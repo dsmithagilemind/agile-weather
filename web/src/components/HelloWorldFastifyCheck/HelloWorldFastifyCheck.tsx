@@ -1,23 +1,64 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 
-import { Box, Button, Container, Group, TextInput } from '@mantine/core'
-import { useInputState } from '@mantine/hooks'
+import { Container, Group, Stack, Text, ThemeIcon } from '@mantine/core'
+import { IconAlertCircle, IconCheck } from '@tabler/icons';
 
-const HelloWorldFastifyCheck = () => {
+import LoadSpinner from '../LoadSpinner/LoadSpinner';
+
+enum TestLoadingState {
+  Loading = "Loading",
+  Success = "Success",
+  Error = "Error"
+}
+
+type HelloWorldFastifyCheckPropTypes = {
+  testLoadingState?: TestLoadingState
+}
+
+const HelloWorldFastifyCheck = (
+  { testLoadingState = null }: HelloWorldFastifyCheckPropTypes
+) => {
+
   const [loading, setLoading] = useState(true)
-  const [data, setData] = useState(null)
-  const [errorMessage, setErrorMessage] = useState(null)
 
-  const [apiUrl, setApiUrl] = useInputState('http://localhost:8911')
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState(null)
+
 
   const successfulComponent = (
-    <Box color="green.9">Recieved data: {JSON.stringify(data)}</Box>
-  )
-  const erroredComponent = (
-    <Box color="red.9">Query failed: {JSON.stringify(errorMessage)}</Box>
-  )
-  const loadingComponent = <Box color="orange.9">Fetching...</Box>
+    <Group>
+      <Text>Successfully queried /hello-fastify</Text>
+      <ThemeIcon
+        variant="gradient"
+        gradient={{ from: 'teal', to: 'lime', deg: 105 }}
 
+      >
+        <IconCheck></IconCheck>
+      </ThemeIcon>
+    </Group>
+  )
+  const errorComponent = (
+    <Stack>
+      <Group color="red.9">
+        <Text color="red.9">Could not query /hello-fastify</Text>
+
+        <ThemeIcon size="lg" variant="gradient" gradient={{ from: 'orange', to: 'red' }}>
+          <IconAlertCircle />
+        </ThemeIcon>
+
+      </Group>
+      <Text color="red.9">{error}</Text>
+    </Stack>
+  )
+
+  const loadingComponent = (
+    <Group>
+      <Text>
+        Querying /hello-fastify ...
+      </Text>
+      (<LoadSpinner iconStyles={{color: "white"}} />)
+    </Group>
+  )
   /**
    *
    * Unfortunately, looks like redwood's cors protection doesn't seem
@@ -27,38 +68,67 @@ const HelloWorldFastifyCheck = () => {
    *
    *
    */
-  function sendRequest() {
-    const dest = apiUrl + '/hello-fastify'
-    console.log(dest)
-    fetch(dest)
-      .then((response) => {
-        console.log(response)
-        setData(response)
-      })
-      .catch((error) => setErrorMessage(error))
-      .finally(() => setLoading(false))
+
+  const _sentRequest = useEffect(() => {
+    const execRequest = async () => {
+      await sendRequest();
+    }
+    execRequest().catch(console.error)
+  });
+
+  async function sendRequest() {
+
+    if(testLoadingState) {
+      switch(testLoadingState) {
+      case TestLoadingState.Loading:
+        setLoading(true);
+        break;
+      case TestLoadingState.Success:
+        setLoading(false);
+        setSuccess(true);
+        break;
+      case TestLoadingState.Error:
+        setSuccess(false);
+        setLoading(false);
+        setError("Test error")
+        break;
+      }
+      return;
+    }
 
     try {
-      // something
+      const dest = global.RWJS_API_URL + '/hello-fastify'
+      const res = await fetch(dest);
+      const json = await res.json();
+
+      console.log(json)
+
+      if(json.hello && json.hello == "world") {
+        setSuccess(json)
+        setLoading(false)
+      }
+      else {
+        console.error(res);
+        throw new Error("Data did not match expected response of { hello: 'world' }")
+      }
     }
-    catch (e) {
-      // somehting else
+    catch(e) {
+      console.error(e);
+      setSuccess(false);
+      setError(e)
+      setLoading(false)
     }
+
   }
 
-  const finalElement = errorMessage ? erroredComponent : successfulComponent
 
   return (
     <Container>
-      <Group>
-        <TextInput
-          onChange={setApiUrl}
-          rightSection={<Box>/hello-fastify</Box>}
-          value={apiUrl}
-        ></TextInput>
-        <Button onClick={sendRequest}>Send</Button>
-      </Group>
-      {loading ? loadingComponent : finalElement}
+      {
+        loading?
+          loadingComponent :
+          success? successfulComponent : errorComponent
+      }
     </Container>
   )
 }

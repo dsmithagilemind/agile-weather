@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import EndpointTestBar from './EndpointTestBar'
+import LoadSpinner from './LoadSpinner'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //    https://redwoodjs.com/docs/testing#testing-components
 
-describe('EndpointTestBar', () => {
+describe('LoadSpinner', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<EndpointTestBar />)
+      render(<LoadSpinner />)
     }).not.toThrow()
   })
 })
