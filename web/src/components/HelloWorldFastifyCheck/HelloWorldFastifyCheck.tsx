@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { Container, Group, Stack, Text, ThemeIcon } from '@mantine/core'
+import { Container, createStyles, Grid, Group, Stack, Text, ThemeIcon } from '@mantine/core'
 import { IconAlertCircle, IconCheck } from '@tabler/icons';
 
 import LoadSpinner from '../LoadSpinner/LoadSpinner';
@@ -26,19 +26,16 @@ const HelloWorldFastifyCheck = (
 
 
   const successfulComponent = (
-    <Group>
-      <Text>Successfully queried /hello-fastify</Text>
-      <ThemeIcon
-        variant="gradient"
-        gradient={{ from: 'teal', to: 'lime', deg: 105 }}
-
-      >
-        <IconCheck></IconCheck>
-      </ThemeIcon>
-    </Group>
+    <ThemeIcon
+      variant="gradient"
+      gradient={{ from: 'teal', to: 'lime', deg: 105 }}
+      size="md"
+    >
+      <IconCheck></IconCheck>
+    </ThemeIcon>
   )
   const errorComponent = (
-    <Stack>
+    <Stack align="flex-start" >
       <Group color="red.9">
         <Text color="red.9">Could not query /hello-fastify</Text>
 
@@ -52,11 +49,11 @@ const HelloWorldFastifyCheck = (
   )
 
   const loadingComponent = (
-    <Group>
+    <Group align="flex-start">
       <Text>
         Querying /hello-fastify ...
       </Text>
-      (<LoadSpinner iconStyles={{color: "white"}} />)
+      <LoadSpinner iconStyles={{color: "white"}} />
     </Group>
   )
   /**
@@ -83,7 +80,7 @@ const HelloWorldFastifyCheck = (
       case TestLoadingState.Error:
         setSuccess(false);
         setLoading(false);
-        setError("Test error")
+        setError(new Error("Test Error"))
         break;
       }
       return;
@@ -121,13 +118,16 @@ const HelloWorldFastifyCheck = (
   []);
 
   return (
-    <Container>
+    <Grid px={25}>
+      <Text size="xs" sx={{border: '1px solid grey'}}>
+        Custom fastify route health check:
+      </Text>
       {
         loading?
           loadingComponent :
           success? successfulComponent : errorComponent
       }
-    </Container>
+    </Grid>
   )
 }
 

@@ -8,14 +8,14 @@ import {
   Group,
   Text,
   Center,
-  TextInput,
+  TextInput
 } from '@mantine/core'
 import { keys } from '@mantine/utils'
 import {
   IconSelector,
   IconChevronDown,
   IconChevronUp,
-  IconSearch,
+  IconSearch
 } from '@tabler/icons'
 import * as _ from 'radash'
 
@@ -232,13 +232,9 @@ const StationDataTable = ({ stations }) => {
   })
 
   const emptyElement = (
-    <tr>
-      <td colSpan={Object.keys(data[0]).length}>
-        <Text weight={500} align="center">
+    <Text weight={500} align="center">
           Nothing found
-        </Text>
-      </td>
-    </tr>
+    </Text>
   )
   return (
     <ScrollArea>

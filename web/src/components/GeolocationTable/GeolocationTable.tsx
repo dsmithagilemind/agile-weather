@@ -8,14 +8,14 @@ import {
   Group,
   Text,
   Center,
-  TextInput,
+  TextInput
 } from '@mantine/core'
 import { keys } from '@mantine/utils'
 import {
   IconSelector,
   IconChevronDown,
   IconChevronUp,
-  IconSearch,
+  IconSearch
 } from '@tabler/icons'
 import * as _ from 'radash'
 

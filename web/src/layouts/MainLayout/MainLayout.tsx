@@ -10,7 +10,6 @@ type MainLayoutProps = {
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <AppShell
-      padding="md"
       navbar={<Sidebar></Sidebar>}
       header={<Header></Header>}
       styles={(theme) => ({
@@ -20,6 +19,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
               ? theme.colors.dark[8]
               : theme.colors.gray[0],
         },
+        overflow: "hidden"
       })}
     >
       {children}

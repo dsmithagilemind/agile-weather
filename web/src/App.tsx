@@ -21,25 +21,10 @@ const App = () => (
         theme={{
           ...mantineTheme,
           colorScheme: 'dark',
+
         }}
       >
-        <RedwoodApolloProvider
-        // graphQLClientConfig={{
-        //   // @ts-ignore
-        //   link: (rwLinks) => {
-        //     const splitLink = ApolloLink.split(
-        //       (operation) => operation.getContext().clientName === 'rest',
-
-        //       // The string "rest" and "clientName" can be anything you want
-        //       restLink, // Apollo will send to this if clientName is "rest"
-        //       // @ts-ignore
-        //       ApolloLink.from([...rwLinks]) // otherwise forward back to default stack
-        //     )
-
-        //     return splitLink
-        //   },
-        // }}
-        >
+        <RedwoodApolloProvider>
           <Routes />
         </RedwoodApolloProvider>
       </MantineProvider>

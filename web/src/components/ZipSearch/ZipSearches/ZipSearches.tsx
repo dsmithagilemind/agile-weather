@@ -1,5 +1,5 @@
-import { ActionIcon, Container, Grid, Stack, Text } from '@mantine/core'
-import { IconEdit, IconLink, IconTrash } from '@tabler/icons'
+import { ActionIcon, Container, Grid, Group, Input, Stack, Text } from '@mantine/core'
+import { IconClipboardCopy, IconEdit, IconLink, IconTrash } from '@tabler/icons'
 import humanize from 'humanize-string'
 import type {
   DeleteZipSearchMutationVariables,
@@ -12,6 +12,7 @@ import { toast } from '@redwoodjs/web/toast'
 
 import EditZipSearchModal from 'src/components/EditZipSearchModal/EditZipSearchModal'
 import { QUERY } from 'src/components/ZipSearch/ZipSearchesCell'
+import { useZipSearchStore } from 'src/lib/stores'
 
 const DELETE_ZIP_SEARCH_MUTATION = gql`
   mutation DeleteZipSearchMutation($id: String!) {
@@ -81,19 +82,41 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
       deleteZipSearch({ variables: { id } })
     }
   }
+  const maxLength = 9;
+  const truncZipSearches = [];
+
+  // reversing and slicing by hand due to odd issue with react
+  for(let i = zipSearches.length - 1; i >= 0; --i) {
+    if(i < zipSearches.length - maxLength) break;
+    truncZipSearches.push(zipSearches[i])
+  }
+
+  const ZipColumn = function({ zipCode }) {
+    const setLoadZipCode = useZipSearchStore((state) => state.setLoadZipCode)
+
+    return(
+      <Grid.Col span="auto" sx={{marginLeft: -25}}>
+        <Group>
+          <Text>{zipCode}</Text>
+          <ActionIcon size="sm" variant="outline" onClick={() => setLoadZipCode(zipCode)}>
+            <IconClipboardCopy></IconClipboardCopy>
+          </ActionIcon>
+        </Group>
+      </Grid.Col>
+    )
+  }
 
   return (
     <Container>
       <Stack>
-        <Text align='left'>Recent Searches: </Text>
-        {zipSearches.map((zipSearch, i) => (
-          <Grid key={i} gutter="xl" py="xs" sx={{borderTop: '1px solid gray'}}>
+        <Input.Label sx={{marginLeft: "-12px"}}>Recent Searches: </Input.Label>
+        {truncZipSearches.map((zipSearch, i) => (
+          <Grid key={i} gutter="xl" py="xs" px="md" sx={{borderTop: '1px solid gray'}}>
 
-            <Grid.Col span="auto">
-              <Text>{zipSearch.zip}</Text>
-            </Grid.Col>
 
-            <Grid.Col span={1}>
+            <ZipColumn zipCode={zipSearch.zip} />
+
+            <Grid.Col span={1} px="lg">
 
               <Link
                 to={routes.zipSearch({ id: zipSearch.id })}
@@ -109,7 +132,7 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
               </Link>
             </Grid.Col>
 
-            <Grid.Col span={1}>
+            <Grid.Col span={1} px="lg">
               <ActionIcon
                 size={"md"}
                 variant="gradient" gradient={{ from: 'teal', to: 'lime', deg: 105 }}
@@ -121,7 +144,7 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
               </ActionIcon>
             </Grid.Col>
 
-            <Grid.Col span={1}>
+            <Grid.Col span={1} px="lg">
               <ActionIcon
                 size={"md"}
 
@@ -137,54 +160,6 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
         ))}
       </Stack>
     </Container>
-
-  // <div className="rw-segment rw-table-wrapper-responsive">
-  //   <table className="rw-table">
-  //     <thead>
-  //       <tr>
-  //         <th>Zip</th>
-  //         <th>Date</th>
-  //         <th>Last Updated</th>
-  //         <th>&nbsp;</th>
-  //       </tr>
-  //     </thead>
-  //     <tbody>
-  //       {zipSearches.map((zipSearch) => (
-  //         <tr key={zipSearch.id}>
-  //           <td>{truncate(zipSearch.zip)}</td>
-  //           <td>{timeTag(zipSearch.date)}</td>
-  //           <td>{timeTag(zipSearch.updatedAt)}</td>
-  //           <td>
-  //             <nav className="rw-table-actions">
-  //               <Link
-  //                 to={routes.zipSearch({ id: zipSearch.id })}
-  //                 title={'Show zipSearch ' + zipSearch.id + ' detail'}
-  //                 className="rw-button rw-button-small"
-  //               >
-  //                 Show
-  //               </Link>
-  //               <Link
-  //                 to={routes.editZipSearch({ id: zipSearch.id })}
-  //                 title={'Edit zipSearch ' + zipSearch.id}
-  //                 className="rw-button rw-button-small rw-button-blue"
-  //               >
-  //                 Edit
-  //               </Link>
-  //               <button
-  //                 type="button"
-  //                 title={'Delete zipSearch ' + zipSearch.id}
-  //                 className="rw-button rw-button-small rw-button-red"
-  //                 onClick={() => onDeleteClick(zipSearch.id)}
-  //               >
-  //                 Delete
-  //               </button>
-  //             </nav>
-  //           </td>
-  //         </tr>
-  //       ))}
-  //     </tbody>
-  //   </table>
-  // </div>
   )
 }
 
