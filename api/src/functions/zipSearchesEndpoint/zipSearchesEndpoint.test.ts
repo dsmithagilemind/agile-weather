@@ -31,8 +31,6 @@ describe('zipSearchesEndpoint function', () => {
     const response = await handler(httpEvent, null)
     const { data } = JSON.parse(response.body)
 
-    console.log(data[0])
-
     expect(response.statusCode).toBe(200)
     expect(data[0].zip).toBeDefined();
     expect(data.length).toBeGreaterThanOrEqual(1)

@@ -75,12 +75,7 @@ const transform: TransformerDirectiveFunc = async ({ args, directiveArgs }) => {
 
     if (res.ok) {
       logger.debug({ custom: url }, 'Successfully fetched url')
-      // ! expected iterable
-
       const json = await res.json()
-
-      console.log(res)
-      console.log(json)
       return json.data
     }
   }

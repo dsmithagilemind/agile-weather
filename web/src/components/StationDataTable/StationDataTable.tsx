@@ -19,6 +19,8 @@ import {
 } from '@tabler/icons'
 import * as _ from 'radash'
 
+import ChartModal from '../ChartModal/ChartModal'
+
 /*
   id
       city
@@ -180,8 +182,9 @@ function sortData(
   )
 }
 
-////////////////////////////// Geolocation Table //////////////////////////////
+////////////////////////////// Station Table //////////////////////////////
 const StationDataTable = ({ stations }) => {
+
   const data = useMemo(
     () =>
       stations.map((station) => {
@@ -221,16 +224,42 @@ const StationDataTable = ({ stations }) => {
     )
   }
 
+  const StationCodeWithChart = ({station}) => {
+    return (
+      <Group spacing="xs">
+        <Text sx={{fontFamily: "'Noto Sans Mono', monospace"}}>
+          {station.code}
+        </Text>
+        {
+          station.climateEntries.length == 3 ?
+            (<ChartModal station={station} />)
+            : null
+        }
+      </Group>
+    )
+  }
+
   const rowElements = sortedData.map((station, i) => {
     return (
       <tr key={i}>
-        {RowDataKeys.map((key) => (
-          <td key={key}>
-            <Text sx={{fontFamily: "'Noto Sans Mono', monospace"}}>
-              {station[key]}
-            </Text>
-          </td>
-        ))}
+        {RowDataKeys.map((key) => {
+
+          if(key === "code" && stations[i].climateEntries) {
+            return(
+              <td key={key}>
+                <StationCodeWithChart station={stations[i]} />
+              </td>
+            )
+          }
+          return (
+            <td key={key}>
+              <Text sx={{fontFamily: "'Noto Sans Mono', monospace"}}>
+                {station[key]}
+              </Text>
+            </td>
+          )
+        }
+        )}
       </tr>
     )
   })

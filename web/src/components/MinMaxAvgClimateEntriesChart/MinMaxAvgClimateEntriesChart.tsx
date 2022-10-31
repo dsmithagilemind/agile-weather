@@ -8,7 +8,7 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend,
+  Legend
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
 
@@ -63,24 +63,22 @@ const defaultData = {
 }
 
 const MinMaxAvgClimateEntriesChart = ({ stationClimateEntries }) => {
-  console.log(stationClimateEntries)
-
   let minPoints, maxPoints, avgPoints
   stationClimateEntries.forEach((entry) => {
     switch (entry.topic) {
-      case 'normal-tavg':
-        avgPoints = entry.dataPoints
-        break
-      case 'normal-tmin':
-        minPoints = entry.dataPoints
-        break
-      case 'normal-tmax':
-        maxPoints = entry.dataPoints
-        break
-      default:
-        throw new Error(
-          `Unexpected data points in ClimateEntry with id ${entry.id}`
-        )
+    case 'normal-tavg':
+      avgPoints = entry.dataPoints
+      break
+    case 'normal-tmin':
+      minPoints = entry.dataPoints
+      break
+    case 'normal-tmax':
+      maxPoints = entry.dataPoints
+      break
+    default:
+      throw new Error(
+        `Unexpected data points in ClimateEntry with id ${entry.id}`
+      )
     }
   })
 
