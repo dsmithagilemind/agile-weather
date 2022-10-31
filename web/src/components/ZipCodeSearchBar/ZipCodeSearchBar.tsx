@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 
 import { Button, Grid, Group, Input, Text, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
@@ -20,6 +20,16 @@ const ZipCodeSearchBar = () => {
   const loadZipCode = useZipSearchStore((state) => state.loadZipCode)
 
   //const [loadedZip, loadZip] = useState(defaultZip)
+  const inputRef = useRef(null)
+
+  useEffect(() => {
+    if(inputRef.current && inputRef.current.value !== loadZipCode) {
+      inputRef.current.value = loadZipCode;
+    }
+  }, [loadZipCode])
+
+
+
 
   const [_zipSearch, createNewZipSearch] = useCreateZipSearch()
 
@@ -65,7 +75,7 @@ const ZipCodeSearchBar = () => {
                 id="zipCodeSearchInput"
                 {...form.getInputProps('zip')}
                 onChange={(event) => setZipValue(event.target.value)}
-                value={loadZipCode||""}
+                ref={inputRef}
               ></TextInput>
             </Grid.Col>
             <Grid.Col span={4}>
