@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import { Container, createStyles, Grid, Group, Stack, Text, ThemeIcon } from '@mantine/core'
+import { Group, Stack, Text, ThemeIcon } from '@mantine/core';
 import { IconAlertCircle, IconCheck } from '@tabler/icons';
 
 import LoadSpinner from '../LoadSpinner/LoadSpinner';
@@ -22,49 +22,41 @@ const HelloWorldFastifyCheck = (
   const [loading, setLoading] = useState(true)
 
   const [success, setSuccess] = useState(false)
-  const [error, setError] = useState(null)
-
+  const [_error, setError] = useState(null)
 
   const successfulComponent = (
-    <ThemeIcon
-      variant="gradient"
-      gradient={{ from: 'teal', to: 'lime', deg: 105 }}
-      size="md"
-    >
-      <IconCheck></IconCheck>
-    </ThemeIcon>
+    <Group spacing="xs">
+      <ThemeIcon
+        variant="gradient"
+        gradient={{ from: 'teal', to: 'lime', deg: 105 }}
+        size="xs"
+      >
+        <IconCheck></IconCheck>
+      </ThemeIcon>
+      <Text>
+        /hello-fastify route queried
+      </Text>
+    </Group>
   )
   const errorComponent = (
-    <Stack align="flex-start" >
-      <Group color="red.9">
-        <Text color="red.9">Could not query /hello-fastify</Text>
+    <Group color="red.9" spacing="xs">
 
-        <ThemeIcon size="lg" variant="gradient" gradient={{ from: 'orange', to: 'red' }}>
-          <IconAlertCircle />
-        </ThemeIcon>
+      <ThemeIcon size="sm" variant="gradient" gradient={{ from: 'orange', to: 'red' }}>
+        <IconAlertCircle />
+      </ThemeIcon>
+      <Text color="red.9">Could not query /hello-fastify</Text>
 
-      </Group>
-      <Text color="red.9">{JSON.stringify(error)}</Text>
-    </Stack>
+    </Group>
   )
 
   const loadingComponent = (
-    <Group align="flex-start">
+    <Group align="flex-start" spacing="xs">
+      <LoadSpinner iconStyles={{color: "white"}} />
       <Text>
         Querying /hello-fastify ...
       </Text>
-      <LoadSpinner iconStyles={{color: "white"}} />
     </Group>
   )
-  /**
-   *
-   * Unfortunately, looks like redwood's cors protection doesn't seem
-   *  to include custom routes in fastify. So doing a manual route
-   *  won't work here, but we can still test the route by
-   *  navigating
-   *
-   *
-   */
 
   async function sendRequest() {
 
@@ -118,16 +110,16 @@ const HelloWorldFastifyCheck = (
   []);
 
   return (
-    <Grid px={25}>
-      <Text size="xs" sx={{border: '1px solid grey'}}>
-        Custom fastify route health check:
+    <Stack py="md" spacing={0} justify="flex-end" >
+      <Text size="xs" py={0}>
+        Custom fastify route check:
       </Text>
       {
         loading?
           loadingComponent :
           success? successfulComponent : errorComponent
       }
-    </Grid>
+    </Stack>
   )
 }
 

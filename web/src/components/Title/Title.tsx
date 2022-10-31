@@ -1,9 +1,12 @@
+import { Title as MantineTitle } from '@mantine/core'
+
 const Title = () => {
   return (
-    <div>
-      <h2>{'Title'}</h2>
-      <p>{'Find me in ./web/src/components/Title/Title.tsx'}</p>
-    </div>
+    <MantineTitle
+      py="xl"
+      px="xl"
+      sx={{fontSize: 48, fontFamily: '"Work Sans", sans-serif'}}
+    >Agile Weather</MantineTitle>
   )
 }
 

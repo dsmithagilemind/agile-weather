@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { Button, Group, Input, Text, TextInput } from '@mantine/core'
+import { Button, Grid, Group, Input, Text, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
 
 import { useCreateZipSearch } from 'src/components/ZipSearch/NewZipSearch'
@@ -57,16 +57,30 @@ const ZipCodeSearchBar = () => {
           <Input.Label py="xs">
             <Text>Search by zipcode:</Text>
           </Input.Label>
-          <TextInput
-            id="zipCodeSearchInput"
-            {...form.getInputProps('zip')}
-            onChange={(event) => setZipValue(event.target.value)}
-            rightSection={
-              (
-                <Button px="xs" sx={{marginRight: 25}} type="submit">Search</Button>)
-            }
-            value={loadZipCode||""}
-          ></TextInput>
+
+          <Grid>
+            <Grid.Col span={"auto"}>
+              <TextInput
+                xs={{width: 200}}
+                id="zipCodeSearchInput"
+                {...form.getInputProps('zip')}
+                onChange={(event) => setZipValue(event.target.value)}
+                value={loadZipCode||""}
+              ></TextInput>
+            </Grid.Col>
+            <Grid.Col span={4}>
+              <Button
+                px="xs"
+                sx={{marginRight: 25}}
+                type="submit"
+                variant="gradient"
+                gradient={{ from: 'teal', to: 'lime', deg: 105 }}
+                fullWidth
+              >
+              Search
+              </Button></Grid.Col>
+          </Grid>
+
         </Input.Wrapper>
       </form>
 

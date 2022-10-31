@@ -1,4 +1,4 @@
-import { Divider, Title } from '@mantine/core'
+import { Space, Title } from '@mantine/core'
 import * as _ from 'radash'
 
 import GeolocationTable from '../GeolocationTable/GeolocationTable'
@@ -46,11 +46,10 @@ const GeolocationView = ({ geoLocations }) => {
     <>
       <Title>Geolocations</Title>
       <GeolocationTable geoLocations={geoLocations} />
-      <Divider></Divider>
+      <Space h="xl" />
 
       <Title>Stations</Title>
       <StationDataTable stations={stations} />
-      <Divider></Divider>
     </>
   )
 }

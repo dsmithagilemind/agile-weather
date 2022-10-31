@@ -21,7 +21,11 @@ const App = () => (
         theme={{
           ...mantineTheme,
           colorScheme: 'dark',
-
+          fontFamilyMonospace: 'Noto Sans Mono, monospace',
+          fontFamily: 'Public Sans, sans-serif',
+          headings: {
+            fontFamily: 'Work Sans, sans-serif'
+          }
         }}
       >
         <RedwoodApolloProvider>

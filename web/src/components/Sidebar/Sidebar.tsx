@@ -1,5 +1,5 @@
 
-import { Container, Group, Navbar, Stack } from '@mantine/core'
+import { Group, Navbar, Stack } from '@mantine/core'
 
 import HelloWorldFastifyCheck from 'src/components/HelloWorldFastifyCheck/HelloWorldFastifyCheck'
 import ZipSearchesCell from 'src/components/ZipSearch/ZipSearchesCell'
@@ -12,7 +12,7 @@ const Sidebar = () => {
   return (
     <Navbar
       height={'100%'}
-      width={{ base: 400 }}
+      width={{ base: 375 }}
       sx={{ overflowX: 'scroll' }}
       p="xs"
     >
@@ -21,6 +21,10 @@ const Sidebar = () => {
 
         <Group px={25} grow>
           <ZipSearchesCell />
+        </Group>
+
+        <Group px={25} grow>
+          <HelloWorldFastifyCheck />
         </Group>
 
       </Stack>

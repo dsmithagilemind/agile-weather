@@ -225,7 +225,11 @@ const StationDataTable = ({ stations }) => {
     return (
       <tr key={i}>
         {RowDataKeys.map((key) => (
-          <td key={key}>{station[key]}</td>
+          <td key={key}>
+            <Text sx={{fontFamily: "'Noto Sans Mono', monospace"}}>
+              {station[key]}
+            </Text>
+          </td>
         ))}
       </tr>
     )

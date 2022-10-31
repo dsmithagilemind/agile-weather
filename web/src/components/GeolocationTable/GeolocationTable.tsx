@@ -195,7 +195,11 @@ const GeolocationTable = ({ geoLocations }) => {
     return (
       <tr key={i}>
         {RowDataKeys.map((key) => (
-          <td key={key}>{geoLocation[key]}</td>
+          <td key={key}>
+            <Text sx={{fontFamily: "'Noto Sans Mono', monospace"}}>
+              {geoLocation[key]}
+            </Text>
+          </td>
         ))}
       </tr>
     )

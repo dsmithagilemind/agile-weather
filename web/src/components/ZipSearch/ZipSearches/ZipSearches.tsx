@@ -82,7 +82,7 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
       deleteZipSearch({ variables: { id } })
     }
   }
-  const maxLength = 9;
+  const maxLength = 7;
   const truncZipSearches = [];
 
   // reversing and slicing by hand due to odd issue with react
