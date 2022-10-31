@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Container, Group, Stack, Text, ThemeIcon } from '@mantine/core'
 import { IconAlertCircle, IconCheck } from '@tabler/icons';
@@ -115,7 +115,10 @@ const HelloWorldFastifyCheck = (
 
   useEffect(() => {
     sendRequest()
-  }, []);
+  },
+  // /* REQUIRED to prevent rerenders */
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  []);
 
   return (
     <Container>

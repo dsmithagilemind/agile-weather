@@ -1,6 +1,5 @@
 import type { EditZipSearchById, UpdateZipSearchInput } from 'types/graphql'
 
-import { navigate, routes } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
@@ -38,7 +37,7 @@ export const Success = ({ zipSearch }: CellSuccessProps<EditZipSearchById>) => {
     {
       onCompleted: () => {
         toast.success('ZipSearch updated')
-        navigate(routes.zipSearches())
+        //navigate(routes.zipSearches())
       },
       onError: (error) => {
         toast.error(error.message)

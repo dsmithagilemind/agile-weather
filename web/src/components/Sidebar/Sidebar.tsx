@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { Navbar, TextInput, Button, Container, Stack } from '@mantine/core'
+import { Navbar, TextInput, Button, Container, Stack, Group } from '@mantine/core'
 import { useForm } from '@mantine/form'
 
 import HelloWorldFastifyCheck from 'src/components/HelloWorldFastifyCheck/HelloWorldFastifyCheck'
@@ -63,9 +63,9 @@ const Sidebar = () => {
           </form>
         </Container>
 
-        <Container px={25}>
+        <Group px={25} grow>
           <ZipSearchesCell />
-        </Container>
+        </Group>
 
         <Container px={25}>
           <HelloWorldFastifyCheck />
