@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import {
   createStyles,
@@ -223,6 +223,9 @@ const StationDataTable = ({ stations }) => {
       sortData(data, { sortBy, reversed: reverseSortDirection, search: value })
     )
   }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setSortedData(data), [stations]);
 
   const StationCodeWithChart = ({station}) => {
     return (

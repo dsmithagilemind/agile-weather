@@ -1,3 +1,4 @@
+import { Container } from '@mantine/core'
 
 import { MetaTags } from '@redwoodjs/web'
 
@@ -12,11 +13,13 @@ const HomePage = () => {
     <>
       <MetaTags title="Home" description="Home page" />
 
-      {loadZipCode ? (
-        <GeolocationsCell zip={loadZipCode} />
-      ) : (
-        <div>No data loaded</div>
-      )}
+      <Container>
+        {loadZipCode ? (
+          <GeolocationsCell zip={loadZipCode} />
+        ) : (
+          <div>No data loaded</div>
+        )}
+      </Container>
     </>
   )
 }

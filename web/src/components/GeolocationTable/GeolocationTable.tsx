@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   createStyles,
@@ -190,6 +190,8 @@ const GeolocationTable = ({ geoLocations }) => {
       sortData(data, { sortBy, reversed: reverseSortDirection, search: value })
     )
   }
+
+  useEffect(() => setSortedData(data), [geoLocations]);
 
   const rowElements = sortedData.map((geoLocation, i) => {
     return (
