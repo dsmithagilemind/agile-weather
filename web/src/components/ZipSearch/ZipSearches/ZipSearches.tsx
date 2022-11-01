@@ -1,4 +1,4 @@
-import { ActionIcon, Container, Grid, Group, Input, Stack, Text } from '@mantine/core'
+import { ActionIcon, Container, Grid, Group, Input, Stack, Text, Tooltip } from '@mantine/core'
 import { IconClipboardCopy, IconEdit, IconLink, IconTrash } from '@tabler/icons'
 import humanize from 'humanize-string'
 import type {
@@ -98,9 +98,11 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
       <Grid.Col span="auto" sx={{marginLeft: -25}}>
         <Group>
           <Text>{zipCode}</Text>
-          <ActionIcon size="sm" variant="outline" onClick={() => setReloadZipCode(zipCode)}>
-            <IconClipboardCopy></IconClipboardCopy>
-          </ActionIcon>
+          <Tooltip label="Copy to search field">
+            <ActionIcon size="sm" variant="outline" onClick={() => setReloadZipCode(zipCode)}>
+              <IconClipboardCopy></IconClipboardCopy>
+            </ActionIcon>
+          </Tooltip>
         </Group>
       </Grid.Col>
     )
@@ -123,38 +125,43 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
                 title={'Show zipSearch ' + zipSearch.id + ' detail'}
                 target="_blank"
               >
-                <ActionIcon
-                  size={"md"}
-                  variant="gradient" gradient={{ from: 'blue', to: 'indigo', deg: 105 }}
-                >
-                  <IconLink></IconLink>
-                </ActionIcon>
+                <Tooltip label="View full record">
+                  <ActionIcon
+                    size={"md"}
+                    variant="gradient" gradient={{ from: 'blue', to: 'indigo', deg: 105 }}
+                  >
+                    <IconLink></IconLink>
+                  </ActionIcon>
+                </Tooltip>
               </Link>
             </Grid.Col>
 
             <Grid.Col span={1} px="lg">
-              <ActionIcon
-                size={"md"}
-                variant="gradient" gradient={{ from: 'teal', to: 'lime', deg: 105 }}
-              >
-                <EditZipSearchModal id={zipSearch.id} open={false}>
-
-                  <IconEdit></IconEdit>
-                </EditZipSearchModal>
-              </ActionIcon>
+              <Tooltip label="Edit in popup">
+                <ActionIcon
+                  size={"md"}
+                  variant="gradient" gradient={{ from: 'teal', to: 'lime', deg: 105 }}
+                >
+                  <EditZipSearchModal id={zipSearch.id} open={false}>
+                    <IconEdit></IconEdit>
+                  </EditZipSearchModal>
+                </ActionIcon>
+              </Tooltip>
             </Grid.Col>
 
             <Grid.Col span={1} px="lg">
-              <ActionIcon
-                size={"md"}
+              <Tooltip label="Delete the entry">
+                <ActionIcon
+                  size={"md"}
 
-                variant="gradient" gradient={{ from: 'orange', to: 'red' }}
-                title={'Delete zipSearch ' + zipSearch.id}
-                onClick={() => onDeleteClick(zipSearch.id)}
+                  variant="gradient" gradient={{ from: 'orange', to: 'red' }}
+                  title={'Delete zipSearch ' + zipSearch.id}
+                  onClick={() => onDeleteClick(zipSearch.id)}
 
-              >
-                <IconTrash></IconTrash>
-              </ActionIcon>
+                >
+                  <IconTrash></IconTrash>
+                </ActionIcon>
+              </Tooltip>
             </Grid.Col>
           </Grid>
         ))}

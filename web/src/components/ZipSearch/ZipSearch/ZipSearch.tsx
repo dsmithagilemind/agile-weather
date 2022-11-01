@@ -20,7 +20,7 @@ const _formatEnum = (values: string | string[] | null | undefined) => {
       const humanizedValues = values.map((value) => humanize(value))
       return humanizedValues.join(', ')
     }
- else {
+    else {
       return humanize(values as string)
     }
   }

@@ -17,7 +17,9 @@ import HelloWorldFastifyCheck from './HelloWorldFastifyCheck'
 
 
 export const generated = (args) => {
-  return <HelloWorldFastifyCheck {...args} />
+  return <HelloWorldFastifyCheck
+    {...args}
+  />
 }
 
 export default {
@@ -28,7 +30,8 @@ export default {
       options: [
         "Loading", "Success", "Error",
       ],
-      control: {type: 'radio'}
+      control: {type: 'radio'},
+      defaultValue: "Success"
     }
   }
 } as ComponentMeta<typeof HelloWorldFastifyCheck>

@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 
-import { ActionIcon, Modal } from "@mantine/core";
+import { ActionIcon, Modal, Tooltip } from "@mantine/core";
 import { IconChartDots } from "@tabler/icons";
 
 import MinMaxAvgClimateEntriesChart from "../MinMaxAvgClimateEntriesChart/MinMaxAvgClimateEntriesChart";
@@ -13,17 +13,18 @@ type ChartModalProps = {
 }
 
 const ChartModal = ({ station, open = false }: ChartModalProps) => {
-
   const [opened, setOpened] = useState(open);
 
   return (
     <>
-      <ActionIcon
-        variant="outline"
-        onClick={() => setOpened(true)}
-      >
-        <IconChartDots />
-      </ActionIcon>
+      <Tooltip label="Open climate graph">
+        <ActionIcon
+          variant="outline"
+          onClick={() => setOpened(true)}
+        >
+          <IconChartDots />
+        </ActionIcon>
+      </Tooltip>
       <Modal
         opened={opened}
         onClose={() => setOpened(false)}
