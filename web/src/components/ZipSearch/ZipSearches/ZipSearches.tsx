@@ -92,13 +92,13 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
   }
 
   const ZipColumn = function({ zipCode }) {
-    const setLoadZipCode = useZipSearchStore((state) => state.setLoadZipCode)
+    const setReloadZipCode = useZipSearchStore((state) => state.setReloadZipCode)
 
     return(
       <Grid.Col span="auto" sx={{marginLeft: -25}}>
         <Group>
           <Text>{zipCode}</Text>
-          <ActionIcon size="sm" variant="outline" onClick={() => setLoadZipCode(zipCode)}>
+          <ActionIcon size="sm" variant="outline" onClick={() => setReloadZipCode(zipCode)}>
             <IconClipboardCopy></IconClipboardCopy>
           </ActionIcon>
         </Group>

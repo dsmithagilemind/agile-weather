@@ -244,7 +244,7 @@ const StationDataTable = ({ stations }) => {
       <tr key={i}>
         {RowDataKeys.map((key) => {
 
-          if(key === "code" && stations[i].climateEntries) {
+          if(key === "code" && stations[i]?.climateEntries) {
             return(
               <td key={key}>
                 <StationCodeWithChart station={stations[i]} />

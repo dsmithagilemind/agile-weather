@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useMemo, useRef } from 'react'
 
 import { Button, Grid, Group, Input, Text, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
+import shallow from 'zustand/shallow'
 
 import { useCreateZipSearch } from 'src/components/ZipSearch/NewZipSearch'
 import { useZipSearchStore } from 'src/lib/stores'
@@ -14,22 +16,23 @@ const defaultZip = '79830'
 
 const ZipCodeSearchBar = () => {
 
-
-  const setLoadZipCode = useZipSearchStore((state) => state.setLoadZipCode)
-
-  const loadZipCode = useZipSearchStore((state) => state.loadZipCode)
+  const [
+    loadZipCode, setLoadZipCode, reloadZipCode, setReloadZipCode
+  ] = useZipSearchStore((state) => [state.loadZipCode, state.setLoadZipCode, state.reloadZipCode, state.setReloadZipCode], shallow)
 
   //const [loadedZip, loadZip] = useState(defaultZip)
   const inputRef = useRef(null)
 
   useEffect(() => {
-    if(inputRef.current && inputRef.current.value !== loadZipCode) {
-      inputRef.current.value = loadZipCode;
+    if(!reloadZipCode) return;
+    if(loadZipCode != reloadZipCode) {
+      inputRef.current.value = reloadZipCode;
+      form.setValues({ zip: zipCodeParser(reloadZipCode) })
+      setReloadZipCode(undefined)
+      setLoadZipCode(reloadZipCode)
     }
-  }, [loadZipCode])
-
-
-
+  // @ts-ignore
+  }, [loadZipCode, reloadZipCode, form])
 
   const [_zipSearch, createNewZipSearch] = useCreateZipSearch()
 

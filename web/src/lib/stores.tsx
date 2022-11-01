@@ -3,11 +3,15 @@ import create from 'zustand'
 interface ZipSearchStore {
   loadZipCode: string
   setLoadZipCode: (zipCode: string) => void
+  reloadZipCode: string,
+  setReloadZipCode: (reloadZipCode: string) => void
 }
 
 export const useZipSearchStore = create<ZipSearchStore>()((set) => ({
   loadZipCode: undefined,
   setLoadZipCode: (zipCode) => set((_state) => ({ loadZipCode: zipCode })),
+  reloadZipCode: undefined,
+  setReloadZipCode: (reloadZipCode) => set((_state) => ({ reloadZipCode: reloadZipCode}))
 }))
 
 interface RestEndpointsStore {
