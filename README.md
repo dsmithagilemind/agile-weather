@@ -1,121 +1,185 @@
-# README
+﻿# Agile Weather Dev Setup Instructions
 
-Welcome to [RedwoodJS](https://redwoodjs.com)!
+## **Checkout Repo:**
 
-> **Prerequisites**
->
-> - Redwood requires [Node.js](https://nodejs.org/en/) (>=14.19.x <=16.x) and [Yarn](https://yarnpkg.com/) (>=1.15)
-> - Are you on Windows? For best results, follow our [Windows development setup](https://redwoodjs.com/docs/how-to/windows-development-setup) guide
+### **From SVN:**
 
-Start by installing dependencies:
+svn co https://svn2.agilemind.com/svn/admin/applications/trunk/agile-weather
 
-```
-yarn install
-```
+Setup Git after SVN Checkout (optional)
 
-Then change into that directory and start the development server:
+1. Create new local git repository:
 
-```
-cd my-redwood-project
-yarn redwood dev
-```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;` git init`
 
-Your browser should automatically open to http://localhost:8910 where you'll see the Welcome Page, which links out to a ton of great resources.
+2. If git has not been updated and still uses a default “master” branch, rename that branch to “main”
 
-> **The Redwood CLI**
->
-> Congratulations on running your first Redwood CLI command!
-> From dev to deploy, the CLI is with you the whole way.
-> And there's quite a few commands at your disposal:
-> ```
-> yarn redwood --help
-> ```
-> For all the details, see the [CLI reference](https://redwoodjs.com/docs/cli-commands).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;` git branch -m master main`
 
-## Prisma and the database
+3. If also connecting to a remote repository, add that remote
 
-Redwood wouldn't be a full-stack framework without a database. It all starts with the schema. Open the [`schema.prisma`](api/db/schema.prisma) file in `api/db` and replace the `UserExample` model with the following `Post` model:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`git remote add origin https://github.com/dsmithagilemind/agile-weather.git`
 
-```
-model Post {
-  id        Int      @id @default(autoincrement())
-  title     String
-  body      String
-  createdAt DateTime @default(now())
-}
-```
+4. fetch remote changes
 
-Redwood uses [Prisma](https://www.prisma.io/), a next-gen Node.js and TypeScript ORM, to talk to the database. Prisma's schema offers a declarative way of defining your app's data models. And Prisma [Migrate](https://www.prisma.io/migrate) uses that schema to make database migrations hassle-free:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;` git fetch`
 
-```
-yarn rw prisma migrate dev
+5. override local file history (artifacts from git init)
 
-# ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;` git reset --hard origin/main`
 
-? Enter a name for the new migration: › create posts
-```
+<br />
 
-> `rw` is short for `redwood`
+### **From Github** (git only):
 
-You'll be prompted for the name of your migration. `create posts` will do.
+For dev (with history):
 
-Now let's generate everything we need to perform all the CRUD (Create, Retrieve, Update, Delete) actions on our `Post` model:
+` git clone https://github.com/dsmithagilemind/agile-weather.git`
 
-```
-yarn redwood g scaffold post
-```
+For building (no history):
 
-Navigate to http://localhost:8910/posts/new, fill in the title and body, and click "Save":
+`git clone --depth 1 https://github.com/dsmithagilemind/agile-weather.git`
 
-Did we just create a post in the database? Yup! With `yarn rw g scaffold <model>`, Redwood created all the pages, components, and services necessary to perform all CRUD actions on our posts table.
+---
 
-## Frontend first with Storybook
+## **Environment configuration**
 
-Don't know what your data models look like?
-That's more than ok—Redwood integrates Storybook so that you can work on design without worrying about data.
-Mockup, build, and verify your React components, even in complete isolation from the backend:
+Copy development environment variables (configuration):
 
-```
-yarn rw storybook
-```
+- Create a file called ".env" in the project root -- this will overwrite default variables kept in .env.defaults
 
-Before you start, see if the CLI's `setup ui` command has your favorite styling library:
+- The following variables MUST be set:
 
-```
-yarn rw setup ui --help
-```
+  - DATABASE_URL
 
-## Testing with Jest
+  - TEST_DATABASE_URL
 
-It'd be hard to scale from side project to startup without a few tests.
-Redwood fully integrates Jest with the front and the backends and makes it easy to keep your whole app covered by generating test files with all your components and services:
+- Look at .env.example for quick reference.
+- For more detail see prisma documentation here: https://www.prisma.io/docs/reference/database-reference/connection-urls
 
-```
-yarn rw test
-```
+---
 
-To make the integration even more seamless, Redwood augments Jest with database [scenarios](https://redwoodjs.com/docs/testing.md#scenarios)  and [GraphQL mocking](https://redwoodjs.com/docs/testing.md#mocking-graphql-calls).
+## **Node Version:**
 
-## Ship it
+Redwood requires node 14.19 - 16.x
 
-Redwood is designed for both serverless deploy targets like Netlify and Vercel and serverful deploy targets like Render and AWS:
+Check your node version:
+` node –version`
 
-```
-yarn rw setup deploy --help
-```
+## **Install yarn (globally)**
 
-Don't go live without auth!
-Lock down your front and backends with Redwood's built-in, database-backed authentication system ([dbAuth](https://redwoodjs.com/docs/authentication#self-hosted-auth-installation-and-setup)), or integrate with nearly a dozen third party auth providers:
+` npm i –g yarn`
 
-```
-yarn rw setup auth --help
-```
+Yarn version should be > 1.15
+` yarn –version`
 
-## Next Steps
+## **Install yarn packages:**
 
-The best way to learn Redwood is by going through the comprehensive [tutorial](https://redwoodjs.com/docs/tutorial/foreword) and joining the community (via the [Discourse forum](https://community.redwoodjs.com) or the [Discord server](https://discord.gg/redwoodjs)).
+execute command in project root:
+` yarn install`
 
-## Quick Links
+---
 
-- Stay updated: read [Forum announcements](https://community.redwoodjs.com/c/announcements/5), follow us on [Twitter](https://twitter.com/redwoodjs), and subscribe to the [newsletter](https://redwoodjs.com/newsletter)
-- [Learn how to contribute](https://redwoodjs.com/docs/contributing)
+## **Schema migrations:**
+
+Run migrations with prisma, execute command in project root
+
+` yarn rw prisma migrate dev`
+
+("`yarn rw`" &nbsp;is shorthand for&nbsp; "`yarn redwood`") https://redwoodjs.com/docs/cli-commands
+
+This performs the following tasks:
+
+- Creates a database specified by the connection url in .env, which should be agile_weather
+- Applies a schema to that database to match the schema in api/db/schema.prisma
+- Seeds a small amount of data from scripts/seed.ts
+  - Currently only redwood user demo data
+
+---
+
+## **Data migrations:**
+
+Import data in one of two ways:
+
+### **Option 1, wipe data and reload agile_weather database from dump (dev only):**
+
+Use dump files to set data from a previous version
+
+- Use your favorite method to import one or both of the following dump files
+  - dev data: api/db/mysql-dump.sql
+  - test data: api/db/mysql-dump-test.sql (for use with agile_weather_test db)
+  - (for a sqlite environment (not recommended)): api/db/sqlite-dump.sql
+- Command line:
+  - ` mysql -u root -p agile\_weather < api/db/dumps/mysql-dump.sql`
+- MySQL workbench
+  - Server > Data Import > Import from Disk
+  - Import from Self-Container File > api/db/dumps/mysql-dump.sql
+  - Import Progress (tab) > Import
+
+### **Option 2, run data migrations to rebuild data (preserves db):**
+
+Use redwood dataMigrate commands to create data from record files
+
+- Run the following command in project root:
+  ` ` `yarn rw dm up`
+- This will use the data migrations defined in api/db/dataMigrations
+- This creates and inserts records from the datasets located in api/db/datasets
+- Since this runs and creates all records from an empty db state, this takes a few minutes
+
+### **Verify data using prisma studio (optional):**
+
+Run the following command in project root:
+
+` yarn rw prisma studio`
+
+If prisma studio wasn’t launched in a new browser tab, navigate to http://localhost:5555/
+
+Look over data, especially noting relationships
+
+- In GeoLocations model check for attached station records, a good example is Alpine, Alabama 35014
+
+### **Resetting the database:**
+
+If you need to reset your database you can do it through prisma using the following command:
+
+` yarn rw prisma migrate reset`
+
+Or you can just drop the databases in mysql:
+
+` mysql -u root -p;`
+
+` drop database agile\_weather;`
+
+---
+
+## **Start the dev server:**
+
+Run the following command in project root:
+
+` yarn rw dev`
+
+If a tab isn’t opened in your browser, navigate to http://localhost:8910/
+
+---
+
+## **Testing:**
+
+### **Run unit tests:**
+
+` yarn rw test`
+
+### **Start Storybook (isolated UI component testing)**
+
+` yarn rw storybook`
+
+If a browser tab isn’t opened navigate to http://localhost:7910/
+
+### **Prisma Studio (for investigating and editing data)**
+
+`yarn rw prisma studio`
+
+If prisma studio wasn’t launched in a new browser tab, navigate to http://localhost:5555/
+
+### **Redwood GraphQL Playground for testing GraphQL queries:**
+
+If redwood dev server is launched in development mode, just navigate to the graphql endpoint at http://localhost:8911/graphql
