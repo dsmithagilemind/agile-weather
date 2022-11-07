@@ -56,7 +56,8 @@ export default async () => {
     //       }
     //     })
     //   }
-  } catch (error) {
+  }
+  catch (error) {
     console.warn('Please define your seed data.')
     console.error(error)
   }

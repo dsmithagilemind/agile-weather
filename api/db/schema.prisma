@@ -13,17 +13,15 @@ generator client {
   previewFeatures = ["interactiveTransactions"]
 }
 
-// Define your own datamodels here and run `yarn redwood prisma migrate dev`
-// to create migrations for them and apply to your dev DB.
-// TODO: Please remove the following example:
-model UserExample {
-  id    Int     @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime? @updatedAt
-  email String  @unique
-  name  String?
+model User {
+  id                    Int   @id @default(autoincrement())
+  name                  String?
+  email                 String @unique
+  hashedPassword        String
+  salt                  String
+  resetToken            String?
+  resetTokenExpiresAt   DateTime?
 }
-
 model GeoLocation {
   id  Int @id @default(autoincrement())
   createdAt DateTime @default(now())

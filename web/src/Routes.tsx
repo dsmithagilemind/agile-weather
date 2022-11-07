@@ -16,6 +16,10 @@ import MainLayout from './layouts/MainLayout/MainLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/login" page={LoginPage} name="login" />
+      <Route path="/signup" page={SignupPage} name="signup" />
+      <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
+      <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Set wrap={ZipSearchesLayout}>
         <Route path="/zip-searches/new" page={ZipSearchNewZipSearchPage} name="newZipSearch" />
         <Route path="/zip-searches/{id}/edit" page={ZipSearchEditZipSearchPage} name="editZipSearch" />

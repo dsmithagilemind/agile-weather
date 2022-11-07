@@ -1,3 +1,5 @@
+import { AuthProvider } from '@redwoodjs/auth'
+import WebAuthnClient from '@redwoodjs/auth/webAuthn'
 import { MantineProvider } from '@mantine/core'
 import * as mantineTheme from 'config/mantine.config'
 
@@ -15,23 +17,25 @@ import './index.css'
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          ...mantineTheme,
-          colorScheme: 'dark',
-          fontFamilyMonospace: 'Noto Sans Mono, monospace',
-          fontFamily: 'Public Sans, sans-serif',
-          headings: {
-            fontFamily: 'Work Sans, sans-serif'
-          }
-        }}
-      >
-        <RedwoodApolloProvider>
-          <Routes />
-        </RedwoodApolloProvider>
-      </MantineProvider>
+      <AuthProvider type="dbAuth" client={WebAuthnClient}>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            ...mantineTheme,
+            colorScheme: 'dark',
+            fontFamilyMonospace: 'Noto Sans Mono, monospace',
+            fontFamily: 'Public Sans, sans-serif',
+            headings: {
+              fontFamily: 'Work Sans, sans-serif'
+            }
+          }}
+        >
+          <RedwoodApolloProvider>
+            <Routes />
+          </RedwoodApolloProvider>
+        </MantineProvider>
+      </AuthProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
 )
