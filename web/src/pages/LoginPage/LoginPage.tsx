@@ -8,7 +8,7 @@ import {
   TextField,
   PasswordField,
   Submit,
-  FieldError,
+  FieldError
 } from '@redwoodjs/forms'
 import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
@@ -27,7 +27,7 @@ const LoginPage = ({ type }) => {
   } = useAuth()
   const [shouldShowWebAuthn, setShouldShowWebAuthn] = useState(false)
   const [showWebAuthn, setShowWebAuthn] = useState(
-    webAuthn.isEnabled() && type !== 'password'
+    false//webAuthn.isEnabled() && type !== 'password'
   )
 
   // should redirect right after login or wait to show the webAuthn prompts?
@@ -61,14 +61,17 @@ const LoginPage = ({ type }) => {
     if (response.message) {
       // auth details good, but user not logged in
       toast(response.message)
-    } else if (response.error) {
+    }
+    else if (response.error) {
       // error while authenticating
       toast.error(response.error)
-    } else {
+    }
+    else {
       // user logged in
       if (webAuthnSupported) {
         setShowWebAuthn(true)
-      } else {
+      }
+      else {
         toast.success(WELCOME_MESSAGE)
       }
     }
@@ -80,13 +83,15 @@ const LoginPage = ({ type }) => {
       await reauthenticate()
       toast.success(WELCOME_MESSAGE)
       navigate(REDIRECT)
-    } catch (e) {
+    }
+    catch (e) {
       if (e.name === 'WebAuthnDeviceNotFoundError') {
         toast.error(
           'Device not found, log in with username/password to continue'
         )
         setShowWebAuthn(false)
-      } else {
+      }
+      else {
         toast.error(e.message)
       }
     }
@@ -97,7 +102,8 @@ const LoginPage = ({ type }) => {
       await webAuthn.register()
       toast.success(WELCOME_MESSAGE)
       navigate(REDIRECT)
-    } catch (e) {
+    }
+    catch (e) {
       toast.error(e.message)
     }
   }
@@ -202,10 +208,12 @@ const LoginPage = ({ type }) => {
     if (showWebAuthn) {
       if (webAuthn.isEnabled()) {
         return <AuthWebAuthnPrompt />
-      } else {
+      }
+      else {
         return <RegisterWebAuthnPrompt />
       }
-    } else {
+    }
+    else {
       return <PasswordForm />
     }
   }
@@ -222,7 +230,8 @@ const LoginPage = ({ type }) => {
           </div>
         )
       }
-    } else {
+    }
+    else {
       return (
         <div className="rw-login-link">
           <span>Don&apos;t have an account?</span>{' '}

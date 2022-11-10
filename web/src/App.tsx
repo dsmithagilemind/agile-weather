@@ -1,8 +1,8 @@
-import { AuthProvider } from '@redwoodjs/auth'
-import WebAuthnClient from '@redwoodjs/auth/webAuthn'
 import { MantineProvider } from '@mantine/core'
 import * as mantineTheme from 'config/mantine.config'
 
+import { AuthProvider } from '@redwoodjs/auth'
+import WebAuthnClient from '@redwoodjs/auth/webAuthn'
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 

@@ -29,6 +29,6 @@ export const schema = gql`
     createZipSearch(input: CreateZipSearchInput!): ZipSearch! @skipAuth
     updateZipSearch(id: String!, input: UpdateZipSearchInput!): ZipSearch!
       @requireAuth
-    deleteZipSearch(id: String!): ZipSearch! @requireAuth
+    deleteZipSearch(id: String!): ZipSearch! @requireAuth(roles: "admin")
   }
 `
