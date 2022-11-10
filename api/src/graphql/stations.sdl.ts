@@ -14,8 +14,8 @@ export const schema = gql`
   }
 
   type Query {
-    stations: [Station!]! @requireAuth
-    station(id: String!): Station @requireAuth
+    stations: [Station!]! @skipAuth
+    station(id: String!): Station @skipAuth
   }
 
   input CreateStationInput {

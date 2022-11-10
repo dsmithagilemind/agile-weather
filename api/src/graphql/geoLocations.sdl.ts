@@ -11,9 +11,9 @@ export const schema = gql`
   }
 
   type Query {
-    geoLocations: [GeoLocation!]! @requireAuth
-    geoLocation(id: Int!): GeoLocation @requireAuth
-    geoLocationsByZip(zip: String!): [GeoLocation!]! @requireAuth
+    geoLocations: [GeoLocation!]! @skipAuth
+    geoLocation(id: Int!): GeoLocation @skipAuth
+    geoLocationsByZip(zip: String!): [GeoLocation!]! @skipAuth
   }
 
   input CreateGeoLocationInput {

@@ -10,9 +10,9 @@ export const schema = gql`
   type Query {
     zipSearchesEndpoint: [ZipSearch!]
       @endpoint(url: "http://localhost:8911/zipSearchesEndpoint")
-      @requireAuth
-    zipSearches: [ZipSearch!] @requireAuth
-    zipSearch(id: String!): ZipSearch @requireAuth
+      @skipAuth
+    zipSearches: [ZipSearch!] @skipAuth
+    zipSearch(id: String!): ZipSearch @skipAuth
   }
 
   input CreateZipSearchInput {
@@ -26,7 +26,7 @@ export const schema = gql`
   }
 
   type Mutation {
-    createZipSearch(input: CreateZipSearchInput!): ZipSearch! @requireAuth
+    createZipSearch(input: CreateZipSearchInput!): ZipSearch! @skipAuth
     updateZipSearch(id: String!, input: UpdateZipSearchInput!): ZipSearch!
       @requireAuth
     deleteZipSearch(id: String!): ZipSearch! @requireAuth

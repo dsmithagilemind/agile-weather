@@ -4,7 +4,7 @@
 
 ### **From SVN:**
 
-svn co https://svn2.agilemind.com/svn/admin/applications/trunk/agile-weather
+`svn co <url>`
 
 Setup Git after SVN Checkout (optional)
 
@@ -34,7 +34,7 @@ Setup Git after SVN Checkout (optional)
 
 For dev (with history):
 
-` git clone https://github.com/dsmithagilemind/agile-weather.git`
+`git clone https://github.com/dsmithagilemind/agile-weather.git`
 
 For building (no history):
 
@@ -64,14 +64,14 @@ Copy development environment variables (configuration):
 Redwood requires node 14.19 - 16.x
 
 Check your node version:
-` node –version`
+` node –-version`
 
 ## **Install yarn (globally)**
 
 ` npm i –g yarn`
 
 Yarn version should be > 1.15
-` yarn –version`
+` yarn –-version`
 
 ## **Install yarn packages:**
 

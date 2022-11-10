@@ -9,8 +9,8 @@ export const schema = gql`
   }
 
   type Query {
-    climateDataPoints: [ClimateDataPoint!]! @requireAuth
-    climateDataPoint(id: String!): ClimateDataPoint @requireAuth
+    climateDataPoints: [ClimateDataPoint!]! @skipAuth
+    climateDataPoint(id: String!): ClimateDataPoint @skipAuth
   }
 
   input CreateClimateDataPointInput {

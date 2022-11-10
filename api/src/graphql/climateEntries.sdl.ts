@@ -10,9 +10,9 @@ export const schema = gql`
   }
 
   type Query {
-    climateEntries: [ClimateEntry!]! @requireAuth
-    climateEntriesByStation(stationId: String!): [ClimateEntry!]! @requireAuth
-    climateEntry(id: Int!): ClimateEntry @requireAuth
+    climateEntries: [ClimateEntry!]! @skipAuth
+    climateEntriesByStation(stationId: String!): [ClimateEntry!]! @skipAuth
+    climateEntry(id: Int!): ClimateEntry @skipAuth
   }
 
   input CreateClimateEntryInput {
