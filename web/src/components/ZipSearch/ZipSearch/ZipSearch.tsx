@@ -1,9 +1,11 @@
 import humanize from 'humanize-string'
 import type { DeleteZipSearchMutationVariables, FindZipSearchById } from 'types/graphql'
 
+import { useAuth } from '@redwoodjs/auth'
 import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
+
 
 
 const DELETE_ZIP_SEARCH_MUTATION = gql`
@@ -53,6 +55,9 @@ interface Props {
 }
 
 const ZipSearch = ({ zipSearch }: Props) => {
+
+  const { hasRole } = useAuth();
+
   const [deleteZipSearch] = useMutation(DELETE_ZIP_SEARCH_MUTATION, {
     onCompleted: () => {
       toast.success('ZipSearch deleted')
@@ -68,6 +73,7 @@ const ZipSearch = ({ zipSearch }: Props) => {
       deleteZipSearch({ variables: { id } })
     }
   }
+
 
   return (
     <>
@@ -99,13 +105,17 @@ const ZipSearch = ({ zipSearch }: Props) => {
         >
           Edit
         </Link>
-        <button
-          type="button"
-          className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(zipSearch.id)}
-        >
+        {
+          !hasRole("admin") ? null :
+            <button
+              type="button"
+              className="rw-button rw-button-red"
+              onClick={() => onDeleteClick(zipSearch.id)}
+            >
           Delete
-        </button>
+            </button>
+        }
+
       </nav>
     </>
   )

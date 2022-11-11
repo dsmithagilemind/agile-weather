@@ -6,6 +6,7 @@ import type {
   FindZipSearches
 } from 'types/graphql'
 
+import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
@@ -91,6 +92,12 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
     truncZipSearches.push(zipSearches[i])
   }
 
+
+  const { hasRole } = useAuth();
+
+  const isModerator = hasRole(["moderator"])
+  const isAdmin = hasRole(["admin"])
+
   const ZipColumn = function({ zipCode }) {
     const setReloadZipCode = useZipSearchStore((state) => state.setReloadZipCode)
 
@@ -118,50 +125,64 @@ const ZipSearchesList = ({ zipSearches }: FindZipSearches) => {
 
             <ZipColumn zipCode={zipSearch.zip} />
 
-            <Grid.Col span={1} px="lg">
 
-              <Link
-                to={routes.zipSearch({ id: zipSearch.id })}
-                title={'Show zipSearch ' + zipSearch.id + ' detail'}
-                target="_blank"
-              >
-                <Tooltip label="View full record">
-                  <ActionIcon
-                    size={"md"}
-                    variant="gradient" gradient={{ from: 'blue', to: 'indigo', deg: 105 }}
+            <Grid.Col span={1} px="lg">
+              {
+                !isModerator? null :
+                  <Link
+                    to={routes.zipSearch({ id: zipSearch.id })}
+                    title={'Show zipSearch ' + zipSearch.id + ' detail'}
+                    target="_blank"
                   >
-                    <IconLink></IconLink>
-                  </ActionIcon>
-                </Tooltip>
-              </Link>
+                    <Tooltip label="View full record">
+                      <ActionIcon
+                        size={"md"}
+                        variant="gradient" gradient={{ from: 'blue', to: 'indigo', deg: 105 }}
+                      >
+                        <IconLink></IconLink>
+                      </ActionIcon>
+                    </Tooltip>
+                  </Link>
+              }
+
             </Grid.Col>
 
             <Grid.Col span={1} px="lg">
-              <Tooltip label="Edit in popup">
-                <ActionIcon
-                  size={"md"}
-                  variant="gradient" gradient={{ from: 'teal', to: 'lime', deg: 105 }}
-                >
-                  <EditZipSearchModal id={zipSearch.id} open={false}>
-                    <IconEdit></IconEdit>
-                  </EditZipSearchModal>
-                </ActionIcon>
-              </Tooltip>
+
+              {
+                !isModerator? null :
+                  <Tooltip label="Edit in popup">
+                    <ActionIcon
+                      size={"md"}
+                      variant="gradient" gradient={{ from: 'teal', to: 'lime', deg: 105 }}
+                    >
+                      <EditZipSearchModal id={zipSearch.id} open={false}>
+                        <IconEdit></IconEdit>
+                      </EditZipSearchModal>
+                    </ActionIcon>
+                  </Tooltip>
+              }
+
             </Grid.Col>
 
             <Grid.Col span={1} px="lg">
-              <Tooltip label="Delete the entry">
-                <ActionIcon
-                  size={"md"}
 
-                  variant="gradient" gradient={{ from: 'orange', to: 'red' }}
-                  title={'Delete zipSearch ' + zipSearch.id}
-                  onClick={() => onDeleteClick(zipSearch.id)}
+              {
+                !isAdmin? null :
+                  <Tooltip label="Delete the entry">
+                    <ActionIcon
+                      size={"md"}
 
-                >
-                  <IconTrash></IconTrash>
-                </ActionIcon>
-              </Tooltip>
+                      variant="gradient" gradient={{ from: 'orange', to: 'red' }}
+                      title={'Delete zipSearch ' + zipSearch.id}
+                      onClick={() => onDeleteClick(zipSearch.id)}
+
+                    >
+                      <IconTrash></IconTrash>
+                    </ActionIcon>
+                  </Tooltip>
+              }
+
             </Grid.Col>
           </Grid>
         ))}

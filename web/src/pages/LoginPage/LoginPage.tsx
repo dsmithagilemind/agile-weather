@@ -17,7 +17,7 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 const WELCOME_MESSAGE = 'Welcome back!'
 const REDIRECT = routes.home()
 
-const LoginPage = ({ type }) => {
+const LoginPage = (_props) => {
   const {
     isAuthenticated,
     client: webAuthn,
@@ -51,11 +51,11 @@ const LoginPage = ({ type }) => {
   }, [])
 
   const onSubmit = async (data) => {
-    const webAuthnSupported = await webAuthn.isSupported()
+    // const webAuthnSupported = await webAuthn.isSupported()
 
-    if (webAuthnSupported) {
-      setShouldShowWebAuthn(true)
-    }
+    // if (webAuthnSupported) {
+    //   setShouldShowWebAuthn(true)
+    // }
     const response = await logIn({ ...data })
 
     if (response.message) {
@@ -68,12 +68,12 @@ const LoginPage = ({ type }) => {
     }
     else {
       // user logged in
-      if (webAuthnSupported) {
-        setShowWebAuthn(true)
-      }
-      else {
-        toast.success(WELCOME_MESSAGE)
-      }
+      // if (webAuthnSupported) {
+      //   setShowWebAuthn(true)
+      // }
+      // else {
+      toast.success(WELCOME_MESSAGE)
+      // }
     }
   }
 

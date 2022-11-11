@@ -14,7 +14,7 @@ const Routes = () => {
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
 
-      <Private unauthenticated='home' roles="admin">
+      <Private unauthenticated='home' roles={["admin", "moderator"]}>
 
         <Set wrap={ZipSearchesLayout}>
           <Route path="/zip-searches/new" page={ZipSearchNewZipSearchPage} name="newZipSearch" />

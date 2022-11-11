@@ -1,4 +1,4 @@
-import { Header as MantineHeader, Stack } from '@mantine/core'
+import { Group, Header as MantineHeader } from '@mantine/core'
 
 import LoginInfoBar from '../LoginInfoBar/LoginInfoBar'
 import Title from '../Title/Title'
@@ -9,11 +9,11 @@ import Title from '../Title/Title'
 
 const Header = () => {
   return (
-    <MantineHeader height={120} p="xs">
-      <Stack>
+    <MantineHeader height={120} p="xs" sx={{width: '100%'}}>
+      <Group position="apart">
         <Title />
         <LoginInfoBar />
-      </Stack>
+      </Group>
     </MantineHeader>
   )
 }

@@ -1,5 +1,6 @@
 import type { QueryResolvers, MutationResolvers } from 'types/graphql'
 
+import { requireAuth } from 'src/lib/auth'
 import { db } from 'src/lib/db'
 
 export const zipSearches: QueryResolvers['zipSearches'] = () => {
@@ -33,6 +34,7 @@ export const updateZipSearch: MutationResolvers['updateZipSearch'] = ({
 export const deleteZipSearch: MutationResolvers['deleteZipSearch'] = ({
   id,
 }) => {
+  requireAuth({ roles: "admin" })
   return db.zipSearch.delete({
     where: { id },
   })
