@@ -227,33 +227,6 @@ INSERT INTO `station` VALUES ('cl9r7o34m00xgvwpssmclqv9q','2022-10-27 18:00:15.2
 UNLOCK TABLES;
 
 --
--- Table structure for table `userexample`
---
-
-DROP TABLE IF EXISTS `userexample`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `userexample` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `createdAt` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
-  `updatedAt` datetime(3) DEFAULT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UserExample_email_key` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `userexample`
---
-
-LOCK TABLES `userexample` WRITE;
-/*!40000 ALTER TABLE `userexample` DISABLE KEYS */;
-/*!40000 ALTER TABLE `userexample` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `zipsearch`
 --
 

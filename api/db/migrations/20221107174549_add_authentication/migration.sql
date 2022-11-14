@@ -1,12 +1,3 @@
-/*
-  Warnings:
-
-  - You are about to drop the `userexample` table. If the table is not empty, all the data it contains will be lost.
-
-*/
--- DropTable
-DROP TABLE IF EXISTS `userexample`;
-
 -- CreateTable
 CREATE TABLE `User` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
