@@ -71,6 +71,15 @@ describe('climateDataPoints', () => {
   })
 
   scenario('deletes a climateDataPoint', async (scenario: StandardScenario) => {
+
+
+    mockCurrentUser({
+      id: 1,
+      email: 'admin@agileweather.com',
+      name: 'Admin',
+      roles: 'admin',
+    })
+
     const original = (await deleteClimateDataPoint({
       id: scenario.climateDataPoint.one.id,
     })) as ClimateDataPoint

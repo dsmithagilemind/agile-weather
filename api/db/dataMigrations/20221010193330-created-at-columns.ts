@@ -1,5 +1,4 @@
 const tableKeys = [
-  'userExample',
   'geoLocation',
   'station',
   'climateDataPoint',
