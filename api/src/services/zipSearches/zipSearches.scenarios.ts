@@ -1,12 +1,28 @@
-import type { Prisma, ZipSearch } from '@prisma/client'
+import type { Prisma, ZipSearch, User } from '@prisma/client'
 
-import type { ScenarioData } from '@redwoodjs/testing/api'
+const zipSearchStandard = {
+  one: { data: { zip: '12345', date: '2022-10-10T19:59:22Z' } } as Prisma.ZipSearchCreateArgs,
+  two: { data: { zip: '56789', date: '2022-10-10T19:59:22Z' } } as Prisma.ZipSearchCreateArgs,
+}
 
-export const standard = defineScenario<Prisma.ZipSearchCreateArgs>({
-  zipSearch: {
-    one: { data: { zip: 'String', date: '2022-10-10T19:59:22Z' } },
-    two: { data: { zip: 'String', date: '2022-10-10T19:59:22Z' } },
-  },
-})
+const userStandard = {
+  admin: {
+    data: {
+      email: 'admin@agileweather.com',
+      roles: 'admin moderator user',
+      name: 'admin',
+      hashedPassword: '12345',
+      salt: '12345'
+    }
+  } as Prisma.UserCreateArgs
+}
 
-export type StandardScenario = ScenarioData<ZipSearch, 'zipSearch'>
+export const standard = {
+  zipSearch: zipSearchStandard,
+  user: userStandard
+}
+
+export type StandardScenario = {
+  zipSearch: Record<keyof typeof zipSearchStandard, ZipSearch>
+  user: Record<keyof typeof userStandard, User>
+}

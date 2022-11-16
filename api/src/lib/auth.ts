@@ -62,9 +62,11 @@ export const hasRole = (roles: AllowedRoles): boolean => {
     return false
   }
 
-  const currentUserRoles = context.currentUser?.roles
+  let currentUserRoles = context.currentUser?.roles as string | string[]
 
-  console.log(currentUserRoles)
+  if(typeof currentUserRoles === 'string') {
+    currentUserRoles = currentUserRoles.split(' ')
+  }
 
   if (typeof roles === 'string') {
     if (typeof currentUserRoles === 'string') {

@@ -1,5 +1,7 @@
 import type { ZipSearch } from '@prisma/client'
 
+import { db } from 'src/lib/db';
+
 import {
   zipSearches,
   zipSearch,
@@ -16,31 +18,34 @@ import type { StandardScenario } from './zipSearches.scenarios'
 // https://redwoodjs.com/docs/testing#jest-expect-type-considerations
 
 describe('zipSearches', () => {
+
   scenario('returns all zipSearches', async (scenario: StandardScenario) => {
     const result = await zipSearches()
-
     expect(result.length).toEqual(Object.keys(scenario.zipSearch).length)
   })
 
   scenario('returns a single zipSearch', async (scenario: StandardScenario) => {
     const result = await zipSearch({ id: scenario.zipSearch.one.id })
-
     expect(result).toEqual(scenario.zipSearch.one)
   })
 
-  scenario('creates a zipSearch', async () => {
+  scenario('creates a zipSearch', async (scenario: StandardScenario) => {
+
+    mockCurrentUser(scenario.user.admin)
 
     const date = new Date();
     const result = await createZipSearch({
       input: { zip: 'String', date: date },
     })
 
-
     expect(result.zip).toEqual('String')
     expect(result.date).toEqual(date)
   })
 
   scenario('updates a zipSearch', async (scenario: StandardScenario) => {
+
+    mockCurrentUser(scenario.user.admin)
+
     const original = (await zipSearch({
       id: scenario.zipSearch.one.id,
     })) as ZipSearch
@@ -54,6 +59,9 @@ describe('zipSearches', () => {
   })
 
   scenario('deletes a zipSearch', async (scenario: StandardScenario) => {
+
+    mockCurrentUser(scenario.user.admin)
+
     const original = (await deleteZipSearch({
       id: scenario.zipSearch.one.id,
     })) as ZipSearch
