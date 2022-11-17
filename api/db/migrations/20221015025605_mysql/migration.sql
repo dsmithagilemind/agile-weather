@@ -1,19 +1,4 @@
 -- CreateTable
-CREATE TABLE `User` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(191) NULL,
-    `email` VARCHAR(191) NOT NULL,
-    `hashedPassword` VARCHAR(191) NOT NULL,
-    `salt` VARCHAR(191) NOT NULL,
-    `resetToken` VARCHAR(191) NULL,
-    `resetTokenExpiresAt` DATETIME(3) NULL,
-    `roles` VARCHAR(191) NOT NULL DEFAULT 'user',
-
-    UNIQUE INDEX `User_email_key`(`email`),
-    PRIMARY KEY (`id`)
-) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
--- CreateTable
 CREATE TABLE `GeoLocation` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
@@ -88,7 +73,7 @@ CREATE TABLE `ZipSearch` (
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NULL,
     `zip` VARCHAR(191) NOT NULL,
-    `date` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `date` DATETIME(3) NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
