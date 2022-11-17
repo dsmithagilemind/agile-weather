@@ -1,7 +1,7 @@
 import type {
   QueryResolvers,
   MutationResolvers,
-  StationRelationResolvers,
+  StationRelationResolvers
 } from 'types/graphql'
 
 import { db } from 'src/lib/db'
