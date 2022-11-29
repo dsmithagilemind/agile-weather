@@ -42,6 +42,27 @@ For building (no history):
 
 ---
 
+## **Node Version:**
+
+Redwood requires node 14.19 - 16.x
+
+Check your node version:
+` node –-version`
+
+## **Install yarn (globally)**
+
+` npm i –g yarn`
+
+Yarn version should be > 1.15
+` yarn –-version`
+
+## **Install yarn packages:**
+
+execute command in project root:
+` yarn install`
+
+---
+
 ## **Environment configuration**
 
 ### **Copy development environment variables (configuration):**
@@ -67,27 +88,6 @@ The following variable(s) must be set for first time setup
 
 - SESSION_SECRET
   - Changing this value will log out all users in a live environment
-
----
-
-## **Node Version:**
-
-Redwood requires node 14.19 - 16.x
-
-Check your node version:
-` node –-version`
-
-## **Install yarn (globally)**
-
-` npm i –g yarn`
-
-Yarn version should be > 1.15
-` yarn –-version`
-
-## **Install yarn packages:**
-
-execute command in project root:
-` yarn install`
 
 ---
 
