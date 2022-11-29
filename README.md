@@ -44,7 +44,7 @@ For building (no history):
 
 ## **Environment configuration**
 
-Copy development environment variables (configuration):
+### **Copy development environment variables (configuration):**
 
 - Create a file called ".env" in the project root -- this will overwrite default variables kept in .env.defaults
 
@@ -56,6 +56,17 @@ Copy development environment variables (configuration):
 
 - Look at .env.example for quick reference.
 - For more detail see prisma documentation here: https://www.prisma.io/docs/reference/database-reference/connection-urls
+
+### **Generate/Update Secret environment variables**
+
+Generate new random values for secrets using:
+
+`yarn rw g secret`
+
+The following variable(s) must be set for first time setup
+
+- SESSION_SECRET
+  - Changing this value will log out all users in a live environment
 
 ---
 
