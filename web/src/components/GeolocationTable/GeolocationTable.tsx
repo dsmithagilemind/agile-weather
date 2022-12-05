@@ -4,7 +4,7 @@ import {
 import * as _ from 'radash';
 
 // map of data keys to their respective column titles
-const RowDataKeyTitles = {
+const RowDataKeyToTitles = {
   city: 'City',
   county: 'County',
   state: 'State',
@@ -14,10 +14,10 @@ const RowDataKeyTitles = {
 const GeolocationTable = ({ geoLocations }) => {
 
   const data = geoLocations.map((geoLocation) =>
-    _.pick(geoLocation, Object.keys(RowDataKeyTitles))
+    _.pick(geoLocation, Object.keys(RowDataKeyToTitles))
   )
 
-  const columns = Object.entries(RowDataKeyTitles).map(([key, title]) => {
+  const columns = Object.entries(RowDataKeyToTitles).map(([key, title]) => {
     return {
       accessorKey: key,
       header: title,
@@ -28,7 +28,6 @@ const GeolocationTable = ({ geoLocations }) => {
 
   return <DataGrid
     data={data}
-    striped
     highlightOnHover
     withGlobalFilter
     withPagination
