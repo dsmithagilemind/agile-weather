@@ -1,3 +1,4 @@
+import { offsetLimitPagination } from '@apollo/client/utilities'
 import { MantineProvider } from '@mantine/core'
 import * as mantineTheme from 'config/mantine.config'
 
@@ -31,7 +32,27 @@ const App = () => (
             }
           }}
         >
-          <RedwoodApolloProvider>
+          <RedwoodApolloProvider
+            graphQLClientConfig={{
+              cacheConfig: {
+                typePolicies: {
+                  Query: {
+                    fields: {
+                      /**
+                       * Paginated queries go here
+                       * offsetLimitationPagination helper @see https://www.apollographql.com/docs/react/pagination/offset-based#the-offsetlimitpagination-helper
+                       * custom cache read() and merge() for pagination @see https://www.apollographql.com/docs/react/pagination/core-api#defining-a-field-policy
+                       */
+                      // @ts-ignore
+                      filterStations: {
+                        ...offsetLimitPagination(),
+                      }
+                    }
+                  }
+                }
+              }
+            }}
+          >
             <Routes />
           </RedwoodApolloProvider>
         </MantineProvider>

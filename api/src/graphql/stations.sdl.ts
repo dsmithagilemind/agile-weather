@@ -13,9 +13,31 @@ export const schema = gql`
     climateEntries: [ClimateEntry]!
   }
 
+  input FilterStationsInput {
+    code: String
+    # geoLocations: [GeoLocation]
+    latitude: Float
+    longitude: Float
+    elevation: Float
+    gsn: String
+    hcn: String
+    wmoid: String
+    stationName: String
+
+    start: Int
+    count: Int
+    sortField: String
+    reverse: Boolean
+  }
+
+
+# TODO: pagination UI
+
   type Query {
     stations: [Station!]! @skipAuth
+    # filterStations(input: StationsFilterInput!): [Station!]! @skipAuth
     station(id: String!): Station @skipAuth
+    filterStations(offset: Int, limit: Int, filter: FilterStationsInput): [Station!]! @skipAuth
   }
 
   input CreateStationInput {
