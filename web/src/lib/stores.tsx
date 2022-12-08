@@ -1,3 +1,5 @@
+import { ReactElement, ReactNode } from 'react'
+
 import create from 'zustand'
 
 interface ZipSearchStore {
@@ -65,3 +67,13 @@ export const useStationClimateGraphStore = create<StationClimateGraphStore>()(
     }
   }
 )
+
+interface PageSidebarStore {
+  pageSidebarComponent: ReactElement
+  setPageSidebarComponent: (sidebarComponent: ReactElement) => void
+}
+
+export const usePageSidebarStore = create<PageSidebarStore>()((set) => ({
+  pageSidebarComponent: (<></>),
+  setPageSidebarComponent: (sidebarComponent) => set((_state) => ({ pageSidebarComponent: sidebarComponent }))
+}))

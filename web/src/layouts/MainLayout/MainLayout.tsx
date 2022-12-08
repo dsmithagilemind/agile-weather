@@ -1,28 +1,66 @@
-import { AppShell } from '@mantine/core'
+import { AppShell, Container, Stack, Group, Anchor, createStyles, Breadcrumbs } from '@mantine/core';
+
+import { NavLink, routes } from '@redwoodjs/router';
 
 import Header from 'src/components/Header/Header'
 import Sidebar from 'src/components/Sidebar/Sidebar'
+import { usePageSidebarStore } from 'src/lib/stores';
 
 type MainLayoutProps = {
   children?: React.ReactNode
 }
 
+// ! TODO: https://mantine.dev/styles/create-styles/#classes-merging-cx-function
+
+
+const useStyles = createStyles((theme) => ({
+  inActiveLink: {
+    color: theme.primaryColor
+  },
+  activeLink: {
+    textDecoration: 'underline',
+    color: theme.colors.green
+  }
+}))
+
 const MainLayout = ({ children }: MainLayoutProps) => {
+
+  const { classes } = useStyles();
+
+  const pageSidebarComponent = usePageSidebarStore((state) => state.pageSidebarComponent)
+
+
   return (
     <AppShell
-      navbar={<Sidebar></Sidebar>}
+      navbar={pageSidebarComponent}
       header={<Header></Header>}
-      styles={(theme) => ({
-        main: {
-          backgroundColor:
-            theme.colorScheme === 'dark'
-              ? theme.colors.dark[8]
-              : theme.colors.gray[0],
-        },
-        overflow: "hidden"
-      })}
     >
-      {children}
+      <Stack>
+
+        <Breadcrumbs>
+          <Anchor
+            component={NavLink}
+            to={routes.home()}
+            classNames={{}}
+            activeClassName={classes.activeLink}
+          >
+              Home
+          </Anchor>
+
+          <Anchor
+            component={NavLink}
+            to={routes.stationSearch()}
+            activeClassName={classes.activeLink}
+          >
+              All Stations
+          </Anchor>
+        </Breadcrumbs>
+
+        <Container>
+          {children}
+
+        </Container>
+      </Stack>
     </AppShell>
   )
 }

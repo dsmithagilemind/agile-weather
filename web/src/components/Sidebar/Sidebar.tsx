@@ -1,14 +1,7 @@
 
-import { Group, Navbar, Stack } from '@mantine/core'
+import { Navbar } from '@mantine/core'
 
-import HelloWorldFastifyCheck from 'src/components/HelloWorldFastifyCheck/HelloWorldFastifyCheck'
-import ZipSearchesCell from 'src/components/ZipSearch/ZipSearchesCell'
-
-import ZipCodeSearchBar from '../ZipCodeSearchBar/ZipCodeSearchBar'
-
-const Sidebar = () => {
-
-
+const Sidebar = ({ children }) => {
   return (
     <Navbar
       height={'100%'}
@@ -16,19 +9,7 @@ const Sidebar = () => {
       sx={{ overflowX: 'scroll' }}
       p="xs"
     >
-      <Stack align="flex-start" sx={{height: '100%'}}>
-        <ZipCodeSearchBar />
-
-        <Group px={25} grow>
-          <ZipSearchesCell />
-        </Group>
-
-        <Group px={25} grow>
-          <HelloWorldFastifyCheck />
-        </Group>
-
-      </Stack>
-
+      {children}
     </Navbar>
   )
 }

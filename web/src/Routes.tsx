@@ -4,6 +4,8 @@ import { Router, Route, Set, Private } from '@redwoodjs/router'
 import ZipSearchesLayout from 'src/layouts/ZipSearchesLayout'
 
 import MainLayout from './layouts/MainLayout/MainLayout'
+import StationSearchLayout from './layouts/StationSearchLayout/StationSearchLayout'
+import ZipSearchLayout from './layouts/ZipSearchLayout/ZipSearchLayout'
 
 const Routes = () => {
   return (
@@ -26,9 +28,13 @@ const Routes = () => {
       </Private>
 
 
-
       <Set wrap={MainLayout}>
-        <Route path="/" page={HomePage} name="home" />
+        <Set wrap={ZipSearchLayout}>
+          <Route path="/" page={HomePage} name="home" />
+        </Set>
+        <Set wrap={StationSearchLayout}>
+          <Route path="/station-search" page={StationSearchPage} name="stationSearch" />
+        </Set>
         <Route notfound page={NotFoundPage} />
       </Set>
     </Router>

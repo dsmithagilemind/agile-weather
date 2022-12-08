@@ -7,3 +7,26 @@ font-family: 'Work Sans', sans-serif; // not for title
 font-family: 'Yeseva One', cursive; // NO
 font-family: 'Public Sans', sans-serif;
 */
+
+/*
+  TODO: correct way of importing fonts in globalStyles
+    styles={[
+        {
+          '@font-face': {
+            fontFamily: 'Greycliff CF',
+            src: `url('${bold}') format("woff2")`,
+            fontWeight: 700,
+            fontStyle: 'normal',
+          },
+        },
+        {
+          '@font-face': {
+            fontFamily: 'Greycliff CF',
+            src: `url('${heavy}') format("woff2")`,
+            fontWeight: 900,
+            fontStyle: 'normal',
+          },
+        },
+      ]}
+
+*/

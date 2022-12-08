@@ -1,4 +1,3 @@
-
 import {
   Group,
   Text
@@ -6,7 +5,9 @@ import {
 import { DataGrid, highlightFilterValue, stringFilterFn } from 'mantine-data-grid'
 import * as _ from 'radash'
 
-import ChartModal from '../ChartModal/ChartModal'
+import ChartModal from 'src/components/ChartModal/ChartModal'
+import FilterStationsCell from 'src/components/FilterStationsCell/FilterStationsCell'
+import FilterStationsTable from 'src/components/FilterStationsTable/FilterStationsTable'
 
 const RowDataKeyToTitles = {
   stationName: 'Station Name',
@@ -16,7 +17,10 @@ const RowDataKeyToTitles = {
   elevation: 'Elevation',
 }
 
-const StationDataTable = ({stations}) => {
+const StationSearchPage = () => {
+
+  const stations=[];
+
   const data = stations.map((station) => _.pick(station, Object.keys(RowDataKeyToTitles)))
 
   // check if we have climate entries on our stations, update that row's code to be a
@@ -45,23 +49,25 @@ const StationDataTable = ({stations}) => {
     }
   })
 
-  return <DataGrid
-    data={data}
-    highlightOnHover
-    withGlobalFilter
-    withPagination
-    withColumnFilters
-    withSorting
-    withColumnResizing
-    columns={columns}
-    styles={() => ({
-      dataCellContent: {
-        span: {
-          fontFamily: "'Noto Sans Mono', monospace"
-        }
-      }
-    })}
-  />
+  // return <DataGrid
+  //   data={data}
+  //   highlightOnHover
+  //   withGlobalFilter
+  //   withPagination
+  //   withColumnFilters
+  //   withSorting
+  //   withColumnResizing
+  //   columns={columns}
+  //   styles={() => ({
+  //     dataCellContent: {
+  //       span: {
+  //         fontFamily: "'Noto Sans Mono', monospace"
+  //       }
+  //     }
+  //   })}
+  // />
+
+  return (<FilterStationsTable/>)
 }
 
-export default StationDataTable
+export default StationSearchPage
