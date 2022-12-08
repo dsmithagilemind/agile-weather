@@ -86,7 +86,7 @@ export const filterStations: QueryResolvers['filterStations'] = (
   return db.station.findMany(query)
 }
 
-export const filterStationsCount: QueryResolvers['filterStationsCount'] = ({ filter }) => {
+export const filterStationsCount: QueryResolvers['filterStationsCount'] = ({ filters }) => {
 
   // TODO: use filter
   return db.station.count({})

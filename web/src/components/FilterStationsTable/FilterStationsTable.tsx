@@ -11,52 +11,52 @@ import { useQuery } from '@redwoodjs/web'
 
 import ChartModal from 'src/components/ChartModal/ChartModal'
 
-export const FILTER_QUERY = gql`
-  query FilterStations(
-    $offset: Int!
-    $limit: Int!
-    $filter: FilterStationsInput) {
-      filterStations(
-      offset: $offset,
-      limit: $limit,
-      filter: $filter
-    ) {
-      stationName
-        longitude
-        latitude
-        hcn
-        gsn
-        code
-        elevation
-        id
-        wmoid
-        climateEntries {
-          dataSet
-          period
-          topic
-          id
-          stationId
-          dataPoints {
-            value
-            label
-            id
-            flag
-            climateEntryId
-          }
-        }
-    }
-  }
-`
+// export const FILTER_QUERY = gql`
+//   query FilterStations(
+//     $offset: Int!
+//     $limit: Int!
+//     $filter: FilterStationsInput) {
+//       filterStations(
+//       offset: $offset,
+//       limit: $limit,
+//       filter: $filter
+//     ) {
+//       stationName
+//         longitude
+//         latitude
+//         hcn
+//         gsn
+//         code
+//         elevation
+//         id
+//         wmoid
+//         climateEntries {
+//           dataSet
+//           period
+//           topic
+//           id
+//           stationId
+//           dataPoints {
+//             value
+//             label
+//             id
+//             flag
+//             climateEntryId
+//           }
+//         }
+//     }
+//   }
+// `
 
-export const COUNT_QUERY = gql`
-query FilterStationsCount(
-  $filter: FilterStationsInput!
-  ) {
-    filterStationsCount(
-    filter: $filter
-  )
-}
-`
+// export const COUNT_QUERY = gql`
+// query FilterStationsCount(
+//   $filter: FilterStationsInput!
+//   ) {
+//     filterStationsCount(
+//     filter: $filter
+//   )
+// }
+// `
 const RowDataKeyToTitles = {
   stationName: 'Station Name',
   longitude: 'Longitude',
@@ -67,23 +67,53 @@ const RowDataKeyToTitles = {
 
 
 // ! use useQuery
+type SortField ={
+  field: string
+  order: string
+}
+
+type FloatFilter ={
+  field: string
+  equals: number
+  lessThan: number
+  greaterThan: number
+}
+
+type StringFilter= {
+  fields: string[]
+  contains: string
+}
+
+type Filter = {
+  floatFilters?: FloatFilter[]
+  stringFilters?: StringFilter[]
+}
 
 const FilterStationsTable = () => {
 
   const PAGE_COUNT = 10
 
+  const baseStringFilter: StringFilter = {
+    fields: ["throw an error pls"],
+    contains: "ah"
+  }
+
+  const baseFilters: Filter[] = [{
+    stringFilters: [baseStringFilter]
+  }]
+
   const [currentOffset, setCurrentOffset] = useState(0)
-  const [currentFilter, setCurrentFilter] = useState({})
+  const [currentFilters, setCurrentFilter] = useState(baseFilters)
   const [stationData, setStationData] = useState()
 
   const { loading: filterLoading, error: filterError, data: filterData}
    = useQuery(FILTER_QUERY, {
-     variables: { offset: currentOffset, limit: PAGE_COUNT, filter: currentFilter}
+     variables: { offset: currentOffset, limit: PAGE_COUNT, filters: currentFilters}
    })
 
   const { loading: countLoading, error: countError, data: countData}
   = useQuery(COUNT_QUERY, {
-    variables: { filter: currentFilter}
+    variables: { filters: currentFilters}
   })
 
   //const numPages = Math.ceil((countData?.filterStationsCount || 0) / PAGE_COUNT)

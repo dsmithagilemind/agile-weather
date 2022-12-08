@@ -1,5 +1,5 @@
 
-import { Group, Navbar, Stack } from '@mantine/core'
+import { Group, Stack } from '@mantine/core'
 
 import HelloWorldFastifyCheck from 'src/components/HelloWorldFastifyCheck/HelloWorldFastifyCheck'
 import ZipSearchesCell from 'src/components/ZipSearch/ZipSearchesCell'

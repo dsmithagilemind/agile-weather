@@ -1,9 +1,8 @@
-import { AppShell, Container, Stack, Group, Anchor, createStyles, Breadcrumbs } from '@mantine/core';
+import { Anchor, AppShell, Breadcrumbs, Container, createStyles, Stack } from '@mantine/core';
 
 import { NavLink, routes } from '@redwoodjs/router';
 
-import Header from 'src/components/Header/Header'
-import Sidebar from 'src/components/Sidebar/Sidebar'
+import Header from 'src/components/Header/Header';
 import { usePageSidebarStore } from 'src/lib/stores';
 
 type MainLayoutProps = {

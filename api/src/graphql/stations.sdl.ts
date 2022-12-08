@@ -19,14 +19,14 @@ export const schema = gql`
   }
 
   input FloatFilter {
-    field: String
+    field: String!
     equals: Float
     lessThan: Float
     greaterThan: Float
   }
 
   input StringFilter {
-    fields: [String]
+    fields: [String]!
     contains: String
   }
 

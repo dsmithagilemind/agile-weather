@@ -12,7 +12,7 @@ const StationSearchLayout = ({ children }: StationSearchLayoutProps) => {
   const setPageSidebarComponent = usePageSidebarStore((state) => state.setPageSidebarComponent)
 
   useEffect(() => {
-    setPageSidebarComponent(<Sidebar></Sidebar>)
+    setPageSidebarComponent(<Sidebar><></></Sidebar>)
   }, [])
 
   return <>{children}</>

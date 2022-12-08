@@ -2,11 +2,10 @@ import {
   Group,
   Text
 } from '@mantine/core'
-import { DataGrid, highlightFilterValue, stringFilterFn } from 'mantine-data-grid'
+import { highlightFilterValue, stringFilterFn } from 'mantine-data-grid'
 import * as _ from 'radash'
 
 import ChartModal from 'src/components/ChartModal/ChartModal'
-import FilterStationsCell from 'src/components/FilterStationsCell/FilterStationsCell'
 import FilterStationsTable from 'src/components/FilterStationsTable/FilterStationsTable'
 
 const RowDataKeyToTitles = {
