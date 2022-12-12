@@ -10,83 +10,65 @@ import * as _ from 'radash'
 import { useQuery } from '@redwoodjs/web'
 
 import ChartModal from 'src/components/ChartModal/ChartModal'
+import { Filter, StringFilter } from 'types/graphql';
 
-// export const FILTER_QUERY = gql`
-//   query FilterStations(
-//     $offset: Int!
-//     $limit: Int!
-//     $filter: FilterStationsInput) {
-//       filterStations(
-//       offset: $offset,
-//       limit: $limit,
-//       filter: $filter
-//     ) {
-//       stationName
-//         longitude
-//         latitude
-//         hcn
-//         gsn
-//         code
-//         elevation
-//         id
-//         wmoid
-//         climateEntries {
-//           dataSet
-//           period
-//           topic
-//           id
-//           stationId
-//           dataPoints {
-//             value
-//             label
-//             id
-//             flag
-//             climateEntryId
-//           }
-//         }
-//     }
-//   }
-// `
+export const FILTER_QUERY = gql`
+  query FilterStations(
+    $offset: Int!
+    $limit: Int!
+    $filters: [Filter],
+    $sortFields: [SortField]
+    ) {
+      filterStations(
+      offset: $offset,
+      limit: $limit,
+      filters: $filters,
+      sortFields: $sortFields
+    ) {
+      stationName
+        longitude
+        latitude
+        hcn
+        gsn
+        code
+        elevation
+        id
+        wmoid
+        climateEntries {
+          dataSet
+          period
+          topic
+          id
+          stationId
+          dataPoints {
+            value
+            label
+            id
+            flag
+            climateEntryId
+          }
+        }
+    }
+  }
+`
 
-// export const COUNT_QUERY = gql`
-// query FilterStationsCount(
-//   $filter: FilterStationsInput!
-//   ) {
-//     filterStationsCount(
-//     filter: $filter
-//   )
-// }
-// `
+export const COUNT_QUERY = gql`
+query FilterStationsCount(
+  $filters: [Filter]
+  ) {
+    filterStationsCount(
+    filters: $filters
+  ){
+    
+  }
+}
+`
 const RowDataKeyToTitles = {
   stationName: 'Station Name',
   longitude: 'Longitude',
   latitude: 'Latitude',
   code: 'Station Code',
   elevation: 'Elevation',
-}
-
-
-// ! use useQuery
-type SortField ={
-  field: string
-  order: string
-}
-
-type FloatFilter ={
-  field: string
-  equals: number
-  lessThan: number
-  greaterThan: number
-}
-
-type StringFilter= {
-  fields: string[]
-  contains: string
-}
-
-type Filter = {
-  floatFilters?: FloatFilter[]
-  stringFilters?: StringFilter[]
 }
 
 const FilterStationsTable = () => {

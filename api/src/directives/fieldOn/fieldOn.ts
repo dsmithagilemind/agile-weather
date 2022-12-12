@@ -29,12 +29,20 @@ export const ON_FIELD_DIRECTIVE_ERRORS = {
   DB__BASE_DMMF:      () =>  new Error("Could not access PrismaClient._baseDmmf property!!"),
   TABLE_NOT_FOUND:    (tableName) => new SyntaxError(`Could not find table '${tableName}' in db model!!`),
   TABLE_WRONG_CASE:   (tableName) => new SyntaxError(`Could not find table '${tableName}' in db model!!\nTables are case sensitive, is '${tableName}' the correct casing?`),
-  MISSING_REQUEST_FILTERS: () => new FormatValidationError("Bad request: missing expected sortFields: SortField[] or filters: Filter[]"),
+  //MISSING_REQUEST_FILTERS: () => new FormatValidationError("Bad request: missing expected sortFields: SortField[] or filters: Filter[]"),
   INVALID_FILTER_COLUMN:   (field) => new UserInputError(`Could not filter or sort on field ${field}`)
 }
 
 
 const validate: ValidatorDirectiveFunc = ({ context, directiveArgs }) => {
+
+
+  const reqArgs = context.variables as RequestArgs
+  console.log(context)
+
+  // if sortFields or filters were optional and unused, skip
+  if(!reqArgs?.sortFields && !reqArgs?.filters) return;
+
   /**
    * Confirm the @fieldOn directive arg has a correct table name to check against
    */
@@ -61,10 +69,7 @@ const validate: ValidatorDirectiveFunc = ({ context, directiveArgs }) => {
   /**
    * Get the args we need to validate and flatten all the field names into a single Set
    */
-  const reqArgs = context.variables as RequestArgs
 
-  if(!reqArgs.sortFields && !reqArgs.filters)
-    throw ON_FIELD_DIRECTIVE_ERRORS.MISSING_REQUEST_FILTERS()
 
   const reqSortFields = reqArgs?.sortFields as SortField[]
   const reqFilters = reqArgs?.filters as Filter[]

@@ -2,10 +2,12 @@ import type {
   QueryResolvers,
   MutationResolvers,
   StationRelationResolvers,
-  SortField
+  SortField,
+  Filter
 } from 'types/graphql'
 
 import { db } from 'src/lib/db'
+import { animated } from '@react-spring/web';
 
 export const stations: QueryResolvers['stations'] = () => {
   return db.station.findMany()
@@ -86,7 +88,77 @@ export const filterStations: QueryResolvers['filterStations'] = (
   return db.station.findMany(query)
 }
 
-export const filterStationsCount: QueryResolvers['filterStationsCount'] = ({ filters }) => {
+type FilterStationsCountArgs = { filters: Filter[] }
+type FieldCondition = { [field: string]: string | number }
+type AggregateCondition = {
+  [operator: string]: Array<FieldCondition | AggregateCondition>
+}
+type WhereClause = { AND? : AggregateCondition[] }
+type SortOrder = 'asc'|'desc'
+type OrderByClause = { [field: string]: SortOrder }[]
+
+const constructWhereClauseFromFilters = (filters: Filter[]) : WhereClause => {
+  const where : WhereClause = {};
+
+  for(const filterContainer of filters) {
+
+    const AND = where.AND ??= [];
+
+    const addAnd = (field, clause: AggregateCondition) => AND.push({
+      [field]: {clause}
+    })
+
+    if(filterContainer.floatFilters) {
+      // floatFilters, check equals, lessthan, greaterthan
+      for(const filter of filterContainer.floatFilters) {
+
+        filter.equals &&
+         addAnd(filter.field, { equals: filter.equals })
+
+        filter.lessThan &&
+          addAnd(filter.field, { lt: filter.lessThan })
+
+
+        filter.greaterThan &&
+          addAnd(filter.field, { gt: filter.greaterThan })
+      }
+    }
+
+    if(filterContainer.stringFilters) {
+      // stringFilters, check contains
+      for(const filter of filterContainer.stringFilters) {
+        const OR = []
+
+        for(const field of filter.fields) {
+          OR.push(
+            { [field]:
+              { contains: filter.contains }
+            })
+        }
+        AND.push( { OR })
+      }
+    }
+  }
+
+  return where;
+}
+
+const constructOrderByClauseFromSortFields = (sortFields: SortField[]) : OrderByClause => {
+
+  const orderByClause: OrderByClause = [];
+  for(const sortField of sortFields) {
+
+    orderByClause.push({
+      [sortField.field]: sortField.ascending ? 'asc' : 'desc'
+    })
+  }
+
+  return orderByClause;
+}
+
+
+export const filterStationsCount: QueryResolvers['filterStationsCount'] = ({ filters } : FilterStationsCountArgs) => {
+
 
   // TODO: use filter
   return db.station.count({})

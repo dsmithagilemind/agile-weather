@@ -45,5 +45,6 @@
   },
   "explorerExclude.backup": {},
   "editor.tabCompletion": "on",
-  "diffEditor.codeLens": true
+  "diffEditor.codeLens": true,
+  "cSpell.words": ["sdls"]
 }

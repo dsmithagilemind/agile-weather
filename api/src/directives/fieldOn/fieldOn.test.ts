@@ -49,6 +49,12 @@ describe("fieldOn directive", () => {
     expect(mockExecution).not.toThrowError()
   })
 
+  it("tests a successful execution of fieldOn directive if filter and sort fields are skipped", () => {
+    const mockExecution = mockRedwoodDirective(fieldOn, createArgs(undefined, testTable))
+
+    expect(mockExecution).not.toThrowError()
+  })
+
   describe("fieldOn directive exceptions", () => {
 
     it("Tests missing directiveArgs should throw a SyntaxError", () => {
@@ -89,17 +95,17 @@ describe("fieldOn directive", () => {
     })
 
 
-    it("Tests an error on a missing request filter arg", () => {
-      const mockExecution = mockRedwoodDirective(fieldOn, {
-        directiveArgs: {
-          table: testTable
-        },
-        context: {
-          variables: {}
-        }});
+    // it("Tests an error on a missing request filter arg", () => {
+    //   const mockExecution = mockRedwoodDirective(fieldOn, {
+    //     directiveArgs: {
+    //       table: testTable
+    //     },
+    //     context: {
+    //       variables: {}
+    //     }});
 
-      expect(mockExecution).toThrowError(ON_FIELD_DIRECTIVE_ERRORS.MISSING_REQUEST_FILTERS())
-    })
+    //   expect(mockExecution).toThrowError(ON_FIELD_DIRECTIVE_ERRORS.MISSING_REQUEST_FILTERS())
+    // })
 
     it("Tests an error on an invalid field name", () => {
       const mockExecution = mockRedwoodDirective(fieldOn, createArgs("nocolumn"))
