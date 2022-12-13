@@ -154,15 +154,6 @@ export const getSubFilterExpressions = (filterExpression: FilterExpression): Fil
   return subExpressions
 }
 
-const _stringFilterToPrismaLike = (fieldName: string, stringFilter: StringFilter): PrismaLikeFilterCondition => {
-  const asPrismaLike = stringFilter as PrismaLikeStringFilter
-  return { [fieldName]: asPrismaLike }
-}
-
-const _numberFilterToPrismaLike = (fieldName: string, numberFilter: NumberFilter): PrismaLikeFilterCondition => {
-  const asPrismaLike = numberFilter as PrismaLikeNumberFilter
-  return { [fieldName]: asPrismaLike }
-}
 
 // ! SHOULD BE A PRIVATE FIELD ON A CLASS
 const _filterExpressionToPrismaLike = (filterExpression: FilterExpression, currentDepth = 0): PrismaLikeFilterSubObject => {
@@ -181,24 +172,75 @@ const _filterExpressionToPrismaLike = (filterExpression: FilterExpression, curre
 
   // in @validateDirective
   if(filterExpression.stringFilter) {
-    prismaLikeSubObject[field] = _stringFilterToPrismaLike(field, filterExpression.stringFilter)
+    prismaLikeSubObject[field] = filterExpression.stringFilter as PrismaLikeStringFilter
   }
   if(filterExpression.numberFilter) {
-    prismaLikeSubObject[field] = _numberFilterToPrismaLike(field, filterExpression.numberFilter)
+    prismaLikeSubObject[field] = filterExpression.numberFilter as PrismaLikeNumberFilter
   }
 
-  const expressionSubFilters = _.pick(filterExpression, ['AND', 'OR', 'NOT']);
+  if(hasSubFilterExpressions(filterExpression)) {
+    const expressionSubFilters = _.pick(filterExpression, ['AND', 'OR', 'NOT']);
 
-  Object.entries(expressionSubFilters).forEach(([exprKey, subExpression]) => {
-    // recursed depth should be checked in
-    if(Array.isArray(subExpression)) {
-      prismaLikeSubObject[exprKey] = subExpression.map(
-        subExpressionChild => _filterExpressionToPrismaLike(subExpressionChild, currentDepth + 1))
-    }
-    else {
-      prismaLikeSubObject[exprKey] = _filterExpressionToPrismaLike(subExpression, currentDepth + 1)
-    }
-  })
+    console.log(expressionSubFilters)
+
+    Object.entries(expressionSubFilters).forEach(([exprKey, subExpression]) => {
+      // recursed depth should be checked in
+
+      // !TODO:
+      /*
+api | ///////////////////////////////////////////
+api | {
+api |   where: {
+api |     field: 'code',
+api |     stringFilter: { contains: 'USD' },
+api |     OR: [ [Object] ]
+api |   }
+api | }
+api | ---iteration---
+api | {
+api |   field: 'code',
+api |   stringFilter: { contains: 'USD' },
+api |   OR: [ { field: 'code', stringFilter: [Object] } ]
+api | }
+api | {
+api |   field: 'code',
+api |   stringFilter: { contains: 'USD' },
+api |   OR: [ { field: 'code', stringFilter: [Object] } ]
+api | }
+api | ---iteration---
+api | { field: 'code', stringFilter: { contains: 'U' } }
+api | { field: 'code', stringFilter: { contains: 'U' } }
+api | ---/iteration---
+api | ---/iteration---
+api | { where: { code: { contains: 'USD' }, OR: [ [Object] ] } }
+api | ///////////////////////////////////////////
+      */
+      if(!subExpression) return;
+
+      console.log(exprKey, subExpression)
+      console.log(Array.isArray(subExpression))
+
+      if(Array.isArray(subExpression)) {
+
+        console.log('evaluating sub expression', subExpression)
+
+        const mapped = subExpression.map(
+          subExpressionChild =>
+            _filterExpressionToPrismaLike(subExpressionChild, currentDepth + 1))
+
+
+        console.log(mapped)
+
+        prismaLikeSubObject[exprKey] = subExpression.map(
+          subExpressionChild => _filterExpressionToPrismaLike(subExpressionChild, currentDepth + 1))
+
+        console.log('finished subExpression', prismaLikeSubObject[exprKey])
+      }
+      else {
+        prismaLikeSubObject[exprKey] = _filterExpressionToPrismaLike(subExpression, currentDepth + 1)
+      }
+    })
+  }
 
   console.log('---/iteration---')
 
@@ -212,9 +254,9 @@ export const FilterInputToPrismaLike = (filterInput: FilterInput): PrismaLikeFil
 
   console.log(filterInput)
 
-  const prismaLikeResult: PrismaLikeFilter = {
-    where: _filterExpressionToPrismaLike(filterInput.where)
-  }
+  const where = _filterExpressionToPrismaLike(filterInput.where)
+
+  const prismaLikeResult: PrismaLikeFilter = { where }
 
   if(filterInput.orderBy) {
     const orderBy: PrismaLikeSort = {}
@@ -224,7 +266,7 @@ export const FilterInputToPrismaLike = (filterInput: FilterInput): PrismaLikeFil
     prismaLikeResult.orderBy = orderBy;
   }
 
-  console.log(prismaLikeResult)
+  console.log(JSON.stringify(prismaLikeResult))
 
   console.log('///////////////////////////////////////////')
 
