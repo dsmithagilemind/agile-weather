@@ -167,11 +167,15 @@ const _numberFilterToPrismaLike = (fieldName: string, numberFilter: NumberFilter
 // ! SHOULD BE A PRIVATE FIELD ON A CLASS
 const _filterExpressionToPrismaLike = (filterExpression: FilterExpression, currentDepth = 0): PrismaLikeFilterSubObject => {
 
+  console.log('---iteration---')
+  console.log(filterExpression)
+
   // user error on max depth is caught in validator, so this is to catch developer errors :)
   if(currentDepth > MAX_NESTED_FILTER_DEPTH) {
     throw new Error(`Max depth of ${MAX_NESTED_FILTER_DEPTH} exceeded`)
   }
 
+  console.log(filterExpression)
   const field = filterExpression.field
   const prismaLikeSubObject: PrismaLikeFilterSubObject = { [field]: {} }
 
@@ -196,10 +200,17 @@ const _filterExpressionToPrismaLike = (filterExpression: FilterExpression, curre
     }
   })
 
+  console.log('---/iteration---')
+
+
   return prismaLikeSubObject;
 }
 
 export const FilterInputToPrismaLike = (filterInput: FilterInput): PrismaLikeFilter => {
+
+  console.log('///////////////////////////////////////////')
+
+  console.log(filterInput)
 
   const prismaLikeResult: PrismaLikeFilter = {
     where: _filterExpressionToPrismaLike(filterInput.where)
@@ -212,6 +223,10 @@ export const FilterInputToPrismaLike = (filterInput: FilterInput): PrismaLikeFil
     }
     prismaLikeResult.orderBy = orderBy;
   }
+
+  console.log(prismaLikeResult)
+
+  console.log('///////////////////////////////////////////')
 
   return prismaLikeResult
 
