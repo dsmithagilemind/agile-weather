@@ -1,17 +1,17 @@
+import * as _ from 'radash'
 import { FilterExpression, FilterInput, StringFilter, NumberFilter } from "types/graphql";
-
 /**
- * PrismaIsh's syntax imaginably gets *complicated* so let's just retype what we need
+ * PrismaLike's syntax imaginably gets *complicated* so let's just retype what we need
  */
 
 
 
-// export type PrismaIshFilterConditions = {
+// export type PrismaLikeFilterConditions = {
 //   equals?: string|number
 //   not?: string|number
 //   in?: string[]|number
 //   notInt?: string[]|number
-//   contains?: stringPrismaIshFilterCondition
+//   contains?: stringPrismaLikeFilterCondition
 //   startsWith?: string
 //   endsWith?: string
 //   search?: string
@@ -19,62 +19,68 @@ import { FilterExpression, FilterInput, StringFilter, NumberFilter } from "types
 //   lte?: number
 //   gt?: number
 //   gte?: number
-//   NOT?: PrismaIshFilterSyntax
-//   OR?: PrismaIshFilterSyntax[]
-//   AND?: PrismaIshFilterSyntax[]
+//   NOT?: PrismaLikeFilterSyntax
+//   OR?: PrismaLikeFilterSyntax[]
+//   AND?: PrismaLikeFilterSyntax[]
 // }
 
+type PrismaLikeFilterCommon<T> = {
+  equals?: T
+  not?: T
+  in?: T[]
+  notIn?: T[]
+}
 
-
-type PrismaIshFilterCondition = {
-  equals?: string|number
-  not?: string|number
-  in?: string[]|number
-  notInt?: string[]|number
-  contains?: string
-  startsWith?: string
-  endsWith?: string
-  search?: string
+type PrismaLikeNumberFilter = PrismaLikeFilterCommon<number> & {
   lt?: number
   lte?: number
   gt?: number
   gte?: number
 }
 
-// type PrismaIshFilterOperator<T> = T & {
-//   NOT?: PrismaIshFilterCondition|PrismaIshFilterCondition|PrismaIshFilterOperator<T>|PrismaIshFilterOperator<T>[];
-//   OR?:  PrismaIshFilterCondition|PrismaIshFilterCondition|PrismaIshFilterOperator<T>|PrismaIshFilterOperator<T>[];;
-//   AND?: PrismaIshFilterCondition|PrismaIshFilterCondition|PrismaIshFilterOperator<T>|PrismaIshFilterOperator<T>[];;
+type PrismaLikeStringFilter = PrismaLikeFilterCommon<string> & {
+  contains?: string
+  startsWith?: string
+  endsWith?: string
+  search?: string
+}
+
+// type PrismaLikeFilterOperator<T> = T & {
+//   NOT?: PrismaLikeFilterCondition|PrismaLikeFilterCondition|PrismaLikeFilterOperator<T>|PrismaLikeFilterOperator<T>[];
+//   OR?:  PrismaLikeFilterCondition|PrismaLikeFilterCondition|PrismaLikeFilterOperator<T>|PrismaLikeFilterOperator<T>[];;
+//   AND?: PrismaLikeFilterCondition|PrismaLikeFilterCondition|PrismaLikeFilterOperator<T>|PrismaLikeFilterOperator<T>[];;
 // }
 
-// type PrismaIshSort<T> = {
+// type PrismaLikeSort<T> = {
 //   [field: keyof T]: 'asc'|'desc'
 // }
 
-// type PrismaIshFilter<T> = {
-//   where: PrismaIshFilterOperator<T>
-//   orderBy?: PrismaIshSort<T>
+// type PrismaLikeFilter<T> = {
+//   where: PrismaLikeFilterOperator<T>
+//   orderBy?: PrismaLikeSort<T>
 // }
 
-type PrismaIshExpression = PrismaIshFilterCondition
-                            | PrismaIshFilterCondition[]
-                            | PrismaIshFilterOperator
-                            | PrismaIshFilterOperator[]
+type PrismaLikeFilterCondition = PrismaLikeNumberFilter | PrismaLikeStringFilter
 
-type PrismaIshFilterOperator = {
-  NOT?:PrismaIshExpression,
-  OR?: PrismaIshExpression,
-  AND?: PrismaIshExpression,
-  [Field: string]: PrismaIshExpression
+type PrismaLikeExpression = PrismaLikeFilterCondition
+                            | PrismaLikeFilterCondition[]
+                            | PrismaLikeFilterSubObject
+                            | PrismaLikeFilterSubObject[]
+
+type PrismaLikeFilterSubObject = {
+  NOT?:PrismaLikeExpression,
+  OR?: PrismaLikeExpression,
+  AND?: PrismaLikeExpression,
+  [Field: string]: PrismaLikeExpression
 }
 
-type PrismaIshSort = {
+type PrismaLikeSort = {
   [field: string]: 'asc'|'desc'
 }
 
-type PrismaIshFilter = {
-  where: PrismaIshFilterOperator
-  orderBy?: PrismaIshSort
+type PrismaLikeFilter = {
+  where: PrismaLikeFilterSubObject
+  orderBy?: PrismaLikeSort
 }
 
 /*
@@ -97,13 +103,13 @@ db.station.findMany({
 
 */
 
-// type PrismaIshFilterSyntax = {
-//   [columnName: string]: PrismaIshFilterConditions
+// type PrismaLikeFilterSyntax = {
+//   [columnName: string]: PrismaLikeFilterConditions
 // }
 
 
 /*
-  PrismaIshFilterSyntax looks like:
+  PrismaLikeFilterSyntax looks like:
 
   fieldName: {
     equals: value,
@@ -132,6 +138,10 @@ db.station.findMany({
 
 */
 
+export const MAX_NESTED_FILTER_DEPTH = 5;
+
+// ! TODO: MOVE TO A CLASS WITH CONSTRUCTOR & TYPESCRIPT GENERIC CASTER FOR PRISMA ARGS VALIDATION
+
 export const hasSubFilterExpressions = (filterExpression: FilterExpression): boolean => {
   return !!filterExpression.AND || !!filterExpression.OR || !!filterExpression.NOT
 }
@@ -140,45 +150,69 @@ export const getSubFilterExpressions = (filterExpression: FilterExpression): Fil
   const subExpressions = []
   filterExpression.AND && subExpressions.push(...filterExpression.AND)
   filterExpression.OR  && subExpressions.push(...filterExpression.OR)
-  filterExpression.NOT && subExpressions.push(filterExpression.NOT)
+  filterExpression.NOT && subExpressions.push(...filterExpression.NOT)
   return subExpressions
 }
 
-export const FilterInputToPrismaIsh = (filterInput: FilterInput): PrismaIshFilter => {
+const _stringFilterToPrismaLike = (fieldName: string, stringFilter: StringFilter): PrismaLikeFilterCondition => {
+  const asPrismaLike = stringFilter as PrismaLikeStringFilter
+  return { [fieldName]: asPrismaLike }
+}
 
+const _numberFilterToPrismaLike = (fieldName: string, numberFilter: NumberFilter): PrismaLikeFilterCondition => {
+  const asPrismaLike = numberFilter as PrismaLikeNumberFilter
+  return { [fieldName]: asPrismaLike }
+}
 
-  const filterExpressions = [filterInput.where]
+// ! SHOULD BE A PRIVATE FIELD ON A CLASS
+const _filterExpressionToPrismaLike = (filterExpression: FilterExpression, currentDepth = 0): PrismaLikeFilterSubObject => {
 
-  const prismaIshResult = {
-    where: {}
+  // user error on max depth is caught in validator, so this is to catch developer errors :)
+  if(currentDepth > MAX_NESTED_FILTER_DEPTH) {
+    throw new Error(`Max depth of ${MAX_NESTED_FILTER_DEPTH} exceeded`)
   }
 
-  for (let i = 0; i < filterExpressions.length; i++) {
+  const field = filterExpression.field
+  const prismaLikeSubObject: PrismaLikeFilterSubObject = { [field]: {} }
 
-  const expression: FilterExpression = filterExpressions[i]
-
-  // and now we do our little dos-a-dis with fields and keys
-
-  if(hasSubFilterExpressions(expression)) {
-    filterExpressions.push(...getSubFilterExpressions(expression))
+  // in @validateDirective
+  if(filterExpression.stringFilter) {
+    prismaLikeSubObject[field] = _stringFilterToPrismaLike(field, filterExpression.stringFilter)
+  }
+  if(filterExpression.numberFilter) {
+    prismaLikeSubObject[field] = _numberFilterToPrismaLike(field, filterExpression.numberFilter)
   }
 
+  const expressionSubFilters = _.pick(filterExpression, ['AND', 'OR', 'NOT']);
 
-  //orderBy
+  Object.entries(expressionSubFilters).forEach(([exprKey, subExpression]) => {
+    // recursed depth should be checked in
+    if(Array.isArray(subExpression)) {
+      prismaLikeSubObject[exprKey] = subExpression.map(
+        subExpressionChild => _filterExpressionToPrismaLike(subExpressionChild, currentDepth + 1))
+    }
+    else {
+      prismaLikeSubObject[exprKey] = _filterExpressionToPrismaLike(subExpression, currentDepth + 1)
+    }
+  })
+
+  return prismaLikeSubObject;
+}
+
+export const FilterInputToPrismaLike = (filterInput: FilterInput): PrismaLikeFilter => {
+
+  const prismaLikeResult: PrismaLikeFilter = {
+    where: _filterExpressionToPrismaLike(filterInput.where)
+  }
+
+  if(filterInput.orderBy) {
+    const orderBy: PrismaLikeSort = {}
+    for(const orderByField of filterInput.orderBy) {
+      orderBy[orderByField.field] = orderByField.ascending? 'asc' : 'desc'
+    }
+    prismaLikeResult.orderBy = orderBy;
+  }
+
+  return prismaLikeResult
 
 }
-// export const endFilterToPrismaIshSyntax = (filter: StringFilter | NumberFilter): PrismaIshFilterSyntax => {
-//   return filter as PrismaIshFilterSyntax
-// }
-
-// export default function toPrismaIshSyntax(filter: FilterInput): PrismaIshFilterSyntax {
-
-//   /*
-//     strip any stringFilter or numberFilter
-//   */
-
-//   const filter: PrismaIshFilterSyntax = {}
-
-// }
-
-

@@ -70,7 +70,7 @@ export const schema = gql`
   #   numberFilter: NumberFilter
   # }
 
-  input Filter {
+  input StringFilter {
     equals: String
     not: String
     in: [String]
@@ -79,20 +79,29 @@ export const schema = gql`
     search: String
     startsWith: String
     endsWith: String
-    lt: String
-    lte: String
-    gt: String
-    gte: String
+  }
+
+  input NumberFilter {
+    equals: Float
+    not: Float
+    in: [Float]
+    notIn: [Float]
+    lt: Float
+    lte: Float
+    gt: Float
+    gte: Float
   }
 
   input FilterExpression {
     # field being required in the same level as AND and OR is a little weird
     #  but forcing it to be required at all levels of the expr makes validation easier
     field: String!
-    filter: Filter
-    AND: [FilterExpression]
-    OR: [FilterExpression]
-    NOT: FilterExpression
+    stringFilter: StringFilter
+    numberFilter: NumberFilter
+    # dateFilter: DateFilter
+    AND:  [FilterExpression]
+    OR:   [FilterExpression]
+    NOT:  [FilterExpression]
   }
 
   input Sort {
