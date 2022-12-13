@@ -85,12 +85,14 @@ export const schema = gql`
     gte: String
   }
 
-  input Expression {
+  input FilterExpression {
+    # field being required in the same level as AND and OR is a little weird
+    #  but forcing it to be required at all levels of the expr makes validation easier
     field: String!
     filter: Filter
-    AND: [Expression]
-    OR: [Expression]
-    NOT: Expression
+    AND: [FilterExpression]
+    OR: [FilterExpression]
+    NOT: FilterExpression
   }
 
   input Sort {
@@ -99,7 +101,7 @@ export const schema = gql`
   }
 
   input FilterInput {
-    where: Expression!
+    where: FilterExpression!
     orderBy: [Sort]
   }
 
