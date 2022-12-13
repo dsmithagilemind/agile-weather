@@ -2,12 +2,11 @@ import type {
   QueryResolvers,
   MutationResolvers,
   StationRelationResolvers,
-  SortField,
-  Filter
+  FilterInput,
+  Expression
 } from 'types/graphql'
 
 import { db } from 'src/lib/db'
-import { animated } from '@react-spring/web';
 
 export const stations: QueryResolvers['stations'] = () => {
   return db.station.findMany()
@@ -156,12 +155,22 @@ const constructOrderByClauseFromSortFields = (sortFields: SortField[]) : OrderBy
   return orderByClause;
 }
 
+const ExpectedExpressionKeys = ['and', 'or', 'not', 'stringFilter', 'numberFilter']
 
-export const filterStationsCount: QueryResolvers['filterStationsCount'] = ({ filters } : FilterStationsCountArgs) => {
+
+export const filterStationsCount: QueryResolvers['filterStationsCount'] = ({ filterQuery: FilterInput } : FilterStationsCountArgs) => {
+  const where = filterQuery.where;
+
+  const where : Prisma.WhereStationInput
+  db.station.findMany()
 
 
   // TODO: use filter
-  return db.station.count({})
+  return db.station.count({
+    where: {
+
+    }
+  })
 
 }
 

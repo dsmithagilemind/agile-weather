@@ -20,7 +20,7 @@ export const schema = gql`
     # filterStations(input: StationsFilterInput!): [Station!]! @skipAuth
     station(id: String!): Station @skipAuth
     # filterStations(offset: Int!, limit: Int!, filters: [Filter], sortFields: [SortField]): [Station!]! @skipAuth @fieldOn(table: "Station")
-    filterStationsCount(filters: [Filter]): Int @skipAuth @fieldOn(table: "Station")
+    filterStationsCount(filterQuery: FilterInput!): Int @skipAuth @validateFilter(tables: ["Station"])
   }
 
   input CreateStationInput {

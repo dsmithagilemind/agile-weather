@@ -1,7 +1,6 @@
 import { SyntaxError } from "apollo-server-core";
 import { Filter, SortField } from "types/graphql";
 
-import { FormatValidationError } from "@redwoodjs/api";
 import {
   createValidatorDirective, UserInputError, ValidatorDirectiveFunc
 } from "@redwoodjs/graphql-server";
@@ -36,9 +35,7 @@ export const ON_FIELD_DIRECTIVE_ERRORS = {
 
 const validate: ValidatorDirectiveFunc = ({ context, directiveArgs }) => {
 
-
   const reqArgs = context.variables as RequestArgs
-  console.log(context)
 
   // if sortFields or filters were optional and unused, skip
   if(!reqArgs?.sortFields && !reqArgs?.filters) return;

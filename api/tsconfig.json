@@ -21,7 +21,6 @@
     "src",
     "../.redwood/types/includes/all-*",
     "../.redwood/types/includes/api-*",
-    "../types",
-    "src/graphql/filter.ts"
+    "../types"
   ]
 }
