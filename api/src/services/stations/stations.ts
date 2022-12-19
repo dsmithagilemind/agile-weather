@@ -9,8 +9,6 @@ import type {
 import { db } from 'src/lib/db'
 import { FilterInputToPrismaLike } from 'src/lib/filters/filters';
 
-import { StationsQuery } from '../../../../web/types/graphql';
-
 export const stations: QueryResolvers['stations'] = () => {
   return db.station.findMany()
 }
@@ -21,12 +19,22 @@ export const station: QueryResolvers['station'] = ({ id }) => {
   })
 }
 
-// export const filterStations: QueryResolvers['filterStations'] = (
-//   {offset, limit, filters, sortFields}
-// ) => {
+export const filterStations: QueryResolvers['filterStations'] = (
+  { offset, limit, filterQuery }: FilterStationsInput
+) => {
 
-//   return db.station.findMany(query)
-// }
+  const query = FilterInputToPrismaLike(filterQuery)
+
+  query.skip = offset
+  query.take = limit;
+
+  // db.$queryRaw(`
+  //   SELECT * FROM station
+  //   WHERE ${query.where}
+  //   `)
+
+  return db.station.findMany(query)
+}
 
 export const filterStationsCount: QueryResolvers['filterStationsCount'] =
 (input) => {
@@ -35,9 +43,27 @@ export const filterStationsCount: QueryResolvers['filterStationsCount'] =
 
   const query = FilterInputToPrismaLike(filterQuery)
 
-  // TODO: use filter
   return db.station.count(query)
+}
 
+export const filterStations2: QueryResolvers['filterStations2'] = (
+  { offset, limit, filterQuery }
+) => {
+
+  return db.station.findMany({
+    where: filterQuery,
+    skip: offset,
+    take: limit
+  })
+
+}
+
+export const filterStations2Count: QueryResolvers['filterStations2Count'] = (
+  { filterQuery }
+) => {
+  return db.station.count({
+    where: filterQuery,
+  })
 }
 
 

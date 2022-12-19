@@ -1,76 +1,6 @@
 export const schema = gql`
-  # type NumberFilter {
-  #   field: String!
-  #   equals: Float
-  #   lessThan: Float
-  #   lessThanEquals: Float
-  #   greaterThan: Float
-  # }
 
-  # type StringFilter {
-  #   field: String!
-  #   equals: String
-  #   contains: String
-  #   startsWith: String
-  #   endsWith: String
-  #   fullTextSearch: String
-  # }
-
-  # type DateFilter {
-  #   equals: Date
-  #   before: Date
-  #   after: Date
-  # }
-
-  # union Expression = NumberFilter | StringFilter | Operator
-
-  # type Operator {
-  #   and: [Expression]
-  #   or: [Expression]
-  #   not: Expression
-  # }
-
-  # input StringFilter {
-  #   fields: [String!]!
-  #   equals: String
-  #   not: String
-  #   in: [String]
-  #   notIn: [String]
-
-  #   contains: String
-  #   search: String
-  #   startsWith: String
-  #   endsWith: String
-  # }
-
-  # input NumberFilter {
-  #   fields: [String!]!
-  #   equals: Float
-  #   not: Float
-  #   in: [Float]
-  #   notIn: [Float]
-
-  #   lt: Float
-  #   lte: Float
-  #   gt: Float
-  #   gte: Float
-  # }
-
-  # input DateFilter {
-  #   equals: Date
-  #   before: Date
-  #   after: Date
-  # }
-
-  # input Expression {
-  #   AND: [Expression]
-  #   OR: [Expression]
-  #   NOT: Expression
-  #   stringFilter: StringFilter
-  #   numberFilter: NumberFilter
-  # }
-
-  input StringFilter {
+  input StringFilterParams {
     equals: String
     not: String
     in: [String]
@@ -81,7 +11,7 @@ export const schema = gql`
     endsWith: String
   }
 
-  input NumberFilter {
+  input NumberFilterParams {
     equals: Float
     not: Float
     in: [Float]
@@ -92,16 +22,29 @@ export const schema = gql`
     gte: Float
   }
 
-  input FilterExpression {
-    # field being required in the same level as AND and OR is a little weird
-    #  but forcing it to be required at all levels of the expr makes validation easier
+  input RelationalFilterParams {
+    equals: FilterQuery
+    some:   FilterQuery
+    every:  FilterQuery
+    none:   FilterQuery
+    is:     FilterQuery
+    isNot:  FilterQuery
+    isEmpty: Boolean
+  }
+
+  input NestedFilterQuery {
+    filter: FilterQuery
+    AND:  [NestedFilterQuery]
+    OR:   [NestedFilterQuery]
+    NOT:  [NestedFilterQuery]
+  }
+
+  input FilterQuery {
     field: String!
-    stringFilter: StringFilter
-    numberFilter: NumberFilter
-    # dateFilter: DateFilter
-    AND:  [FilterExpression]
-    OR:   [FilterExpression]
-    NOT:  [FilterExpression]
+    stringFilter: StringFilterParams
+    numberFilter: NumberFilterParams
+    #dateFilter: DateFilterParams
+    #relationalFilter: RelationalFilterParams
   }
 
   input Sort {
@@ -109,9 +52,13 @@ export const schema = gql`
     ascending: Boolean=true
   }
 
-  input FilterInput {
-    where: FilterExpression!
+  input NestedFilterQueryInput {
+    where: NestedFilterQuery!
     orderBy: [Sort]
   }
 
+  input FilterQueryInput {
+    where: FilterQuery,
+    orderBy: [Sort]
+  }
 `;

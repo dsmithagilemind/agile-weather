@@ -10,6 +10,15 @@ export const schema = gql`
     stations: [Station]!
   }
 
+  input FilterGeoLocationInput {
+    city: String
+    zip: String
+    state: String
+    stateAbbrev: String
+    fips: String
+    county: String
+  }
+
   type Query {
     geoLocations: [GeoLocation!]! @skipAuth
     geoLocation(id: Int!): GeoLocation @skipAuth
@@ -33,6 +42,7 @@ export const schema = gql`
     fips: String
     county: String
   }
+
 
   type Mutation {
     createGeoLocation(input: CreateGeoLocationInput!): GeoLocation! @requireAuth

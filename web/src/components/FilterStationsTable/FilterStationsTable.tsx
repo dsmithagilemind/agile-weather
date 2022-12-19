@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 import {
   Group,
@@ -6,24 +6,24 @@ import {
 } from '@mantine/core'
 import { DataGrid, DataGridPaginationState, highlightFilterValue, stringFilterFn } from 'mantine-data-grid'
 import * as _ from 'radash'
+import { Filter, FilterInput, StringFilter, SortField } from 'types/graphql';
 
 import { useQuery } from '@redwoodjs/web'
 
 import ChartModal from 'src/components/ChartModal/ChartModal'
-import { Filter, StringFilter } from 'types/graphql';
+
+import { FilterExpression } from '../../../types/graphql';
 
 export const FILTER_QUERY = gql`
   query FilterStations(
     $offset: Int!
     $limit: Int!
-    $filters: [Filter],
-    $sortFields: [SortField]
+    $filterQuery: FilterInput!
     ) {
       filterStations(
       offset: $offset,
       limit: $limit,
-      filters: $filters,
-      sortFields: $sortFields
+      filterQuery: $filterQuery,
     ) {
       stationName
         longitude
@@ -54,15 +54,58 @@ export const FILTER_QUERY = gql`
 
 export const COUNT_QUERY = gql`
 query FilterStationsCount(
-  $filters: [Filter]
+  $filterQuery: FilterInput!
   ) {
     filterStationsCount(
-    filters: $filters
-  ){
-    
-  }
+    filterQuery: $filterQuery
+  )
 }
 `
+
+
+const _testFilter: FilterExpression = {
+  field: "stationName",
+  stringFilter: {
+    contains: "u"
+  },
+  OR: [
+    {
+      field: "stationName",
+      stringFilter: {
+        contains: "d"
+      }
+    },
+    {
+      field: "stationName",
+      stringFilter: {
+        contains: "j"
+      }
+    }
+  ],
+  AND: [
+    {
+      field: "elevation",
+      numberFilter: {
+        gte: 1819
+      },
+      NOT: [
+        {
+          field: "code",
+          stringFilter: {
+            contains: "c"
+          }
+        }
+      ]
+    }
+  ]
+}
+
+const _testInput: FilterInput = {
+  where: _testFilter
+}
+
+
+
 const RowDataKeyToTitles = {
   stationName: 'Station Name',
   longitude: 'Longitude',
@@ -71,54 +114,70 @@ const RowDataKeyToTitles = {
   elevation: 'Elevation',
 }
 
+// TODO: remove filterinput requirement on filterStations
+const noFilter: FilterExpression = {
+  field: "stationName",
+  stringFilter: { contains: ""}
+}
+
 const FilterStationsTable = () => {
 
   const PAGE_COUNT = 10
 
-  const baseStringFilter: StringFilter = {
-    fields: ["throw an error pls"],
-    contains: "ah"
+
+  const buildInput = (filter: FilterExpression = noFilter, orderBy?: SortField[]): FilterInput => {
+    return {
+      where: filter,
+      orderBy: orderBy,
+    }
   }
 
-  const baseFilters: Filter[] = [{
-    stringFilters: [baseStringFilter]
-  }]
+  type QueryPagination = { offset: number, limit: number }
 
-  const [currentOffset, setCurrentOffset] = useState(0)
-  const [currentFilters, setCurrentFilter] = useState(baseFilters)
-  const [stationData, setStationData] = useState()
+  const [currentPagination, setCurrentPagination]: [QueryPagination, any] = useState({ offset: 0, limit: PAGE_COUNT })
+  const [currentFilter, setCurrentFilter]: [FilterExpression, any] = useState(buildInput())
+  const [currentOrderBy, setCurrentOrderBy]: [SortField[], any] = useState()
 
+  const [currentInput, setCurrentInput] = useState(buildInput())
+
+  const [stationData, setStationData]: [unknown[]|undefined, any] = useState()
+
+  useEffect(() => {
+    setCurrentInput(buildInput(currentFilter, currentOrderBy))
+    console.log(currentInput)
+  }, [currentFilter, currentOrderBy])
+
+  console.log({...currentPagination, filterQuery: currentInput})
   const { loading: filterLoading, error: filterError, data: filterData}
    = useQuery(FILTER_QUERY, {
-     variables: { offset: currentOffset, limit: PAGE_COUNT, filters: currentFilters}
+     variables: {...currentPagination, filterQuery: currentInput},
    })
 
   const { loading: countLoading, error: countError, data: countData}
   = useQuery(COUNT_QUERY, {
-    variables: { filters: currentFilters}
+    variables: currentInput
   })
 
   //const numPages = Math.ceil((countData?.filterStationsCount || 0) / PAGE_COUNT)
 
   const onPageChage = (pageState : DataGridPaginationState) => {
-    console.log(pageState)
-    setCurrentOffset(pageState.pageIndex * pageState.pageSize)
   }
 
 
+  // filterData side effect
   useEffect(() => {
 
     if(!filterData?.filterStations) return;
 
     const { filterStations : stations } = filterData
 
-    const data = stations.map((station) => _.pick(station, Object.keys(RowDataKeyToTitles)))
+    const stationsMapped = stations.map((station) => _.pick(station, Object.keys(RowDataKeyToTitles)))
 
     // check if we have climate entries on our stations, update that row's code to be a
     //  react element with a modal for the climate entry chart
     stations.forEach((station, i) => {
       if(station.code && station.climateEntries) {
-        data[i].code = (<Group spacing="xs">
+        stationsMapped[i].code = (<Group spacing="xs">
           <Text sx={{fontFamily: "'Noto Sans Mono', monospace"}}>
             {station.code}
           </Text>
@@ -130,12 +189,23 @@ const FilterStationsTable = () => {
         </Group>)
       }
     })
-
-    console.log(filterData)
-
-    setStationData(data)
-
   }, [filterData])
+
+  // useEffect(() => {
+
+  //   if(!countData) return
+
+  //   if(stationData.length != countData) {
+  //     const arr = new Array(countData)
+  //     for(let i = stationData.length - 1; i >= 0; i--) {
+  //       arr[i] = stationData[i]
+  //     }
+  //     setStationData(arr)
+  //   }
+
+  //   console.log(stationData)
+
+  // }, [stationData])
 
 
   const columns = Object.entries(RowDataKeyToTitles).map(([key, title]) => {
@@ -157,7 +227,6 @@ const FilterStationsTable = () => {
     withSorting
     withColumnResizing
     columns={columns}
-    total={countData?.filterStationsCount||0}
     styles={() => ({
       dataCellContent: {
         span: {

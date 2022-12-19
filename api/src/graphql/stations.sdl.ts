@@ -15,12 +15,48 @@ export const schema = gql`
 
 # TODO: pagination UI
 
+  input StationFilter {
+    id: StringFilter
+    code: StringFilter
+    latitude: NumberFilter
+    longitude: NumberFilter
+    elevation: NumberFilter
+    gsn: StringFilter
+    hcn: StringFilter
+    wmoid: StringFilter
+    stationName: StringFilter
+  }
+
+
   type Query {
     stations: [Station!]! @skipAuth
     # filterStations(input: StationsFilterInput!): [Station!]! @skipAuth
     station(id: String!): Station @skipAuth
-    # filterStations(offset: Int!, limit: Int!, filters: [Filter], sortFields: [SortField]): [Station!]! @skipAuth @fieldOn(table: "Station")
-    filterStationsCount(filterQuery: FilterInput!): Int @skipAuth @validateFilter(tables: ["Station"])
+
+    filterStationsSimple(stationFilter: StationFilter!): [Station!]! @skipAuth
+    filterStationsNested(nestedFilterQuery: NestedFilterQueryInput!): [Station!]! @skipAuth @validateFilter(models: ["Station"])
+    filterStationsPrisma(prismaQuery: JSONObject!): [Station!]! @skipAuth @allowModels(models: ["Station", "GeoLocation"])
+    filterStationsRaw(queryInputs: StationFilter!)
+
+
+
+    # filterStations(
+    #   offset: Int!, limit: Int!,
+    #   filterQuery: FilterInput): [Station!]!
+    #     @skipAuth @validateFilter(tables: ["Station"])
+
+    # filterStationsCount(
+    #   filterQuery: FilterInput!): Int
+    #     @skipAuth @validateFilter(tables: ["Station"])
+
+    # filterStations2(
+    #   offset: Int!, limit: Int!
+    #   filterQuery: FilterStation2Input!) : [Station!]!
+    #     @skipAuth
+
+    # filterStations2Count(
+    #   filterQuery: FilterStation2Input): Int
+    #     @skipAuth
   }
 
   input CreateStationInput {
