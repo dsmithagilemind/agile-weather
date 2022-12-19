@@ -24,7 +24,7 @@ const Sidebar = () => {
         </Group>
 
         <Group px={25} grow>
-          <HelloWorldFastifyCheck />
+          {/* <HelloWorldFastifyCheck /> */}
         </Group>
 
       </Stack>

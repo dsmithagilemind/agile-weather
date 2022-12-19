@@ -43,12 +43,12 @@ const configureFastify = async (fastify, options) => {
     fastify.log.info({ custom: { options } }, "Configuring web side");
   }
 
-  fastify.get("/hello-fastify", function (request, reply) {
-    reply.code(200).send({ hello: "world" });
-  });
-
   // CORS for fastify routes in dev mode, attach to prehandler
   if (process.env.NODE_ENV === "development") {
+    fastify.get("/hello-fastify", function (request, reply) {
+      reply.code(200).send({ hello: "world" });
+    });
+
     fastify.addHook("preHandler", (req, res, done) => {
       const allowedRoutes = ["/hello-fastify"];
       if (allowedRoutes.includes(req.routerPath)) {
