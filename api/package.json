@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@redwoodjs/api": "^3.0.3",
-    "@redwoodjs/graphql-server": "^3.0.3",
+    "@redwoodjs/api": "^3.7.1",
+    "@redwoodjs/graphql-server": "^3.7.1",
     "@simplewebauthn/server": "^6.2.2",
     "apollo-server-core": "^3.10.3",
     "apollo-server-express": "^3.10.3",

@@ -1,6 +1,8 @@
-import testdata from 'api/db/datasets/test-data.json'
-import { db } from 'api/src/lib/db'
+// eslint-disable-next-line import/order
+import { db } from '../api/src/lib/db'
 import * as _ from 'radash'
+
+import testdata from '../api/db/datasets/test-data.json'
 
 type ClimateDataPoint = {
   value: string

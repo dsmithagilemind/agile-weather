@@ -36,27 +36,8 @@ export const schema = gql`
     filterStationsSimple(stationFilter: StationFilter!): [Station!]! @skipAuth
     filterStationsNested(nestedFilterQuery: NestedFilterQueryInput!): [Station!]! @skipAuth @validateFilter(models: ["Station"])
     filterStationsPrisma(prismaQuery: JSONObject!): [Station!]! @skipAuth @allowModels(models: ["Station", "GeoLocation"])
-    filterStationsRaw(queryInputs: StationFilter!)
+    filterStationsRaw(queryInputs: StationFilter!): [Station!]! @skipAuth
 
-
-
-    # filterStations(
-    #   offset: Int!, limit: Int!,
-    #   filterQuery: FilterInput): [Station!]!
-    #     @skipAuth @validateFilter(tables: ["Station"])
-
-    # filterStationsCount(
-    #   filterQuery: FilterInput!): Int
-    #     @skipAuth @validateFilter(tables: ["Station"])
-
-    # filterStations2(
-    #   offset: Int!, limit: Int!
-    #   filterQuery: FilterStation2Input!) : [Station!]!
-    #     @skipAuth
-
-    # filterStations2Count(
-    #   filterQuery: FilterStation2Input): Int
-    #     @skipAuth
   }
 
   input CreateStationInput {

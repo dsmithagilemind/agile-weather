@@ -37,6 +37,8 @@ const Routes = () => {
         </Set>
         <Route notfound page={NotFoundPage} />
       </Set>
+
+      <Route notfound page={NotFoundPage} />
     </Router>
   )
 }

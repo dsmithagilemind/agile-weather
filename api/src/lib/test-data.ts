@@ -1,5 +1,6 @@
-import testDataJson from 'api/db/datasets/test-data.json'
 import * as _ from 'radash'
+
+import testDataJson from '../../db/datasets/test-data.json'
 
 export type ClimateDataPoint = {
   value: string
