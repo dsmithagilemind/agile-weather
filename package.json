@@ -1,4 +1,8 @@
 {
+  "name": "agile-weather",
+  "version": "0.0.1",
+  "description": "Sample project to explore Redwood tech stack",
+  "license": "UNLICENSED",
   "private": true,
   "workspaces": {
     "packages": [
@@ -8,18 +12,22 @@
     ]
   },
   "devDependencies": {
-    "@redwoodjs/core": "^3.7.1"
+    "@redwoodjs/core": "^3.7.1",
+    "cspell": "^6.12.x"
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config",
     "root": true
   },
   "engines": {
-    "node": ">=14.19 <=16.x",
-    "yarn": ">=1.15"
+    "node": "16.x",
+    "yarn": "3.x"
   },
   "prisma": {
     "seed": "yarn rw exec seed"
+  },
+  "scripts": {
+    "test:spelling": "cspell --relative \"*.md\" \"{api,web,scripts}/**/*.{md,js,ts,tsx}\""
   },
   "packageManager": "yarn@3.2.3",
   "dependencies": {

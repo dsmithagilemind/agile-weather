@@ -25,12 +25,11 @@ const Routes = () => {
 
       </Private>
 
-
-
       <Set wrap={MainLayout}>
         <Route path="/" page={HomePage} name="home" />
-        <Route notfound page={NotFoundPage} />
       </Set>
+
+      <Route notfound page={NotFoundPage} />
     </Router>
   )
 }
