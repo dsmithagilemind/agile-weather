@@ -7,6 +7,7 @@ import MainLayout from './layouts/MainLayout/MainLayout'
 import StationSearchLayout from './layouts/StationSearchLayout/StationSearchLayout'
 import ZipSearchLayout from './layouts/ZipSearchLayout/ZipSearchLayout'
 
+
 const Routes = () => {
   return (
     <Router>
@@ -35,7 +36,6 @@ const Routes = () => {
         <Set wrap={StationSearchLayout}>
           <Route path="/station-search" page={StationSearchPage} name="stationSearch" />
         </Set>
-        <Route notfound page={NotFoundPage} />
       </Set>
 
       <Route notfound page={NotFoundPage} />

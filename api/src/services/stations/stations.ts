@@ -7,7 +7,7 @@ import type {
 } from 'types/graphql'
 
 import { db } from 'src/lib/db'
-import { FilterInputToPrismaLike } from 'src/lib/filters/filters';
+import { FilterInputToPrismaLike } from 'src/lib/filters/nestedFilter';
 
 export const stations: QueryResolvers['stations'] = () => {
   return db.station.findMany()

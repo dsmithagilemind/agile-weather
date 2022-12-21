@@ -1,6 +1,6 @@
 export const schema = gql`
 
-  input StringFilterParams {
+  input StringFilter {
     equals: String
     not: String
     in: [String]
@@ -11,7 +11,7 @@ export const schema = gql`
     endsWith: String
   }
 
-  input NumberFilterParams {
+  input NumberFilter{
     equals: Float
     not: Float
     in: [Float]
@@ -22,7 +22,7 @@ export const schema = gql`
     gte: Float
   }
 
-  input RelationalFilterParams {
+  input RelationalFilter {
     equals: FilterQuery
     some:   FilterQuery
     every:  FilterQuery
@@ -41,8 +41,8 @@ export const schema = gql`
 
   input FilterQuery {
     field: String!
-    stringFilter: StringFilterParams
-    numberFilter: NumberFilterParams
+    stringFilter: StringFilter
+    numberFilter: NumberFilter
     #dateFilter: DateFilterParams
     #relationalFilter: RelationalFilterParams
   }
@@ -55,10 +55,14 @@ export const schema = gql`
   input NestedFilterQueryInput {
     where: NestedFilterQuery!
     orderBy: [Sort]
+    take: Int=25
+    skip: Int=0
   }
 
   input FilterQueryInput {
     where: FilterQuery,
     orderBy: [Sort]
+    take: Int=25
+    skip: Int=0
   }
 `;

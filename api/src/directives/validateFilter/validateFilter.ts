@@ -7,7 +7,7 @@ import {
 } from "@redwoodjs/graphql-server";
 
 
-import { getSubFilterExpressions, hasSubFilterExpressions, MAX_NESTED_FILTER_DEPTH } from "src/lib/filters/filters";
+import { getSubFilterExpressions, hasSubFilterExpressions, MAX_NESTED_FILTER_DEPTH } from "src/lib/filters/nestedFilter";
 
 import { getDbSchemaSync } from '../../lib/dbSchema/dbSchema';
 
@@ -22,17 +22,6 @@ export const schema = gql`
 
 export type RequestArgs = {
   filterQuery: FilterInput
-}
-
-// common errors, separated here for repeatability in tests
-export const VALIDATE_FILTER_ERRORS = {
-  MISSING_FILTER_QUERY: (variables) => new UserInputError(`Missing filterQuery, received args: ${JSON.stringify(variables)}`),
-  MISSING_TABLES: (directiveArgs) => new SyntaxError(`Missing 'tables: [String!]!' arg in @validateFilter directive, received args: ${JSON.stringify(directiveArgs)}`),
-  INVALID_FILTER_QUERY: (filterQuery) => new UserInputError(`Invalid filterQuery, received: ${JSON.stringify(filterQuery)}`),
-  INVALID_FILTER_QUERY_TYPE: (filterQuery) => new UserInputError(`Invalid filterQuery type, cannot have both stringFilter and numberFilter in a same level FilterExpression. Received filter: ${JSON.stringify(filterQuery)}`),
-  INVALID_FILTER_FIELD: (filterQuery, field) => new UserInputError(`Invalid or unexpected field '${field}' in filter ${JSON.stringify(filterQuery)}`),
-  INVALID_FILTER_QUERY_DEPTH: (maxDepth) => new UserInputError(`Filter query depth exceeded ${maxDepth}`),
-  INVALID_SORT_FIELD: (sort, field) => new UserInputError(`Invalid or unexpected field '${field}' in sort ${JSON.stringify(sort)}`)
 }
 
 const validate: ValidatorDirectiveFunc = ({ context, directiveArgs }) => {

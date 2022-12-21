@@ -12,6 +12,8 @@ export const schema = gql`
   directive @allowModels(models: [String!]!) on FIELD_DEFINITION
 `;
 
+
+
 const validate: ValidatorDirectiveFunc = ({ context, directiveArgs }) => {
 
 
