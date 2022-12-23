@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import type { DMMFClass } from "@prisma/client/runtime";
+import type { DMMF, DMMFClass } from "@prisma/client/runtime";
 
 import { db } from "../db";
 
@@ -36,24 +36,50 @@ export const getInternalDmmf = async () => {
   return dmmf
 }
 
+type ModelName = string
+type FieldRelation = {
+  RelatedModel: Model,
+  RelationFields: string[]
+}
+
+type Model = {
+  Name: ModelName,
+  FieldNames: string,
+  FieldsWithRelations: {
+    [fieldName: string]: FieldRelation
+  }
+}
+
 export type DbSchema = {
-  tableNames: string[],
-  tableFields: {
-    [tableName: string]: string[]
-  }
+  Models: Model[]
+  ModelNames: string[]
 }
 
-const getSchemaFromDmmf = (dmmf: DMMFClass) => {
+function buildDbSchema(dmmf: DMMFClass): DbSchema {
+
   const schema: DbSchema = {
-    tableNames: [],
-    tableFields: {},
+    Models: [],
+    ModelNames: []
   }
-  schema.tableNames = Object.entries(dmmf.modelMap).map(([tableName, table]) => {
-    schema.tableFields[tableName] = table.fields.map(field => field.name)
-    return tableName
-  })
-  return schema
+
+  schema.ModelNames = Object.entries(dmmf.modelMap).map(
+    ([modelName, model]: [string, DMMF.Model]) => {
+      schema.Models[modelName] = model.fields.map(field => field.name)
+      return modelName
+    })
+
+  return schema;
 }
 
-export const getDbSchemaSync = () => getSchemaFromDmmf(getInternalDmmfSync())
-export const getDbSchema = async () => getSchemaFromDmmf(await getInternalDmmf())
+export function unionFields(schema: DbSchema, includeModels: string[]): string[] {
+  let fields = []
+  includeModels.forEach(modelName => {
+
+    if(schema.Models[modelName]) fields = fields.concat(schema.Models[modelName])
+
+  })
+  return fields
+}
+
+export const getDbSchemaSync = () => buildDbSchema(getInternalDmmfSync())
+export const getDbSchema = async () => buildDbSchema(await getInternalDmmf())
