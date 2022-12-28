@@ -37,23 +37,174 @@ export const getInternalDmmf = async () => {
 }
 
 type ModelName = string
-type FieldRelation = {
-  RelatedModel: Model,
-  RelationFields: string[]
+type FieldName = string
+
+type FieldType = 'string'|'number'|'boolean'|'object'|'array'
+type FieldKind = 'object'|'scalar'
+type FieldDbType = 'String'|'Boolean'|'Int'|'BigInt'|'Float'|'Decimal'|'DateTime'|'Json'|'Bytes'|'Unsupported'
+
+type Field = {
+  Name: FieldName
+  Kind: FieldKind
+  Type: FieldType
+  DbType: FieldDbType
+  RelationTo?: FieldRelation
+  //NestedFilterType?: 'StringFilter'|'NumberFilter'|'DateFilter'|'RelationFilter'
 }
 
+type FieldRelation = ModelName
+
 type Model = {
-  Name: ModelName,
-  FieldNames: string,
-  FieldsWithRelations: {
-    [fieldName: string]: FieldRelation
+  Name: ModelName
+
+  Fields: Field[]
+  FieldNames: FieldName[]
+
+  FieldRelationMap: {
+    [fieldName: FieldName]: FieldRelation
+  }
+  FieldTypeMap: {
+    [fieldName: FieldName]: FieldType
+  }
+  FieldKindMap: {
+    [fieldName: FieldName]: FieldKind
   }
 }
 
 export type DbSchema = {
   Models: Model[]
-  ModelNames: string[]
+  ModelNames: ModelName[]
 }
+
+function buildModel(dmmfModel: DMMF.Model): Model {
+
+  const model: Model = {
+    Name: dmmfModel.name,
+    Fields: [],
+    FieldNames: [],
+
+    FieldRelationMap: {},
+    FieldTypeMap: {},
+    FieldKindMap: {}
+  }
+
+  dmmfModel.fields.forEach((dmmfField: DMMF.Field) => {
+
+    /* dmmf field examples:
+    {
+      name: 'longitude',
+      kind: 'scalar',
+      isList: false,
+      isRequired: false,
+      isUnique: false,
+      isId: false,
+      isReadOnly: false,
+      hasDefaultValue: false,
+      type: 'Float',
+      isGenerated: false,
+      isUpdatedAt: false
+    },
+    {
+      name: 'climateEntries',
+      kind: 'object',
+      isList: true,
+      isRequired: true,
+      isUnique: false,
+      isId: false,
+      isReadOnly: false,
+      hasDefaultValue: false,
+      type: 'ClimateEntry',
+      relationName: 'ClimateEntryToStation',
+      relationFromFields: [],
+      relationToFields: [],
+      isGenerated: false,
+      isUpdatedAt: false
+    }
+    */
+
+    const {
+      name,
+      type,
+      kind,
+      relationName
+      //isList,
+    } = dmmfField
+
+    const Field : Field = {
+      Name: name,
+      Kind: kind as FieldKind,
+      DbType: type as FieldDbType,
+      RelationTo: undefined,
+      //NestedFilterType: undefined
+      Type: null
+    }
+
+    //if(isList) { }
+    if(relationName) {
+      Field.Type = 'object'
+      Field.RelationTo = dmmfField.Type; // model name is on type prop
+    }
+    else {
+      switch(Field.DbType) {
+      case 'String':
+        Field.Type = 'string'
+        break
+      case 'Boolean':
+        Field.Type = 'boolean'
+        break
+
+      case 'Int':
+        Field.Type = 'number'
+        break
+      case 'BigInt':
+        Field.Type = 'number'
+        break
+      case 'Float':
+        Field.Type = 'number'
+        break
+      case 'Decimal':
+        Field.Type = 'number'
+        break
+
+      case 'DateTime':
+        Field.Type = 'object'
+        break
+      case 'Json':
+        Field.Type = 'object'
+        break
+      }
+    }
+
+    // push the following fields to model:
+    // type Model = {
+    //   Fields: Field[]
+    //   FieldNames: FieldName[]
+
+    //   FieldRelationMap: {
+    //     [fieldName: FieldName]: FieldRelation
+    //   }
+    //   FieldTypeMap: {
+    //     [fieldName: FieldName]: FieldType
+    //   }
+    //   FieldKindMap: {
+    //     [fieldName: FieldName]: FieldKind
+    //   }
+    // }
+
+    model.Fields.push(Field)
+    model.FieldNames.push(Field.Name)
+
+    if(Field.RelationTo) {
+      model.FieldRelationMap[Field.Name] = Field.RelationTo
+    }
+
+    model.FieldTypeMap[Field.Name] = Field.Type
+    model.FieldKindMap[Field.Name] = Field.Kind
+  })
+
+  return model;
+}
+
 
 function buildDbSchema(dmmf: DMMFClass): DbSchema {
 
@@ -64,7 +215,7 @@ function buildDbSchema(dmmf: DMMFClass): DbSchema {
 
   schema.ModelNames = Object.entries(dmmf.modelMap).map(
     ([modelName, model]: [string, DMMF.Model]) => {
-      schema.Models[modelName] = model.fields.map(field => field.name)
+      schema.Models[modelName] = buildModel(model)
       return modelName
     })
 
