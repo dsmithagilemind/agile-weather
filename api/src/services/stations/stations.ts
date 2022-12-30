@@ -46,15 +46,11 @@ export const filterStationsCount: QueryResolvers['filterStationsCount'] =
   return db.station.count(query)
 }
 
-export const filterStations2: QueryResolvers['filterStations2'] = (
-  { offset, limit, filterQuery }
+export const filterStationsPrisma: QueryResolvers['filterStationsPrisma'] = (
+  { prismaQueryInput }
 ) => {
 
-  return db.station.findMany({
-    where: filterQuery,
-    skip: offset,
-    take: limit
-  })
+  return db.station.findMany(prismaQueryInput)
 
 }
 

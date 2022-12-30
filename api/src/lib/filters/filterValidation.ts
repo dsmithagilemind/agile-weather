@@ -58,14 +58,19 @@ export default class FilterValidation {
 
   static ValidatePrismaFilter(filterQueryInput: JSON, allowedModels: string[]) {
 
+    console.log('//////////////////////////////////////////////////////////////')
+    console.log(filterQueryInput)
+    console.log(JSON.stringify(filterQueryInput))
+
     const schema = getDbSchemaSync();
     const validFields = new Set(UnionFields(schema, allowedModels))
 
     // @ts-ignore
     const { where, orderBy } = filterQueryInput;
-    FilterValidation.ValidateOrderByInput(orderBy, validFields)
-    FilterValidation.ValidateWhereInput(where, validFields)
+    orderBy && FilterValidation.ValidateOrderByInput(orderBy, validFields)
+    where && FilterValidation.ValidateWhereInput(where, validFields)
 
+    console.log('//////////////////////////////////////////////////////////////')
   }
 
   static ValidateOrderByInput(orderBy: unknown, validFields: Set<FieldName>) {

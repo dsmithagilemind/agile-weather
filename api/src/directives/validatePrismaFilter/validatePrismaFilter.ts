@@ -2,10 +2,9 @@ import {
   createValidatorDirective,
   ValidatorDirectiveFunc
 } from "@redwoodjs/graphql-server";
-import { getDbSchema, getDbSchemaSync, UnionFields } from "src/lib/dbSchema/dbSchema";
-import { ValidatePrismaFilter } from "src/lib/filters/filterValidation";
 
-import { logger } from "src/lib/logger";
+import FilterValidation, { ValidatePrismaFilter } from "src/lib/filters/filterValidation";
+
 
 export const schema = gql`
   """
@@ -21,8 +20,8 @@ type ValidatorDirectiveFuncArgs = {
 
 
 const VALIDATE_PRISMA_FILTER_ERRORS = {
-  MISSING_ALLOWED_MODELS = new Error("SDL validation error: @validatePrismaFilter missing allowedModels"),
-  MISSING_PRISMA_QUERY_INPUT = new Error("SDL validation error: @validatePrismaFilter missing prismaQueryInput"),
+  MISSING_ALLOWED_MODELS: () => new Error("SDL validation error: @validatePrismaFilter missing allowedModels"),
+  MISSING_PRISMA_QUERY_INPUT: () => new Error("SDL validation error: @validatePrismaFilter missing prismaQueryInput"),
 }
 
 const validate: ValidatorDirectiveFunc = ({ context, directiveArgs }: ValidatorDirectiveFuncArgs) => {
@@ -30,7 +29,10 @@ const validate: ValidatorDirectiveFunc = ({ context, directiveArgs }: ValidatorD
   if(!directiveArgs?.allowedModels) throw VALIDATE_PRISMA_FILTER_ERRORS.MISSING_ALLOWED_MODELS()
   if(!context?.variables?.prismaQueryInput) throw VALIDATE_PRISMA_FILTER_ERRORS.MISSING_PRISMA_QUERY_INPUT()
 
-  ValidatePrismaFilter(context.variables.prismaQueryInput, directiveArgs.allowedModels)
+  // console.log(directiveArgs)
+  // console.dir(context?.variables?.prismaQueryInput, directiveArgs)
+
+  FilterValidation.ValidatePrismaFilter(context.variables.prismaQueryInput, directiveArgs.allowedModels)
 };
 
 const validatePrismaFilter = createValidatorDirective(schema, validate);

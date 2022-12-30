@@ -1,4 +1,4 @@
-0import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import type { DMMF, DMMFClass } from "@prisma/client/runtime";
 
 import { db } from "../db";
