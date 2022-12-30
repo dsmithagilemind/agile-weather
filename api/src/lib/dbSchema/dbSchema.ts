@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+0import { PrismaClient } from "@prisma/client";
 import type { DMMF, DMMFClass } from "@prisma/client/runtime";
 
 import { db } from "../db";
@@ -18,6 +18,7 @@ const internalsUpdateGenericWarning = "\nPrismaClient internals are subject to c
 export const DB_SCHEMA_ERRORS = {
   NO_DMMF_SYNC: () => new Error("No DMMF found on PrismaClient internals, check if db: PrismaClient exists, or await db.getDmmf()" + internalsUpdateGenericWarning),
   NO_DMMF_ASYNC: () => new Error("Something went wrong in getInternalDmmf, check if db exists and db._getDmmf() exists" + internalsUpdateGenericWarning),
+  UNKNOWN_MODEL_NAME: (modelName) => new Error(`Could not find model '${modelName}'!`)
 }
 
 export const getInternalDmmfSync = () => {
@@ -69,6 +70,13 @@ type Model = {
   FieldKindMap: {
     [fieldName: FieldName]: FieldKind
   }
+}
+
+
+export {
+  ModelName, FieldName,
+  Model, Field,
+  FieldRelation, FieldType, FieldKind, FieldDbType
 }
 
 export type DbSchema = {
@@ -222,15 +230,38 @@ function buildDbSchema(dmmf: DMMFClass): DbSchema {
   return schema;
 }
 
-export function unionFields(schema: DbSchema, includeModels: string[]): string[] {
-  let fields = []
-  includeModels.forEach(modelName => {
+export function UnionFields(schema: DbSchema, includeModels: ModelName[]): FieldName[] {
+  const fields = []
 
-    if(schema.Models[modelName]) fields = fields.concat(schema.Models[modelName])
+  includeModels.forEach(modelName => {
+    const model: Model = schema.Models[modelName];
+
+    if(!model) throw DB_SCHEMA_ERRORS.UNKNOWN_MODEL_NAME(modelName)
+
+    model.Fields.forEach((field : Field) => {
+
+      // only skip fields that are not in the included models, i.e. excluded relation fields
+      if(field.RelationTo && !includeModels.includes(field.RelationTo)) return
+      else fields.push(field.Name)
+    })
 
   })
+
   return fields
 }
 
 export const getDbSchemaSync = () => buildDbSchema(getInternalDmmfSync())
 export const getDbSchema = async () => buildDbSchema(await getInternalDmmf())
+
+
+
+
+// TODO put enumerable models: PrismaValidator<T> in here to fetch validation functions for queries
+// * see https://www.prisma.io/docs/concepts/components/prisma-client/advanced-type-safety/prisma-validator
+
+const PrismaValidators = {
+
+
+
+
+}

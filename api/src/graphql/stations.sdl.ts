@@ -51,7 +51,7 @@ export const schema = gql`
     # Limits: prisma types and validation
     filterStationsPrisma(prismaQueryInput: JSONObject!): [Station!]!
       @skipAuth
-      @validatePrismaFilter(primaryModel: "Station", allowedModels: ["Station", "GeoLocation"])
+      @validatePrismaFilter(allowedModels: ["Station", "GeoLocation"])
   }
 
   input CreateStationInput {
