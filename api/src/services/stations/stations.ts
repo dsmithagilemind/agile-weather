@@ -1,9 +1,7 @@
 import type {
   QueryResolvers,
   MutationResolvers,
-  StationRelationResolvers,
-  FilterStationsInput,
-  FilterStationsCountInput
+  StationRelationResolvers
 } from 'types/graphql'
 
 import { db } from 'src/lib/db'
@@ -19,7 +17,7 @@ export const station: QueryResolvers['station'] = ({ id }) => {
 }
 
 export const filterStations: QueryResolvers['filterStations'] = (
-  { stationFilter, offset, limit }: FilterStationsInput
+  { stationFilter, offset, limit }
 ) => {
   return db.station.findMany({
     where: stationFilter,
@@ -29,7 +27,7 @@ export const filterStations: QueryResolvers['filterStations'] = (
 }
 
 export const filterStationsCount: QueryResolvers['filterStationsCount'] =
-( { stationFilter } : FilterStationsCountInput ) => {
+( { stationFilter } ) => {
 
   return db.station.count({where: stationFilter})
 }

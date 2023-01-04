@@ -252,16 +252,3 @@ export function UnionFields(schema: DbSchema, includeModels: ModelName[]): Field
 
 export const getDbSchemaSync = () => buildDbSchema(getInternalDmmfSync())
 export const getDbSchema = async () => buildDbSchema(await getInternalDmmf())
-
-
-
-
-// TODO put enumerable models: PrismaValidator<T> in here to fetch validation functions for queries
-// * see https://www.prisma.io/docs/concepts/components/prisma-client/advanced-type-safety/prisma-validator
-
-const PrismaValidators = {
-
-
-
-
-}

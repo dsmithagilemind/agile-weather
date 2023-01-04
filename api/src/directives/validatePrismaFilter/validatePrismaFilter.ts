@@ -3,7 +3,7 @@ import {
   ValidatorDirectiveFunc
 } from "@redwoodjs/graphql-server";
 
-import FilterValidation, { ValidatePrismaFilter } from "src/lib/filters/filterValidation";
+import FilterValidation from "src/lib/filters/filterValidation";
 
 
 export const schema = gql`
@@ -24,7 +24,9 @@ const VALIDATE_PRISMA_FILTER_ERRORS = {
   MISSING_PRISMA_QUERY_INPUT: () => new Error("SDL validation error: @validatePrismaFilter missing prismaQueryInput"),
 }
 
-const validate: ValidatorDirectiveFunc = ({ context, directiveArgs }: ValidatorDirectiveFuncArgs) => {
+const validate: ValidatorDirectiveFunc = (input: unknown) => {
+
+  const { context, directiveArgs } = input as ValidatorDirectiveFuncArgs
 
   if(!directiveArgs?.allowedModels) throw VALIDATE_PRISMA_FILTER_ERRORS.MISSING_ALLOWED_MODELS()
   if(!context?.variables?.prismaQueryInput) throw VALIDATE_PRISMA_FILTER_ERRORS.MISSING_PRISMA_QUERY_INPUT()
