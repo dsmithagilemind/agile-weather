@@ -2,12 +2,11 @@ import type {
   QueryResolvers,
   MutationResolvers,
   StationRelationResolvers,
-  FilterInput,
-  Expression
+  FilterStationsInput,
+  FilterStationsCountInput
 } from 'types/graphql'
 
 import { db } from 'src/lib/db'
-import { FilterInputToPrismaLike } from 'src/lib/filters/nestedFilter';
 
 export const stations: QueryResolvers['stations'] = () => {
   return db.station.findMany()
@@ -20,48 +19,26 @@ export const station: QueryResolvers['station'] = ({ id }) => {
 }
 
 export const filterStations: QueryResolvers['filterStations'] = (
-  { offset, limit, filterQuery }: FilterStationsInput
+  { stationFilter, offset, limit }: FilterStationsInput
 ) => {
-
-  const query = FilterInputToPrismaLike(filterQuery)
-
-  query.skip = offset
-  query.take = limit;
-
-  // db.$queryRaw(`
-  //   SELECT * FROM station
-  //   WHERE ${query.where}
-  //   `)
-
-  return db.station.findMany(query)
+  return db.station.findMany({
+    where: stationFilter,
+    skip: offset,
+    take: limit
+  })
 }
 
 export const filterStationsCount: QueryResolvers['filterStationsCount'] =
-(input) => {
+( { stationFilter } : FilterStationsCountInput ) => {
 
-  const filterQuery = input.filterQuery as FilterInput;
-
-  const query = FilterInputToPrismaLike(filterQuery)
-
-  return db.station.count(query)
+  return db.station.count({where: stationFilter})
 }
 
 export const filterStationsPrisma: QueryResolvers['filterStationsPrisma'] = (
   { prismaQueryInput }
 ) => {
-
-  return db.station.findMany(prismaQueryInput)
-
+  return db.station.findMany({ where: prismaQueryInput })
 }
-
-export const filterStations2Count: QueryResolvers['filterStations2Count'] = (
-  { filterQuery }
-) => {
-  return db.station.count({
-    where: filterQuery,
-  })
-}
-
 
 export const createStation: MutationResolvers['createStation'] = ({
   input,

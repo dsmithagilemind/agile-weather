@@ -39,13 +39,8 @@ export const schema = gql`
 
     # specify columns and values
     # Limits: no depth
-    filterStationsSimple(stationFilter: StationFilter!): [Station!]! @skipAuth
-
-    # using in house query builder
-    # Limits: in house query implementation
-    filterStationsNested(nestedFilterQueryInput: NestedFilterQueryInput!): [Station!]!
-      @skipAuth
-      @validateNestedFilter(allowedModels: ["Station"])
+    filterStations(stationFilter: StationFilter!, limit: Int!, offset: Int!): [Station!]! @skipAuth
+    filterStationsCount(stationFilter: StationFilter!): Int! @skipAuth
 
     # using a prisma object
     # Limits: prisma types and validation
