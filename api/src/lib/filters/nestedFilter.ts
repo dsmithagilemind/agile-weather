@@ -1,5 +1,7 @@
 import * as _ from 'radash'
-import { NestedFilterQuery, FilterQueryInput, NumberFilter, StringFilter, RelationalFilter, NestedFilterQueryInput } from "types/graphql";
+import { NestedFilterQuery, NumberFilter, StringFilter, RelationalFilter, NestedFilterQueryInput } from "types/graphql";
+
+import { UserInputError } from '@redwoodjs/graphql-server';
 
 type PrismaLikeFilterCondition = StringFilter | NumberFilter | RelationalFilter
 
@@ -31,7 +33,7 @@ export const VALIDATE_FILTER_ERRORS = {
   INVALID_FILTER_QUERY: (filterQuery) => new UserInputError(`Invalid filterQuery, received: ${JSON.stringify(filterQuery)}`),
   INVALID_FILTER_QUERY_TYPE: (filterQuery) => new UserInputError(`Invalid filterQuery type, cannot have both stringFilter and numberFilter in a same level FilterExpression. Received filter: ${JSON.stringify(filterQuery)}`),
   INVALID_FILTER_FIELD: (filterQuery, field) => new UserInputError(`Invalid or unexpected field '${field}' in filter ${JSON.stringify(filterQuery)}`),
-  INVALID_FILTER_QUERY_DEPTH: (maxDepth) => new UserInputError(`Filter query depth exceeded ${maxDepth}`),
+  INVALID_FILTER_QUERY_DEPTH: (maxDepth) => new UserInputError(`NestedFilter query depth exceeded ${maxDepth}`),
   INVALID_SORT_FIELD: (sort, field) => new UserInputError(`Invalid or unexpected field '${field}' in sort ${JSON.stringify(sort)}`)
 }
 
@@ -52,17 +54,17 @@ export default class NestedFilter {
     return nestedQueries
   }
 
-  static ValidateNestedFilterQueryInput(nestedFilterQueryInput: NestedFilterQueryInput, allowedModels: String[]) {
+  // static ValidateNestedFilterQueryInput(nestedFilterQueryInput: NestedFilterQueryInput, allowedModels: String[]) {
 
-  }
+  // }
 
   #nestedFilterInput: NestedFilterQueryInput;
 
   #internalToPrismaQuery (currentFilterQuery, currentDepth = 0): PrismaLikeNestedFilter {
 
     // user error on max depth is caught in validator, so this is to catch developer errors :)
-    if(currentDepth > Filter.MAX_NESTED_FILTER_DEPTH) {
-      throw new Error(`Max depth of ${Filter.MAX_NESTED_FILTER_DEPTH} exceeded`)
+    if(currentDepth > NestedFilter.MAX_NESTED_FILTER_DEPTH) {
+      throw new Error(`Max depth of ${NestedFilter.MAX_NESTED_FILTER_DEPTH} exceeded`)
     }
 
     const field = currentExpression.field
@@ -71,7 +73,7 @@ export default class NestedFilter {
     // in @validateDirective
     prismaLikeSubObject[field] = currentExpression.stringFilter || currentExpression.numberFilter
 
-    if(Filter.HasNestedQueries(currentExpression)) {
+    if(NestedFilter.HasNestedQueries(currentExpression)) {
 
       const expressionSubFilters = _.pick(currentExpression, ['AND', 'OR', 'NOT']);
       Object.entries(expressionSubFilters).forEach(([exprKey, subExpression]) => {

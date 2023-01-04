@@ -4,7 +4,6 @@ import {
 } from "@redwoodjs/graphql-server";
 import { getDbSchemaSync } from "src/lib/dbSchema/dbSchema";
 
-import { logger } from "src/lib/logger";
 import { NestedFilterQueryInput } from "types/graphql";
 
 export const schema = gql`
